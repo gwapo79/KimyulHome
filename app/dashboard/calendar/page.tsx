@@ -4,12 +4,21 @@
 import Link from "next/link";
 import { useState } from "react";
 
+
+interface CalendarEvent {
+    day: number;
+    title: string;
+    type: string;
+    label: string;
+    color: string;
+}
+
 export default function CalendarPage() {
     const [activeTab, setActiveTab] = useState("month");
     const [showModal, setShowModal] = useState(false);
-    const [selectedEvent, setSelectedEvent] = useState(null);
+    const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
 
-    const events = [
+    const events: CalendarEvent[] = [
         { day: 5, title: "상담 10:00", type: "consultation", label: "상담", color: "green" },
         { day: 12, title: "법원 14:00", type: "court", label: "법원", color: "blue" },
         { day: 15, title: "고객상담 09:00", type: "consultation", label: "상담", color: "green" },
@@ -25,7 +34,7 @@ export default function CalendarPage() {
         { title: "개인회생 인가 심리", date: "3월 18일 (화)", desc: "박OO님 개인회생 사건", time: "11:00", loc: "서울회생법원 3층", type: "court", color: "blue" },
     ];
 
-    const handleOpenModal = (event = null) => {
+    const handleOpenModal = (event: CalendarEvent | null = null) => {
         setSelectedEvent(event);
         setShowModal(true);
     };
