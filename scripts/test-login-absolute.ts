@@ -5,18 +5,23 @@ import bcrypt from 'bcryptjs';
 async function main() {
     console.log('Testing Login Logic with Absolute Path...');
     const email = 'test';
-
-    // Directly rely on the environment being loaded by tsx or the system
-    // We won't manually set process.env.DATABASE_URL in this script's process if we can avoid it, 
-    // but `npx tsx` loads .env automatically? No, `dotenv` is needed usually.
-    // But our previous run used `$env:DATABASE_URL` in the command. 
-
-    // We want to test if the code works assuming env is set.
+    const password = '1234';
 
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (user) {
         console.log('✅ Found user:', user.email);
+
+        if (user.password) {
+            const isValid = await bcrypt.compare(password, user.password);
+            if (isValid) {
+                console.log('✅ Password verification successful');
+            } else {
+                console.error('❌ Password verification failed');
+            }
+        } else {
+            console.error('❌ User has no password set');
+        }
     } else {
         console.error('❌ User not found');
     }

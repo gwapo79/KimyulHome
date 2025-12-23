@@ -17,6 +17,7 @@ datasource db {
 
 
 
+
 model User {
   id        String   @id @default(uuid())
   email     String   @unique
@@ -27,4 +28,22 @@ model User {
   kakaoId   String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model SuccessCase {
+  id          String   @id @default(uuid())
+  title       String
+  category    String   // e.g., "부동산 법률"
+  summary     String?  // The short description below the title
+  client      String?  // e.g., "김OO"
+  caseType    String?  // e.g., "전세금 반환 청구"
+  amount      String?  // e.g., "4억원"
+  period      String?  // e.g., "3개월"
+  lawyer      String?  // e.g., "김법무 변호사"
+  result      String?  // e.g., "전액 회수 성공"
+  background  String?  // "사건 배경" content
+  strategy    String?  // "어떻게 해결했나요?" content (can be JSON or text)
+  outcomes    String?  // "상세 성과" list (can be JSON)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
