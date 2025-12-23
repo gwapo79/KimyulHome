@@ -1,0 +1,974 @@
+<html>
+
+  <head>
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a>
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i data-fa-i2svg="" class="ml-1 text-xs"><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="chevron-down" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-chevron-down">
+                    <path fill="currentColor"
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                  </svg></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav>
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              data-fa-i2svg="" class="text-xl"><svg aria-hidden="true"
+                data-prefix="fas" data-icon="bars" role="img"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                data-fa-i2svg="" class="svg-inline--fa fa-bars">
+                <path fill="currentColor"
+                  d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                </path>
+              </svg></i></button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="hero" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl lg:text-5xl font-bold text-[#181d27] mb-6">자주 묻는
+              질문</h1>
+            <p class="text-xl text-[#535861] max-w-3xl mx-auto mb-8">
+              상담 전 궁금한 점을 빠르게 확인하세요
+            </p>
+          </div>
+          <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative"><input type="text"
+                placeholder="궁금한 내용을 검색해보세요 (예: 상담비용, 해결기간)" aria-label="FAQ 검색"
+                class="w-full px-6 py-4 pl-12 rounded-2xl border border-[#d5d6d9] focus:border-[#8a765e] focus:outline-none text-lg"><i
+                data-fa-i2svg=""
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#717680]"><svg
+                  aria-hidden="true" data-prefix="fas"
+                  data-icon="magnifying-glass" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="" class="svg-inline--fa fa-magnifying-glass">
+                  <path fill="currentColor"
+                    d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                  </path>
+                </svg></i><button
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-2 bg-[#8a765e] text-white rounded-xl hover:bg-[#74634e] transition-colors">
+                검색
+              </button></div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3 mb-12"><button
+              data-category="all"
+              class="px-6 py-3 bg-[#8a765e] text-white rounded-full font-medium transition-colors">
+              전체
+            </button><button data-category="real-estate"
+              class="px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-full font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors">
+              부동산
+            </button><button data-category="debt"
+              class="px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-full font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors">
+              채무/금융
+            </button><button data-category="recovery"
+              class="px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-full font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors">
+              개인회생
+            </button><button data-category="cost"
+              class="px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-full font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors">
+              비용/절차
+            </button><button data-category="etc"
+              class="px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-full font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors">
+              기타
+            </button></div>
+          <div class="text-center"><button
+              class="px-8 py-4 bg-white border-2 border-[#8a765e] text-[#8a765e] rounded-lg font-semibold hover:bg-[#8a765e] hover:text-white transition-colors">
+              무료 상담 신청하기
+            </button></div>
+        </div>
+      </section>
+      <section id="qa" class="py-16 bg-neutral-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="space-y-4">
+            <div data-category="cost"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">전세사기 보증금, 반드시
+                    돌려받나요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#f8f3ed] text-[#74634e] rounded-full text-xs">부동산</span><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">전세사기</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed">
+                  권리분석과 가압류를 병행할 때 회수율이 높아집니다. 다만 사건별로 임대인의 재산 상태, 다른 채권자 현황 등에
+                  따라 결과가 달라질 수 있어 정확한 확인이 필요합니다.
+                  과거 유사 사례를 바탕으로 회수 가능성을 안내드리며, 절차별 소요 비용과 기간도 투명하게 설명드립니다.
+                </p>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    관련 상담 신청하기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="cost"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">상담 비용은 얼마인가요?
+                  </h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">비용</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">상담</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  초기 상담은 무료로 진행됩니다. 사건을 정식으로 진행하실 경우에만 비용이 발생하며,
+                  사건의 복잡성과 예상 소요시간에 따라 투명한 견적을 안내드립니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="check" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-check">
+                          <path fill="currentColor"
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z">
+                          </path>
+                        </svg></i>
+                      1차 상담: 무료 (30분~1시간)
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="check" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-check">
+                          <path fill="currentColor"
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z">
+                          </path>
+                        </svg></i>
+                      착수금: 사건별 차등 (사전 견적 제공)
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="check" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-check">
+                          <path fill="currentColor"
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z">
+                          </path>
+                        </svg></i>
+                      성공보수: 결과에 따른 차등 적용
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    무료 상담 신청하기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="recovery"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">개인회생 기간은 얼마나
+                    걸리나요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">개인회생</span><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">기간</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  개인회생 절차는 평균 6개월 정도 소요되며, 법원의 일정과 서류 준비 상황에 따라 다를 수 있습니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">단계별 소요 기간</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li>• 서류 준비 및 신청: 1~2개월</li>
+                    <li>• 법원 심사 및 보정: 2~3개월</li>
+                    <li>• 인가 결정: 1~2개월</li>
+                  </ul>
+                </div>
+                <p class="text-sm text-[#717680] mb-4">
+                  * 개별 사안에 따라 기간이 달라질 수 있으며, 정확한 예상 기간은 상담을 통해 안내드립니다.
+                </p>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    개인회생 상담 신청하기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="debt"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">채무 이자 경감이 가능한가요?
+                  </h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">채무조정</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">이자경감</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  금융기관과의 협상이나 법정 조정 절차를 통해 이자 경감이 가능합니다.
+                  저희 사례에서는 평균 25% 정도의 경감 효과를 보았으나, 개별 상황에 따라 다를 수 있습니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">이자 경감 방법</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li>• 금융기관 직접 협상</li>
+                    <li>• 신용회복위원회 조정</li>
+                    <li>• 법원 조정 절차 활용</li>
+                    <li>• 개인회생 신청을 통한 감면</li>
+                  </ul>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    채무조정 상담 신청하기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="cost"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">어떤 서류를 준비해야 하나요?
+                  </h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">서류</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">절차</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  사건 유형에 따라 필요한 서류가 다르지만, 기본적으로 계약서, 금융거래 내역, 공문서 등이 필요합니다.
+                  상담 시 구체적인 서류 목록을 안내드립니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div class="bg-neutral-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-[#181d27] mb-2">부동산 분쟁</h4>
+                    <ul class="space-y-1 text-sm text-[#535861]">
+                      <li>• 임대차 계약서</li>
+                      <li>• 보증금 이체 내역</li>
+                      <li>• 등기부등본</li>
+                      <li>• 확정일자 증명서</li>
+                    </ul>
+                  </div>
+                  <div class="bg-neutral-50 rounded-lg p-4">
+                    <h4 class="font-semibold text-[#181d27] mb-2">채무/개인회생</h4>
+                    <ul class="space-y-1 text-sm text-[#535861]">
+                      <li>• 신용정보 조회서</li>
+                      <li>• 소득/재산 증명서</li>
+                      <li>• 대출 계약서</li>
+                      <li>• 가족관계증명서</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    서류 준비 안내받기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="etc"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">소송이 꼭 필요한가요?
+                  </h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">소송</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">대안절차</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  모든 사안에서 소송이 필요한 것은 아닙니다. 사안별로 협상, 조정, 중재 등 대체 절차를 먼저 검토하여
+                  시간과 비용을 절약할 수 있는 방법을 찾아드립니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">대안 해결 방법</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="handshake" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-handshake">
+                          <path fill="currentColor"
+                            d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8V128h-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48V352h28.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16V352c0 17.7 14.3 32 32 32H64c17.7 0 32-14.3 32-32V128H16zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128V352c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V144c0-8.8-7.2-16-16-16H544zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z">
+                          </path>
+                        </svg></i>
+                      당사자 간 협상
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="scale-balanced"
+                          role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-scale-balanced">
+                          <path fill="currentColor"
+                            d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288H584.4L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320H199.3L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z">
+                          </path>
+                        </svg></i>
+                      법원 조정 절차
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="users" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-users">
+                          <path fill="currentColor"
+                            d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z">
+                          </path>
+                        </svg></i>
+                      중재 기관 활용
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="file-lines" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-file-lines">
+                          <path fill="currentColor"
+                            d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                          </path>
+                        </svg></i>
+                      행정 기관 신고/신청
+                    </li>
+                  </ul>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    해결방법 상담받기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="etc"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">승소/인가 확률을 미리 알 수
+                    있나요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">확률</span><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">데이터</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  저희가 보유한 과거 데이터와 판례를 바탕으로 예상 성공률을 안내드립니다.
+                  다만 개별 사건마다 상황이 다르므로 정확한 결과를 보장할 수는 없습니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">분석 기준</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li>• 유사 사례 5,000+ 건 데이터 분석</li>
+                    <li>• 관련 판례 및 법령 검토</li>
+                    <li>• 상대방 재산/신용 상태 조사</li>
+                    <li>• 증거자료의 충분성 평가</li>
+                  </ul>
+                </div>
+                <p class="text-sm text-[#717680] mb-4">
+                  * 본 분석은 참고용이며, 실제 결과를 보장하지 않습니다.
+                </p>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    사건 분석 받기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="etc"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">방문 없이도 진행이
+                    가능한가요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">원격</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">화상상담</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  대부분의 절차는 원격으로 진행 가능합니다. 화상 상담, 온라인 서류 제출,
+                  전자 서명 등을 통해 직접 방문 없이도 사건을 진행할 수 있습니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">원격 지원 서비스</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="video" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-video">
+                          <path fill="currentColor"
+                            d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z">
+                          </path>
+                        </svg></i>
+                      화상 상담 (Zoom, Teams 등)
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="cloud-arrow-up"
+                          role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-cloud-arrow-up">
+                          <path fill="currentColor"
+                            d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z">
+                          </path>
+                        </svg></i>
+                      온라인 서류 제출
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="signature" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-signature">
+                          <path fill="currentColor"
+                            d="M192 128c0-17.7 14.3-32 32-32s32 14.3 32 32v7.8c0 27.7-2.4 55.3-7.1 82.5l-84.4 25.3c-40.6 12.2-68.4 49.6-68.4 92v71.9c0 40 32.5 72.5 72.5 72.5c26 0 50-13.9 62.9-36.5l13.9-24.3c26.8-47 46.5-97.7 58.4-150.5l94.4-28.3-12.5 37.5c-3.3 9.8-1.6 20.5 4.4 28.8s15.7 13.3 26 13.3H544c17.7 0 32-14.3 32-32s-14.3-32-32-32H460.4l18-53.9c3.8-11.3 .9-23.8-7.4-32.4s-20.7-11.8-32.2-8.4L316.4 198.1c2.4-20.7 3.6-41.4 3.6-62.3V128c0-53-43-96-96-96s-96 43-96 96v32c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm-9.2 177l49-14.7c-10.4 33.8-24.5 66.4-42.1 97.2l-13.9 24.3c-1.5 2.6-4.3 4.3-7.4 4.3c-4.7 0-8.5-3.8-8.5-8.5V335.6c0-14.1 9.3-26.6 22.8-30.7zM24 368c-13.3 0-24 10.7-24 24s10.7 24 24 24H64.3c-.2-2.8-.3-5.6-.3-8.5V368H24zm592 48c13.3 0 24-10.7 24-24s-10.7-24-24-24H305.9c-6.7 16.3-14.2 32.3-22.3 48H616z">
+                          </path>
+                        </svg></i>
+                      전자 서명 및 계약
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="mobile-screen-button"
+                          role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-mobile-screen-button">
+                          <path fill="currentColor"
+                            d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM224 448a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM304 64H80V384H304V64z">
+                          </path>
+                        </svg></i>
+                      모바일 진행상황 확인
+                    </li>
+                  </ul>
+                </div>
+                <p class="text-sm text-[#717680] mb-4">
+                  * 일부 절차(공증, 법원 출석 등)는 직접 방문이 필요할 수 있습니다.
+                </p>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    화상 상담 신청하기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="etc"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">개인정보는 안전하게
+                    보호되나요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">개인정보</span><span
+                      class="px-2 py-1 bg-[#f0fdf4] text-[#15803d] rounded-full text-xs">보안</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  개인정보보호법에 따라 고객의 개인정보를 안전하게 보관하고 암호화하여 처리합니다.
+                  법정 보관 기간 준수 및 목적 달성 후 즉시 파기 원칙을 적용합니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">보안 조치</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="lock" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-lock">
+                          <path fill="currentColor"
+                            d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z">
+                          </path>
+                        </svg></i>
+                      SSL 암호화 통신
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="shield-halved" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-shield-halved">
+                          <path fill="currentColor"
+                            d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z">
+                          </path>
+                        </svg></i>
+                      서버 접근 권한 제한
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="key" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-key">
+                          <path fill="currentColor"
+                            d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z">
+                          </path>
+                        </svg></i>
+                      개인정보 접근 로그 관리
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="trash" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 448 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-trash">
+                          <path fill="currentColor"
+                            d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z">
+                          </path>
+                        </svg></i>
+                      보관기간 만료 시 자동 파기
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-amber-800 mb-2">보관 기간</h4>
+                  <ul class="space-y-1 text-sm text-amber-700">
+                    <li>• 계약/결제 관련: 5년</li>
+                    <li>• 상담 기록: 3년</li>
+                    <li>• 웹사이트 방문 기록: 3개월</li>
+                  </ul>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    개인정보처리방침 보기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+            <div data-category="cost"
+              class="bg-white rounded-2xl border border-[#e9e9eb] faq-item">
+              <button aria-expanded="false"
+                class="w-full px-6 py-6 text-left flex justify-between items-center hover:bg-neutral-50 transition-colors">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-[#181d27] mb-2">진행 중에 비용이 변동될 수
+                    있나요?</h3>
+                  <div class="flex gap-2"><span
+                      class="px-2 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-xs">비용</span><span
+                      class="px-2 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-xs">변동</span>
+                  </div>
+                </div><i data-fa-i2svg=""
+                  class="text-[#8a765e] ml-4 transition-transform duration-300"><svg
+                    aria-hidden="true" data-prefix="fas" data-icon="plus"
+                    role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512" data-fa-i2svg=""
+                    class="svg-inline--fa fa-plus">
+                    <path fill="currentColor"
+                      d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                    </path>
+                  </svg></i>
+              </button>
+              <div class="px-6 pb-6 hidden">
+                <p class="text-[#535861] leading-relaxed mb-4">
+                  예상치 못한 상황으로 추가 절차가 필요한 경우에만 비용 변동이 있을 수 있습니다.
+                  이 경우 반드시 사전에 고지하고 고객 동의를 받은 후 진행합니다.
+                </p>
+                <div class="bg-neutral-50 rounded-lg p-4 mb-4">
+                  <h4 class="font-semibold text-[#181d27] mb-2">비용 변동 원칙</h4>
+                  <ul class="space-y-2 text-sm text-[#535861]">
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="circle-info" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-circle-info">
+                          <path fill="currentColor"
+                            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z">
+                          </path>
+                        </svg></i>
+                      변동 사유 상세 설명
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="calculator" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-calculator">
+                          <path fill="currentColor"
+                            d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM96 64H288c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32zm32 160a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM96 352a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM64 416c0-17.7 14.3-32 32-32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM192 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm64-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM288 448a32 32 0 1 1 0-64 32 32 0 1 1 0 64z">
+                          </path>
+                        </svg></i>
+                      추가 비용 명세서 제공
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="handshake" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 640 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-handshake">
+                          <path fill="currentColor"
+                            d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8V128h-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48V352h28.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16V352c0 17.7 14.3 32 32 32H64c17.7 0 32-14.3 32-32V128H16zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128V352c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V144c0-8.8-7.2-16-16-16H544zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z">
+                          </path>
+                        </svg></i>
+                      고객 동의 후 진행
+                    </li>
+                    <li class="flex items-center"><i data-fa-i2svg=""
+                        class="text-[#8a765e] mr-2"><svg aria-hidden="true"
+                          data-prefix="fas" data-icon="file-contract" role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 384 512" data-fa-i2svg=""
+                          class="svg-inline--fa fa-file-contract">
+                          <path fill="currentColor"
+                            d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM80 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm54.2 253.8c-6.1 20.3-24.8 34.2-46 34.2H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h8.2c7.1 0 13.3-4.6 15.3-11.4l14.9-49.5c3.4-11.3 13.8-19.1 25.6-19.1s22.2 7.7 25.6 19.1l11.6 38.6c7.4-6.2 16.8-9.7 26.8-9.7c15.9 0 30.4 9 37.5 23.2l4.4 8.8H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-6.1 0-11.6-3.4-14.3-8.8l-8.8-17.7c-1.7-3.4-5.1-5.5-8.8-5.5s-7.2 2.1-8.8 5.5l-8.8 17.7c-2.9 5.9-9.2 9.4-15.7 8.8s-12.1-5.1-13.9-11.3L144 349l-9.8 32.8z">
+                          </path>
+                        </svg></i>
+                      서면 확인서 작성
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                  <p class="text-sm text-blue-800"><i data-fa-i2svg=""
+                      class="mr-2"><svg aria-hidden="true" data-prefix="fas"
+                        data-icon="lightbulb" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-lightbulb">
+                        <path fill="currentColor"
+                          d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z">
+                        </path>
+                      </svg></i><strong>투명한 비용 관리:</strong>
+                    초기 상담에서 가능한 모든 비용을 안내드리며,
+                    예상 범위를 벗어나는 경우 즉시 연락드립니다.
+                  </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-[#e9e9eb]"><button
+                    class="text-[#8a765e] hover:text-[#74634e] font-medium transition-colors">
+                    비용 안내받기 <i data-fa-i2svg="" class="ml-2"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></button></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12"><button
+              class="px-8 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-lg hover:border-[#8a765e] hover:text-[#8a765e] transition-colors font-medium">
+              더 많은 질문 보기
+            </button></div>
+        </div>
+      </section>
+      <section id="cta" class="py-16 lg:py-24 bg-[#8a765e]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">
+            궁금한 점이 해결되셨나요?
+          </h2>
+          <p class="text-xl text-[#e5ceb4] mb-8 max-w-2xl mx-auto">
+            더 자세한 내용이 필요하시면 전문가와 직접 상담받으세요.
+            개별 상황에 맞는 정확한 답변을 드리겠습니다.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center"><button
+              class="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+              무료 상담 신청하기
+            </button><button
+              class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors"><i
+                data-fa-i2svg="" class="mr-2"><svg aria-hidden="true"
+                  data-prefix="fas" data-icon="phone" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="" class="svg-inline--fa fa-phone">
+                  <path fill="currentColor"
+                    d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z">
+                  </path>
+                </svg></i>
+              02-0000-0000
+            </button></div>
+          <p class="text-sm text-[#e5ceb4] mt-6">
+            평균 응답시간 30분 이내 · 24시간 상담 지원
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="bg-white border-t border-[#e9e9eb] py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="location-dot" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-location-dot">
+                    <path fill="currentColor"
+                      d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z">
+                    </path>
+                  </svg></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="phone" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-phone">
+                    <path fill="currentColor"
+                      d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z">
+                    </path>
+                  </svg></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="envelope" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-envelope">
+                    <path fill="currentColor"
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z">
+                    </path>
+                  </svg></i>
+                info@서초지율.com</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><span
+                  class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료
+                  상담</span></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 FAQ는 일반적인 안내사항이며, 개별 사건의 결과를 보장하지 않습니다.</p>
+            <p id="i0ssjr">서초지율 합동법률사무소 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+</html>
+
+
+
+
+
+

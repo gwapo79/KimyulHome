@@ -1,0 +1,499 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a>
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav>
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              class="fas fa-bars text-xl"></i></button>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav aria-label="Breadcrumb" class="flex mb-8">
+        <ol class="flex items-center space-x-2 text-sm">
+          <li><a href="../mypage/dashboard.html" class="text-[#8a765e] hover:text-[#74634e] cursor-pointer">마이페이지</a>
+          </li>
+          <li><i class="fas fa-chevron-right text-[#d5d6d9] text-xs"></i></li>
+          <li><span aria-current="page" class="text-[#535861]">알림 설정</span></li>
+        </ol>
+      </nav>
+      <div class="flex flex-col lg:flex-row gap-8">
+        <aside class="lg:w-64 flex-shrink-0">
+          <nav class="bg-white rounded-2xl border border-[#e9e9eb] p-4">
+  <div class="space-y-2">
+    <a href="dashboard.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="house" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-house"><path fill="currentColor" d="..."></path></svg></i>
+      대시보드
+    </a>
+    <a href="my_cases.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="briefcase" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-briefcase"><path fill="currentColor" d="..."></path></svg></i>
+      내 사건
+    </a>
+    <a href="documents.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-file-lines"><path fill="currentColor" d="..."></path></svg></i>
+      문서 관리
+    </a>
+    <a href="calendar.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-calendar"><path fill="currentColor" d="..."></path></svg></i>
+      일정 관리
+    </a>
+    <a href="chat.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="comments" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-comments"><path fill="currentColor" d="..."></path></svg></i>
+      상담 채팅
+      <span class="ml-auto bg-[#8a765e] text-white text-xs rounded-full px-2 py-1">2</span>
+    </a>
+    <a href="notifications.html" class="flex items-center px-4 py-3 rounded-lg bg-[#8a765e] text-white font-medium cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="bell" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-bell"><path fill="currentColor" d="..."></path></svg></i>
+      알림
+      <span class="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">3</span>
+    </a>
+    <a href="billing.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="credit-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-credit-card"><path fill="currentColor" d="..."></path></svg></i>
+      결제 관리
+    </a>
+    <div class="border-t border-[#e9e9eb] my-4"></div>
+    <a href="profile.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-user mr-3"></i>
+      프로필 설정
+    </a>
+    <a href="security.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-shield-halved mr-3"></i>
+      보안 설정
+    </a>
+  </div>
+</nav>
+        </aside>
+        <div class="flex-1">
+          <div class="bg-white rounded-2xl border border-[#e9e9eb] p-8">
+            <div class="mb-8">
+              <h1 class="text-2xl font-semibold text-[#181d27] mb-2">알림 설정</h1>
+              <p class="text-[#535861]">받고 싶은 알림을 선택하여 중요한 업데이트를 놓치지 마세요.</p>
+            </div>
+            <section id="toggles" role="region" aria-label="알림 토글">
+              <form id="notification-form" class="space-y-8">
+                <div class="space-y-6">
+                  <div class="pb-6 border-b border-[#e9e9eb]">
+                    <h2 class="text-lg font-medium text-[#181d27] mb-4">사건 관련 알림
+                    </h2>
+                    <div class="space-y-4">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">사건 상태 변경</label>
+                          <p class="text-sm text-[#535861] mt-1">사건의 진행 상황이 변경될
+                            때 알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="사건 상태 변경 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">서류 요청</label>
+                          <p class="text-sm text-[#535861] mt-1">추가 서류가 필요할 때
+                            알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="서류 요청 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">마감일 임박</label>
+                          <p class="text-sm text-[#535861] mt-1">서류 제출이나 법원 출석
+                            등의 마감일이 다가올 때 알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="마감일 임박 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pb-6 border-b border-[#e9e9eb]">
+                    <h2 class="text-lg font-medium text-[#181d27] mb-4">상담 관련 알림
+                    </h2>
+                    <div class="space-y-4">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">새 메시지</label>
+                          <p class="text-sm text-[#535861] mt-1">변호사로부터 새로운 메시지가
+                            도착했을 때 알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="새 메시지 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">멘션 알림</label>
+                          <p class="text-sm text-[#535861] mt-1">채팅에서 나를 언급했을 때
+                            알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="false" aria-pressed="false"
+                            aria-label="멘션 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">답변 요청</label>
+                          <p class="text-sm text-[#535861] mt-1">변호사가 답변을 요청했을 때
+                            알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="답변 요청 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pb-6 border-b border-[#e9e9eb]">
+                    <h2 class="text-lg font-medium text-[#181d27] mb-4">일정 관련 알림
+                    </h2>
+                    <div class="space-y-4">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">일정 알림</label>
+                          <p class="text-sm text-[#535861] mt-1">예정된 법원 출석이나 상담
+                            일정을 알려드립니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="일정 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">일정 변경</label>
+                          <p class="text-sm text-[#535861] mt-1">기존 일정이 변경되거나
+                            취소될 때 알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="일정 변경 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">사전 알림</label>
+                          <p class="text-sm text-[#535861] mt-1">일정 30분 전에 미리
+                            알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="false" aria-pressed="false"
+                            aria-label="사전 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pb-6 border-b border-[#e9e9eb]">
+                    <h2 class="text-lg font-medium text-[#181d27] mb-4">시스템 알림
+                    </h2>
+                    <div class="space-y-4">
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">보안 알림</label>
+                          <p class="text-sm text-[#535861] mt-1">로그인 정보 변경이나
+                            의심스러운 활동을 감지했을 때 알림을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="true" aria-pressed="true"
+                            aria-label="보안 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#8a765e] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">서비스 업데이트</label>
+                          <p class="text-sm text-[#535861] mt-1">새로운 기능이나 서비스 변경
+                            사항을 알려드립니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="false" aria-pressed="false"
+                            aria-label="서비스 업데이트 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <div class="flex-1"><label
+                            class="text-[#181d27] font-medium">마케팅 정보</label>
+                          <p class="text-sm text-[#535861] mt-1">법률 서비스 관련 유용한
+                            정보나 이벤트 소식을 받습니다.</p>
+                        </div>
+                        <div class="ml-4"><button type="button" role="switch"
+                            aria-checked="false" aria-pressed="false"
+                            aria-label="마케팅 정보 알림 토글"
+                            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:ring-offset-2"><span
+                              class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-medium text-[#181d27] mb-4">알림 방식
+                    </h2>
+                    <div class="space-y-4">
+                      <div class="bg-neutral-50 p-4 rounded-lg">
+                        <h3 class="font-medium text-[#181d27] mb-3">이메일 알림</h3>
+                        <div class="space-y-3"><label
+                            class="flex items-center"><input type="checkbox"
+                              checked=""
+                              class="rounded border-gray-300 text-[#8a765e] focus:ring-[#8a765e] h-4 w-4"><span
+                              class="ml-3 text-sm text-[#535861]">즉시
+                              알림</span></label><label
+                            class="flex items-center"><input type="checkbox"
+                              class="rounded border-gray-300 text-[#8a765e] focus:ring-[#8a765e] h-4 w-4"><span
+                              class="ml-3 text-sm text-[#535861]">일일
+                              요약</span></label><label
+                            class="flex items-center"><input type="checkbox"
+                              class="rounded border-gray-300 text-[#8a765e] focus:ring-[#8a765e] h-4 w-4"><span
+                              class="ml-3 text-sm text-[#535861]">주간
+                              요약</span></label></div>
+                      </div>
+                      <div class="bg-neutral-50 p-4 rounded-lg">
+                        <h3 class="font-medium text-[#181d27] mb-3">SMS 알림</h3>
+                        <div class="space-y-3"><label
+                            class="flex items-center"><input type="checkbox"
+                              checked=""
+                              class="rounded border-gray-300 text-[#8a765e] focus:ring-[#8a765e] h-4 w-4"><span
+                              class="ml-3 text-sm text-[#535861]">긴급
+                              알림만</span></label><label
+                            class="flex items-center"><input type="checkbox"
+                              class="rounded border-gray-300 text-[#8a765e] focus:ring-[#8a765e] h-4 w-4"><span
+                              class="ml-3 text-sm text-[#535861]">모든
+                              알림</span></label></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between pt-6 border-t border-[#e9e9eb]">
+                  <button type="button"
+                    class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors">
+                    모두 끄기
+                  </button>
+                  <div class="flex items-center space-x-3"><button type="button"
+                      class="px-6 py-3 border border-[#d5d6d9] text-[#535861] rounded-lg hover:bg-neutral-50 transition-colors">
+                      취소
+                    </button><button type="submit"
+                      class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium">
+                      설정 저장
+                    </button></div>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" class="bg-white border-t border-[#e9e9eb] py-16 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i
+                  class="fas fa-location-dot w-5 mr-3"></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i
+                  class="fas fa-phone w-5 mr-3"></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><svg
+                  aria-hidden="true" focusable="false" data-prefix="fas"
+                  data-icon="envelope" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="" class="fas fa-envelope w-5 mr-3">
+                  <path fill="currentColor"
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z">
+                  </path>
+                </svg>
+                <!-- <i id="i7muxi" data-gjs-type="default" draggable="true" class="fas fa-envelope w-5 mr-3"></i> Font Awesome fontawesome.com -->
+                info@서초지율.com</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><span
+                  class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료
+                  상담</span></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 사례는 참고용이며, 개별 사건의 결과를 보장하지 않습니다.</p>
+            <p id="ia7jhe">서초지율 합동법률사무소 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        const toggles = document.querySelectorAll('[role="switch"]');
+
+        toggles.forEach(toggle =>
+        {
+          toggle.addEventListener('click', function()
+          {
+            const isPressed = this.getAttribute('aria-pressed') ===
+              'true';
+            const newState = !isPressed;
+
+            this.setAttribute('aria-pressed', newState);
+            this.setAttribute('aria-checked', newState);
+
+            const slider = this.querySelector('span');
+
+            if (newState)
+            {
+              this.classList.remove('bg-gray-200');
+              this.classList.add('bg-[#8a765e]');
+              slider.classList.remove('translate-x-0');
+              slider.classList.add('translate-x-5');
+            }
+            else
+            {
+              this.classList.remove('bg-[#8a765e]');
+              this.classList.add('bg-gray-200');
+              slider.classList.remove('translate-x-5');
+              slider.classList.add('translate-x-0');
+            }
+          });
+        });
+
+        const turnOffAllBtn = document.querySelector(
+          'button[type="button"]:not([role="switch"])');
+        if (turnOffAllBtn && turnOffAllBtn.textContent.includes('모두 끄기'))
+        {
+          turnOffAllBtn.addEventListener('click', function()
+          {
+            toggles.forEach(toggle =>
+            {
+              toggle.setAttribute('aria-pressed', 'false');
+              toggle.setAttribute('aria-checked', 'false');
+              toggle.classList.remove('bg-[#8a765e]');
+              toggle.classList.add('bg-gray-200');
+
+              const slider = toggle.querySelector('span');
+              slider.classList.remove('translate-x-5');
+              slider.classList.add('translate-x-0');
+            });
+          });
+        }
+
+        const form = document.getElementById('notification-form');
+        form.addEventListener('submit', function(e)
+        {
+          e.preventDefault();
+          alert('알림 설정이 저장되었습니다.');
+        });
+      });
+    </script>
+  </body>
+
+</html>
+
+
+
+
+
+
+

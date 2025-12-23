@@ -1,0 +1,611 @@
+<html>
+
+  <head>
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a>
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i data-fa-i2svg="" class="ml-1 text-xs"><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="chevron-down" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-chevron-down">
+                    <path fill="currentColor"
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                  </svg></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav>
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              data-fa-i2svg="" class="text-xl"><svg aria-hidden="true"
+                data-prefix="fas" data-icon="bars" role="img"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                data-fa-i2svg="" class="svg-inline--fa fa-bars">
+                <path fill="currentColor"
+                  d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                </path>
+              </svg></i></button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="hero" class="py-16 lg:py-24 bg-[#5e503f]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">고객들이 전하는
+              경험</h1>
+            <p class="text-xl text-[#e5ceb4] max-w-3xl mx-auto">
+              실제 고객들의 생생한 후기를 통해 저희의 전문성을 확인하세요
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="stats" class="py-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold text-[#8a765e] mb-2">
+                95%</div>
+              <div class="text-[#535861] font-medium">고객 만족도</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold text-[#8a765e] mb-2">
+                5,000+</div>
+              <div class="text-[#535861] font-medium">누적 성공 건</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold text-[#8a765e] mb-2">
+                3개월</div>
+              <div class="text-[#535861] font-medium">평균 해결 기간</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold text-[#8a765e] mb-2">
+                92%</div>
+              <div class="text-[#535861] font-medium">지인 추천율</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="filters" class="py-12 bg-white border-b border-[#e9e9eb]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+            <div>
+              <h2 class="text-2xl font-bold text-[#181d27] mb-2">분야와 평점을 선택하세요
+              </h2>
+              <p class="text-[#535861]">원하는 조건으로 후기를 필터링하여 확인할 수 있습니다</p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-2"><span
+                  class="px-4 py-2 bg-[#8a765e] text-white rounded-full text-sm font-medium cursor-pointer">전체</span><span
+                  class="px-4 py-2 bg-white border border-[#d5d6d9] text-[#535861] rounded-full text-sm font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors cursor-pointer">부동산</span><span
+                  class="px-4 py-2 bg-white border border-[#d5d6d9] text-[#535861] rounded-full text-sm font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors cursor-pointer">금융</span><span
+                  class="px-4 py-2 bg-white border border-[#d5d6d9] text-[#535861] rounded-full text-sm font-medium hover:border-[#8a765e] hover:text-[#8a765e] transition-colors cursor-pointer">회생</span>
+              </div>
+              <div class="relative"><select
+                  class="px-4 py-2 bg-white border border-[#d5d6d9] rounded-lg text-[#535861] focus:border-[#8a765e] focus:outline-none cursor-pointer">
+                  <option>최신순</option>
+                  <option>인기순</option>
+                  <option>평점 높은순</option>
+                </select></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="cards" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_02.png"
+                    alt="김○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">김○○</div>
+                    <div class="text-sm text-[#535861]">전세사기 피해자</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#f8f3ed] text-[#74634e] rounded-full text-sm font-medium">부동산</span>
+              </div>
+              <div aria-label="5점 만점에 5점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">5.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">전세금 4억 전액 회수
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "전세보증금을 못 받을 뻔했는데, 법무법인에서 도움을 받아 전액 회수했습니다.
+                절차도 투명하게 안내해주시고, 결과도 만족스러워요. 정말 감사합니다."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 3개월</span><span>2024.12.15</span></div>
+            </div>
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_01.png"
+                    alt="박○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">박○○</div>
+                    <div class="text-sm text-[#535861]">다중채무자</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-sm font-medium">금융</span>
+              </div>
+              <div aria-label="5점 만점에 4점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="far" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">4.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">이자 25% 경감
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "다중채무로 고생했는데, 전문가 상담을 받고 채무를 크게 줄일 수 있었습니다.
+                이제 새로운 시작을 할 수 있게 되어 정말 고맙습니다."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 4개월</span><span>2024.12.10</span></div>
+            </div>
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_03.png"
+                    alt="이○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">이○○</div>
+                    <div class="text-sm text-[#535861]">개인회생 신청자</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-sm font-medium">회생</span>
+              </div>
+              <div aria-label="5점 만점에 5점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">5.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">개인회생 인가 완료
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "개인회생 절차가 복잡할 줄 알았는데, 차근차근 안내해주셔서 수월하게 진행됐습니다.
+                앞으로 계획적으로 상환하며 신용을 회복해나가겠습니다."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 6개월</span><span>2024.12.08</span></div>
+            </div>
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_06.png"
+                    alt="최○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">최○○</div>
+                    <div class="text-sm text-[#535861]">경매 관련 상담</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#f8f3ed] text-[#74634e] rounded-full text-sm font-medium">부동산</span>
+              </div>
+              <div aria-label="5점 만점에 4점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="far" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">4.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">경매 권리분석 성공
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "경매 관련해서 복잡한 문제가 있었는데, 전문적인 조언을 받아 잘 해결됐습니다.
+                24시간 상담 지원도 정말 도움이 됐어요."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 2개월</span><span>2024.12.05</span></div>
+            </div>
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_05.png"
+                    alt="정○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">정○○</div>
+                    <div class="text-sm text-[#535861]">상속 분쟁</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#f8f3ed] text-[#74634e] rounded-full text-sm font-medium">부동산</span>
+              </div>
+              <div aria-label="5점 만점에 4점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="far" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">4.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">상속 분쟁 합의
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "가족 간 상속 분쟁으로 어려웠는데, 중재를 통해 원만하게 해결할 수 있었습니다.
+                전문적이면서도 인간적인 접근이 인상적이었어요."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 5개월</span><span>2024.12.01</span></div>
+            </div>
+            <div
+              class="bg-white border border-[#e9e9eb] rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-start justify-between mb-6">
+                <div class="flex items-center"><img
+                    src="../assets/images/profiles/profile_04.png"
+                    alt="한○○ 고객" class="w-12 h-12 rounded-full">
+                  <div class="ml-4">
+                    <div class="font-semibold text-[#181d27]">한○○</div>
+                    <div class="text-sm text-[#535861]">채권 압류</div>
+                  </div>
+                </div><span
+                  class="px-3 py-1 bg-[#eef3ff] text-[#3537cc] rounded-full text-sm font-medium">금융</span>
+              </div>
+              <div aria-label="5점 만점에 5점" class="flex text-[#8a765e] mb-4"><i
+                  data-fa-i2svg=""><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><i data-fa-i2svg=""><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="star" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-star">
+                    <path fill="currentColor"
+                      d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                    </path>
+                  </svg></i><span class="ml-2 text-sm text-[#535861]">5.0</span>
+              </div>
+              <h3 class="text-lg font-semibold text-[#181d27] mb-3">채권 압류 해제
+              </h3>
+              <p class="text-[#535861] leading-relaxed mb-4">
+                "급여 압류로 생활이 어려웠는데, 신속한 대응으로 압류를 해제할 수 있었습니다.
+                정말 막막했던 상황에서 큰 도움이 되었어요."
+              </p>
+              <div
+                class="flex items-center justify-between text-sm text-[#717680]">
+                <span>해결기간: 1개월</span><span>2024.11.28</span></div>
+            </div>
+          </div>
+          <div class="text-center"><button
+              class="px-8 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-lg hover:border-[#8a765e] hover:text-[#8a765e] transition-colors font-medium">
+              더 많은 후기 보기
+            </button></div>
+        </div>
+      </section>
+      <section id="cta" class="py-16 lg:py-24 bg-[#8a765e]">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">
+            나도 해결할 수 있습니다
+          </h2>
+          <p class="text-xl text-[#e5ceb4] mb-8 max-w-2xl mx-auto">
+            지금 상담으로 첫걸음을 시작하세요. 5,000+ 사례 경험을 바탕으로 최선의 해결책을 찾아드리겠습니다.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center"><button
+              class="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+              무료 상담 신청하기
+            </button><button
+              class="px-8 py-4 bg-[#74634e] text-white rounded-lg font-semibold hover:bg-[#5e503f] transition-colors">
+              후기 남기기
+            </button></div>
+          <p class="text-sm text-[#e5ceb4] mt-6">
+            평균 응답시간 30분 이내 · 24시간 상담 지원
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="bg-white border-t border-[#e9e9eb] py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="location-dot" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-location-dot">
+                    <path fill="currentColor"
+                      d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z">
+                    </path>
+                  </svg></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="phone" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-phone">
+                    <path fill="currentColor"
+                      d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z">
+                    </path>
+                  </svg></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><i data-fa-i2svg=""
+                  class="w-5 mr-3"><svg aria-hidden="true" data-prefix="fas"
+                    data-icon="envelope" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-envelope">
+                    <path fill="currentColor"
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z">
+                    </path>
+                  </svg></i>
+                info@서초지율.com</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><span
+                  class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료
+                  상담</span></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 후기는 개별 고객의 경험이며, 동일한 결과를 보장하지 않습니다.</p>
+            <p id="itsvor">서초지율법률사무소 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+</html>
+
+
+
+
+
+
+

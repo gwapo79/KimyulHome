@@ -1,0 +1,380 @@
+<html>
+
+  <head>
+    <script src="../js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a>
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i data-fa-i2svg="" class="ml-1 text-xs"><svg aria-hidden="true"
+                    data-prefix="fas" data-icon="chevron-down" role="img"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-fa-i2svg="" class="svg-inline--fa fa-chevron-down">
+                    <path fill="currentColor"
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                    </path>
+                  </svg></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav>
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              data-fa-i2svg="" class="text-xl"><svg aria-hidden="true"
+                data-prefix="fas" data-icon="bars" role="img"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                data-fa-i2svg="" class="svg-inline--fa fa-bars">
+                <path fill="currentColor"
+                  d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z">
+                </path>
+              </svg></i></button>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <aside class="lg:w-64 flex-shrink-0">
+          <nav class="bg-white rounded-2xl border border-[#e9e9eb] p-4">
+  <div class="space-y-2">
+    <a href="dashboard.html" class="flex items-center px-4 py-3 rounded-lg bg-[#8a765e] text-white font-medium cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="house" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-house"><path fill="currentColor" d="..."></path></svg></i>
+      대시보드
+    </a>
+    <a href="my_cases.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="briefcase" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-briefcase"><path fill="currentColor" d="..."></path></svg></i>
+      내 사건
+    </a>
+    <a href="documents.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-file-lines"><path fill="currentColor" d="..."></path></svg></i>
+      문서 관리
+    </a>
+    <a href="calendar.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-calendar"><path fill="currentColor" d="..."></path></svg></i>
+      일정 관리
+    </a>
+    <a href="chat.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="comments" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-comments"><path fill="currentColor" d="..."></path></svg></i>
+      상담 채팅
+      <span class="ml-auto bg-[#8a765e] text-white text-xs rounded-full px-2 py-1">2</span>
+    </a>
+    <a href="notifications.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="bell" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-bell"><path fill="currentColor" d="..."></path></svg></i>
+      알림
+      <span class="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">3</span>
+    </a>
+    <a href="billing.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="credit-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-credit-card"><path fill="currentColor" d="..."></path></svg></i>
+      결제 관리
+    </a>
+    <div class="border-t border-[#e9e9eb] my-4"></div>
+    <a href="profile.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-user mr-3"></i>
+      프로필 설정
+    </a>
+    <a href="security.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-shield-halved mr-3"></i>
+      보안 설정
+    </a>
+  </div>
+</nav>
+        </aside>
+        <div class="flex-1">
+          <section id="welcome" role="region" aria-label="환영 메시지" class="mb-8">
+            <div
+              class="bg-white rounded-2xl border border-[#e9e9eb] p-6 lg:p-8">
+              <div class="flex items-center justify-between mb-6">
+                <div>
+                  <h1
+                    class="text-2xl lg:text-3xl font-bold text-[#181d27] mb-2">
+                    안녕하세요, 김○○님</h1>
+                  <p class="text-[#535861] text-lg">오늘 처리할 일부터 시작해 보세요</p>
+                </div>
+                <div class="hidden lg:flex items-center space-x-4">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-[#8a765e]">2</div>
+                    <div class="text-sm text-[#535861]">진행 중 사건</div>
+                  </div>
+                  <div class="w-px h-12 bg-[#e9e9eb]"></div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-[#8a765e]">3</div>
+                    <div class="text-sm text-[#535861]">다가오는 일정</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:hidden grid grid-cols-2 gap-4 mb-6">
+                <div class="text-center p-4 bg-neutral-50 rounded-xl">
+                  <div class="text-xl font-bold text-[#8a765e]">2</div>
+                  <div class="text-sm text-[#535861]">진행 중 사건</div>
+                </div>
+                <div class="text-center p-4 bg-neutral-50 rounded-xl">
+                  <div class="text-xl font-bold text-[#8a765e]">3</div>
+                  <div class="text-sm text-[#535861]">다가오는 일정</div>
+                </div>
+              </div>
+              <div id="announcements" aria-live="polite" aria-atomic="true"
+                class="sr-only"></div>
+            </div>
+          </section>
+          <section id="widgets" role="region" aria-label="주요 정보 위젯"
+            class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="bg-white rounded-2xl border border-[#e9e9eb] p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-xl font-semibold text-[#181d27]">나의 사건</h2>
+                  <span aria-label="모든 사건 보기"
+                    class="text-[#8a765e] hover:text-[#74634e] transition-colors text-sm font-medium cursor-pointer">
+                    전체보기 <i data-fa-i2svg="" class="ml-1"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></span>
+                </div>
+                <div class="space-y-4"><button aria-label="전세금 반환 사건 상세보기"
+                    class="w-full text-left p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] hover:bg-neutral-50 transition-colors">
+                    <div class="flex items-center justify-between mb-2"><span
+                        class="font-medium text-[#181d27]">전세금 반환</span><span
+                        class="px-2 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">서류
+                        보완 요청</span></div>
+                    <div class="text-sm text-[#535861] mb-2">서류 보완 요청 — D-2
+                    </div>
+                    <div class="flex items-center justify-between"><span
+                        class="text-xs text-[#717680]">담당: 김변호사</span><span
+                        class="text-xs text-red-600 font-medium">마감 2일 전</span>
+                    </div>
+                  </button><button aria-label="개인회생 사건 상세보기"
+                    class="w-full text-left p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] hover:bg-neutral-50 transition-colors">
+                    <div class="flex items-center justify-between mb-2"><span
+                        class="font-medium text-[#181d27]">개인회생</span><span
+                        class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">심리
+                        예정</span></div>
+                    <div class="text-sm text-[#535861] mb-2">인가 심리 예정 — 4/18
+                    </div>
+                    <div class="flex items-center justify-between"><span
+                        class="text-xs text-[#717680]">담당: 박변호사</span><span
+                        class="text-xs text-[#535861]">예정일 4월 18일</span></div>
+                  </button></div>
+              </div>
+              <div class="bg-white rounded-2xl border border-[#e9e9eb] p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-xl font-semibold text-[#181d27]">다가오는 일정</h2>
+                  <span aria-label="전체 일정 보기"
+                    class="text-[#8a765e] hover:text-[#74634e] transition-colors text-sm font-medium cursor-pointer">
+                    전체보기 <i data-fa-i2svg="" class="ml-1"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></span>
+                </div>
+                <div class="space-y-4">
+                  <div
+                    class="flex items-center p-3 border-l-4 border-[#8a765e] bg-neutral-50 rounded-r-lg">
+                    <div class="flex-1">
+                      <div class="font-medium text-[#181d27]">서류 제출 마감</div>
+                      <div class="text-sm text-[#535861]">전세금 반환 사건</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-sm font-medium text-[#181d27]">4월 15일
+                      </div>
+                      <div class="text-xs text-red-600">D-2</div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center p-3 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg">
+                    <div class="flex-1">
+                      <div class="font-medium text-[#181d27]">법원 출석</div>
+                      <div class="text-sm text-[#535861]">개인회생 인가심리</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-sm font-medium text-[#181d27]">4월 18일
+                      </div>
+                      <div class="text-xs text-[#535861]">오전 10:00</div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center p-3 border-l-4 border-green-500 bg-green-50 rounded-r-lg">
+                    <div class="flex-1">
+                      <div class="font-medium text-[#181d27]">상담 예약</div>
+                      <div class="text-sm text-[#535861]">진행 상황 점검</div>
+                    </div>
+                    <div class="text-right">
+                      <div class="text-sm font-medium text-[#181d27]">4월 20일
+                      </div>
+                      <div class="text-xs text-[#535861]">오후 2:00</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-[#e9e9eb] p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-xl font-semibold text-[#181d27]">최근 메시지</h2>
+                  <span aria-label="모든 메시지 보기"
+                    class="text-[#8a765e] hover:text-[#74634e] transition-colors text-sm font-medium cursor-pointer">
+                    전체보기 <i data-fa-i2svg="" class="ml-1"><svg
+                        aria-hidden="true" data-prefix="fas"
+                        data-icon="arrow-right" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="" class="svg-inline--fa fa-arrow-right">
+                        <path fill="currentColor"
+                          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                        </path>
+                      </svg></i></span>
+                </div>
+                <div class="space-y-4">
+                  <div
+                    class="flex items-start space-x-3 p-3 hover:bg-neutral-50 rounded-lg transition-colors cursor-pointer">
+                    <img
+                      src="../assets/images/profiles/profile_03.png"
+                      alt="김변호사" class="w-10 h-10 rounded-full">
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-1"><span
+                          class="font-medium text-[#181d27]">김변호사</span><span
+                          class="text-xs text-[#717680]">2분 전</span></div>
+                      <p class="text-sm text-[#535861] truncate">서류 보완 관련하여 추가
+                        안내드립니다.</p>
+                    </div>
+                    <div class="w-2 h-2 bg-[#8a765e] rounded-full"></div>
+                  </div>
+                  <div
+                    class="flex items-start space-x-3 p-3 hover:bg-neutral-50 rounded-lg transition-colors cursor-pointer">
+                    <img
+                      src="../assets/images/profiles/profile_06.png"
+                      alt="박변호사" class="w-10 h-10 rounded-full">
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-1"><span
+                          class="font-medium text-[#181d27]">박변호사</span><span
+                          class="text-xs text-[#717680]">1시간 전</span></div>
+                      <p class="text-sm text-[#535861] truncate">심리 일정이 확정되었습니다.
+                      </p>
+                    </div>
+                    <div class="w-2 h-2 bg-[#8a765e] rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl border border-[#e9e9eb] p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-xl font-semibold text-[#181d27]">최근 알림</h2>
+                  <span aria-label="모든 알림 보기"
+                    class="text-[#8a765e] hover:text-[#74634e] transition-colors text-sm font-medium cursor-pointer">
+                    전체보기 <i class="fas fa-arrow-right ml-1"></i></span>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start space-x-3 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                     <div class="flex-1">
+                        <div class="font-medium text-[#181d27]">서류 제출 안내</div>
+                        <div class="text-sm text-[#535861]">전세금 반환 소송 관련 증거자료를 제출해주세요.</div>
+                     </div>
+                     <span class="text-xs text-orange-600 font-medium">긴급</span>
+                  </div>
+                   <div class="flex items-start space-x-3 p-3 hover:bg-neutral-50 rounded-lg transition-colors cursor-pointer">
+                     <div class="flex-1">
+                        <div class="font-medium text-[#181d27]">상담 예약 확정</div>
+                        <div class="text-sm text-[#535861]">4월 20일 오후 2시 방문 상담이 예약되었습니다.</div>
+                     </div>
+                     <span class="text-xs text-[#717680]">1일 전</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" class="bg-white border-t border-[#e9e9eb] py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i class="fas fa-location-dot w-5 mr-3"></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i class="fas fa-phone w-5 mr-3"></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><i class="fas fa-envelope w-5 mr-3"></i>
+                info@서초지율.com</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/consultation.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료 상담</a></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 사례는 참고용이며, 개별 사건의 결과를 보장하지 않습니다.</p>
+            <p id="iudme1">법무법인 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+

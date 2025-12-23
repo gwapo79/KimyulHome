@@ -1,0 +1,367 @@
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - 법무법인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet">
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      body
+      {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .bg-gradient-hero
+      {
+        background: linear-gradient(135deg, #5e503f 0%, #74634e 100%);
+      }
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body class="bg-white">
+    <!-- Header -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - 법무법인</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet">
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <!-- Logo -->
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a><!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav><!-- Desktop CTA -->
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><!-- Mobile Menu Button --><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              class="fas fa-bars text-xl"></i></button>
+        </div>
+      </div>
+    </header><!-- Registration Section -->
+    <section id="form" class="py-16 lg:py-24 bg-white min-h-screen">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          <!-- Left Content -->
+          <div class="flex-1">
+            <div class="mb-8">
+              <h1 class="text-4xl lg:text-5xl font-bold text-[#181d27] mb-6">
+                3분 만에 시작하세요
+              </h1>
+              <p class="text-xl text-[#535861] mb-8">
+                무료 상담과 맞춤 서비스를 이용해보세요
+              </p>
+            </div><!-- Benefits -->
+            <div class="space-y-6 mb-12">
+              <div class="flex items-start">
+                <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i
+                  class="fas fa-map-marker-alt w-5 mr-3"></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i
+                  class="fas fa-phone w-5 mr-3"></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><svg
+                  aria-hidden="true" focusable="false" data-prefix="fas"
+                  data-icon="envelope" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="" class="fas fa-envelope w-5 mr-3">
+                  <path fill="currentColor"
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z">
+                  </path>
+                </svg>
+                <!-- <i id="iwwcxb" data-gjs-type="default" draggable="true" class="fas fa-envelope w-5 mr-3"></i> Font Awesome fontawesome.com -->
+                info@서초지율.com</div>
+            </div>
+          </div><!-- Quick Links -->
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div><!-- Legal -->
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><span
+                  class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료
+                  상담</span></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 사례는 참고용이며, 개별 사건의 결과를 보장하지 않습니다.</p>
+            <p id="i482cj">서초지율 합동법률사무소 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Form validation and submission
+      document.getElementById('registerForm').addEventListener('submit',
+        function(e)
+        {
+          e.preventDefault();
+
+          // Clear previous errors
+          document.querySelectorAll('.text-red-600').forEach(el => el
+            .classList.add('hidden'));
+
+          let isValid = true;
+          const formData = new FormData(this);
+
+          // Name validation
+          const name = formData.get('name');
+          if (!name || name.length < 2)
+          {
+            document.getElementById('name-error').textContent =
+              '이름을 2자 이상 입력해주세요.';
+            document.getElementById('name-error').classList.remove('hidden');
+            isValid = false;
+          }
+
+          // Phone validation
+          const phone = formData.get('phone');
+          const phoneRegex = /^01[0-9]-?[0-9]{3,4}-?[0-9]{4}$/;
+          if (!phone || !phoneRegex.test(phone.replace(/-/g, '')))
+          {
+            document.getElementById('phone-error').textContent =
+              '올바른 휴대폰 번호를 입력해주세요.';
+            document.getElementById('phone-error').classList.remove('hidden');
+            isValid = false;
+          }
+
+          // Email validation
+          const email = formData.get('email');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email || !emailRegex.test(email))
+          {
+            document.getElementById('email-error').textContent =
+              '올바른 이메일 주소를 입력해주세요.';
+            document.getElementById('email-error').classList.remove('hidden');
+            isValid = false;
+          }
+
+          // Password validation
+          const password = formData.get('password');
+          const passwordRegex =
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
+          if (!password || !passwordRegex.test(password))
+          {
+            document.getElementById('password-error').textContent =
+              '영문, 숫자, 특수문자를 포함하여 8~20자로 입력해주세요.';
+            document.getElementById('password-error').classList.remove(
+              'hidden');
+            isValid = false;
+          }
+
+          // Terms validation
+          const terms = formData.get('terms');
+          const privacy = formData.get('privacy');
+          if (!terms)
+          {
+            document.getElementById('terms-error').textContent =
+              '이용약관에 동의해주세요.';
+            document.getElementById('terms-error').classList.remove('hidden');
+            isValid = false;
+          }
+          if (!privacy)
+          {
+            document.getElementById('privacy-error').textContent =
+              '개인정보처리방침에 동의해주세요.';
+            document.getElementById('privacy-error').classList.remove(
+              'hidden');
+            isValid = false;
+          }
+
+          if (isValid)
+          {
+            // Track registration event
+            if (typeof gtag !== 'undefined')
+            {
+              gtag('event', 'register_submit',
+              {
+                event_category: 'engagement',
+                event_label: 'email_registration'
+              });
+            }
+
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '가입 중...';
+
+            setTimeout(() =>
+            {
+              alert('가입이 완료되었습니다. 이메일 인증을 진행해주세요.');
+              window.location.href = '/email-verify';
+            }, 2000);
+          }
+        });
+
+      // Password toggle
+      document.getElementById('togglePassword').addEventListener('click',
+        function()
+        {
+          const passwordInput = document.getElementById('password');
+          const icon = this.querySelector('i');
+
+          if (passwordInput.type === 'password')
+          {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          }
+          else
+          {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          }
+        });
+
+      // Real-time validation feedback
+      document.getElementById('email').addEventListener('blur', function()
+      {
+        const email = this.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const errorEl = document.getElementById('email-error');
+
+        if (email && !emailRegex.test(email))
+        {
+          errorEl.textContent = '올바른 이메일 형식이 아닙니다.';
+          errorEl.classList.remove('hidden');
+          this.classList.add('border-red-500');
+        }
+        else
+        {
+          errorEl.classList.add('hidden');
+          this.classList.remove('border-red-500');
+        }
+      });
+
+      document.getElementById('password').addEventListener('input', function()
+      {
+        const password = this.value;
+        const passwordRegex =
+          /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
+        const errorEl = document.getElementById('password-error');
+
+        if (password && !passwordRegex.test(password))
+        {
+          this.classList.add('border-red-500');
+        }
+        else if (password)
+        {
+          this.classList.remove('border-red-500');
+          this.classList.add('border-green-500');
+        }
+      });
+
+      // Phone number formatting
+      document.getElementById('phone').addEventListener('input', function()
+      {
+        let value = this.value.replace(/[^0-9]/g, '');
+        if (value.length >= 3 && value.length <= 7)
+        {
+          value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
+        }
+        else if (value.length > 7)
+        {
+          value = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3');
+        }
+        this.value = value;
+      });
+
+      // Track checkbox events
+      document.getElementById('terms').addEventListener('change', function()
+      {
+        if (this.checked && typeof gtag !== 'undefined')
+        {
+          gtag('event', 'tos_check',
+          {
+            event_category: 'engagement',
+            event_label: 'terms_agreement'
+          });
+        }
+      });
+
+      document.getElementById('privacy').addEventListener('change', function()
+      {
+        if (this.checked && typeof gtag !== 'undefined')
+        {
+          gtag('event', 'tos_check',
+          {
+            event_category: 'engagement',
+            event_label: 'privacy_agreement'
+          });
+        }
+      });
+    </script>
+  </body>
+
+</html>
+
+
+
+
+
+
+

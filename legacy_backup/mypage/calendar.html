@@ -1,0 +1,779 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header id="header"
+      class="sticky top-0 z-50 bg-white border-b border-[#e9e9eb]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <a href="../index.html" class="flex items-center"><img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]"></a>
+          <nav class="hidden lg:flex items-center space-x-8"><a href="../index.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">홈</a><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+            <div class="relative group"><button
+                class="text-[#535861] hover:text-[#74634e] transition-colors flex items-center">
+                전문분야
+                <i class="fa-solid fa-chevron-down ml-1 text-xs"></i></button>
+              <div
+                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-[#e9e9eb] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-2"><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">부동산 분쟁</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">채무 조정</a><a href="../services/practice_areas.html" class="block px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] cursor-pointer">개인회생/파산</a>
+                </div>
+              </div>
+            </div><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+          </nav>
+          <div class="hidden lg:flex items-center space-x-4"><a href="../member/login.html" class="px-4 py-2 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">로그인</a><a href="../company/consultation.html" class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium cursor-pointer">무료 상담 신청</a></div><button
+            class="lg:hidden p-2 text-[#535861] hover:text-[#74634e]"><i
+              class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <nav aria-label="Breadcrumb" class="flex mb-8">
+        <ol class="flex items-center space-x-2 text-sm">
+          <li><a href="../mypage/dashboard.html" class="text-[#8a765e] hover:text-[#74634e] cursor-pointer">마이페이지</a>
+          </li>
+          <li><i class="fa-solid fa-chevron-right text-[#d5d6d9] text-xs"></i>
+          </li>
+          <li><span aria-current="page" class="text-[#535861]">일정 관리</span></li>
+        </ol>
+      </nav>
+      <div class="flex flex-col lg:flex-row gap-8">
+        <aside class="lg:w-64 flex-shrink-0">
+          <nav class="bg-white rounded-2xl border border-[#e9e9eb] p-4">
+  <div class="space-y-2">
+    <a href="dashboard.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="house" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-house"><path fill="currentColor" d="..."></path></svg></i>
+      대시보드
+    </a>
+    <a href="my_cases.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="briefcase" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-briefcase"><path fill="currentColor" d="..."></path></svg></i>
+      내 사건
+    </a>
+    <a href="documents.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-file-lines"><path fill="currentColor" d="..."></path></svg></i>
+      문서 관리
+    </a>
+    <a href="calendar.html" class="flex items-center px-4 py-3 rounded-lg bg-[#8a765e] text-white font-medium cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-calendar"><path fill="currentColor" d="..."></path></svg></i>
+      일정 관리
+    </a>
+    <a href="chat.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="comments" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-comments"><path fill="currentColor" d="..."></path></svg></i>
+      상담 채팅
+      <span class="ml-auto bg-[#8a765e] text-white text-xs rounded-full px-2 py-1">2</span>
+    </a>
+    <a href="notifications.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="bell" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-bell"><path fill="currentColor" d="..."></path></svg></i>
+      알림
+      <span class="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1">3</span>
+    </a>
+    <a href="billing.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i data-fa-i2svg="" class="mr-3"><svg aria-hidden="true" data-prefix="fas" data-icon="credit-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" class="svg-inline--fa fa-credit-card"><path fill="currentColor" d="..."></path></svg></i>
+      결제 관리
+    </a>
+    <div class="border-t border-[#e9e9eb] my-4"></div>
+    <a href="profile.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-user mr-3"></i>
+      프로필 설정
+    </a>
+    <a href="security.html" class="flex items-center px-4 py-3 rounded-lg hover:bg-neutral-50 text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">
+      <i class="fas fa-shield-halved mr-3"></i>
+      보안 설정
+    </a>
+  </div>
+</nav>
+        </aside>
+        <div class="flex-1">
+          <section id="views" role="region" aria-label="보기 전환">
+            <div
+              class="bg-white rounded-2xl border border-[#e9e9eb] p-6 lg:p-8 mb-8">
+              <div
+                class="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
+                <div>
+                  <h1
+                    class="text-2xl lg:text-3xl font-bold text-[#181d27] mb-2">
+                    나의 일정</h1>
+                  <p class="text-[#535861] text-lg">법원 일정과 상담 일정을 함께 관리하세요</p>
+                </div>
+                <div class="flex items-center gap-4 mt-4 lg:mt-0"><button
+                    class="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium"><i
+                      class="fa-solid fa-plus mr-2"></i>
+                    새 일정 추가
+                  </button></div>
+              </div>
+              <div class="flex items-center justify-between mb-6">
+                <div role="tablist" aria-label="캘린더 보기 전환"
+                  class="flex items-center space-x-1 bg-neutral-50 rounded-lg p-1">
+                  <button role="tab" aria-selected="true"
+                    aria-controls="calendar-view"
+                    class="px-4 py-2 rounded-md bg-[#8a765e] text-white font-medium transition-colors"><i
+                      class="fa-solid fa-calendar-days mr-2"></i>
+                    월
+                  </button><button role="tab" aria-selected="false"
+                    class="px-4 py-2 rounded-md text-[#535861] hover:bg-white hover:text-[#181d27] transition-colors"><i
+                      class="fa-solid fa-calendar-week mr-2"></i>
+                    주
+                  </button><button role="tab" aria-selected="false"
+                    class="px-4 py-2 rounded-md text-[#535861] hover:bg-white hover:text-[#181d27] transition-colors"><i
+                      class="fa-solid fa-calendar-day mr-2"></i>
+                    일
+                  </button></div>
+                <div class="flex items-center space-x-4">
+                  <div class="flex items-center space-x-4 text-sm">
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                      <span class="text-[#535861]">법원 일정</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                      <span class="text-[#535861]">상담 일정</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-orange-500 rounded-full mr-2">
+                      </div><span class="text-[#535861]">기타 일정</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-2"><button
+                      class="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+                    <div id="current-month"
+                      class="text-lg font-semibold text-[#181d27] min-w-[140px] text-center">
+                      2025년 3월
+                    </div><button
+                      class="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div id="calendar-view" role="grid" aria-label="캘린더"
+                class="calendar-container">
+                <div
+                  class="grid grid-cols-7 gap-px bg-[#e9e9eb] rounded-lg overflow-hidden">
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    일</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    월</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    화</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    수</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    목</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    금</div>
+                  <div role="columnheader"
+                    class="bg-neutral-50 p-3 text-center text-sm font-medium text-[#535861]">
+                    토</div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">24</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">25</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">26</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">27</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">28</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">1</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">2</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">3</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">4</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">5</div>
+                    <div class="mt-1">
+                      <div
+                        class="text-xs bg-green-100 text-green-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-green-200 transition-colors">
+                        상담 10:00
+                      </div>
+                    </div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">6</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">7</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">8</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">9</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">10</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">11</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">12</div>
+                    <div class="mt-1">
+                      <div
+                        class="text-xs bg-blue-100 text-blue-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-blue-200 transition-colors">
+                        법원 14:00
+                      </div>
+                    </div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">13</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">14</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">15</div>
+                    <div class="mt-1 space-y-1">
+                      <div
+                        class="text-xs bg-green-100 text-green-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-green-200 transition-colors">
+                        고객상담 09:00
+                      </div>
+                      <div
+                        class="text-xs bg-orange-100 text-orange-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-orange-200 transition-colors">
+                        팀미팅 16:00
+                      </div>
+                    </div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">16</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">17</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">18</div>
+                    <div class="mt-1">
+                      <div
+                        class="text-xs bg-blue-100 text-blue-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-blue-200 transition-colors">
+                        개인회생 인가 심리
+                      </div>
+                    </div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">19</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">20</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">21</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">22</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">23</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">24</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">25</div>
+                    <div class="mt-1">
+                      <div
+                        class="text-xs bg-green-100 text-green-700 px-1 py-0.5 rounded truncate cursor-pointer hover:bg-green-200 transition-colors">
+                        전화상담 11:00
+                      </div>
+                    </div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">26</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">27</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">28</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">29</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">30</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24">
+                    <div class="text-sm font-medium text-[#181d27]">31</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">1</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">2</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">3</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">4</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">5</div>
+                  </div>
+                  <div role="gridcell" class="bg-white p-2 h-24 text-[#717680]">
+                    <div class="text-sm">6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="upcoming-events" role="region" aria-label="다가오는 일정">
+            <div
+              class="bg-white rounded-2xl border border-[#e9e9eb] p-6 lg:p-8">
+              <h2 class="text-xl font-semibold text-[#181d27] mb-6">다가오는 일정</h2>
+              <div class="space-y-4">
+                <div
+                  class="flex items-center p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] transition-all duration-200 cursor-pointer">
+                  <div
+                    class="w-3 h-3 bg-green-500 rounded-full mr-4 flex-shrink-0">
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="font-medium text-[#181d27]">고객 상담</h3><span
+                        class="text-sm text-[#535861]">3월 5일 (수)</span>
+                    </div>
+                    <div class="text-sm text-[#535861] mb-2">김OO님 - 전세금 반환 상담
+                    </div>
+                    <div class="flex items-center text-xs text-[#717680]"><i
+                        class="fa-solid fa-clock mr-1"></i><span>10:00 -
+                        11:00</span><i
+                        class="fa-solid fa-location-dot ml-4 mr-1"></i><span>상담실
+                        A</span></div>
+                  </div>
+                  <div class="ml-4"><span
+                      class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">상담</span>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] transition-all duration-200 cursor-pointer">
+                  <div
+                    class="w-3 h-3 bg-blue-500 rounded-full mr-4 flex-shrink-0">
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="font-medium text-[#181d27]">법원 출석</h3><span
+                        class="text-sm text-[#535861]">3월 12일 (수)</span>
+                    </div>
+                    <div class="text-sm text-[#535861] mb-2">전세금 반환 사건 - 변론기일
+                    </div>
+                    <div class="flex items-center text-xs text-[#717680]"><i
+                        class="fa-solid fa-clock mr-1"></i><span>14:00</span><i
+                        class="fa-solid fa-location-dot ml-4 mr-1"></i><span>서울중앙지법
+                        402호</span></div>
+                  </div>
+                  <div class="ml-4"><span
+                      class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">법원</span>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] transition-all duration-200 cursor-pointer">
+                  <div
+                    class="w-3 h-3 bg-green-500 rounded-full mr-4 flex-shrink-0">
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="font-medium text-[#181d27]">고객 상담</h3><span
+                        class="text-sm text-[#535861]">3월 15일 (토)</span>
+                    </div>
+                    <div class="text-sm text-[#535861] mb-2">이OO님 - 개인회생 신청 상담
+                    </div>
+                    <div class="flex items-center text-xs text-[#717680]"><i
+                        class="fa-solid fa-clock mr-1"></i><span>09:00 -
+                        10:00</span><i
+                        class="fa-solid fa-video ml-4 mr-1"></i><span>화상
+                        상담</span></div>
+                  </div>
+                  <div class="ml-4"><span
+                      class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">상담</span>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center p-4 border border-[#e9e9eb] rounded-lg hover:border-[#8a765e] transition-all duration-200 cursor-pointer">
+                  <div
+                    class="w-3 h-3 bg-blue-500 rounded-full mr-4 flex-shrink-0">
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between mb-1">
+                      <h3 class="font-medium text-[#181d27]">개인회생 인가 심리</h3>
+                      <span class="text-sm text-[#535861]">3월 18일 (화)</span>
+                    </div>
+                    <div class="text-sm text-[#535861] mb-2">박OO님 개인회생 사건</div>
+                    <div class="flex items-center text-xs text-[#717680]"><i
+                        class="fa-solid fa-clock mr-1"></i><span>11:00</span><i
+                        class="fa-solid fa-location-dot ml-4 mr-1"></i><span>서울회생법원
+                        3층</span></div>
+                  </div>
+                  <div class="ml-4"><span
+                      class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">법원</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6 pt-6 border-t border-[#e9e9eb] text-center">
+                <button
+                  class="px-6 py-2 text-[#8a765e] hover:text-[#74634e] border border-[#8a765e] rounded-lg hover:bg-[#8a765e] hover:text-white transition-colors">
+                  모든 일정 보기
+                </button></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <div id="event-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+      <div
+        class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-6 border-b border-[#e9e9eb]">
+          <div class="flex items-center justify-between">
+            <h2 id="modal-title" class="text-xl font-semibold text-[#181d27]">새
+              일정 추가</h2><button
+              class="p-2 text-[#535861] hover:text-[#181d27] hover:bg-neutral-50 rounded-lg transition-colors"><i
+                class="fa-solid fa-times"></i></button>
+          </div>
+        </div>
+        <form id="event-form" class="p-6 space-y-6">
+          <div><label for="event-title"
+              class="block text-sm font-medium text-[#414651] mb-2">
+              제목 <span class="text-[#8a765e]">*</span></label><input type="text"
+              id="event-title" required="" placeholder="일정 제목을 입력하세요"
+              class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e]">
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div><label for="event-date"
+                class="block text-sm font-medium text-[#414651] mb-2">
+                날짜 <span class="text-[#8a765e]">*</span></label><input
+                type="date" id="event-date" required=""
+                class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e]">
+            </div>
+            <div><label for="event-time"
+                class="block text-sm font-medium text-[#414651] mb-2">
+                시간 <span class="text-[#8a765e]">*</span></label><input
+                type="time" id="event-time" required=""
+                class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e]">
+            </div>
+          </div>
+          <div><label for="event-type"
+              class="block text-sm font-medium text-[#414651] mb-2">일정
+              유형</label><select id="event-type"
+              class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] appearance-none">
+              <option value="consultation">상담</option>
+              <option value="court">법원</option>
+              <option value="meeting">회의</option>
+              <option value="other">기타</option>
+            </select></div>
+          <div><label for="event-location"
+              class="block text-sm font-medium text-[#414651] mb-2">장소</label><input
+              type="text" id="event-location" placeholder="장소 또는 온라인 링크"
+              class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e]">
+          </div>
+          <div><label for="related-case"
+              class="block text-sm font-medium text-[#414651] mb-2">관련
+              사건</label><select id="related-case"
+              class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] appearance-none">
+              <option value="">사건을 선택하세요</option>
+              <option value="case-001">전세금 반환 (#2025-0312-001)</option>
+              <option value="case-002">개인회생 (#2025-0301-002)</option>
+              <option value="case-003">채무조정 (#2025-0220-003)</option>
+            </select></div>
+          <div><label for="event-reminder"
+              class="block text-sm font-medium text-[#414651] mb-2">알림
+              설정</label><select id="event-reminder"
+              class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] appearance-none">
+              <option value="10">10분 전</option>
+              <option value="30" selected="">30분 전</option>
+              <option value="60">1시간 전</option>
+              <option value="1440">1일 전</option>
+              <option value="none">알림 없음</option>
+            </select></div>
+          <div><label for="event-description"
+              class="block text-sm font-medium text-[#414651] mb-2">메모</label><textarea id="event-description" rows="3" placeholder="추가 메모나 설명을 입력하세요" class="w-full px-4 py-3 bg-white border border-[#d5d6d9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] resize-none"></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 pt-4"><button
+              type="button" id="delete-btn"
+              class="hidden px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"><i
+                class="fa-solid fa-trash mr-2"></i>
+              삭제
+            </button><button type="button"
+              class="flex-1 px-6 py-3 bg-white border border-[#d5d6d9] text-[#535861] rounded-lg hover:bg-neutral-50 transition-colors font-medium">
+              취소
+            </button><button type="submit"
+              class="flex-1 px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium"><i
+                class="fa-solid fa-save mr-2"></i>
+              저장
+            </button></div>
+        </form>
+      </div>
+    </div>
+    <footer id="footer" class="bg-white border-t border-[#e9e9eb] py-16 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-6">
+              <img src="../assets/images/logo.jpg" alt="서초지율 합동법률사무소" class="h-[72px]">
+            </div>
+            <p class="text-[#535861] mb-6 max-w-md">
+              부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로
+              고객의 문제를 근본적으로 해결합니다.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center text-[#535861]"><i
+                  class="fa-solid fa-location-dot w-5 mr-3"></i>
+                서울시 강남구 테헤란로 123, 456빌딩 7층
+              </div>
+              <div class="flex items-center text-[#535861]"><i
+                  class="fa-solid fa-phone w-5 mr-3"></i>
+                02-0000-0000
+              </div>
+              <div class="flex items-center text-[#535861]"><svg
+                  aria-hidden="true" focusable="false" data-prefix="fas"
+                  data-icon="envelope" role="img"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="" class="fa-solid fa-envelope w-5 mr-3">
+                  <path fill="currentColor"
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z">
+                  </path>
+                </svg>
+                <!-- <i id="i0rpf6" data-gjs-type="default" draggable="true" class="fa-solid fa-envelope w-5 mr-3"></i> Font Awesome fontawesome.com -->
+                info@서초지율.com</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">빠른 링크</h3>
+            <ul class="space-y-3">
+              <li><a href="../company/about.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">회사소개</a>
+              </li>
+              <li><a href="../services/practice_areas.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">전문분야</a>
+              </li>
+              <li><a href="../services/success_cases.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</a>
+              </li>
+              <li><a href="../services/reviews.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">고객후기</a>
+              </li>
+              <li><a href="../resources/faq.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">FAQ</a>
+              </li>
+              <li><a href="../resources/blog_list.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">블로그</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[#181d27] mb-4">고객지원</h3>
+            <ul class="space-y-3">
+              <li><span
+                  class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">무료
+                  상담</span></li>
+              <li><a href="../mypage/dashboard.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">마이페이지</a>
+              </li>
+              <li><a href="../legal/terms.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">이용약관</a>
+              </li>
+              <li><a href="../legal/privacy.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">개인정보처리방침</a>
+              </li>
+              <li><a href="../legal/cookie.html" class="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">쿠키정책</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-[#e9e9eb] pt-8 flex flex-col lg:flex-row justify-between items-center">
+          <div class="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소.
+            All rights reserved.
+          </div>
+          <div class="text-[#717680] text-sm text-center lg:text-right">
+            <p class="mb-1">본 사이트의 사례는 참고용이며, 개별 사건의 결과를 보장하지 않습니다.</p>
+            <p id="in345q">서초지율 합동법률사무소 등록번호: 123-45-67890</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function openEventModal(eventData = null)
+      {
+        const modal = document.getElementById('event-modal');
+        const title = document.getElementById('modal-title');
+        const deleteBtn = document.getElementById('delete-btn');
+
+        if (eventData)
+        {
+          title.textContent = '일정 수정';
+          deleteBtn.classList.remove('hidden');
+
+        }
+        else
+        {
+          title.textContent = '새 일정 추가';
+          deleteBtn.classList.add('hidden');
+          document.getElementById('event-form').reset();
+        }
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeEventModal()
+      {
+        const modal = document.getElementById('event-modal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+
+      function openEventDetails(eventId)
+      {
+
+        const eventData = {
+          'consultation-1':
+          {
+            title: '고객 상담',
+            date: '2025-03-05',
+            time: '10:00',
+            type: 'consultation',
+            location: '상담실 A',
+            description: '김OO님 - 전세금 반환 상담'
+          },
+          'court-1':
+          {
+            title: '법원 출석',
+            date: '2025-03-12',
+            time: '14:00',
+            type: 'court',
+            location: '서울중앙지법 402호',
+            description: '전세금 반환 사건 - 변론기일'
+          }
+        };
+
+        const data = eventData[eventId];
+        if (data)
+        {
+
+          document.getElementById('event-title').value = data.title;
+          document.getElementById('event-date').value = data.date;
+          document.getElementById('event-time').value = data.time;
+          document.getElementById('event-type').value = data.type;
+          document.getElementById('event-location').value = data.location;
+          document.getElementById('event-description').value = data.description;
+
+          openEventModal(data);
+        }
+      }
+
+      function switchView(view)
+      {
+
+        const buttons = document.querySelectorAll('[role="tab"]');
+        buttons.forEach(btn =>
+        {
+          btn.classList.remove('bg-[#8a765e]', 'text-white');
+          btn.classList.add('text-[#535861]');
+          btn.setAttribute('aria-selected', 'false');
+        });
+
+
+        event.target.classList.add('bg-[#8a765e]', 'text-white');
+        event.target.classList.remove('text-[#535861]');
+        event.target.setAttribute('aria-selected', 'true');
+
+        console.log('Switched to', view, 'view');
+      }
+
+      function previousMonth()
+      {
+
+        console.log('Previous month');
+      }
+
+      function nextMonth()
+      {
+
+        console.log('Next month');
+      }
+
+
+      document.getElementById('event-form').addEventListener('submit', function(
+        e)
+      {
+        e.preventDefault();
+
+
+        const formData = {
+          title: document.getElementById('event-title').value,
+          date: document.getElementById('event-date').value,
+          time: document.getElementById('event-time').value,
+          type: document.getElementById('event-type').value,
+          location: document.getElementById('event-location').value,
+          case: document.getElementById('related-case').value,
+          reminder: document.getElementById('event-reminder').value,
+          description: document.getElementById('event-description').value
+        };
+
+        console.log('Event saved:', formData);
+
+
+        closeEventModal();
+
+
+        alert('일정이 저장되었습니다.');
+      });
+
+
+      document.addEventListener('keydown', function(e)
+      {
+        if (e.key === 'Escape')
+        {
+          const modal = document.getElementById('event-modal');
+          if (!modal.classList.contains('hidden'))
+          {
+            closeEventModal();
+          }
+        }
+      });
+
+
+      document.getElementById('event-modal').addEventListener('click', function(
+        e)
+      {
+        if (e.target === this)
+        {
+          closeEventModal();
+        }
+      });
+    </script>
+  </body>
+
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+</head>
+
+<body>
+    <h1>Supabase Connection Test</h1>
+    <div id="status">Testing connection...</div>
+    <div id="output"></div>
+
+    <script>
+        async function testConnection() {
+            const statusDiv = document.getElementById('status');
+            const outputDiv = document.getElementById('output');
+
+            if (!window.supabaseClient) {
+                statusDiv.textContent = '❌ Supabase client not initialized.';
+                statusDiv.style.color = 'red';
+                return;
+            }
+
+            try {
+                // Determine connection status by trying to get the session
+                // This doesn't require any specific table to exist
+                const { data, error } = await window.supabaseClient.auth.getSession();
+
+                if (error) {
+                    throw error;
+                }
+
+                statusDiv.textContent = '✅ Connection Successful!';
+                statusDiv.style.color = 'green';
+                outputDiv.textContent = 'Session check complete. Supabase URL and Key are valid.';
+
+            } catch (err) {
+                statusDiv.textContent = '❌ Connection Failed';
+                statusDiv.style.color = 'red';
+                outputDiv.textContent = 'Error: ' + err.message;
+                console.error(err);
+            }
+        }
+
+        // Run test on load
+        window.addEventListener('load', testConnection);
+    </script>
+</body>
+
+</html>
