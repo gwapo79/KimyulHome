@@ -36,13 +36,8 @@ export default function BillingPage() {
         init();
     }, []);
 
-    if (loading) {
-        return (
-            <div className="flex h-screen items-center justify-center">
-                <Loader2 className="w-10 h-10 text-[#8a765e] animate-spin" />
-            </div>
-        );
-    }
+    // LOADING STATE REMOVED: Always render component layout, even if data is loading in background.
+    // if (loading) { return ... } -> Removed to prevent stuck loading screen.
 
     return (
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
