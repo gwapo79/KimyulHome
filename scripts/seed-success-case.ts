@@ -6,11 +6,15 @@ dotenv.config();
 // Remove static import
 // import { prisma } from '../lib/prisma';
 
+
+let prisma: any;
+
 async function main() {
     console.log('Seeding Success Case...');
 
     // Dynamic import to ensure env vars are loaded first
-    const { prisma } = await import('../lib/prisma');
+    const { prisma: p } = await import('../lib/prisma');
+    prisma = p;
 
     console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
     console.log('DIRECT_URL exists:', !!process.env.DIRECT_URL);
@@ -68,5 +72,5 @@ main()
         process.exit(1);
     })
     .finally(async () => {
-        await prisma.$disconnect();
+        if (prisma) await prisma.$disconnect();
     });

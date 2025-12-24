@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import HeroConsultationForm from './components/home/HeroConsultationForm';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -58,40 +59,7 @@ export default function Home() {
                       <p className="text-sm text-[#535861]">평균 응답시간 30분 이내</p>
                     </div>
                   </div>
-                  <form className="space-y-4" action="/company/consultation">
-                    <div>
-                      <label className="block text-sm font-medium text-[#414651] mb-1">성함</label>
-                      <input
-                        type="text"
-                        placeholder="성함을 입력해주세요"
-                        className="w-full px-4 py-3 rounded-lg border border-[#d5d6d9] focus:border-[#8a765e] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-[#414651] mb-1">연락처</label>
-                      <input
-                        type="tel"
-                        placeholder="010-0000-0000"
-                        className="w-full px-4 py-3 rounded-lg border border-[#d5d6d9] focus:border-[#8a765e] focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-[#414651] mb-1">상담 분야</label>
-                      <select className="w-full px-4 py-3 rounded-lg border border-[#d5d6d9] focus:border-[#8a765e] focus:outline-none">
-                        <option>전세사기</option>
-                        <option>경매</option>
-                        <option>채무조정</option>
-                        <option>개인회생</option>
-                        <option>기타</option>
-                      </select>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full px-6 py-3 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors"
-                    >
-                      무료 상담 신청
-                    </button>
-                  </form>
+                  <HeroConsultationForm />
                 </div>
               </div>
             </div>
@@ -474,7 +442,7 @@ export default function Home() {
             </Link>
             <span className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors cursor-pointer text-center flex items-center justify-center">
               <i className="fas fa-phone mr-2"></i>
-              02-0000-0000
+              02-6080-3377
             </span>
           </div>
           <p className="text-sm text-[#e5ceb4] mt-6">

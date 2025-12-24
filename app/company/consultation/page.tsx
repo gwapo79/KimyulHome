@@ -1,5 +1,7 @@
 
 import Link from "next/link";
+import ConsultationForm from "./ConsultationForm";
+import KakaoMap from "@/app/components/map/KakaoMap";
 
 export default function ConsultationPage() {
     return (
@@ -119,48 +121,7 @@ export default function ConsultationPage() {
                 </div>
             </section>
             <section id="form" className="py-16 lg:py-20 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-[#181d27] mb-4">상담
-                            신청서</h2>
-                        <p className="text-xl text-[#535861]">
-                            간단한 정보만 입력하시면 전문가가 빠르게 연락드리겠습니다
-                        </p>
-                    </div>
-                    <div className="max-w-2xl mx-auto">
-                        <form id="counselForm" noValidate className="space-y-6">
-                            {/* Form fields can be added here as per the original HTML if needed, but original used JS to generate/insert form content or handled it separately? 
-                  Ah, the original HTML has <form id="counselForm" ...></form> empty! 
-                  It seems it might have been dynamically populated or just empty in the provided file.
-                  Wait, looking at about.html, it had a full form. 
-                  In consultation.html line 335, <form id="counselForm" novalidate="" class="space-y-6"></form>. 
-                  It is indeed empty in the source I read. 
-                  However, I should probably provide a basic form structure similar to about.html if it's missing, or maybe the user intends to add it later?
-                  Actually, about.html has a form at line 325-354.
-                  consultation.html seems to rely on JS or it was omitted. 
-                  I will add a basic form structure similar to the one in about.html for better UX.
-              */}
-                            <div><label htmlFor="name" className="block text-sm font-medium text-brand-text-primary mb-1">이름
-                                <span className="text-red-500">*</span></label><input type="text" placeholder="이름을 입력해주세요" className="w-full px-4 py-3 rounded-lg border border-brand-gray-dark focus:border-brand-brown focus:ring-brand-brown focus:ring-opacity-50" />
-                            </div>
-                            <div><label htmlFor="phone" className="block text-sm font-medium text-brand-text-primary mb-1">연락처
-                                <span className="text-red-500">*</span></label><input type="tel" id="phone" name="phone" placeholder="예: 010-1234-5678" className="w-full px-4 py-3 rounded-lg border border-brand-gray-dark focus:border-brand-brown focus:ring-brand-brown focus:ring-opacity-50" />
-                            </div>
-                            <div><label htmlFor="message" className="block text-sm font-medium text-brand-text-primary mb-1">상담
-                                내용 <span className="text-red-500">*</span></label><textarea id="message" name="message" rows={5} placeholder="부동산·채무·회생 등 상담이 필요한 내용을 적어주세요." className="w-full px-4 py-3 rounded-lg border border-brand-gray-dark focus:border-brand-brown focus:ring-brand-brown focus:ring-opacity-50"></textarea>
-                            </div>
-                            <div className="flex items-start"><input id="privacy-agreement" name="privacy-agreement" type="checkbox" className="h-4 w-4 text-brand-brown border-brand-gray-dark rounded focus:ring-brand-brown mt-0.5" /><label htmlFor="privacy-agreement" className="ml-3 block text-sm text-brand-text-secondary">
-                                본인은 입력한 개인정보가 상담 목적에 한해 수집·이용되는 것에 동의합니다.
-                            </label></div>
-                            <div><button type="submit" className="w-full px-6 py-4 bg-brand-brown text-white rounded-lg font-semibold hover:bg-brand-brown-dark transition-colors">
-                                무료 상담 신청하기
-                            </button></div>
-                        </form>
-                        <div id="successMessage" role="alert" aria-live="polite" className="hidden mt-8 p-6 bg-[#f0fdf4] border border-[#bbf7d0] rounded-lg">
-                            {/* Success message structure */}
-                        </div>
-                    </div>
-                </div>
+                <ConsultationForm />
             </section>
             <section id="contact" className="py-16 lg:py-20 bg-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -241,8 +202,8 @@ export default function ConsultationPage() {
                                         대면 상담을 원하시는 경우 미리 예약 후 방문해주세요.
                                     </p>
                                     <address className="text-sm text-[#717680] not-italic">
-                                        서울시 강남구 테헤란로 123<br />
-                                        456빌딩 7층 (역삼역 2번 출구 도보 3분)
+                                        서울시 서초구 서초중앙로24길 3 4층<br />
+                                        (교대역, 서초법조타운 인근)
                                     </address>
                                 </div><button className="w-full px-6 py-3 bg-[#dc2626] text-white rounded-lg font-semibold hover:bg-[#b91c1c] transition-colors"><i className="fas fa-diamond-turn-right mr-2"></i>
                                     오시는 길 보기
@@ -251,31 +212,19 @@ export default function ConsultationPage() {
                         </div>
                         <div className="bg-white rounded-2xl p-2 shadow-sm">
                             <div className="w-full h-96 bg-neutral-100 rounded-xl relative overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="text-center"><i className="fas fa-map-location-dot text-[#8a765e] text-4xl mb-4"></i>
-                                        <h4 className="text-lg font-semibold text-[#181d27] mb-2">법무법인
-                                            위치</h4>
-                                        <p className="text-[#535861] text-sm mb-4">서울시 강남구 테헤란로 123,
-                                            456빌딩 7층</p><button className="px-4 py-2 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors">
-                                            지도에서 보기
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="absolute top-4 left-4 bg-white rounded-lg shadow-md p-2 text-xs text-[#717680]">
-                                    * 실제 서비스에서는 네이버/카카오맵 연동
-                                </div>
+                                <KakaoMap />
                             </div>
                             <div className="p-4">
                                 <h4 className="font-semibold text-[#181d27] mb-2">교통편 안내</h4>
                                 <div className="space-y-2 text-sm text-[#535861]">
                                     <div className="flex items-center"><i className="fas fa-train-subway text-[#8a765e] w-4 mr-2"></i>
-                                        지하철 2호선 역삼역 2번 출구 도보 3분
+                                        지하철 2호선/3호선 교대역 도보 5분
                                     </div>
                                     <div className="flex items-center"><i className="fas fa-bus text-[#8a765e] w-4 mr-2"></i>
-                                        간선버스 146, 740, 750 역삼역 정류장
+                                        서초법조타운 정류장 하차
                                     </div>
                                     <div className="flex items-center"><i className="fas fa-car text-[#8a765e] w-4 mr-2"></i>
-                                        건물 지하 주차장 이용 가능 (2시간 무료)
+                                        건물 1층 주차장 이용 가능
                                     </div>
                                 </div>
                             </div>
@@ -283,6 +232,6 @@ export default function ConsultationPage() {
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     );
 }

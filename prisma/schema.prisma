@@ -44,6 +44,48 @@ model SuccessCase {
   background  String?  // "사건 배경" content
   strategy    String?  // "어떻게 해결했나요?" content (can be JSON or text)
   outcomes    String?  // "상세 성과" list (can be JSON)
+  imageUrl    String?  // List card image URL
+  detailImageUrl String? // Detail page banner image URL
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  author    String   // e.g., "김현"
+  rating    Int      // 1-5
+  content   String   // Review text
+  category  String   // e.g., "부동산법률"
+  createdAt DateTime @default(now())
+}
+
+model FAQ {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String
+  category  String   // "부동산", "채무/금융", "개인회생", "비용/절차"
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id           String   @id @default(uuid())
+  title        String
+  content      String   @db.Text
+  excerpt      String   @db.Text
+  category     String
+  thumbnailUrl String
+  author       String
+  viewCount    Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model Consultation {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  category  String
+  content   String
+  status    String   @default("접수") // 접수, 진행중, 완료
+  createdAt DateTime @default(now())
 }

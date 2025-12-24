@@ -15,9 +15,9 @@ export default function Footer() {
                             부동산 분쟁부터 채무 조정까지, 법률과 금융의 통합 전문성으로 고객의 문제를 근본적으로 해결합니다.
                         </p>
                         <div className="space-y-2">
-                            <div className="flex items-center text-[#535861]"><i className="fas fa-location-dot w-5 mr-3"></i> 서울시 강남구 테헤란로 123, 456빌딩 7층</div>
-                            <div className="flex items-center text-[#535861]"><i className="fas fa-phone w-5 mr-3"></i> 02-0000-0000</div>
-                            <div className="flex items-center text-[#535861]"><i className="fas fa-envelope w-5 mr-3"></i> info@서초지율.com</div>
+                            <div className="flex items-center text-[#535861]"><i className="fas fa-location-dot w-5 mr-3"></i> 서울시 서초구 서초중앙로24길 3 4층</div>
+                            <div className="flex items-center text-[#535861]"><i className="fas fa-phone w-5 mr-3"></i> 02-6080-3377</div>
+                            <div className="flex items-center text-[#535861]"><i className="fas fa-envelope w-5 mr-3"></i> sjlaw14@naver.com</div>
                         </div>
                     </div>
                     <div>

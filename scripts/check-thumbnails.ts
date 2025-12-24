@@ -1,0 +1,1 @@
+import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); async function main() { const count = await prisma.blogPost.count({ where: { thumbnailUrl: '' } }); console.log('Posts with empty thumbnail:', count); const samples = await prisma.blogPost.findMany({ take: 5 }); console.log('Sample thumbnails:', samples.map(s => s.thumbnailUrl)); } main();

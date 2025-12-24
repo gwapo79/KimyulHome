@@ -1,0 +1,6 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#fbcfe8" />
+  <circle cx="640" cy="300" r="80" fill="#ce2c75" />
+  <text x="50%" y="55%" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#831843" text-anchor="middle" dy=".3em">최신 판례 분석</text>
+  <text x="50%" y="70%" font-family="Arial, sans-serif" font-size="32" fill="#9d174d" text-anchor="middle">Legal Precedents</text>
+</svg>

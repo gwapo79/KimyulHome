@@ -188,9 +188,9 @@ export default function PrivacyPage() {
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">직책</span>:
                                                         대표변호사</li>
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">연락처</span>:
-                                                        02-0000-0000</li>
+                                                        02-6080-3377</li>
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">이메일</span>:
-                                                        privacy@서초지율.com</li>
+                                                        sjlaw14@naver.com</li>
                                                 </ul>
                                             </div>
                                             <div>
@@ -201,9 +201,9 @@ export default function PrivacyPage() {
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">담당자</span>:
                                                         김철수 팀장</li>
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">연락처</span>:
-                                                        02-0000-0000</li>
+                                                        02-6080-3377</li>
                                                     <li><span className="font-semibold text-[#74634e] w-20 inline-block">이메일</span>:
-                                                        admin@서초지율.com</li>
+                                                        sjlaw14@naver.com</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -229,9 +229,9 @@ export default function PrivacyPage() {
                     <p className="text-xl text-[#e5ceb4] mb-8 max-w-2xl mx-auto">
                         개인정보 처리에 관해 궁금한 점이 있으시면 언제든 문의주세요
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center"><a href="mailto:privacy@서초지율.com" className="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center"><a href="mailto:sjlaw14@naver.com" className="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
                         <i className="fas fa-envelope mr-2"></i> 이메일 문의
-                    </a><a href="tel:02-0000-0000" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors"><i className="fas fa-phone mr-2"></i>
+                    </a><a href="tel:02-6080-3377" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors"><i className="fas fa-phone mr-2"></i>
                             전화 문의
                         </a></div>
                 </div>
