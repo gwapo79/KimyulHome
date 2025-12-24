@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Badge } from "@/components/ui/badge"; // Assuming we might utilize shadcn later, but hardcoding styles for now to be safe/fast
+// import { Badge } from "@/components/ui/badge"; // Removed unused import causing build error
 import { cn } from "@/lib/utils";
 import { BillingHistoryItem } from "@/app/actions/billing";
 import { Download, FileText } from 'lucide-react';
