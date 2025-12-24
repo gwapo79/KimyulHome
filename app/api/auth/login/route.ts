@@ -20,8 +20,7 @@ export async function POST(request: Request) {
         if (!user || !user.password) {
             return NextResponse.json(
                 {
-                    error: `User not found or no password. DB_URL: ${process.env.DATABASE_URL}`,
-                    debug_email: email
+                    error: '아이디 또는 비밀번호가 일치하지 않습니다.',
                 },
                 { status: 401 }
             );
@@ -32,8 +31,7 @@ export async function POST(request: Request) {
         if (!isValid) {
             return NextResponse.json(
                 {
-                    error: 'Invalid password. Hash mismatch.',
-                    debug_stored_hash_prefix: user.password.substring(0, 7)
+                    error: '아이디 또는 비밀번호가 일치하지 않습니다.',
                 },
                 { status: 401 }
             );

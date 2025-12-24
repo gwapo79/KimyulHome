@@ -16,6 +16,17 @@ export default function LoginPage() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+        if (password.length < 1) {
+            setError("비밀번호를 입력해주세요.");
+            return;
+        }
+        // Minimal logic check before network request
+        if (password.length < 4) {
+            setError("비밀번호가 너무 짧습니다.");
+            return;
+        }
+
+        setError("");
         setLoading(true);
 
         try {

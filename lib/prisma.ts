@@ -8,5 +8,6 @@ export const prisma =
     new PrismaClient({
         log: ['query'],
     });
+console.log('Prisma Client Initialized');
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;

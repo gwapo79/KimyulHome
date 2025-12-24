@@ -28,7 +28,74 @@ model User {
   kakaoId   String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  cases     Case[]
+  documents Document[]
+  events    CalendarEvent[]
+  chatRooms ChatRoom[]
+  notificationSetting NotificationSetting?
+  billingHistory BillingHistory[]
 }
+
+model NotificationSetting {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  caseUpdateEmail Boolean  @default(true)
+  caseUpdateSms   Boolean  @default(true)
+  scheduleReminder Boolean @default(true)
+  marketingAgree  Boolean  @default(false)
+  updatedAt       DateTime @updatedAt
+}
+
+model BillingHistory {
+  id            String    @id @default(uuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemName      String
+  amount        Int
+  status        String    // PAID, UNPAID, PENDING
+  paymentMethod String
+  paidAt        DateTime?
+  receiptUrl    String?
+  createdAt     DateTime  @default(now())
+}
+
+model Case {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  title       String
+  description String?  @db.Text
+  status      String   // e.g., "서류 보완 요청", "개시결정"
+  statusColor String   // e.g., "warning", "success", "info" or hex code
+  caseNumber  String?  // e.g., "2024개회12345"
+  courtName   String?  // e.g., "서울중앙지방법원"
+  judgeInfo   String?  // e.g., "제3민사부 (가) 김판사"
+  opponentName String? // e.g., "홍길동"
+  lawyerInCharge String? // e.g., "박변호사"
+  claimAmount BigInt?
+  contractDate DateTime?
+  caseDescriptionLong String? @db.Text
+  timelineJson Json?    // JSONB for timeline events
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  documents   Document[]
+}
+
+model Document {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  caseId    String?
+  case      Case?    @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  fileName  String
+  fileSize  String   // readable string like "2.1 MB"
+  fileType  String   // e.g., "pdf", "jpg"
+  category  String?  // e.g., "계약서", "증거자료"
+  url       String   // relative or absolute URL
+  createdAt DateTime @default(now())
+}
+
 
 model SuccessCase {
   id          String   @id @default(uuid())
@@ -87,5 +154,41 @@ model Consultation {
   category  String
   content   String
   status    String   @default("접수") // 접수, 진행중, 완료
+  createdAt DateTime @default(now())
+}
+
+model CalendarEvent {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  description String?  @db.Text
+  startTime   DateTime
+  endTime     DateTime
+  category    String   // e.g., "법원 기일", "고객 상담", "개인 일정"
+  color       String   // e.g., "#3b82f6" (blue), "#22c55e" (green)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ChatRoom {
+  id        String        @id @default(uuid())
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lawyerId  String?       // ID of the lawyer (nullable for now if no lawyer system yet)
+  title     String        // e.g. "전세금 반환 관련 상담"
+  status    String        @default("active") // active, closed
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  messages  ChatMessage[]
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  roomId    String
+  room      ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  senderId  String   // userId or lawyerId
+  content   String   @db.Text
+  isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
 }

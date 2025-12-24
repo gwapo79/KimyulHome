@@ -24,10 +24,37 @@ export default function SignupPage() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+
+        if (name === "password") {
+            validatePassword(value);
+        }
+    };
+
+    const validatePassword = (pwd: string) => {
+        const hasLength = pwd.length >= 8;
+        const hasNumber = /[0-9]/.test(pwd);
+        const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pwd);
+        const hasLetter = /[a-zA-Z]/.test(pwd);
+
+        if (!hasLength) {
+            setError("비밀번호는 최소 8자 이상이어야 합니다.");
+            return false;
+        }
+        if (!hasNumber || !hasSpecial || !hasLetter) {
+            setError("비밀번호는 영문, 숫자, 특수문자를 모두 포함해야 합니다.");
+            return false;
+        }
+        setError("");
+        return true;
     };
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!validatePassword(formData.password)) {
+            return;
+        }
+
         setLoading(true);
         setError("");
 
