@@ -20,7 +20,7 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
     // In Next.js 15+, searchParams is a Promise. We must await it.
     const { category, page, keyword, sort } = await searchParams;
     const currentPage = Number(page) || 1;
-    const itemsPerPage = 10;
+    const itemsPerPage = 12;
     const currentSort = sort || 'latest';
 
     // Build Prisma 'where' clause
@@ -87,7 +87,7 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
                         {/* Interactive Search and Filter Component */}
                         <SearchAndFilter />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {cases.length === 0 ? (
                             <div className="col-span-3 text-center py-20 flex flex-col items-center justify-center">
                                 <div className="mb-6 text-6xl text-[#cfd2d6]">

@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "982c2437-c357-43ef-9ca1-725899039556",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 1차 related scene, featuring lawyer office desk with piles of paper. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_982c2437-c357-43ef-9ca1-725899039556.png"
+  },
+  {
+    "id": "ee4af16f-ff88-4044-8393-06fe634db84c",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 4차 related scene, featuring blurry view of a korean court hallway. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_ee4af16f-ff88-4044-8393-06fe634db84c.png"
+  },
+  {
+    "id": "2063eac3-4541-4df6-8afa-cfc6aa7f4aac",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 6차 related scene, featuring close up of a stamp on a legal document. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_2063eac3-4541-4df6-8afa-cfc6aa7f4aac.png"
+  },
+  {
+    "id": "6a532f2b-b464-4e89-a943-35e8fb569b8b",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 7차 related scene, featuring meeting room with glass walls. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_6a532f2b-b464-4e89-a943-35e8fb569b8b.png"
+  },
+  {
+    "id": "b6b1abbd-eea7-4651-af71-a68c1d14c115",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 8차 related scene, featuring bookshelf filled with law books. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_b6b1abbd-eea7-4651-af71-a68c1d14c115.png"
+  },
+  {
+    "id": "c117656e-d8cc-44fe-8c45-eef712a0f94d",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 9차 related scene, featuring modern extensive office window view of seoul. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c117656e-d8cc-44fe-8c45-eef712a0f94d.png"
+  },
+  {
+    "id": "38e079b8-2c2c-4625-bd29-a9c2433d8d04",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 10차 related scene, featuring hand holding a pen signing a paper. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_38e079b8-2c2c-4625-bd29-a9c2433d8d04.png"
+  },
+  {
+    "id": "82e753ed-769f-486a-ad8e-187f5f64cb10",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 11차 related scene, featuring detail of a judges gavel on a desk. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_82e753ed-769f-486a-ad8e-187f5f64cb10.png"
+  },
+  {
+    "id": "d4b9da55-55e6-4f7e-b418-d0d30f8db8be",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 3차 related scene, featuring waiting area in a law firm. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_d4b9da55-55e6-4f7e-b418-d0d30f8db8be.png"
+  },
+  {
+    "id": "7f625219-dd32-4fc9-94b8-083b45a67cd7",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 5차 related scene, featuring stack of files on a wooden table. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_7f625219-dd32-4fc9-94b8-083b45a67cd7.png"
+  },
+  {
+    "id": "9b5d67ea-57df-4f6f-8810-34e178abad93",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 14차 related scene, featuring lawyer office desk with piles of paper. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_9b5d67ea-57df-4f6f-8810-34e178abad93.png"
+  },
+  {
+    "id": "9d90dcf9-93b3-4ffe-95c1-615b285928e6",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 16차 related scene, featuring blurry view of a korean court hallway. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_9d90dcf9-93b3-4ffe-95c1-615b285928e6.png"
+  },
+  {
+    "id": "67f2ef3e-8d55-4336-9a1e-52c322556597",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 17차 related scene, featuring close up of a stamp on a legal document. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_67f2ef3e-8d55-4336-9a1e-52c322556597.png"
+  },
+  {
+    "id": "c5363519-0fd2-4e8a-b4c2-fd2a26b4f324",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 18차 related scene, featuring meeting room with glass walls. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c5363519-0fd2-4e8a-b4c2-fd2a26b4f324.png"
+  },
+  {
+    "id": "f9de6013-a23f-4b3c-ae55-f543fac917a9",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 19차 related scene, featuring bookshelf filled with law books. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_f9de6013-a23f-4b3c-ae55-f543fac917a9.png"
+  },
+  {
+    "id": "35f050c0-aa71-480a-a213-c5052fffd8d4",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 20차 related scene, featuring modern extensive office window view of seoul. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_35f050c0-aa71-480a-a213-c5052fffd8d4.png"
+  },
+  {
+    "id": "97a4650a-d996-488b-a3ec-2fb9baf2871b",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 1번 related scene, featuring hand holding a pen signing a paper. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_97a4650a-d996-488b-a3ec-2fb9baf2871b.png"
+  },
+  {
+    "id": "5abcd1b3-9eef-4f3e-8fe0-a67f6bcf455c",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 13차 related scene, featuring detail of a judges gavel on a desk. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_5abcd1b3-9eef-4f3e-8fe0-a67f6bcf455c.png"
+  },
+  {
+    "id": "0cd1d69b-29c1-4a47-9144-876d83d436f7",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 15차 related scene, featuring waiting area in a law firm. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_0cd1d69b-29c1-4a47-9144-876d83d436f7.png"
+  },
+  {
+    "id": "670b888d-23d2-42e0-9e27-5eab54d2f432",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 5번 related scene, featuring stack of files on a wooden table. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_670b888d-23d2-42e0-9e27-5eab54d2f432.png"
+  },
+  {
+    "id": "a06c87bf-f9fe-4879-96fa-b55deb67e7dc",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 6번 related scene, featuring lawyer office desk with piles of paper. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_a06c87bf-f9fe-4879-96fa-b55deb67e7dc.png"
+  },
+  {
+    "id": "5efe4b37-977d-4f0f-8491-be78244aad52",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 7번 related scene, featuring blurry view of a korean court hallway. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_5efe4b37-977d-4f0f-8491-be78244aad52.png"
+  },
+  {
+    "id": "ffcf068c-aafd-4d25-87bf-19d05db616a8",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 8번 related scene, featuring close up of a stamp on a legal document. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_ffcf068c-aafd-4d25-87bf-19d05db616a8.png"
+  },
+  {
+    "id": "b1f5668b-b396-45a6-83df-4cf6ae922578",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 9번 related scene, featuring meeting room with glass walls. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_b1f5668b-b396-45a6-83df-4cf6ae922578.png"
+  },
+  {
+    "id": "06bfdbd4-d1ab-4869-ac4a-b7488e0075d1",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 10번 related scene, featuring bookshelf filled with law books. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_06bfdbd4-d1ab-4869-ac4a-b7488e0075d1.png"
+  },
+  {
+    "id": "4ede08bb-85e4-43d3-97a2-e926c4a161ad",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 11번 related scene, featuring modern extensive office window view of seoul. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_4ede08bb-85e4-43d3-97a2-e926c4a161ad.png"
+  },
+  {
+    "id": "c48cf25e-a4a1-449b-93c7-1deffc766991",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 3번 related scene, featuring hand holding a pen signing a paper. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c48cf25e-a4a1-449b-93c7-1deffc766991.png"
+  },
+  {
+    "id": "71765d33-1444-44d6-aa08-8dbf37f2e4a4",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 4번 related scene, featuring detail of a judges gavel on a desk. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_71765d33-1444-44d6-aa08-8dbf37f2e4a4.png"
+  },
+  {
+    "id": "fa7fff44-571a-4bf1-9534-fcfd82a554e2",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 14번 related scene, featuring waiting area in a law firm. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_fa7fff44-571a-4bf1-9534-fcfd82a554e2.png"
+  },
+  {
+    "id": "cb973798-c3d9-44be-bc3e-f6ef7dc6c0db",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 15번 related scene, featuring stack of files on a wooden table. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_cb973798-c3d9-44be-bc3e-f6ef7dc6c0db.png"
+  },
+  {
+    "id": "c95400bf-b23e-442e-96b9-bc5df1d7f87e",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 1례 related scene, featuring lawyer office desk with piles of paper. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c95400bf-b23e-442e-96b9-bc5df1d7f87e.png"
+  },
+  {
+    "id": "d44cc6a2-83f5-4511-8078-701a2b2d984d",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 2례 related scene, featuring blurry view of a korean court hallway. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_d44cc6a2-83f5-4511-8078-701a2b2d984d.png"
+  },
+  {
+    "id": "308e8e76-7883-4b50-b1e7-7addd3ee9373",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 3례 related scene, featuring close up of a stamp on a legal document. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_308e8e76-7883-4b50-b1e7-7addd3ee9373.png"
+  },
+  {
+    "id": "f55732a7-dee2-473b-afe9-2ea59fb6262c",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 4례 related scene, featuring meeting room with glass walls. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_f55732a7-dee2-473b-afe9-2ea59fb6262c.png"
+  },
+  {
+    "id": "66c3e1ef-52f9-4406-9f9c-b79d6b01eb21",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 5례 related scene, featuring bookshelf filled with law books. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_66c3e1ef-52f9-4406-9f9c-b79d6b01eb21.png"
+  },
+  {
+    "id": "84c94b40-6abe-4a34-be60-3370eb4a29b8",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 6례 related scene, featuring modern extensive office window view of seoul. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_84c94b40-6abe-4a34-be60-3370eb4a29b8.png"
+  },
+  {
+    "id": "0b37c6a5-cbfc-42c6-b967-7978d3dbe1fd",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 13번 related scene, featuring hand holding a pen signing a paper. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_0b37c6a5-cbfc-42c6-b967-7978d3dbe1fd.png"
+  },
+  {
+    "id": "0cd7828b-5113-45a8-94b2-dfac7ed3d69f",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 9례 related scene, featuring detail of a judges gavel on a desk. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_0cd7828b-5113-45a8-94b2-dfac7ed3d69f.png"
+  },
+  {
+    "id": "857d3a68-7dec-46b2-8c16-15b74a886c92",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 10례 related scene, featuring waiting area in a law firm. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_857d3a68-7dec-46b2-8c16-15b74a886c92.png"
+  },
+  {
+    "id": "9e6ff7b4-d832-45d3-9f2c-2a37f309eb99",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 1건 related scene, featuring stack of files on a wooden table. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_9e6ff7b4-d832-45d3-9f2c-2a37f309eb99.png"
+  },
+  {
+    "id": "5eeaac85-2518-45c8-ba23-77e4fcb19462",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 2건 related scene, featuring lawyer office desk with piles of paper. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_5eeaac85-2518-45c8-ba23-77e4fcb19462.png"
+  },
+  {
+    "id": "86f31862-ed6f-4a87-9780-000d7d949a22",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 3건 related scene, featuring blurry view of a korean court hallway. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_86f31862-ed6f-4a87-9780-000d7d949a22.png"
+  },
+  {
+    "id": "a141b3ff-bbd3-4b80-8dc5-288ed63ffa08",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 4건 related scene, featuring close up of a stamp on a legal document. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_a141b3ff-bbd3-4b80-8dc5-288ed63ffa08.png"
+  },
+  {
+    "id": "27bff258-67eb-40e0-a771-75da80b44dd8",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 5건 related scene, featuring meeting room with glass walls. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_27bff258-67eb-40e0-a771-75da80b44dd8.png"
+  },
+  {
+    "id": "a6ede9f6-0c32-40d5-b429-a6192647cfe2",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 6건 related scene, featuring bookshelf filled with law books. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_a6ede9f6-0c32-40d5-b429-a6192647cfe2.png"
+  },
+  {
+    "id": "3fbebf3f-1fea-48fa-ac79-7044dd82406e",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 8례 related scene, featuring modern extensive office window view of seoul. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_3fbebf3f-1fea-48fa-ac79-7044dd82406e.png"
+  },
+  {
+    "id": "b6c8de28-ff60-45da-807b-c4efc7d544d5",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 9건 related scene, featuring hand holding a pen signing a paper. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_b6c8de28-ff60-45da-807b-c4efc7d544d5.png"
+  },
+  {
+    "id": "f7bb6c9b-88d0-495c-bf90-14d639955ae6",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 10건 related scene, featuring detail of a judges gavel on a desk. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_f7bb6c9b-88d0-495c-bf90-14d639955ae6.png"
+  },
+  {
+    "id": "a0e27dce-6e15-49b9-a8d1-3d93933b1950",
+    "type": "SUCCESS_CASE",
+    "category": "기업/행정",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 영업정지 처분 취소 소송 - 1안 related scene, featuring waiting area in a law firm. Context: 기업/행정. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_a0e27dce-6e15-49b9-a8d1-3d93933b1950.png"
+  },
+  {
+    "id": "43152ff7-7c6a-4c7c-b187-9a89da3fa78a",
+    "type": "SUCCESS_CASE",
+    "category": "기업/행정",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 영업정지 처분 취소 소송 - 2안 related scene, featuring stack of files on a wooden table. Context: 기업/행정. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_43152ff7-7c6a-4c7c-b187-9a89da3fa78a.png"
+  },
+  {
+    "id": "26481e2f-4c71-4528-b141-6059039e9175",
+    "type": "SUCCESS_CASE",
+    "category": "기업/행정",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 영업정지 처분 취소 소송 - 3안 related scene, featuring lawyer office desk with piles of paper. Context: 기업/행정. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_26481e2f-4c71-4528-b141-6059039e9175.png"
+  },
+  {
+    "id": "c184f63c-55c6-44da-a9e0-833eab1bbed8",
+    "type": "SUCCESS_CASE",
+    "category": "기업/행정",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 영업정지 처분 취소 소송 - 4안 related scene, featuring blurry view of a korean court hallway. Context: 기업/행정. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c184f63c-55c6-44da-a9e0-833eab1bbed8.png"
+  },
+  {
+    "id": "93674729-9041-4d24-9aff-4d6d005501bd",
+    "type": "SUCCESS_CASE",
+    "category": "기업/행정",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 영업정지 처분 취소 소송 - 5안 related scene, featuring close up of a stamp on a legal document. Context: 기업/행정. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_93674729-9041-4d24-9aff-4d6d005501bd.png"
+  },
+  {
+    "id": "c64b96fa-fd9c-45dc-9f48-06471a6720ae",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 2차 related scene, featuring meeting room with glass walls. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c64b96fa-fd9c-45dc-9f48-06471a6720ae.png"
+  },
+  {
+    "id": "3950c50b-44f4-4bfd-84b2-6d5737c7c6b9",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 8건 related scene, featuring bookshelf filled with law books. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_3950c50b-44f4-4bfd-84b2-6d5737c7c6b9.png"
+  },
+  {
+    "id": "9c56dd7d-7347-4783-a728-f8578b0b5833",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 12차 related scene, featuring modern extensive office window view of seoul. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_9c56dd7d-7347-4783-a728-f8578b0b5833.png"
+  },
+  {
+    "id": "4fb2f9ec-9504-472b-a639-e344671a31ec",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 2번 related scene, featuring hand holding a pen signing a paper. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_4fb2f9ec-9504-472b-a639-e344671a31ec.png"
+  },
+  {
+    "id": "512cc2f3-1217-4dd2-b2cf-64e542b0ea8e",
+    "type": "SUCCESS_CASE",
+    "category": "형사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 사기죄 무혐의 처분 승소 - 12번 related scene, featuring detail of a judges gavel on a desk. Context: 형사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_512cc2f3-1217-4dd2-b2cf-64e542b0ea8e.png"
+  },
+  {
+    "id": "07c11bb5-7b64-4c49-91f2-4de3a5ff1d2d",
+    "type": "SUCCESS_CASE",
+    "category": "가사/이혼",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 재산분할 및 양육권 확보 - 7례 related scene, featuring waiting area in a law firm. Context: 가사/이혼. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_07c11bb5-7b64-4c49-91f2-4de3a5ff1d2d.png"
+  },
+  {
+    "id": "0588864e-acd4-401f-a458-ae46a18ccca1",
+    "type": "SUCCESS_CASE",
+    "category": "부동산/임대차",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 권리금 회수 방해 손해배상 - 7건 related scene, featuring stack of files on a wooden table. Context: 부동산/임대차. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_0588864e-acd4-401f-a458-ae46a18ccca1.png"
+  },
+  {
+    "id": "b637b341-3480-42e1-bb72-da2824b79938",
+    "type": "REVIEW",
+    "author": "한재 님",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b637b341-3480-42e1-bb72-da2824b79938.png"
+  },
+  {
+    "id": "1464f067-a95f-4b00-8f09-712fe829df1b",
+    "type": "REVIEW",
+    "author": "송미 님",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_1464f067-a95f-4b00-8f09-712fe829df1b.png"
+  },
+  {
+    "id": "b9479a2d-3446-4b3e-80fd-0bf84596114d",
+    "type": "REVIEW",
+    "author": "송미",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b9479a2d-3446-4b3e-80fd-0bf84596114d.png"
+  },
+  {
+    "id": "e35393b1-4204-48a0-ba22-711640dada46",
+    "type": "REVIEW",
+    "author": "권혁",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_e35393b1-4204-48a0-ba22-711640dada46.png"
+  },
+  {
+    "id": "cebe2b30-4e97-4e57-aa59-0784002f7224",
+    "type": "REVIEW",
+    "author": "황진",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_cebe2b30-4e97-4e57-aa59-0784002f7224.png"
+  },
+  {
+    "id": "b47284d8-5944-4724-9b7c-90cd63b10696",
+    "type": "REVIEW",
+    "author": "황진 님",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b47284d8-5944-4724-9b7c-90cd63b10696.png"
+  },
+  {
+    "id": "7152db79-820d-4d1a-b4a5-ea0a08b60b17",
+    "type": "REVIEW",
+    "author": "양철",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_7152db79-820d-4d1a-b4a5-ea0a08b60b17.png"
+  },
+  {
+    "id": "3505324f-0dbd-4561-a151-b844b2ff9bfb",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_3505324f-0dbd-4561-a151-b844b2ff9bfb.png"
+  },
+  {
+    "id": "97cddc0e-7a72-4261-b746-8d522c270fc8",
+    "type": "REVIEW",
+    "author": "박준",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_97cddc0e-7a72-4261-b746-8d522c270fc8.png"
+  },
+  {
+    "id": "c41e91bc-6cb1-4228-8dd3-4c8f4ad546c8",
+    "type": "REVIEW",
+    "author": "전호",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_c41e91bc-6cb1-4228-8dd3-4c8f4ad546c8.png"
+  },
+  {
+    "id": "6656068d-ed65-4a9a-b3c3-62eb94b77f46",
+    "type": "REVIEW",
+    "author": "박준",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_6656068d-ed65-4a9a-b3c3-62eb94b77f46.png"
+  },
+  {
+    "id": "0584267c-ad95-4ab6-9c0e-4e65102a4379",
+    "type": "REVIEW",
+    "author": "황진 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_0584267c-ad95-4ab6-9c0e-4e65102a4379.png"
+  },
+  {
+    "id": "c09a25f6-44eb-42c4-b69b-519a144f0b06",
+    "type": "REVIEW",
+    "author": "윤서 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_c09a25f6-44eb-42c4-b69b-519a144f0b06.png"
+  },
+  {
+    "id": "508f8bc1-fa17-489b-b37a-59a8c32e9c0d",
+    "type": "REVIEW",
+    "author": "서윤",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_508f8bc1-fa17-489b-b37a-59a8c32e9c0d.png"
+  },
+  {
+    "id": "ef1c2e3f-c8de-4cfa-99bc-0be7e0834f07",
+    "type": "REVIEW",
+    "author": "오경 님",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_ef1c2e3f-c8de-4cfa-99bc-0be7e0834f07.png"
+  },
+  {
+    "id": "58db8814-7b4e-4e7f-88da-5e7e04cdcf41",
+    "type": "REVIEW",
+    "author": "양철 님",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_58db8814-7b4e-4e7f-88da-5e7e04cdcf41.png"
+  },
+  {
+    "id": "2eb2a874-aac0-4344-a150-97fbddbef5a5",
+    "type": "REVIEW",
+    "author": "김현",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_2eb2a874-aac0-4344-a150-97fbddbef5a5.png"
+  },
+  {
+    "id": "16ce48d0-061b-4477-b3ee-da547ef5c4a8",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_16ce48d0-061b-4477-b3ee-da547ef5c4a8.png"
+  },
+  {
+    "id": "2d4edf0f-9078-4cb7-aca3-9338232a7a21",
+    "type": "REVIEW",
+    "author": "조영 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_2d4edf0f-9078-4cb7-aca3-9338232a7a21.png"
+  },
+  {
+    "id": "27bfd2f6-28d6-4e8d-b9e4-112bbba0129d",
+    "type": "REVIEW",
+    "author": "장우",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_27bfd2f6-28d6-4e8d-b9e4-112bbba0129d.png"
+  },
+  {
+    "id": "b938aba2-c0a4-4414-8068-cd31a1cbafc4",
+    "type": "REVIEW",
+    "author": "양철 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b938aba2-c0a4-4414-8068-cd31a1cbafc4.png"
+  },
+  {
+    "id": "15a87fe2-fc11-45c7-abb2-d58e43a49599",
+    "type": "REVIEW",
+    "author": "양철 님",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_15a87fe2-fc11-45c7-abb2-d58e43a49599.png"
+  },
+  {
+    "id": "12362bde-4883-4862-873c-8d30c5aad8b8",
+    "type": "REVIEW",
+    "author": "황진",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_12362bde-4883-4862-873c-8d30c5aad8b8.png"
+  },
+  {
+    "id": "d101b553-e783-4827-8979-933d76a7466a",
+    "type": "REVIEW",
+    "author": "윤서",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_d101b553-e783-4827-8979-933d76a7466a.png"
+  },
+  {
+    "id": "0bf140ab-7bbf-41ef-88e9-4c4d1829a728",
+    "type": "REVIEW",
+    "author": "박준 님",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_0bf140ab-7bbf-41ef-88e9-4c4d1829a728.png"
+  },
+  {
+    "id": "a6285e15-9f12-405f-a8dc-000384070b55",
+    "type": "REVIEW",
+    "author": "한재 님",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_a6285e15-9f12-405f-a8dc-000384070b55.png"
+  },
+  {
+    "id": "14e36873-8cf2-482e-9d5e-995fa16cfa8f",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_14e36873-8cf2-482e-9d5e-995fa16cfa8f.png"
+  },
+  {
+    "id": "9c06b0db-d952-43eb-87bd-dd8e847b2a8d",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_9c06b0db-d952-43eb-87bd-dd8e847b2a8d.png"
+  },
+  {
+    "id": "f04bcb9c-6052-435a-a0b2-3c0b1bb9d9f9",
+    "type": "REVIEW",
+    "author": "전호 님",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_f04bcb9c-6052-435a-a0b2-3c0b1bb9d9f9.png"
+  },
+  {
+    "id": "b26849fe-7ac7-448b-9bb4-ed4f9baa87d6",
+    "type": "REVIEW",
+    "author": "정민 님",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b26849fe-7ac7-448b-9bb4-ed4f9baa87d6.png"
+  },
+  {
+    "id": "44b9a306-2fbb-45ed-8944-b96c320ed371",
+    "type": "REVIEW",
+    "author": "장우",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_44b9a306-2fbb-45ed-8944-b96c320ed371.png"
+  },
+  {
+    "id": "1986f1e4-88e6-4d66-ac1a-95c85697a0fa",
+    "type": "REVIEW",
+    "author": "권혁 님",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_1986f1e4-88e6-4d66-ac1a-95c85697a0fa.png"
+  },
+  {
+    "id": "31b09e1c-da22-4ebf-b258-70f36422ec29",
+    "type": "REVIEW",
+    "author": "문기",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_31b09e1c-da22-4ebf-b258-70f36422ec29.png"
+  },
+  {
+    "id": "f1137d5f-3d9f-416d-9b36-87e43bce7944",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_f1137d5f-3d9f-416d-9b36-87e43bce7944.png"
+  },
+  {
+    "id": "bf474fd0-9204-4e2a-8529-9241da22e58a",
+    "type": "REVIEW",
+    "author": "전호 님",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_bf474fd0-9204-4e2a-8529-9241da22e58a.png"
+  },
+  {
+    "id": "9295ef70-2d23-421d-94f7-343993a96204",
+    "type": "REVIEW",
+    "author": "최성 님",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_9295ef70-2d23-421d-94f7-343993a96204.png"
+  },
+  {
+    "id": "ae38e15d-0c56-4ead-946b-df28883daf2b",
+    "type": "REVIEW",
+    "author": "이호",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_ae38e15d-0c56-4ead-946b-df28883daf2b.png"
+  },
+  {
+    "id": "407e1058-4608-4e23-af11-cdd3ad5016e8",
+    "type": "REVIEW",
+    "author": "권혁 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_407e1058-4608-4e23-af11-cdd3ad5016e8.png"
+  },
+  {
+    "id": "567903f4-330b-4f78-8932-7b61c4287aff",
+    "type": "REVIEW",
+    "author": "황진 님",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_567903f4-330b-4f78-8932-7b61c4287aff.png"
+  },
+  {
+    "id": "7f1d3805-e530-4f1e-bbeb-cf3af242f9d3",
+    "type": "REVIEW",
+    "author": "문기",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_7f1d3805-e530-4f1e-bbeb-cf3af242f9d3.png"
+  },
+  {
+    "id": "8ae01071-7585-4d7d-9a46-903b13d51a43",
+    "type": "REVIEW",
+    "author": "조영",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_8ae01071-7585-4d7d-9a46-903b13d51a43.png"
+  },
+  {
+    "id": "8a28e23a-51ee-461d-8708-f7aab415f16d",
+    "type": "REVIEW",
+    "author": "황진",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_8a28e23a-51ee-461d-8708-f7aab415f16d.png"
+  },
+  {
+    "id": "1ba8087f-82a4-4af2-b8ab-d279d0801ca6",
+    "type": "REVIEW",
+    "author": "박준",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_1ba8087f-82a4-4af2-b8ab-d279d0801ca6.png"
+  },
+  {
+    "id": "e5b858af-cde7-452f-a47f-7abf117a2a13",
+    "type": "REVIEW",
+    "author": "송미 님",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_e5b858af-cde7-452f-a47f-7abf117a2a13.png"
+  },
+  {
+    "id": "4fc4874f-52c0-4f78-b207-730a89edcf9f",
+    "type": "REVIEW",
+    "author": "권혁 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_4fc4874f-52c0-4f78-b207-730a89edcf9f.png"
+  },
+  {
+    "id": "f83fe71f-0c53-4a2b-bd04-579be6fb7cdd",
+    "type": "REVIEW",
+    "author": "고은 님",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_f83fe71f-0c53-4a2b-bd04-579be6fb7cdd.png"
+  },
+  {
+    "id": "60146eca-1d94-44f0-952c-6c72872c744d",
+    "type": "REVIEW",
+    "author": "김현 님",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_60146eca-1d94-44f0-952c-6c72872c744d.png"
+  },
+  {
+    "id": "b77c7dcb-12d0-4a49-be42-795c4d090440",
+    "type": "REVIEW",
+    "author": "고은",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b77c7dcb-12d0-4a49-be42-795c4d090440.png"
+  },
+  {
+    "id": "3f2badfe-9c3e-4ecc-b5cb-755a13856d16",
+    "type": "REVIEW",
+    "author": "권혁",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_3f2badfe-9c3e-4ecc-b5cb-755a13856d16.png"
+  },
+  {
+    "id": "98cfb12e-bbb7-47d2-8b88-57f1505f4039",
+    "type": "REVIEW",
+    "author": "장우 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_98cfb12e-bbb7-47d2-8b88-57f1505f4039.png"
+  },
+  {
+    "id": "6a8b87e0-606f-4eee-b5c1-7937673e13db",
+    "type": "REVIEW",
+    "author": "박준",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_6a8b87e0-606f-4eee-b5c1-7937673e13db.png"
+  },
+  {
+    "id": "902bed50-6e80-48fd-a59c-88b07f161baa",
+    "type": "REVIEW",
+    "author": "조영",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_902bed50-6e80-48fd-a59c-88b07f161baa.png"
+  },
+  {
+    "id": "6d02d06f-bd4a-4a52-bd67-44c0fd076f40",
+    "type": "REVIEW",
+    "author": "송미 님",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_6d02d06f-bd4a-4a52-bd67-44c0fd076f40.png"
+  },
+  {
+    "id": "04cf230d-c573-4340-b1d1-c77fe1558dda",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_04cf230d-c573-4340-b1d1-c77fe1558dda.png"
+  },
+  {
+    "id": "30067a56-00e7-4b65-b6f2-ddb8063019fd",
+    "type": "REVIEW",
+    "author": "전호 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_30067a56-00e7-4b65-b6f2-ddb8063019fd.png"
+  },
+  {
+    "id": "02a4bd05-b9b2-44f0-8a36-b3efb77cc5bb",
+    "type": "REVIEW",
+    "author": "박준 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_02a4bd05-b9b2-44f0-8a36-b3efb77cc5bb.png"
+  },
+  {
+    "id": "30cdf49d-aa33-400b-84ae-28796f63820e",
+    "type": "REVIEW",
+    "author": "임수",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_30cdf49d-aa33-400b-84ae-28796f63820e.png"
+  },
+  {
+    "id": "243c1ae7-193d-40a9-9973-a1aec4c3e9d2",
+    "type": "REVIEW",
+    "author": "오경",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_243c1ae7-193d-40a9-9973-a1aec4c3e9d2.png"
+  },
+  {
+    "id": "83c01de5-5bac-461f-abf6-81a82100bdaa",
+    "type": "REVIEW",
+    "author": "정민",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_83c01de5-5bac-461f-abf6-81a82100bdaa.png"
+  },
+  {
+    "id": "4e9fccd0-a879-4f92-b7e8-bbb4af6b66d9",
+    "type": "REVIEW",
+    "author": "권혁",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_4e9fccd0-a879-4f92-b7e8-bbb4af6b66d9.png"
+  },
+  {
+    "id": "933ba9e1-4788-4511-acc9-e56d021d0150",
+    "type": "REVIEW",
+    "author": "박준 님",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_933ba9e1-4788-4511-acc9-e56d021d0150.png"
+  },
+  {
+    "id": "ef55fb13-3523-46b3-a369-744e032ef93b",
+    "type": "REVIEW",
+    "author": "전호",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_ef55fb13-3523-46b3-a369-744e032ef93b.png"
+  },
+  {
+    "id": "a7241af6-5f37-4995-99ec-159ab7990fc0",
+    "type": "REVIEW",
+    "author": "정민",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_a7241af6-5f37-4995-99ec-159ab7990fc0.png"
+  },
+  {
+    "id": "a5e0aafc-cfc0-4d01-abaf-3a5130d8aae1",
+    "type": "REVIEW",
+    "author": "한재",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_a5e0aafc-cfc0-4d01-abaf-3a5130d8aae1.png"
+  },
+  {
+    "id": "cbfea9f9-d606-4146-b1d7-3cbf852e18a2",
+    "type": "REVIEW",
+    "author": "이호",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_cbfea9f9-d606-4146-b1d7-3cbf852e18a2.png"
+  },
+  {
+    "id": "762cee25-309a-4971-9ed7-5e0ebeb984fe",
+    "type": "REVIEW",
+    "author": "임수",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_762cee25-309a-4971-9ed7-5e0ebeb984fe.png"
+  },
+  {
+    "id": "3de2071e-e291-4775-857d-261818a5b4d9",
+    "type": "REVIEW",
+    "author": "권혁 님",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_3de2071e-e291-4775-857d-261818a5b4d9.png"
+  },
+  {
+    "id": "216c8077-707c-47e2-9eaf-93564538e3c6",
+    "type": "REVIEW",
+    "author": "임수",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_216c8077-707c-47e2-9eaf-93564538e3c6.png"
+  },
+  {
+    "id": "25f6e8cf-26db-4689-8b26-d964bc088d43",
+    "type": "REVIEW",
+    "author": "문기 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_25f6e8cf-26db-4689-8b26-d964bc088d43.png"
+  },
+  {
+    "id": "028bd4f9-b88f-47aa-9847-d3d2074cc30a",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_028bd4f9-b88f-47aa-9847-d3d2074cc30a.png"
+  },
+  {
+    "id": "74c7baca-f6de-4289-84e4-890d7141a87a",
+    "type": "REVIEW",
+    "author": "조영",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_74c7baca-f6de-4289-84e4-890d7141a87a.png"
+  },
+  {
+    "id": "b92a9655-16bf-4317-9ba5-59e9373272a7",
+    "type": "REVIEW",
+    "author": "윤서",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_b92a9655-16bf-4317-9ba5-59e9373272a7.png"
+  },
+  {
+    "id": "8de070ff-0865-4b61-a996-7f6c0c8a537d",
+    "type": "REVIEW",
+    "author": "문기 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_8de070ff-0865-4b61-a996-7f6c0c8a537d.png"
+  },
+  {
+    "id": "a5deff28-f812-48dc-bce8-e88d5f5307d5",
+    "type": "REVIEW",
+    "author": "한재 님",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_a5deff28-f812-48dc-bce8-e88d5f5307d5.png"
+  },
+  {
+    "id": "f86cfb45-26ad-4815-9a90-3104a3903c91",
+    "type": "REVIEW",
+    "author": "박준",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_f86cfb45-26ad-4815-9a90-3104a3903c91.png"
+  },
+  {
+    "id": "e87ffafc-30b9-443c-ad88-042d4b23807a",
+    "type": "REVIEW",
+    "author": "고은",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_e87ffafc-30b9-443c-ad88-042d4b23807a.png"
+  },
+  {
+    "id": "460fada6-2e30-4514-9e0c-eafe509f4da3",
+    "type": "REVIEW",
+    "author": "문기",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_460fada6-2e30-4514-9e0c-eafe509f4da3.png"
+  },
+  {
+    "id": "374eece7-f52b-48ca-84d6-d957e14d1871",
+    "type": "REVIEW",
+    "author": "김현 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_374eece7-f52b-48ca-84d6-d957e14d1871.png"
+  },
+  {
+    "id": "45d8b4f0-4f41-46f6-871d-cc3eeb93e619",
+    "type": "REVIEW",
+    "author": "황진",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_45d8b4f0-4f41-46f6-871d-cc3eeb93e619.png"
+  },
+  {
+    "id": "01b8e548-836d-48ca-a343-148e9543caba",
+    "type": "REVIEW",
+    "author": "임수 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_01b8e548-836d-48ca-a343-148e9543caba.png"
+  },
+  {
+    "id": "96d5f9c1-c91e-4456-ac3e-b438e8767d57",
+    "type": "REVIEW",
+    "author": "송미",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_96d5f9c1-c91e-4456-ac3e-b438e8767d57.png"
+  },
+  {
+    "id": "09cdc423-b615-4fdb-8ea1-571267b90c01",
+    "type": "REVIEW",
+    "author": "서윤",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_09cdc423-b615-4fdb-8ea1-571267b90c01.png"
+  },
+  {
+    "id": "cb00e081-055d-4608-a5b8-a72d7d54782d",
+    "type": "REVIEW",
+    "author": "문기 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_cb00e081-055d-4608-a5b8-a72d7d54782d.png"
+  },
+  {
+    "id": "5d213b3f-b24c-48d2-b57e-0de53021dc0e",
+    "type": "REVIEW",
+    "author": "임수 님",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_5d213b3f-b24c-48d2-b57e-0de53021dc0e.png"
+  },
+  {
+    "id": "e5212ea7-1d11-46ef-beda-333ce0ad7d8d",
+    "type": "REVIEW",
+    "author": "임수 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_e5212ea7-1d11-46ef-beda-333ce0ad7d8d.png"
+  },
+  {
+    "id": "66316c59-7605-4e3f-98a6-48c4c42fa94e",
+    "type": "REVIEW",
+    "author": "오경 님",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_66316c59-7605-4e3f-98a6-48c4c42fa94e.png"
+  },
+  {
+    "id": "5739518c-dcbf-4cf3-b24e-93e089a08975",
+    "type": "REVIEW",
+    "author": "정민 님",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_5739518c-dcbf-4cf3-b24e-93e089a08975.png"
+  },
+  {
+    "id": "bcc36654-9626-46ca-b894-52a74439fb44",
+    "type": "REVIEW",
+    "author": "황진 님",
+    "currentImage": "/assets/images/reviews/profile_01.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_bcc36654-9626-46ca-b894-52a74439fb44.png"
+  },
+  {
+    "id": "1027f950-5701-4b24-961b-aa0f6966216a",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_05.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_1027f950-5701-4b24-961b-aa0f6966216a.png"
+  },
+  {
+    "id": "809bfabc-39ed-4834-b237-b132c57ebe9a",
+    "type": "REVIEW",
+    "author": "조영 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_809bfabc-39ed-4834-b237-b132c57ebe9a.png"
+  },
+  {
+    "id": "fce62546-fd65-4330-a4e2-b0dd04f495ed",
+    "type": "REVIEW",
+    "author": "강인",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 20s, sitting in a cozy cafe. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_fce62546-fd65-4330-a4e2-b0dd04f495ed.png"
+  },
+  {
+    "id": "dc96375b-f5f6-46d1-bda1-d1750ae303ff",
+    "type": "REVIEW",
+    "author": "정민 님",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 30s, walking in a park. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_dc96375b-f5f6-46d1-bda1-d1750ae303ff.png"
+  },
+  {
+    "id": "98f382d6-a85c-4832-9c26-16e2a90f9f2c",
+    "type": "REVIEW",
+    "author": "양철 님",
+    "currentImage": "/assets/images/reviews/profile_08_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 40s, standing on a city street. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_98f382d6-a85c-4832-9c26-16e2a90f9f2c.png"
+  },
+  {
+    "id": "c851ebd6-78f4-4a25-a9bb-b2d110701b01",
+    "type": "REVIEW",
+    "author": "권혁",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 50s, sitting in a home living room. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_c851ebd6-78f4-4a25-a9bb-b2d110701b01.png"
+  },
+  {
+    "id": "63777439-d9b9-4d04-9214-9813c11199a3",
+    "type": "REVIEW",
+    "author": "김현 님",
+    "currentImage": "/assets/images/reviews/profile_04.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 60s, leaning against a wall. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_63777439-d9b9-4d04-9214-9813c11199a3.png"
+  },
+  {
+    "id": "66f619a9-7cbe-42b4-be60-3914e68f9379",
+    "type": "REVIEW",
+    "author": "임수",
+    "currentImage": "/assets/images/reviews/profile_06.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 20s, sitting on a bench. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_66f619a9-7cbe-42b4-be60-3914e68f9379.png"
+  },
+  {
+    "id": "974da1fe-e312-499b-bc06-a3028224b16b",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_02.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 30s, browsing in a bookstore. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_974da1fe-e312-499b-bc06-a3028224b16b.png"
+  },
+  {
+    "id": "49353ab5-10c7-4760-b18a-ac76ac7da9b4",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_07_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 40s, hiking in the mountains. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_49353ab5-10c7-4760-b18a-ac76ac7da9b4.png"
+  },
+  {
+    "id": "066d5a99-a9fd-4651-860f-655fa09da7b6",
+    "type": "REVIEW",
+    "author": "이호 님",
+    "currentImage": "/assets/images/reviews/profile_09_v2.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean female in their 50s, waiting at a bus stop. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_066d5a99-a9fd-4651-860f-655fa09da7b6.png"
+  },
+  {
+    "id": "a15e8857-785d-4a66-b44b-4fb2e9314922",
+    "type": "REVIEW",
+    "author": "최성",
+    "currentImage": "/assets/images/reviews/profile_03.png",
+    "targetPrompt": "Candid shot on iPhone of a Korean male in their 60s, working on a laptop in a shared workspace. Natural lighting, authentic amateur photography style. 1:1 aspect ratio. NO selfie, NO phone visible in hand.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/review_a15e8857-785d-4a66-b44b-4fb2e9314922.png"
+  }
+]

@@ -133,10 +133,16 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     <span className="font-semibold text-[#535861]">사건 유형</span>
                                     <span className="text-[#181d27]">{data.caseType || '-'}</span>
                                 </div>
-                                <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
-                                    <span className="font-semibold text-[#535861]">분쟁 금액</span>
-                                    <span className="text-[#181d27] font-bold">{data.amount || '-'}</span>
-                                </div>
+                                {data.amount && (
+                                    <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
+                                        <span className="font-semibold text-[#535861]">
+                                            {data.category.includes('회생') || data.category.includes('파산') ? '총 채무액' :
+                                                data.category.includes('부동산') || data.category.includes('임대차') ? '보증금/피해액' :
+                                                    data.category.includes('금융') ? '피해 금액' : '분쟁 금액'}
+                                        </span>
+                                        <span className="text-[#181d27] font-bold">{data.amount}</span>
+                                    </div>
+                                )}
                             </div>
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
@@ -148,7 +154,10 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     <span className="text-[#181d27]">{data.lawyer || '김법무 변호사'}</span>
                                 </div>
                                 <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
-                                    <span className="font-semibold text-[#535861]">최종 결과</span>
+                                    <span className="font-semibold text-[#535861]">
+                                        {data.category.includes('형사') ? '처분 결과' :
+                                            data.category.includes('회생') ? '인가 내용' : '최종 결과'}
+                                    </span>
                                     <span className="text-green-600 font-bold">{data.result || '성공'}</span>
                                 </div>
                             </div>
@@ -190,9 +199,9 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                         </div>
                         <div className="bg-white rounded-2xl p-8 border-l-4 border-[#8a765e]">
                             <blockquote className="text-xl italic text-[#181d27] mb-4">
-                                "단순히 소송만 제기하는 것이 아니라, 사전 재산보전과 체계적인 재산조사를 통해 실질적인 회수 가능성을 높이는 것이 핵심입니다."
+                                "{data.lawyerComment || "단순히 소송만 제기하는 것이 아니라, 사전 재산보전과 체계적인 재산조사를 통해 실질적인 회수 가능성을 높이는 것이 핵심입니다."}"
                             </blockquote>
-                            <cite className="text-[#535861] font-semibold">- {data.lawyer || '김법무 변호사'}</cite>
+                            <cite className="text-[#535861] font-semibold">- {data.lawyer}</cite>
                         </div>
                         <div className="mt-8 text-center">
                             <Link href="/company/consultation" className="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-semibold cursor-pointer inline-block">

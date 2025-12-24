@@ -107,6 +107,7 @@ model SuccessCase {
   amount      String?  // e.g., "4억원"
   period      String?  // e.g., "3개월"
   lawyer      String?  // e.g., "김법무 변호사"
+  lawyerComment String? // "변호사 한마디" custom quote
   result      String?  // e.g., "전액 회수 성공"
   background  String?  // "사건 배경" content
   strategy    String?  // "어떻게 해결했나요?" content (can be JSON or text)
@@ -118,12 +119,15 @@ model SuccessCase {
 }
 
 model Review {
-  id        String   @id @default(uuid())
-  author    String   // e.g., "김현"
-  rating    Int      // 1-5
-  content   String   // Review text
-  category  String   // e.g., "부동산법률"
-  createdAt DateTime @default(now())
+  id             String   @id @default(uuid())
+  author         String   // e.g., "김현"
+  rating         Int      // 1-5
+  content        String   // Review text
+  category       String?  // e.g., "부동산법률"
+  role           String?  // e.g., "일반 의뢰인"
+  date           String?  // e.g., "2024-03-15"
+  authorImageUrl String?  // Optional image
+  createdAt      DateTime @default(now())
 }
 
 model FAQ {
