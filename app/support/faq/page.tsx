@@ -1,21 +1,14 @@
-
-import { prisma } from '@/lib/prisma';
+import { Metadata } from 'next';
 import FAQList from '@/app/components/support/FAQList';
 
-import { Metadata } from 'next';
-
-export const revalidate = 0; // Ensure dynamic fetching
+export const revalidate = 0; // Ensure dynamic fetching if we add features later
 
 export const metadata: Metadata = {
     title: '자주 묻는 질문 | 서초지율',
     description: '법률 상담, 비용, 절차 등 고객님들이 자주 궁금해하시는 질문과 답변을 확인하세요.',
 };
 
-export default async function FAQPage() {
-    const faqs = await prisma.fAQ.findMany({
-        orderBy: { order: 'asc' },
-    });
-
+export default function FAQPage() {
     return (
         <main>
             <section id="hero" className="bg-[#6F614D] py-20">
@@ -28,7 +21,7 @@ export default async function FAQPage() {
             </section>
 
             <section className="bg-white">
-                <FAQList initialFaqs={faqs} />
+                <FAQList />
             </section>
         </main>
     );

@@ -1,11 +1,6 @@
-
 generator client {
   provider = "prisma-client-js"
 }
-
-
-
-
 
 datasource db {
   provider  = "postgresql"
@@ -13,128 +8,123 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-
-
-
-
-
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String?
-  name      String?
-  phone     String?
-  provider  String   @default("local") // "local" or "kakao"
-  kakaoId   String?  @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  cases     Case[]
-  documents Document[]
-  events    CalendarEvent[]
-  chatRooms ChatRoom[]
+  id                  String               @id @default(uuid())
+  email               String               @unique
+  password            String?
+  name                String?
+  phone               String?
+  provider            String               @default("local")
+  kakaoId             String?              @unique
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  billingHistory      BillingHistory[]
+  events              CalendarEvent[]
+  cases               Case[]
+  chatRooms           ChatRoom[]
+  documents           Document[]
   notificationSetting NotificationSetting?
-  billingHistory BillingHistory[]
 }
 
 model NotificationSetting {
-  id              String   @id @default(uuid())
-  userId          String   @unique
-  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  caseUpdateEmail Boolean  @default(true)
-  caseUpdateSms   Boolean  @default(true)
-  scheduleReminder Boolean @default(true)
-  marketingAgree  Boolean  @default(false)
-  updatedAt       DateTime @updatedAt
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  caseUpdateEmail  Boolean  @default(true)
+  caseUpdateSms    Boolean  @default(true)
+  scheduleReminder Boolean  @default(true)
+  marketingAgree   Boolean  @default(false)
+  updatedAt        DateTime @updatedAt
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model BillingHistory {
   id            String    @id @default(uuid())
   userId        String
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   itemName      String
   amount        Int
-  status        String    // PAID, UNPAID, PENDING
+  status        String
   paymentMethod String
   paidAt        DateTime?
   receiptUrl    String?
   createdAt     DateTime  @default(now())
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Case {
-  id          String   @id @default(uuid())
-  userId      String
-  user        User     @relation(fields: [userId], references: [id])
-  title       String
-  description String?  @db.Text
-  status      String   // e.g., "서류 보완 요청", "개시결정"
-  statusColor String   // e.g., "warning", "success", "info" or hex code
-  caseNumber  String?  // e.g., "2024개회12345"
-  courtName   String?  // e.g., "서울중앙지방법원"
-  judgeInfo   String?  // e.g., "제3민사부 (가) 김판사"
-  opponentName String? // e.g., "홍길동"
-  lawyerInCharge String? // e.g., "박변호사"
-  claimAmount BigInt?
-  contractDate DateTime?
-  caseDescriptionLong String? @db.Text
-  timelineJson Json?    // JSONB for timeline events
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  documents   Document[]
+  id                  String     @id @default(uuid())
+  userId              String
+  title               String
+  description         String?
+  status              String
+  statusColor         String
+  caseNumber          String?
+  courtName           String?
+  judgeInfo           String?
+  opponentName        String?
+  lawyerInCharge      String?
+  claimAmount         BigInt?
+  contractDate        DateTime?
+  caseDescriptionLong String?
+  timelineJson        Json?
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+  user                User       @relation(fields: [userId], references: [id])
+  documents           Document[]
 }
 
 model Document {
   id        String   @id @default(uuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   caseId    String?
-  case      Case?    @relation(fields: [caseId], references: [id], onDelete: Cascade)
   fileName  String
-  fileSize  String   // readable string like "2.1 MB"
-  fileType  String   // e.g., "pdf", "jpg"
-  category  String?  // e.g., "계약서", "증거자료"
-  url       String   // relative or absolute URL
+  fileSize  String
+  fileType  String
+  url       String
   createdAt DateTime @default(now())
+  category  String?
+  userId    String
+  case      Case?    @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-
 model SuccessCase {
-  id          String   @id @default(uuid())
-  title       String
-  category    String   // e.g., "부동산 법률"
-  summary     String?  // The short description below the title
-  client      String?  // e.g., "김OO"
-  caseType    String?  // e.g., "전세금 반환 청구"
-  amount      String?  // e.g., "4억원"
-  period      String?  // e.g., "3개월"
-  lawyer      String?  // e.g., "김법무 변호사"
-  lawyerComment String? // "변호사 한마디" custom quote
-  result      String?  // e.g., "전액 회수 성공"
-  background  String?  // "사건 배경" content
-  strategy    String?  // "어떻게 해결했나요?" content (can be JSON or text)
-  outcomes    String?  // "상세 성과" list (can be JSON)
-  imageUrl    String?  // List card image URL
-  detailImageUrl String? // Detail page banner image URL
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id             String   @id @default(uuid())
+  title          String
+  category       String
+  summary        String?
+  client         String?
+  caseType       String?
+  amount         String?
+  period         String?
+  lawyer         String?
+  result         String?
+  background     String?
+  strategy       String?
+  outcomes       String?
+  imageUrl       String?
+  detailImageUrl String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  lawyerComment  String?
+  lawyerImageUrl String?
 }
 
 model Review {
   id             String   @id @default(uuid())
-  author         String   // e.g., "김현"
-  rating         Int      // 1-5
-  content        String   // Review text
-  category       String?  // e.g., "부동산법률"
-  role           String?  // e.g., "일반 의뢰인"
-  date           String?  // e.g., "2024-03-15"
-  authorImageUrl String?  // Optional image
+  author         String
+  rating         Int
+  content        String
+  category       String?
   createdAt      DateTime @default(now())
+  authorImageUrl String?
+  date           String?
+  role           String?
 }
 
 model FAQ {
   id        String   @id @default(uuid())
   question  String
   answer    String
-  category  String   // "부동산", "채무/금융", "개인회생", "비용/절차"
+  category  String
   order     Int      @default(0)
   createdAt DateTime @default(now())
 }
@@ -142,8 +132,8 @@ model FAQ {
 model BlogPost {
   id           String   @id @default(uuid())
   title        String
-  content      String   @db.Text
-  excerpt      String   @db.Text
+  content      String
+  excerpt      String
   category     String
   thumbnailUrl String
   author       String
@@ -157,42 +147,42 @@ model Consultation {
   phone     String
   category  String
   content   String
-  status    String   @default("접수") // 접수, 진행중, 완료
+  status    String   @default("접수")
   createdAt DateTime @default(now())
 }
 
 model CalendarEvent {
   id          String   @id @default(uuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   title       String
-  description String?  @db.Text
+  description String?
   startTime   DateTime
   endTime     DateTime
-  category    String   // e.g., "법원 기일", "고객 상담", "개인 일정"
-  color       String   // e.g., "#3b82f6" (blue), "#22c55e" (green)
+  category    String
+  color       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model ChatRoom {
   id        String        @id @default(uuid())
   userId    String
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  lawyerId  String?       // ID of the lawyer (nullable for now if no lawyer system yet)
-  title     String        // e.g. "전세금 반환 관련 상담"
-  status    String        @default("active") // active, closed
+  lawyerId  String?
+  title     String
+  status    String        @default("active")
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
   messages  ChatMessage[]
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model ChatMessage {
   id        String   @id @default(uuid())
   roomId    String
-  room      ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
-  senderId  String   // userId or lawyerId
-  content   String   @db.Text
+  senderId  String
+  content   String
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+  room      ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
 }

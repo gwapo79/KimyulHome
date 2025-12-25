@@ -3,10 +3,10 @@ import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
-import { exec } from 'child_process';
 import dotenv from 'dotenv';
 
 // Load environment variables
+dotenv.config({ path: '.env.local' });
 dotenv.config();
 
 const prisma = new PrismaClient();
@@ -87,6 +87,12 @@ function generateImageOpenAI(prompt: string): Promise<string> {
 async function main() {
     console.log("--- Starting Auto Image Generation ---");
 
+    const args = process.argv.slice(2);
+    const skipArg = args.find(arg => arg.startsWith('--skip'));
+    const skipCount = skipArg ? parseInt(skipArg.split('=')[1] || args[args.indexOf('--skip') + 1] || '0') : 0;
+
+    console.log(`Configuration: Skip first ${skipCount} pending items.`);
+
     if (!fs.existsSync(QUEUE_FILE)) {
         console.error("Queue file not found.");
         return;
@@ -95,18 +101,36 @@ async function main() {
     const queueData = fs.readFileSync(QUEUE_FILE, 'utf-8');
     const queue = JSON.parse(queueData);
 
-    // Process a batch of 5 pending items
-    const pendingItems = queue.filter((item: any) => item.status === 'PENDING').slice(0, 5);
+    // Get all pending items first
+    const pendingItems = queue.filter((item: any) => item.status === 'PENDING');
 
     if (pendingItems.length === 0) {
         console.log("No pending items found.");
         return;
     }
 
-    console.log(`Processing ${pendingItems.length} items...`);
+    console.log(`Found ${pendingItems.length} pending items.`);
 
-    for (const item of pendingItems) {
-        console.log(`Generating image for ID: ${item.id} (${item.type})`);
+    let processedCount = 0;
+    const TARGET_BATCH_SIZE = 5;
+
+    // Iterate through pending items
+    for (let i = 0; i < pendingItems.length; i++) {
+        const item = pendingItems[i];
+
+        // Skip logic
+        if (i < skipCount) {
+            console.log(`Skipping Case (Index ${i}): ${item.id}`);
+            continue;
+        }
+
+        // Stop if we've processed enough for this batch
+        if (processedCount >= TARGET_BATCH_SIZE) {
+            console.log(`Batch size of ${TARGET_BATCH_SIZE} reached. Stopping.`);
+            break;
+        }
+
+        console.log(`\nGenerating Case (Index ${i}): ID ${item.id} (${item.type})`);
         console.log(`Prompt: ${item.targetPrompt.substring(0, 50)}...`);
 
         try {
@@ -122,7 +146,7 @@ async function main() {
             await downloadImage(imageUrl, absolutePath);
             console.log(`Saved to ${item.targetPath}`);
 
-            // 3. Update DB and Queue directly here to be self-contained
+            // 3. Update DB
             if (item.type === 'SUCCESS_CASE') {
                 await prisma.successCase.update({
                     where: { id: item.id },
@@ -135,27 +159,32 @@ async function main() {
                 });
             }
 
-            // Update queue in memory and file
+            // 4. Update Queue File
             item.status = 'COMPLETED';
-            const itemIndex = queue.findIndex((q: any) => q.id === item.id);
-            if (itemIndex !== -1) {
-                queue[itemIndex].status = 'COMPLETED';
-                // Write immediately to save state
+            const queueIndex = queue.findIndex((q: any) => q.id === item.id);
+            if (queueIndex !== -1) {
+                queue[queueIndex].status = 'COMPLETED';
                 fs.writeFileSync(QUEUE_FILE, JSON.stringify(queue, null, 2));
             }
 
             console.log("Database and Queue updated.");
+            processedCount++;
 
-            // Wait 2 seconds to be nice to rate limits
-            await new Promise(r => setTimeout(r, 2000));
+            // Safety Delay
+            if (processedCount < TARGET_BATCH_SIZE && i < pendingItems.length - 1) {
+                console.log("Waiting 20s for safety...");
+                await new Promise(r => setTimeout(r, 20000));
+            }
 
         } catch (error: any) {
             console.error(`Failed to process item ${item.id}:`, error.message);
-            // Continue to next item
+            // Optionally wait even on error to prevent rapid-fire failures
+            console.log("Waiting 20s before retry/next...");
+            await new Promise(r => setTimeout(r, 20000));
         }
     }
 
-    console.log("Batch processing complete.");
+    console.log("\nBatch processing complete.");
 }
 
 main()

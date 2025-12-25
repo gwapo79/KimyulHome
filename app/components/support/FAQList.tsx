@@ -1,28 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { FAQ_DATA } from '@/app/data/faqs';
 
-export interface FAQItem {
-    id: string;
-    question: string;
-    answer: string;
-    category: string;
-}
-
-export default function FAQList({ initialFaqs }: { initialFaqs: FAQItem[] }) {
+export default function FAQList() {
     const [activeTab, setActiveTab] = useState('전체');
     const [searchQuery, setSearchQuery] = useState('');
     const [openId, setOpenId] = useState<string | null>(null);
 
     const categories = ['전체', '부동산', '채무/금융', '개인회생', '비용/절차'];
 
-    const filteredFaqs = initialFaqs.filter((faq) => {
-        const matchesCategory = activeTab === '전체' || faq.category === activeTab;
-        const matchesSearch =
-            faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
-    });
+    // Memoize filtering for performance with large dataset
+    const filteredFaqs = useMemo(() => {
+        return FAQ_DATA.filter((faq) => {
+            const matchesCategory = activeTab === '전체' || faq.category === activeTab;
+            const matchesSearch =
+                faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
+            return matchesCategory && matchesSearch;
+        });
+    }, [activeTab, searchQuery]);
 
     const toggleAccordion = (id: string) => {
         setOpenId(openId === id ? null : id);
@@ -35,7 +32,7 @@ export default function FAQList({ initialFaqs }: { initialFaqs: FAQItem[] }) {
                 <div className="relative">
                     <input
                         type="text"
-                        placeholder="궁금한 내용을 검색해보세요 (예: 비용, 기간, 절차)"
+                        placeholder="궁금한 내용을 검색해보세요 (예: 비용, 기간, 절차, 사기)"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full pl-6 pr-12 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-transparent text-lg shadow-sm transition-shadow hover:shadow-md"
@@ -91,13 +88,6 @@ export default function FAQList({ initialFaqs }: { initialFaqs: FAQItem[] }) {
                                 <div className="bg-[#fbfcfa] px-6 py-8 border-t border-gray-100 flex gap-4">
                                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center font-bold text-sm shadow-sm mt-0.5">A</span>
                                     <div className="text-gray-700 leading-8 whitespace-pre-wrap text-[1.05rem]">
-                                        {/* Render with bolding logic if needed, but white-space: pre-wrap handles \n nicely */}
-                                        {/* We are rendering text directly. To support **bolding**, we would need a parser, but standard text rendering with whitespace-pre-wrap
-                            will at least show structure. Since the user asked for Bolding support in the prompt:
-                            "답변 본문에 불렛 포인트(•)나 강조(Bolding)를 사용하여... (white-space: pre-wrap)"
-                            The simplest way to support **bolding** in React without a Markdown library is to use a simple split/renderer
-                            OR just rely on the fact that white-space: pre-wrap makes the layout readable.
-                            However, to truly 'bold' the text wrapped in **, I will use a simple regex replacer here. */}
                                         {faq.answer.split('\n').map((line, i) => (
                                             <p key={i} className="mb-2 last:mb-0">
                                                 {line.split(/(\*\*.*?\*\*)/).map((part, j) =>
