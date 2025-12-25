@@ -20,10 +20,11 @@ interface Document {
 
 interface DocumentManagerProps {
     caseId: string;
+    userId: string;
     initialDocuments: Document[];
 }
 
-export default function DocumentManager({ caseId, initialDocuments }: DocumentManagerProps) {
+export default function DocumentManager({ caseId, userId, initialDocuments }: DocumentManagerProps) {
     const [documents, setDocuments] = useState<Document[]>(initialDocuments);
     const [isDragging, setIsDragging] = useState(false);
     const [isPending, startTransition] = useTransition();
@@ -58,7 +59,7 @@ export default function DocumentManager({ caseId, initialDocuments }: DocumentMa
         formData.append('file', file);
 
         startTransition(async () => {
-            const result = await uploadDocument(caseId, formData);
+            const result = await uploadDocument(caseId, userId, formData);
             if (result.success && result.document) {
                 // Convert Date strings to Date objects if needed, though Server Actions usually match
                 // Force TS cast or ensure type match. Server returns JSON object, createdAt might be string.

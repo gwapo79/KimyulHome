@@ -215,6 +215,7 @@ function CaseDetailContent() {
             {caseDetail.id && (
                 <DocumentManager
                     caseId={caseDetail.id}
+                    userId={JSON.parse(localStorage.getItem("user") || "{}").id || ""}
                     initialDocuments={caseDetail.documents || []}
                 />
             )}
