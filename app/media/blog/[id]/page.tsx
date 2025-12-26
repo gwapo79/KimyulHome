@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 import { Metadata } from 'next';
+import { getTeamMemberByName } from '@/app/constants/team';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -110,9 +111,9 @@ export default async function BlogDetailPage({ params }: Props) {
                         {/* Meta Info */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[#717680] mb-8">
                             <div className="flex items-center">
-                                {post.authorMember?.imageUrl ? (
+                                {post.authorMember?.imageUrl || getTeamMemberByName(post.author || '').imageUrl ? (
                                     <img
-                                        src={post.authorMember.imageUrl}
+                                        src={post.authorMember?.imageUrl || getTeamMemberByName(post.author || '').imageUrl}
                                         alt={post.author}
                                         className="w-10 h-10 rounded-full mr-3 object-cover border border-gray-200"
                                     />
