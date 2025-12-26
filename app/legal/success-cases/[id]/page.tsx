@@ -300,7 +300,10 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <i className="fas fa-star text-yellow-400"></i>
                             <i className="fas fa-star text-yellow-400"></i>
                         </div>
-                        <cite className="text-[#535861] font-semibold">{formatClientName(data.client)} 고객</cite>
+                        <cite className="text-[#535861] font-semibold">
+                            {/* Build Ver: Anonymization v3 */}
+                            {formatClientName(data.client)} 고객
+                        </cite>
                     </div>
                     <div className="mt-8">
                         <Link href="/company/consultation" className="px-6 py-3 bg-white text-[#8a765e] rounded-lg hover:bg-neutral-100 transition-colors font-semibold cursor-pointer inline-block">

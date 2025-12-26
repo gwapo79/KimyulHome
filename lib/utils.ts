@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatClientName(name: string | null | undefined): string {
-    if (!name) return '익명 고객';
+    if (!name) return '익명';
     if (name.length < 2) return name; // Single char? Return as is or handle specifically.
     // Take the first char, append "OO" or "O" depending on preference.
     // User requested "성+00" (e.g. Kim00). Usually in Korean it's "김OO".
