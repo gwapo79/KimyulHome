@@ -1,11 +1,12 @@
 
 import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 import { prisma } from '@/lib/prisma';
 import HeroConsultationForm from './components/home/HeroConsultationForm';
 import FAQList from './components/home/FAQList';
 import { SuccessCase, Review, FAQ } from '@prisma/client';
 
-export const dynamic = 'force-dynamic';
+
 
 async function getSuccessCases() {
   return await prisma.successCase.findMany({

@@ -1,5 +1,6 @@
 
 import { prisma } from '@/lib/prisma';
+export const dynamic = 'force-dynamic';
 
 export default async function DebugPage() {
     const userCount = await prisma.user.count();

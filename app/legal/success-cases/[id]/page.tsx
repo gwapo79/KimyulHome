@@ -1,10 +1,11 @@
 import { prisma } from '@/lib/prisma';
+export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTeamMemberByName } from '@/app/constants/team';
 
 // Prevent static generation issues with dynamic params if needed, or allow dynamic rendering
-export const dynamic = 'force-dynamic';
+
 
 interface Props {
     params: {
@@ -339,8 +340,8 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     summary: item.summary,
                                     imageUrl: item.imageUrl,
                                     date: item.createdAt,
-                                    authorName: item.lawyer || '김서윤',
-                                    authorId: item.lawyerId
+                                    authorName: (item as any).lawyer || '김서윤',
+                                    authorId: (item as any).lawyerId
                                 }));
 
                                 // Normalize Blog Posts
@@ -352,8 +353,8 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     summary: item.excerpt, // Blog uses excerpt
                                     imageUrl: item.thumbnailUrl, // Blog uses thumbnailUrl
                                     date: item.createdAt,
-                                    authorName: item.author || '박준혁',
-                                    authorId: item.authorId
+                                    authorName: (item as any).author || '박준혁',
+                                    authorId: (item as any).authorId
                                 }));
 
                                 return [...normalizedCases, ...normalizedBlogs];
