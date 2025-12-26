@@ -30,7 +30,10 @@ export default async function BlogDetailPage({ params }: Props) {
 
     // Increment view count (simple implementation, usually disjoint from render in production)
     // For this demo, we verify existence first
-    const post = await prisma.blogPost.findUnique({ where: { id } });
+    const post = await prisma.blogPost.findUnique({
+        where: { id },
+        include: { authorMember: true }
+    });
 
     if (!post) {
         notFound();
@@ -107,10 +110,17 @@ export default async function BlogDetailPage({ params }: Props) {
                         {/* Meta Info */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[#717680] mb-8">
                             <div className="flex items-center">
-                                {/* Placeholder Avatar */}
-                                <div className="w-10 h-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center text-gray-500 font-bold">
-                                    {post.author[0]}
-                                </div>
+                                {post.authorMember?.imageUrl ? (
+                                    <img
+                                        src={post.authorMember.imageUrl}
+                                        alt={post.author}
+                                        className="w-10 h-10 rounded-full mr-3 object-cover border border-gray-200"
+                                    />
+                                ) : (
+                                    <div className="w-10 h-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center text-gray-500 font-bold">
+                                        {post.author[0]}
+                                    </div>
+                                )}
                                 <div className="text-left">
                                     <div className="font-medium text-[#181d27]">{post.author}</div>
                                     <div className="text-[#717680]">법률 전문가</div>

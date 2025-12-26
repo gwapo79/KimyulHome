@@ -20,6 +20,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
 
     const data = await prisma.successCase.findFirst({
         where: { id },
+        include: { teamMember: true }
     });
 
     if (!data) {
@@ -226,8 +227,8 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <div className="flex items-center mt-4">
                                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border border-gray-200">
                                     <img
-                                        src={lawyerProfile.imageUrl}
-                                        alt={lawyerProfile.name}
+                                        src={data.teamMember?.imageUrl || lawyerProfile.imageUrl}
+                                        alt={data.teamMember?.name || lawyerProfile.name}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
