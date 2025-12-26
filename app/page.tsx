@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import HeroConsultationForm from './components/home/HeroConsultationForm';
 import FAQList from './components/home/FAQList';
 import { SuccessCase, Review, FAQ } from '@prisma/client';
+import { formatClientName } from '@/lib/utils';
 
 
 
@@ -318,10 +319,10 @@ export default async function Home() {
               <div key={review.id} className="bg-neutral-50 rounded-2xl p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-[#8a765e]/20 rounded-full flex items-center justify-center text-[#8a765e] text-xl font-bold">
-                    {review.author[0]}
+                    {formatClientName(review.author)[0]}
                   </div>
                   <div className="ml-4">
-                    <div className="font-semibold text-[#181d27]">{review.author}</div>
+                    <div className="font-semibold text-[#181d27]">{formatClientName(review.author)}</div>
                     <div className="text-sm text-[#535861]">{review.category} 고객</div>
                   </div>
                   <div className="ml-auto flex text-[#8a765e] space-x-1">

@@ -1,6 +1,6 @@
-
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import { formatClientName } from '@/lib/utils';
 export const dynamic = 'force-dynamic';
 
 export const revalidate = 0;
@@ -100,10 +100,10 @@ export default async function ReviewsPage({ searchParams }: Props) {
                                         <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-xs font-bold">
-                                                    {review.client ? review.client.charAt(0) : '익'}
+                                                    {formatClientName(review.client || '익명 고객')[0]}
                                                 </div>
                                                 <div className="text-xs">
-                                                    <p className="font-semibold text-gray-900">{review.client || '익명 고객님'}</p>
+                                                    <p className="font-semibold text-gray-900">{formatClientName(review.client || '익명 고객')}</p>
                                                     <p className="text-gray-400">{new Date(review.createdAt).toLocaleDateString()}</p>
                                                 </div>
                                             </div>

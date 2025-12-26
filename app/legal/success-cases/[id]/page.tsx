@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTeamMemberByName } from '@/app/constants/team';
+import { formatClientName } from '@/lib/utils';
 
 // Prevent static generation issues with dynamic params if needed, or allow dynamic rendering
 
@@ -150,7 +151,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                     <span className="font-semibold text-[#535861]">의뢰인</span>
-                                    <span className="text-[#181d27]">{data.client || '비공개'}</span>
+                                    <span className="text-[#181d27]">{formatClientName(data.client)}</span>
                                 </div>
                                 <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                     <span className="font-semibold text-[#535861]">사건 유형</span>
@@ -286,7 +287,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     <h2 className="text-3xl font-bold text-white mb-12">고객 후기</h2>
                     <div className="bg-white rounded-2xl p-8 shadow-lg">
                         <div className="mb-6">
-                            <img src="/assets/images/profiles/profile_07_v2.png" alt="김OO 고객" className="w-16 h-16 rounded-full mx-auto mb-4 border-4 border-[#8a765e]" />
+                            <img src="/assets/images/profiles/profile_07_v2.png" alt="고객 리뷰" className="w-16 h-16 rounded-full mx-auto mb-4 border-4 border-[#8a765e]" />
                             <div className="text-5xl text-[#8a765e] mb-4">"</div>
                         </div>
                         <blockquote className="text-xl text-[#181d27] leading-relaxed mb-6 italic">
@@ -299,7 +300,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <i className="fas fa-star text-yellow-400"></i>
                             <i className="fas fa-star text-yellow-400"></i>
                         </div>
-                        <cite className="text-[#535861] font-semibold">{data.client} 고객</cite>
+                        <cite className="text-[#535861] font-semibold">{formatClientName(data.client)} 고객</cite>
                     </div>
                     <div className="mt-8">
                         <Link href="/company/consultation" className="px-6 py-3 bg-white text-[#8a765e] rounded-lg hover:bg-neutral-100 transition-colors font-semibold cursor-pointer inline-block">
