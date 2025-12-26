@@ -7,14 +7,21 @@ import { prisma } from '@/lib/prisma';
 const TEST_USER_EMAIL = 'test@lawfirm.com';
 
 async function getUserId() {
-    // TODO: Replace with actual session logic
+    // Self-healing: Ensure test user exists in DB
     try {
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.upsert({
             where: { email: TEST_USER_EMAIL },
+            update: {}, // No updates if exists
+            create: {
+                email: TEST_USER_EMAIL,
+                name: '테스트 계정',
+                password: 'password123',
+                provider: 'local',
+            },
         });
-        return user?.id;
+        return user.id;
     } catch (error) {
-        console.error("Failed to getUserId:", error);
+        console.error("Failed to getUserId (Upsert):", error);
         return null;
     }
 }
