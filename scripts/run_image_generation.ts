@@ -112,7 +112,9 @@ async function main() {
     console.log(`Found ${pendingItems.length} pending items.`);
 
     let processedCount = 0;
-    const TARGET_BATCH_SIZE = 5;
+    let processedCount = 0;
+    const limitArg = args.find(arg => arg.startsWith('--limit'));
+    const TARGET_BATCH_SIZE = limitArg ? parseInt(limitArg.split('=')[1]) : 2; // Default to 2 as per user request
 
     // Iterate through pending items
     for (let i = 0; i < pendingItems.length; i++) {
@@ -156,6 +158,11 @@ async function main() {
                 await prisma.review.update({
                     where: { id: item.id },
                     data: { authorImageUrl: item.targetPath }
+                });
+            } else if (item.type === 'BLOG_POST') {
+                await prisma.blogPost.update({
+                    where: { id: item.id },
+                    data: { thumbnailUrl: item.targetPath }
                 });
             }
 
