@@ -47,7 +47,7 @@ export default async function BlogListPage({ searchParams }: Props) {
             include: {
                 authorMember: true,
             },
-        }),
+        } as any),
         prisma.blogPost.count({ where }),
     ]);
 
@@ -196,75 +196,72 @@ export default async function BlogListPage({ searchParams }: Props) {
                                             {post.excerpt}
                                         </p>
 
-                                        <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
-                                            <div className="flex items-center">
-                                                {/* Author Avatar */}
-                                                {post.authorMember?.imageUrl ? (
-                                                    <img
-                                                        src={post.authorMember.imageUrl}
-                                                        alt={post.author}
-                                                        className="w-8 h-8 rounded-full mr-2 object-cover border border-gray-200"
-                                                    />
-                                                ) : (
-                                                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2 text-xs font-bold text-gray-500">
-                                                        {post.author[0]}
-                                                    </div>
-                                                )}
-                                                <span className="text-sm text-[#535861]">{post.author}</span>
+                                        {post.authorMember?.imageUrl ? (
+                                            <img
+                                                src={post.authorMember.imageUrl}
+                                                alt={post.author}
+                                                className="w-8 h-8 rounded-full mr-2 object-cover border border-gray-200"
+                                            />
+                                        ) : (
+                                            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2 text-xs font-bold text-gray-500">
+                                                {post.author[0]}
                                             </div>
-                                            <Link href={`/media/blog/${post.id}`} className="flex items-center text-[#8a765e] hover:text-[#74634e] font-medium transition-colors text-sm">
-                                                자세히 보기 <i className="fa-solid fa-arrow-right ml-2"></i>
-                                            </Link>
-                                        </div>
+                                        )}
+                                        <span className="text-sm text-[#535861]">{post.author}</span>
+                                    </div>
+                                    <Link href={`/media/blog/${post.id}`} className="flex items-center text-[#8a765e] hover:text-[#74634e] font-medium transition-colors text-sm">
+                                        자세히 보기 <i className="fa-solid fa-arrow-right ml-2"></i>
+                                    </Link>
+                                </div>
                                     </div>
                                 </article>
                             ))}
-                        </div>
+            </div>
                     )}
 
-                    {/* Pagination */}
-                    {totalPages > 1 && (
-                        <div className="flex justify-center mt-12 gap-2">
-                            {page > 1 && (
-                                <Link
-                                    href={`/media/blog?page=${page - 1}&category=${category}&q=${query}`}
-                                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-600"
-                                >
-                                    이전
-                                </Link>
-                            )}
-                            {Array.from({ length: totalPages }).map((_, i) => {
-                                const p = i + 1;
-                                // Show limited range of pages for simplicity, or all if small
-                                if (p !== 1 && p !== totalPages && Math.abs(p - page) > 2) return null; // Simple truncation logic could be better but sufficient for verified task
-                                // Actually let's just show current, prev, next and ends
-
-                                return (
-                                    <Link
-                                        key={p}
-                                        href={`/media/blog?page=${p}&category=${category}&q=${query}`}
-                                        className={`px-4 py-2 rounded-lg border ${page === p
-                                            ? 'bg-[#8a765e] text-white border-[#8a765e]'
-                                            : 'bg-white border-gray-300 hover:bg-gray-50 text-gray-600'
-                                            }`}
-                                    >
-                                        {p}
-                                    </Link>
-                                );
-                            })}
-                            {page < totalPages && (
-                                <Link
-                                    href={`/media/blog?page=${page + 1}&category=${category}&q=${query}`}
-                                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-600"
-                                >
-                                    다음
-                                </Link>
-                            )}
-                        </div>
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="flex justify-center mt-12 gap-2">
+                    {page > 1 && (
+                        <Link
+                            href={`/media/blog?page=${page - 1}&category=${category}&q=${query}`}
+                            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-600"
+                        >
+                            이전
+                        </Link>
                     )}
+                    {Array.from({ length: totalPages }).map((_, i) => {
+                        const p = i + 1;
+                        // Show limited range of pages for simplicity, or all if small
+                        if (p !== 1 && p !== totalPages && Math.abs(p - page) > 2) return null; // Simple truncation logic could be better but sufficient for verified task
+                        // Actually let's just show current, prev, next and ends
 
+                        return (
+                            <Link
+                                key={p}
+                                href={`/media/blog?page=${p}&category=${category}&q=${query}`}
+                                className={`px-4 py-2 rounded-lg border ${page === p
+                                    ? 'bg-[#8a765e] text-white border-[#8a765e]'
+                                    : 'bg-white border-gray-300 hover:bg-gray-50 text-gray-600'
+                                    }`}
+                            >
+                                {p}
+                            </Link>
+                        );
+                    })}
+                    {page < totalPages && (
+                        <Link
+                            href={`/media/blog?page=${page + 1}&category=${category}&q=${query}`}
+                            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-600"
+                        >
+                            다음
+                        </Link>
+                    )}
                 </div>
-            </section>
+            )}
+
+        </div>
+            </section >
         </main >
     );
 }
