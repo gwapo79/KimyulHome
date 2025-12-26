@@ -137,10 +137,10 @@ export async function getNotifications() {
 
     try {
         const [unreadCount, list] = await Promise.all([
-            prisma.notification.count({
+            (prisma as any).notification.count({
                 where: { userId, isRead: false },
             }),
-            prisma.notification.findMany({
+            (prisma as any).notification.findMany({
                 where: { userId },
                 orderBy: { createdAt: 'desc' },
                 take: 4,
