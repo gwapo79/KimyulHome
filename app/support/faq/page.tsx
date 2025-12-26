@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { Metadata } from 'next';
 import FAQList from '@/app/components/support/FAQList';
 
-export const revalidate = 0; // Ensure dynamic fetching if we add features later
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: '자주 묻는 질문 | 서초지율',

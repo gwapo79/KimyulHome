@@ -1,4 +1,5 @@
 import Link from 'next/link';
+export const dynamic = 'force-dynamic';
 import { getDashboardData, getMyCases, getUpcomingSchedule, getRecentChat, getRecentDocuments, getNotifications } from './actions';
 
 export default async function Dashboard() {

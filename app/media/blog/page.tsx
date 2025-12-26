@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { Metadata } from 'next';
 
-export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: '법률·금융 인사이트 | 서초지율',
