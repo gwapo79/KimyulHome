@@ -1,15 +1,12 @@
 
 "use server";
 
-import { prisma } from "@/lib/prisma"; // Assuming prisma client is exported from here or similar. If not, initializing new client.
-import { PrismaClient } from "@prisma/client";
 
-// Ensure we have a PrismaClient instance if not imported
-const db = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function getEvents(userId: string) {
     try {
-        const events = await db.calendarEvent.findMany({
+        const events = await prisma.calendarEvent.findMany({
             where: { userId },
             select: {
                 id: true,
