@@ -84,7 +84,7 @@ export async function getRecentDocuments() {
 
 export async function getRecentChat() {
     const userId = await getUserId();
-    if (!userId) return [];
+    if (!userId) return null;
 
     // Get the most recent active chat room
     const room = await prisma.chatRoom.findFirst({
