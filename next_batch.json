@@ -1,0 +1,92 @@
+[
+  {
+    "id": "982c2437-c357-43ef-9ca1-725899039556",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 1차 related scene, featuring lawyer office desk with piles of paper. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_982c2437-c357-43ef-9ca1-725899039556.png"
+  },
+  {
+    "id": "ee4af16f-ff88-4044-8393-06fe634db84c",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_contract.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 4차 related scene, featuring blurry view of a korean court hallway. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_ee4af16f-ff88-4044-8393-06fe634db84c.png"
+  },
+  {
+    "id": "2063eac3-4541-4df6-8afa-cfc6aa7f4aac",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/corporate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 6차 related scene, featuring close up of a stamp on a legal document. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_2063eac3-4541-4df6-8afa-cfc6aa7f4aac.png"
+  },
+  {
+    "id": "6a532f2b-b464-4e89-a943-35e8fb569b8b",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 7차 related scene, featuring meeting room with glass walls. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_6a532f2b-b464-4e89-a943-35e8fb569b8b.png"
+  },
+  {
+    "id": "b6b1abbd-eea7-4651-af71-a68c1d14c115",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/realestate_apt.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 8차 related scene, featuring bookshelf filled with law books. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_b6b1abbd-eea7-4651-af71-a68c1d14c115.png"
+  },
+  {
+    "id": "c117656e-d8cc-44fe-8c45-eef712a0f94d",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/criminal.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 9차 related scene, featuring modern extensive office window view of seoul. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_c117656e-d8cc-44fe-8c45-eef712a0f94d.png"
+  },
+  {
+    "id": "38e079b8-2c2c-4625-bd29-a9c2433d8d04",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 10차 related scene, featuring hand holding a pen signing a paper. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_38e079b8-2c2c-4625-bd29-a9c2433d8d04.png"
+  },
+  {
+    "id": "82e753ed-769f-486a-ad8e-187f5f64cb10",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 11차 related scene, featuring detail of a judges gavel on a desk. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_82e753ed-769f-486a-ad8e-187f5f64cb10.png"
+  },
+  {
+    "id": "d4b9da55-55e6-4f7e-b418-d0d30f8db8be",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/civil_court.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 3차 related scene, featuring waiting area in a law firm. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_d4b9da55-55e6-4f7e-b418-d0d30f8db8be.png"
+  },
+  {
+    "id": "7f625219-dd32-4fc9-94b8-083b45a67cd7",
+    "type": "SUCCESS_CASE",
+    "category": "민사",
+    "currentImage": "/assets/images/success_cases/family.png",
+    "targetPrompt": "Professional candid photo of 대여금 반환 청구 소송 - 5차 related scene, featuring stack of files on a wooden table. Context: 민사. Korean style, realistic, 3:2 aspect ratio. No text.",
+    "status": "PENDING",
+    "targetPath": "/assets/images/unique/success_7f625219-dd32-4fc9-94b8-083b45a67cd7.png"
+  }
+]

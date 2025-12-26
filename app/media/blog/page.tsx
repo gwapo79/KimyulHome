@@ -47,7 +47,7 @@ export default async function BlogListPage({ searchParams }: Props) {
             include: {
                 authorMember: true,
             },
-        } as any),
+        } as any) as unknown as Promise<any[]>,
         prisma.blogPost.count({ where }),
     ]);
 
@@ -68,11 +68,11 @@ export default async function BlogListPage({ searchParams }: Props) {
     // Helper for category badge color
     const getBadgeColor = (cat: string) => {
         switch (cat) {
-            case 'real-estate': return 'bg-white bg-opacity-90 text-[#74634e]'; // Brownish
-            case 'debt': return 'bg-white bg-opacity-90 text-[#15803d]';        // Green
-            case 'rehab': return 'bg-white bg-opacity-90 text-[#3537cc]';       // Blue
-            case 'case-law': return 'bg-white bg-opacity-90 text-[#c01573]';    // Pink
-            default: return 'bg-white bg-opacity-90 text-gray-700';
+            case 'real-estate': return 'bg-white/90 text-[#74634e]'; // Brownish
+            case 'debt': return 'bg-white/90 text-[#15803d]';        // Green
+            case 'rehab': return 'bg-white/90 text-[#3537cc]';       // Blue
+            case 'case-law': return 'bg-white/90 text-[#c01573]';    // Pink
+            default: return 'bg-white/90 text-gray-700';
         }
     };
     // Helper for gradient bg
@@ -167,7 +167,7 @@ export default async function BlogListPage({ searchParams }: Props) {
                                         ) : (
                                             <div className={`w-full h-full bg-gradient-to-br ${getGradient(post.category)}`}></div>
                                         )}
-                                        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+                                        <div className="absolute inset-0 bg-black/10"></div>
                                         <div className="absolute bottom-4 left-4 right-4 z-10">
                                             <div className="flex items-center justify-between">
                                                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${getBadgeColor(post.category)} shadow-sm`}>
@@ -210,12 +210,13 @@ export default async function BlogListPage({ searchParams }: Props) {
                                                         {post.author[0]}
                                                     </div>
                                                 )}
-                                                <span className="text-sm text-[#535861]">{post.author}</span>
+                                                <span className="text-sm text-[#535861]">{post.author[0]}OO</span>
                                             </div>
                                             <Link href={`/media/blog/${post.id}`} className="flex items-center text-[#8a765e] hover:text-[#74634e] font-medium transition-colors text-sm">
                                                 자세히 보기 <i className="fa-solid fa-arrow-right ml-2"></i>
                                             </Link>
                                         </div>
+                                    </div>
                                 </article>
                             ))}
                         </div>
