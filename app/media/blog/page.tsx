@@ -44,6 +44,9 @@ export default async function BlogListPage({ searchParams }: Props) {
             orderBy: { createdAt: 'desc' },
             take: limit,
             skip,
+            include: {
+                authorMember: true,
+            },
         }),
         prisma.blogPost.count({ where }),
     ]);
@@ -195,10 +198,18 @@ export default async function BlogListPage({ searchParams }: Props) {
 
                                         <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-100">
                                             <div className="flex items-center">
-                                                {/* Simple Author Avatar Placeholder */}
-                                                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2 text-xs font-bold text-gray-500">
-                                                    {post.author[0]}
-                                                </div>
+                                                {/* Author Avatar */}
+                                                {post.authorMember?.imageUrl ? (
+                                                    <img
+                                                        src={post.authorMember.imageUrl}
+                                                        alt={post.author}
+                                                        className="w-8 h-8 rounded-full mr-2 object-cover border border-gray-200"
+                                                    />
+                                                ) : (
+                                                    <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2 text-xs font-bold text-gray-500">
+                                                        {post.author[0]}
+                                                    </div>
+                                                )}
                                                 <span className="text-sm text-[#535861]">{post.author}</span>
                                             </div>
                                             <Link href={`/media/blog/${post.id}`} className="flex items-center text-[#8a765e] hover:text-[#74634e] font-medium transition-colors text-sm">

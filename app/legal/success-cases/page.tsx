@@ -51,6 +51,9 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
         orderBy,
         take: itemsPerPage,
         skip: (currentPage - 1) * itemsPerPage,
+        include: {
+            teamMember: true,
+        },
     });
 
     const getPageUrl = (pageNum: number) => {
@@ -136,7 +139,11 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
                                                 <h3 className="text-xl font-bold text-[#181d27] mb-3 flex-grow">{successCase.title}</h3>
                                                 <p className="text-[#535861] mb-4 line-clamp-2">{successCase.summary}</p>
                                                 <div className="flex items-center mt-auto">
-                                                    <img src="/assets/images/profiles/profile_07_v2.png" alt="변호사" className="w-10 h-10 rounded-full mr-3" />
+                                                    <img
+                                                        src={successCase.teamMember?.imageUrl || successCase.lawyerImageUrl || "/assets/images/profiles/profile_07_v2.png"}
+                                                        alt={successCase.lawyer || "변호사"}
+                                                        className="w-10 h-10 rounded-full mr-3 object-cover"
+                                                    />
                                                     <div>
                                                         <p className="font-semibold text-sm text-[#181d27]">{successCase.lawyer || '담당 변호사'}</p>
                                                         <p className="text-xs text-[#9ca3af]">10 Apr 2025</p>
