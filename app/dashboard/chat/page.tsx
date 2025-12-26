@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import ChatInterface from "@/app/components/chat/ChatInterface";
+export const dynamic = "force-dynamic";
 
 export default function ChatPage() {
     return (

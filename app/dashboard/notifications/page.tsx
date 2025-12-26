@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 import NotificationSettings from "@/app/components/notifications/NotificationSettings";
 
 export default function NotificationsPage() {

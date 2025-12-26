@@ -1,7 +1,7 @@
-
 "use client";
 
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 import CalendarComponent from "@/app/components/calendar/CalendarComponent";
 
 export default function CalendarPage() {

@@ -1,8 +1,8 @@
-
 "use client";
 
 import { useEffect, useState } from 'react';
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 import { getBillingHistory, BillingSummaryData } from '@/app/actions/billing';
 import BillingSummary from '@/app/components/billing/BillingSummary';
 import BillingHistoryList from '@/app/components/billing/BillingHistoryList';

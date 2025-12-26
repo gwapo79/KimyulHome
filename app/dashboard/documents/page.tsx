@@ -1,7 +1,7 @@
-
 "use client";
 
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 import { useState, useEffect, useRef } from "react";
 import { getDocuments, uploadDocument, deleteDocument } from "@/app/actions/documents";
 import { Card } from "@/app/components/ui/card";
