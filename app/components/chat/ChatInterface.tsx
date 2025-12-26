@@ -2,18 +2,16 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import { createClient } from '@supabase/supabase-js';
+// import { createClient } from '@supabase/supabase-js'; // Removed manually
 import { getChatRooms, getMessages, sendMessage } from '@/app/actions/chat';
 import { cn } from '@/lib/utils';
 import {
     Phone, Video, MoreVertical, Paperclip, Send,
-    FileText, Download, Info, CheckCheck
+    FileText, Download, Info, CheckCheck, X
 } from 'lucide-react';
 
 // Initialize Supabase Client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from '@/lib/supabase';
 
 interface ChatRoom {
     id: string;
@@ -39,6 +37,14 @@ export default function ChatInterface() {
     const [currentUserId, setCurrentUserId] = useState<string | null>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+    const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setSelectedFile(e.target.files[0]);
+        }
+    };
 
     // 1. Fetch User & Rooms
     useEffect(() => {
@@ -51,7 +57,10 @@ export default function ChatInterface() {
                 setRooms(fetchedRooms as unknown as ChatRoom[]);
 
                 if (fetchedRooms.length > 0) {
-                    setActiveRoomId(fetchedRooms[0].id);
+                    // On desktop, select first room by default. On mobile, start with no selection (list view)
+                    if (window.innerWidth >= 1024) {
+                        setActiveRoomId(fetchedRooms[0].id);
+                    }
                 }
             }
         };
@@ -95,13 +104,14 @@ export default function ChatInterface() {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
         }
-    }, [messages]);
+    }, [messages, activeRoomId]);
 
     const handleSend = async () => {
         if (!input.trim() || !activeRoomId || !currentUserId) return;
 
         const content = input;
         setInput(""); // Clear immediately
+        setSelectedFile(null); // Clear file
 
         // Optimistic UI Update
         const optimisticId = crypto.randomUUID();
@@ -130,15 +140,22 @@ export default function ChatInterface() {
     const activeRoom = rooms.find(r => r.id === activeRoomId);
 
     return (
-        <div className="bg-white rounded-2xl border border-[#e9e9eb] h-[800px] flex overflow-hidden shadow-sm">
-            {/* Left Sidebar: Threads */}
-            <section id="threads" className="w-80 border-r border-[#e9e9eb] flex flex-col bg-white">
-                <div className="p-6 border-b border-[#e9e9eb]">
+        <div className="bg-white rounded-2xl border border-[#e9e9eb] h-[calc(100vh-130px)] lg:h-[800px] flex overflow-hidden shadow-sm relative">
+
+            {/* Left Sidebar: Threads (Hidden on Mobile if room active) */}
+            <section
+                id="threads"
+                className={cn(
+                    "w-full lg:w-80 border-r border-[#e9e9eb] flex flex-col bg-white",
+                    activeRoomId ? "hidden lg:flex" : "flex"
+                )}
+            >
+                <div className="p-4 lg:p-6 border-b border-[#e9e9eb]">
                     <h1 className="text-xl font-semibold text-[#181d27] mb-2">상담 채팅</h1>
                     <p className="text-[#535861] text-sm">이전 대화와 최근 파일을 확인하세요</p>
                 </div>
                 <div className="flex-1 overflow-y-auto">
-                    <div className="p-4 space-y-2">
+                    <div className="p-2 lg:p-4 space-y-2">
                         {rooms.map(room => (
                             <button
                                 key={room.id}
@@ -182,13 +199,26 @@ export default function ChatInterface() {
                 </div>
             </section>
 
-            {/* Right: Chat Window */}
-            <div className="flex-1 flex flex-col bg-white">
+            {/* Right: Chat Window (Hidden on Mobile if no room active) */}
+            <div
+                className={cn(
+                    "flex-1 flex flex-col bg-white h-full",
+                    !activeRoomId ? "hidden lg:flex" : "flex"
+                )}
+            >
                 {activeRoom ? (
                     <>
                         {/* Header */}
-                        <div className="p-6 border-b border-[#e9e9eb] flex items-center justify-between">
+                        <div className="p-4 lg:p-6 border-b border-[#e9e9eb] flex items-center justify-between shrink-0">
                             <div className="flex items-center space-x-3">
+                                {/* Mobile Back Button */}
+                                <button
+                                    onClick={() => setActiveRoomId(null)}
+                                    className="lg:hidden p-1 mr-1 text-[#535861]"
+                                >
+                                    <i className="fas fa-arrow-left"></i>
+                                </button>
+
                                 <div className="relative">
                                     <img src="/assets/images/lawyer_avatar.png" alt="Kim" className="w-10 h-10 rounded-full object-cover border border-neutral-200"
                                         onError={(e) => (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Lawyer'}
@@ -197,26 +227,20 @@ export default function ChatInterface() {
                                 </div>
                                 <div>
                                     <div className="font-medium text-[#181d27]">김변호사</div>
-                                    <div className="text-sm text-[#74634e]">온라인 • {activeRoom.title}</div>
+                                    <div className="text-sm text-[#74634e] truncate max-w-[150px] sm:max-w-xs">{activeRoom.title}</div>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <button className="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors">
+                            <div className="flex items-center space-x-1 lg:space-x-2">
+                                <a href="tel:02-6080-3377" className="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors">
                                     <Phone className="w-5 h-5" />
-                                </button>
-                                <button className="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors">
-                                    <Video className="w-5 h-5" />
-                                </button>
-                                <button className="p-2 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors">
-                                    <MoreVertical className="w-5 h-5" />
-                                </button>
+                                </a>
                             </div>
                         </div>
 
                         {/* Messages */}
                         <div
                             ref={scrollContainerRef}
-                            className="flex-1 overflow-y-auto p-6 space-y-6 bg-white"
+                            className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6 bg-gray-50/50"
                         >
                             {/* Date Separator (Mock) */}
                             <div className="flex justify-center">
@@ -230,13 +254,13 @@ export default function ChatInterface() {
                                 return (
                                     <div key={msg.id} className={cn("flex items-start space-x-3", isMe ? "justify-end" : "")}>
                                         {!isMe && (
-                                            <img src="/assets/images/lawyer_avatar.png" alt="Lawyer" className="w-8 h-8 rounded-full object-cover"
+                                            <img src="/assets/images/lawyer_avatar.png" alt="Lawyer" className="w-8 h-8 rounded-full object-cover shrink-0"
                                                 onError={(e) => (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=L'}
                                             />
                                         )}
-                                        <div className={cn("flex-1 max-w-lg", isMe ? "text-right" : "")}>
+                                        <div className={cn("flex-1 max-w-[85%] lg:max-w-lg", isMe ? "text-right" : "")}>
                                             <div className={cn(
-                                                "p-4 inline-block text-left text-sm leading-relaxed",
+                                                "p-3 lg:p-4 inline-block text-left text-sm leading-relaxed shadow-sm break-words",
                                                 isMe
                                                     ? "bg-[#8a765e] text-white rounded-2xl rounded-tr-md"
                                                     : "bg-white border border-[#e9e9eb] text-[#181d27] rounded-2xl rounded-tl-md"
@@ -248,27 +272,41 @@ export default function ChatInterface() {
                                                 {isMe && <CheckCheck className="w-3 h-3 text-[#8a765e]" />}
                                             </div>
                                         </div>
-                                        {isMe && (
-                                            <img src="/assets/images/profiles/profile_01.png" alt="Me" className="w-8 h-8 rounded-full object-cover"
-                                                onError={(e) => (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Me'}
-                                            />
-                                        )}
                                     </div>
                                 );
                             })}
                         </div>
 
                         {/* Input Area */}
-                        <div className="border-t border-[#e9e9eb] p-6 bg-white">
+                        <div className="border-t border-[#e9e9eb] p-4 lg:p-6 bg-white shrink-0 sticky bottom-0">
                             <form
                                 className="space-y-4"
                                 onSubmit={(e) => { e.preventDefault(); handleSend(); }}
                             >
-                                <div className="flex items-end space-x-3">
-                                    <button type="button" className="p-3 text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors">
-                                        <Paperclip className="w-5 h-5" />
-                                    </button>
-                                    <div className="flex-1 relative">
+                                <input
+                                    type="file"
+                                    ref={fileInputRef}
+                                    className="hidden"
+                                    accept="image/*,application/pdf,.doc,.docx,.hwp"
+                                    onChange={handleFileSelect}
+                                />
+                                {selectedFile && (
+                                    <div className="mb-2 px-3 py-2 bg-[#f8f3ed] rounded-lg flex items-center justify-between border border-[#e5ceb4]">
+                                        <div className="flex items-center gap-2 overflow-hidden">
+                                            <Paperclip className="w-4 h-4 text-[#74634e] shrink-0" />
+                                            <span className="text-sm text-[#74634e] truncate font-medium">{selectedFile.name}</span>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => setSelectedFile(null)}
+                                            className="ml-2 text-[#74634e] hover:text-[#5e503f] p-1"
+                                        >
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                )}
+                                <div className="flex items-center gap-2 flex-nowrap">
+                                    <div className="flex-1 relative h-[48px]">
                                         <textarea
                                             value={input}
                                             onChange={(e) => setInput(e.target.value)}
@@ -279,14 +317,21 @@ export default function ChatInterface() {
                                                 }
                                             }}
                                             rows={1}
-                                            placeholder="상담 내용을 입력하세요"
-                                            className="w-full px-4 py-3 border border-[#d5d6d9] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] placeholder-[#717680]"
+                                            placeholder="메시지 입력..."
+                                            className="w-full h-full px-4 py-[13px] border border-[#d5d6d9] rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#8a765e] focus:border-[#8a765e] placeholder-[#717680] text-base leading-[20px] box-border"
                                         />
                                     </div>
                                     <button
+                                        type="button"
+                                        onClick={() => fileInputRef.current?.click()}
+                                        className="w-[48px] h-[48px] text-[#535861] hover:text-[#74634e] hover:bg-neutral-50 rounded-lg transition-colors flex items-center justify-center shrink-0 box-border"
+                                    >
+                                        <Paperclip className="w-5 h-5" />
+                                    </button>
+                                    <button
                                         type="submit"
                                         disabled={!input.trim()}
-                                        className="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="h-[48px] px-4 lg:px-6 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed shrink-0 flex items-center justify-center box-border"
                                     >
                                         <Send className="w-5 h-5" />
                                     </button>

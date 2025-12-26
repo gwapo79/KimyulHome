@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import ConsultationForm from "./ConsultationForm";
+import ConsultationForm from "@/app/components/consultation/ConsultationForm";
 import KakaoMap from "@/app/components/map/KakaoMap";
 
 export default function ConsultationPage() {

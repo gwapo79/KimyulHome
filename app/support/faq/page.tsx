@@ -1,3 +1,4 @@
+import { prisma } from '@/lib/prisma';
 import { Metadata } from 'next';
 import FAQList from '@/app/components/support/FAQList';
 
@@ -8,7 +9,11 @@ export const metadata: Metadata = {
     description: '법률 상담, 비용, 절차 등 고객님들이 자주 궁금해하시는 질문과 답변을 확인하세요.',
 };
 
-export default function FAQPage() {
+export default async function FAQPage() {
+    const faqs = await prisma.fAQ.findMany({
+        orderBy: { category: 'asc' }
+    });
+
     return (
         <main>
             <section id="hero" className="bg-[#6F614D] py-20">
@@ -21,7 +26,7 @@ export default function FAQPage() {
             </section>
 
             <section className="bg-white">
-                <FAQList />
+                <FAQList initialFaqs={faqs} />
             </section>
         </main>
     );

@@ -24,6 +24,9 @@ model User {
   chatRooms           ChatRoom[]
   documents           Document[]
   notificationSetting NotificationSetting?
+  notifications       Notification[]
+  address             String?
+  avatarUrl           String?
 }
 
 model NotificationSetting {
@@ -35,6 +38,17 @@ model NotificationSetting {
   marketingAgree   Boolean  @default(false)
   updatedAt        DateTime @updatedAt
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Notification {
+  id          String   @id @default(uuid())
+  userId      String
+  title       String
+  message     String
+  type        String   @default("info") // info, success, warning, error
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model BillingHistory {
@@ -86,6 +100,27 @@ model Document {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+// ... (User Model etc above)
+
+model TeamMember {
+  id          String   @id @default(uuid())
+  name        String
+  role        String   // 변호사, 법무사 등
+  position    String   // 대표변호사, 소속법무사 등
+  specialty   String?  // 전문분야
+  imageUrl    String?
+  email       String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  successCases SuccessCase[]
+  blogPosts    BlogPost[]
+  reviews      Review[]
+  faqs         FAQ[]
+  chatRooms    ChatRoom[]
+}
+
 model SuccessCase {
   id             String   @id @default(uuid())
   title          String
@@ -95,7 +130,7 @@ model SuccessCase {
   caseType       String?
   amount         String?
   period         String?
-  lawyer         String?
+  lawyer         String? // Legacy String
   result         String?
   background     String?
   strategy       String?
@@ -106,6 +141,9 @@ model SuccessCase {
   updatedAt      DateTime @updatedAt
   lawyerComment  String?
   lawyerImageUrl String?
+  
+  lawyerId       String?
+  teamMember     TeamMember? @relation(fields: [lawyerId], references: [id])
 }
 
 model Review {
@@ -117,7 +155,10 @@ model Review {
   createdAt      DateTime @default(now())
   authorImageUrl String?
   date           String?
-  role           String?
+  role           String? // User role (e.g. 'Business Owner')
+
+  counselorId    String?
+  counselor      TeamMember? @relation(fields: [counselorId], references: [id])
 }
 
 model FAQ {
@@ -127,6 +168,9 @@ model FAQ {
   category  String
   order     Int      @default(0)
   createdAt DateTime @default(now())
+
+  authorId    String?
+  author      TeamMember? @relation(fields: [authorId], references: [id])
 }
 
 model BlogPost {
@@ -136,9 +180,12 @@ model BlogPost {
   excerpt      String
   category     String
   thumbnailUrl String
-  author       String
+  author       String // Legacy
   viewCount    Int      @default(0)
   createdAt    DateTime @default(now())
+
+  authorId     String?
+  authorMember TeamMember? @relation(fields: [authorId], references: [id])
 }
 
 model Consultation {
@@ -175,6 +222,8 @@ model ChatRoom {
   updatedAt DateTime      @updatedAt
   messages  ChatMessage[]
   user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  lawyer    TeamMember?   @relation(fields: [lawyerId], references: [id])
 }
 
 model ChatMessage {

@@ -18,7 +18,7 @@ function getRandomImage() {
     return `/images/cases/${filename}`;
 }
 
-const BLOG_POSTS = [
+export const BLOG_POSTS = [
     // 1. 부동산분쟁 (Real Estate) - 13 items
     {
         title: "전세보증금 못 받을 때, 내용증명보다 먼저 해야 할 3가지",
@@ -371,7 +371,7 @@ const BLOG_POSTS = [
 
 // Generate more specific content to reach 50+ items total
 // Helper to replicate data with variations
-const generateBulkData = () => {
+export const generateBulkData = () => {
     const additionalPosts: any[] = [];
     const categories = ['부동산분쟁', '채무관리', '개인회생', '판례', '가이드'];
 
@@ -548,6 +548,7 @@ async function main() {
     console.log('✨ Categories seeded: 부동산분쟁, 채무관리, 개인회생, 판례, 가이드');
 }
 
+/*
 main()
     .catch((e) => {
         console.error('❌ Seeding error:', e);
@@ -556,3 +557,4 @@ main()
     .finally(async () => {
         await prisma.$disconnect();
     });
+*/

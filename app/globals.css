@@ -10,17 +10,82 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-serif: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  /* Force serif to sans */
+  --font-mono: "Pretendard GOV", Pretendard, monospace;
+  /* Force mono to sans usually, or keep mono if needed but user asked to fix mix */
 }
 
-* {
+/* Force override all fonts & spacing, BUT exclude icons */
+*:not(i):not(svg):not([class*="icon"]):not([class*="fa-"]) {
   box-sizing: border-box;
-  font-family: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+  letter-spacing: -0.02em;
+  /* Global tightening */
+}
+
+/* Headings need tighter spacing for stability */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.04em !important;
+  font-family: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
+}
+
+body,
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+li,
+label {
+  font-family: "Pretendard GOV", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+}
+
+/* Deep Clean: Ensure form elements and placeholders behave */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  font-family: "Pretendard GOV", Pretendard, sans-serif !important;
+  opacity: 1;
+  /* Ensure visible */
+}
+
+option,
+optgroup {
+  font-family: "Pretendard GOV", Pretendard, sans-serif !important;
+}
+
+/* Ensure SVG text elements use the correct font, even if the SVG itself is excluded */
+svg text {
+  font-family: "Pretendard GOV", Pretendard, sans-serif !important;
+}
+
+/* Ensure icons reset to their own fonts if caught by inheritance */
+i,
+[class*="fa-"],
+[class*="icon"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", fontawesome, sans-serif !important;
+  /* Note: The specific font family depends on the library.
+     For FAS/FAR it is "Font Awesome 6 Free".
+     We rely on the library's own CSS usually having specificity or !important.
+     However, since we used !important on body/p/etc., we might need to be careful.
+     The :not() selector above protects the element itself, but inheritance might still apply.
+  */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

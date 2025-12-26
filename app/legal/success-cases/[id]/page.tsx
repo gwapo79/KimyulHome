@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { getTeamMemberByName } from '@/app/constants/team';
 
 // Prevent static generation issues with dynamic params if needed, or allow dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -40,28 +41,46 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     strategyList = parsed;
                 }
             } else {
-                // Fallback for plain text: Group by Title/Description pairs
+                // Fallback for plain text
                 const lines = trimmed.split('\n').filter(Boolean);
                 strategyList = [];
-                for (let i = 0; i < lines.length; i += 2) {
-                    strategyList.push({
-                        title: lines[i],
-                        description: lines[i + 1] || ''
+
+                // Check if lines follow "1. Title: Desc" pattern
+                const isNumbered = lines.some(l => /^\d+\./.test(l));
+
+                if (isNumbered) {
+                    lines.forEach(line => {
+                        // Regex to capture: 1. [Title]: Desc OR 1. **[Title]**: Desc
+                        // Handles optional ** and []
+                        const match = line.match(/^\d+\.\s*(?:\*\*)?(?:\[)?(.*?)(?:\])?(?:\*\*)?:\s*(.*)$/);
+                        if (match) {
+                            strategyList.push({
+                                title: match[1], // Captured Title
+                                description: match[2] // Captured Description
+                            });
+                        } else {
+                            // Fallback if regex fails but it's a line
+                            strategyList.push({
+                                title: "Solution Step",
+                                description: line.replace(/^\d+\.\s*/, '')
+                            });
+                        }
                     });
+                } else {
+                    // Legacy pairing mode (Title \n Description)
+                    for (let i = 0; i < lines.length; i += 2) {
+                        strategyList.push({
+                            title: lines[i],
+                            description: lines[i + 1] || ''
+                        });
+                    }
                 }
             }
         }
     } catch (e) {
         console.error("Failed to parse strategy JSON:", e, data.strategy);
-        // Fallback if parsing fails
-        const lines = data.strategy ? data.strategy.split('\n').filter(Boolean) : [];
-        strategyList = [];
-        for (let i = 0; i < lines.length; i += 2) {
-            strategyList.push({
-                title: lines[i],
-                description: lines[i + 1] || ''
-            });
-        }
+        // Fallback
+        strategyList = [{ title: "해결 전략", description: data.strategy || "" }];
     }
 
     let outcomeList: string[] = [];
@@ -83,6 +102,8 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
         console.error("Failed to parse outcomes JSON:", e, data.outcomes);
         outcomeList = data.outcomes ? data.outcomes.split('\n').filter(Boolean) : [];
     }
+
+    const lawyerProfile = getTeamMemberByName(data.lawyer || '김서윤');
 
     return (
         <main>
@@ -166,7 +187,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <div className="mt-8 pt-6 border-t border-[#e9e9eb]">
                                 <h3 className="text-lg font-semibold text-[#181d27] mb-4">사건 배경</h3>
                                 <p className="text-[#535861] leading-relaxed whitespace-pre-wrap">
-                                    {data.background}
+                                    {data.background.replace(/### \[사건 개요\]\s*/g, '').replace(/### \[사건의 난제\]/g, '\n[사건의 난제]').replace(/\*\*/g, '')}
                                 </p>
                             </div>
                         )}
@@ -201,7 +222,16 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             <blockquote className="text-xl italic text-[#181d27] mb-4">
                                 "{data.lawyerComment || "단순히 소송만 제기하는 것이 아니라, 사전 재산보전과 체계적인 재산조사를 통해 실질적인 회수 가능성을 높이는 것이 핵심입니다."}"
                             </blockquote>
-                            <cite className="text-[#535861] font-semibold">- {data.lawyer}</cite>
+                            <div className="flex items-center mt-4">
+                                <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border border-gray-200">
+                                    <img
+                                        src={lawyerProfile.imageUrl}
+                                        alt={lawyerProfile.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <cite className="text-[#535861] font-semibold not-italic tracking-tight font-pretendard-gov">{lawyerProfile.name} {lawyerProfile.role}</cite>
+                            </div>
                         </div>
                         <div className="mt-8 text-center">
                             <Link href="/company/consultation" className="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-semibold cursor-pointer inline-block">
@@ -280,44 +310,63 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">유사한 사례</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Static placeholders for related cases as per design match requirement, or could be dynamic too but sticking to design fidelity first */}
-                        <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer">
-                            <div className="h-48 overflow-hidden">
-                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7de993d8fd-bddc55e6c22ef6f4fcfd.png" alt="채무조정 성공 사례" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                            </div>
-                            <div className="p-6 flex flex-col flex-grow">
-                                <p className="text-sm text-[#8a765e] font-semibold mb-2">금융 솔루션</p>
-                                <h3 className="text-xl font-bold text-[#181d27] mb-3 flex-grow">다중 채무 통합 및 이자 25% 경감</h3>
-                                <p className="text-[#535861] mb-4">7개 금융기관 채무를 통합 조정하여 월 상환액을 35% 절감한 사례</p>
-                                <div className="flex items-center mt-auto">
-                                    <img src="/assets/images/profiles/profile_04.png" alt="전문가" className="w-10 h-10 rounded-full mr-3" />
-                                    <div>
-                                        <p className="font-semibold text-sm text-[#181d27]">이금융 전문가</p>
-                                        <p className="text-xs text-[#717680]">05 Apr 2025</p>
-                                    </div>
-                                    <i className="fas fa-arrow-right ml-auto text-[#717680] group-hover:text-[#8a765e] transition-colors"></i>
-                                </div>
-                            </div>
-                        </div>
-                        {/* ... other placeholders can be added if needed, sticking to one example for brevity vs duplication, but user asked for "UI 그대로 이식". I'll add one more to balance. */}
-                        <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer">
-                            <div className="h-48 overflow-hidden">
-                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fee7fea59e-34d4fd1500c79fe7ded2.png" alt="임대차 계약" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                            </div>
-                            <div className="p-6 flex flex-col flex-grow">
-                                <p className="text-sm text-[#8a765e] font-semibold mb-2">부동산 법률</p>
-                                <h3 className="text-xl font-bold text-[#181d27] mb-3 flex-grow">임대차 계약 분쟁 해결 사례</h3>
-                                <p className="text-[#535861] mb-4">계약 갱신 거절 상황에서 임차인의 권리를 지켜낸 임대차 분쟁 해결 사례</p>
-                                <div className="flex items-center mt-auto">
-                                    <img src="/assets/images/profiles/profile_02.png" alt="전문가" className="w-10 h-10 rounded-full mr-3" />
-                                    <div>
-                                        <p className="font-semibold text-sm text-[#181d27]">이임대 법무사</p>
-                                        <p className="text-xs text-[#717680]">15 Mar 2025</p>
-                                    </div>
-                                    <i className="fas fa-arrow-right ml-auto text-[#717680] group-hover:text-[#8a765e] transition-colors"></i>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            (await (async () => {
+                                let similar = await prisma.successCase.findMany({
+                                    where: {
+                                        category: data.category,
+                                        id: { not: data.id }
+                                    },
+                                    take: 3,
+                                    orderBy: { createdAt: 'desc' }
+                                });
+                                // Fallback
+                                if (similar.length === 0) {
+                                    similar = await prisma.successCase.findMany({
+                                        where: { id: { not: data.id } },
+                                        take: 3,
+                                        orderBy: { createdAt: 'desc' }
+                                    });
+                                }
+                                return similar;
+                            })()).map((item) => {
+                                const itemLawyer = getTeamMemberByName(item.lawyer || '김서윤');
+                                return (
+                                    <Link key={item.id} href={`/legal/success-cases/${item.id}`} className="block group">
+                                        <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-full">
+                                            <div className="h-48 overflow-hidden bg-gray-200">
+                                                {item.imageUrl ? (
+                                                    <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                                ) : (
+                                                    <div className="w-full h-full bg-[#e5ceb4] flex items-center justify-center text-[#74634e]">
+                                                        <i className="fas fa-scale-unbalanced text-4xl"></i>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <p className="text-sm text-[#8a765e] font-semibold mb-2">{item.category}</p>
+                                                <h3 className="text-xl font-bold text-[#181d27] mb-3 line-clamp-2 bg-gradient-to-r from-[#181d27] to-[#181d27] bg-[length:0%_2px] bg-no-repeat bg-left-bottom group-hover:bg-[length:100%_2px] transition-all duration-300 ease-out">{item.title}</h3>
+                                                <p className="text-[#535861] mb-4 line-clamp-2">{item.summary}</p>
+                                                <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
+                                                    <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-200 flex-shrink-0">
+                                                        <img
+                                                            src={itemLawyer.imageUrl}
+                                                            alt={itemLawyer.name}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm text-[#181d27] tracking-tight font-pretendard-gov">{itemLawyer.name}</p>
+                                                        <p className="text-xs text-[#717680]">{new Date(item.createdAt).toLocaleDateString()}</p>
+                                                    </div>
+                                                    <i className="fas fa-arrow-right ml-auto text-[#717680] group-hover:text-[#8a765e] transition-colors translate-x-0 group-hover:translate-x-1 duration-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                )
+                            })
+                        }
                     </div>
                     <div className="mt-12 text-center">
                         <Link href={`/legal/success-cases?category=${data.category}`} className="px-6 py-3 bg-white text-[#8a765e] border-2 border-[#8a765e] rounded-lg hover:bg-[#8a765e] hover:text-white transition-colors font-semibold cursor-pointer inline-block">

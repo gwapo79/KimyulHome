@@ -1,9 +1,19 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { FAQ_DATA } from '@/app/data/faqs';
 
-export default function FAQList() {
+interface FAQItem {
+    id: string;
+    category: string;
+    question: string;
+    answer: string;
+}
+
+interface Props {
+    initialFaqs: FAQItem[];
+}
+
+export default function FAQList({ initialFaqs }: Props) {
     const [activeTab, setActiveTab] = useState('전체');
     const [searchQuery, setSearchQuery] = useState('');
     const [openId, setOpenId] = useState<string | null>(null);
@@ -12,14 +22,14 @@ export default function FAQList() {
 
     // Memoize filtering for performance with large dataset
     const filteredFaqs = useMemo(() => {
-        return FAQ_DATA.filter((faq) => {
+        return initialFaqs.filter((faq) => {
             const matchesCategory = activeTab === '전체' || faq.category === activeTab;
             const matchesSearch =
                 faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
             return matchesCategory && matchesSearch;
         });
-    }, [activeTab, searchQuery]);
+    }, [activeTab, searchQuery, initialFaqs]);
 
     const toggleAccordion = (id: string) => {
         setOpenId(openId === id ? null : id);
