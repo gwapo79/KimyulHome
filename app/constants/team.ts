@@ -1,43 +1,43 @@
 export const TEAM_MEMBERS = [
     {
-        id: 'kim-seoyun',
-        name: '김서윤',
+        id: 'kim-yul',
+        name: '김율',
         role: '변호사',
         position: '대표변호사',
         specialty: '부동산/상속',
-        email: 'seoyun.kim@lawfirm.com',
-        description: '지적이고 온화한 이미지의 부동산/상속 전문 변호사입니다.',
-        imageUrl: '/images/lawyers/lawyer_female_1_1766624476690.png'
+        email: 'yul.kim@lawfirm.com',
+        description: '냉철한 판단력과 깊이 있는 법률 지식으로 의뢰인의 권리를 지키는 부동산 전문가입니다.',
+        imageUrl: '/images/lawyers/kim-yul.png'
     },
     {
-        id: 'park-junhyeok',
-        name: '박준혁',
+        id: 'lee-seo-jun',
+        name: '이서준',
         role: '변호사',
         position: '파트너 변호사',
-        specialty: '민사/채무조정',
-        email: 'junhyeok.park@lawfirm.com',
-        description: '날카롭고 신뢰감 있는 민사/채무조정 해결사입니다.',
-        imageUrl: '/images/lawyers/lawyer_male_1_1766624442586.png'
+        specialty: '민사/기업법무',
+        email: 'seojun.lee@lawfirm.com',
+        description: '스마트한 전략과 친근한 소통으로 복잡한 기업 법무를 명쾌하게 해결합니다.',
+        imageUrl: '/images/lawyers/lee-seo-jun.png'
     },
     {
-        id: 'lee-minho',
-        name: '이민호',
+        id: 'park-sun-young',
+        name: '박선영',
         role: '법무사',
         position: '수석 법무사',
-        specialty: '등기/행정',
-        email: 'minho.lee@lawfirm.com',
-        description: '정갈하고 꼼꼼한 등기/행정 전문가입니다.',
-        imageUrl: '/images/lawyers/lawyer_male_2_1766624460497.png'
+        specialty: '부동산 등기',
+        email: 'sunyoung.park@lawfirm.com',
+        description: '20년 경력의 꼼꼼함으로 단 하나의 실수도 허용하지 않는 등기 전문가입니다.',
+        imageUrl: '/images/lawyers/park-sun-young.png'
     },
     {
-        id: 'choi-eunji',
-        name: '최은지',
+        id: 'choi-eun-ah',
+        name: '최은아',
         role: '법무사',
         position: '법무사',
         specialty: '개인회생/파산',
-        email: 'eunji.choi@lawfirm.com',
-        description: '친절하고 세심한 개인회생/파산 케어 전문가입니다.',
-        imageUrl: '/images/lawyers/lawyer_female_2_1766624493029.png'
+        email: 'eunah.choi@lawfirm.com',
+        description: '따뜻한 마음과 차별화된 실무 노하우로 의뢰인의 새 출발을 돕습니다.',
+        imageUrl: '/images/lawyers/choi-eun-ah.png'
     }
 ];
 
