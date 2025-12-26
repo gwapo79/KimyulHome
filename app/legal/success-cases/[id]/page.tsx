@@ -312,27 +312,55 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {
                             (await (async () => {
-                                let similar = await prisma.successCase.findMany({
-                                    where: {
-                                        category: data.category,
-                                        id: { not: data.id }
-                                    },
-                                    take: 3,
-                                    orderBy: { createdAt: 'desc' }
-                                });
-                                // Fallback
-                                if (similar.length === 0) {
-                                    similar = await prisma.successCase.findMany({
-                                        where: { id: { not: data.id } },
-                                        take: 3,
+                                const [similarCases, similarBlogs] = await Promise.all([
+                                    prisma.successCase.findMany({
+                                        where: {
+                                            category: data.category,
+                                            id: { not: data.id }
+                                        },
+                                        take: 2,
                                         orderBy: { createdAt: 'desc' }
-                                    });
-                                }
-                                return similar;
+                                    }),
+                                    prisma.blogPost.findMany({
+                                        where: {
+                                            category: data.category
+                                        },
+                                        take: 2,
+                                        orderBy: { createdAt: 'desc' }
+                                    })
+                                ]);
+
+                                // Normalize Success Cases
+                                const normalizedCases = similarCases.map(item => ({
+                                    id: item.id,
+                                    type: 'legal/success-cases',
+                                    title: item.title,
+                                    category: item.category,
+                                    summary: item.summary,
+                                    imageUrl: item.imageUrl,
+                                    date: item.createdAt,
+                                    authorName: item.lawyer || '김서윤',
+                                    authorId: item.lawyerId
+                                }));
+
+                                // Normalize Blog Posts
+                                const normalizedBlogs = similarBlogs.map(item => ({
+                                    id: item.id,
+                                    type: 'media/blog',
+                                    title: item.title,
+                                    category: item.category,
+                                    summary: item.excerpt, // Blog uses excerpt
+                                    imageUrl: item.thumbnailUrl, // Blog uses thumbnailUrl
+                                    date: item.createdAt,
+                                    authorName: item.author || '박준혁',
+                                    authorId: item.authorId
+                                }));
+
+                                return [...normalizedCases, ...normalizedBlogs];
                             })()).map((item) => {
-                                const itemLawyer = getTeamMemberByName(item.lawyer || '김서윤');
+                                const profile = getTeamMemberByName(item.authorName);
                                 return (
-                                    <Link key={item.id} href={`/legal/success-cases/${item.id}`} className="block group">
+                                    <Link key={item.id} href={`/${item.type}/${item.id}`} className="block group">
                                         <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col h-full">
                                             <div className="h-48 overflow-hidden bg-gray-200">
                                                 {item.imageUrl ? (
@@ -340,6 +368,11 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                                 ) : (
                                                     <div className="w-full h-full bg-[#e5ceb4] flex items-center justify-center text-[#74634e]">
                                                         <i className="fas fa-scale-unbalanced text-4xl"></i>
+                                                    </div>
+                                                )}
+                                                {item.type === 'media/blog' && (
+                                                    <div className="absolute top-2 right-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-[#8a765e]">
+                                                        BLOG
                                                     </div>
                                                 )}
                                             </div>
@@ -350,14 +383,14 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                                 <div className="flex items-center mt-auto pt-4 border-t border-gray-100">
                                                     <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-200 flex-shrink-0">
                                                         <img
-                                                            src={itemLawyer.imageUrl}
-                                                            alt={itemLawyer.name}
+                                                            src={profile.imageUrl}
+                                                            alt={profile.name}
                                                             className="w-full h-full object-cover"
                                                         />
                                                     </div>
                                                     <div>
-                                                        <p className="font-semibold text-sm text-[#181d27] tracking-tight font-pretendard-gov">{itemLawyer.name}</p>
-                                                        <p className="text-xs text-[#717680]">{new Date(item.createdAt).toLocaleDateString()}</p>
+                                                        <p className="font-semibold text-sm text-[#181d27] tracking-tight font-pretendard-gov">{profile.name}</p>
+                                                        <p className="text-xs text-[#717680]">{new Date(item.date).toLocaleDateString()}</p>
                                                     </div>
                                                     <i className="fas fa-arrow-right ml-auto text-[#717680] group-hover:text-[#8a765e] transition-colors translate-x-0 group-hover:translate-x-1 duration-300"></i>
                                                 </div>
