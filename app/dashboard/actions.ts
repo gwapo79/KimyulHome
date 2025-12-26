@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 
 // Use a fixed test user ID if no auth session is present, or for testing.
 // In a real app, you'd get this from the session.
-const TEST_USER_EMAIL = 'test@lawfirm.com';
+const TEST_USER_EMAIL = 'test_user@example.com';
 
 async function getUserId() {
     // Self-healing: Ensure test user exists in DB
