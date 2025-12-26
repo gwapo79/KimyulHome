@@ -16,6 +16,7 @@ interface Props {
 }
 
 import SearchAndFilter from '@/app/components/legal/SearchAndFilter';
+import { getTeamMemberByName } from '@/app/constants/team';
 
 export default async function SuccessCasesPage({ searchParams }: Props) {
     // In Next.js 15+, searchParams is a Promise. We must await it.
@@ -140,7 +141,7 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
                                                 <p className="text-[#535861] mb-4 line-clamp-2">{successCase.summary}</p>
                                                 <div className="flex items-center mt-auto">
                                                     <img
-                                                        src={successCase.teamMember?.imageUrl || successCase.lawyerImageUrl || "/assets/images/profiles/profile_07_v2.png"}
+                                                        src={successCase.teamMember?.imageUrl || getTeamMemberByName(successCase.lawyer || '').imageUrl || "/assets/images/profiles/profile_07_v2.png"}
                                                         alt={successCase.lawyer || "변호사"}
                                                         className="w-10 h-10 rounded-full mr-3 object-cover"
                                                     />
