@@ -6,7 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatClientName(name: string | null | undefined): string {
-    if (!name || name.trim() === '') return '의뢰인'; // Safe fallback for empty data
+    if (!name || name.trim() === '') {
+        console.error('Client name is missing for anonymization');
+        return '???'; // User requested to remove '의뢰인' fallback to uncover issues.
+    }
 
     // If strict 1 char limit, return name.
     if (name.length < 2) return name;

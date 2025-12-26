@@ -287,7 +287,9 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     <h2 className="text-3xl font-bold text-white mb-12">고객 후기</h2>
                     <div className="bg-white rounded-2xl p-8 shadow-lg">
                         <div className="mb-6">
-                            <img src="/assets/images/profiles/profile_07_v2.png" alt="익명 고객 리뷰" className="w-16 h-16 rounded-full mx-auto mb-4 border-4 border-[#8a765e]" />
+                            <div className="w-16 h-16 rounded-full mx-auto mb-4 border-4 border-[#8a765e] bg-neutral-100 flex items-center justify-center">
+                                <i className="fas fa-user text-3xl text-neutral-400"></i>
+                            </div>
                             <div className="text-5xl text-[#8a765e] mb-4">"</div>
                         </div>
                         <blockquote className="text-xl text-[#181d27] leading-relaxed mb-6 italic">
