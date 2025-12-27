@@ -23,12 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Dynamic Blog Routes
     const posts = await prisma.blogPost.findMany({
-        select: { id: true, updatedAt: true },
+        select: { id: true, createdAt: true },
     });
 
     const blogRoutes = posts.map((post) => ({
         url: `${baseUrl}/media/blog/${post.id}`,
-        lastModified: post.updatedAt,
+        lastModified: post.createdAt,
         changeFrequency: 'weekly' as const,
         priority: 0.6,
     }));
