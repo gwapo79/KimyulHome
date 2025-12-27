@@ -21,8 +21,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!post) return { title: '게시물을 찾을 수 없습니다' };
 
     return {
-        title: `${post.title} | 서초지율`,
+        title: `${post.title}`,
         description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: `/media/blog/${id}`,
+            images: [
+                {
+                    url: post.thumbnailUrl || '/assets/images/logo.jpg',
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                }
+            ],
+            type: 'article',
+            publishedTime: post.createdAt.toISOString(),
+            authors: [post.author],
+        }
     };
 }
 
