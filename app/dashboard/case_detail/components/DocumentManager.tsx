@@ -59,7 +59,7 @@ export default function DocumentManager({ caseId, userId, initialDocuments }: Do
         formData.append('file', file);
 
         startTransition(async () => {
-            const result = await uploadDocument(caseId, userId, formData);
+            const result = await uploadDocument(caseId, formData);
             if (result.success && result.document) {
                 // Convert Date strings to Date objects if needed, though Server Actions usually match
                 // Force TS cast or ensure type match. Server returns JSON object, createdAt might be string.

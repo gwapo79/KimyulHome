@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache';
 import fs from 'fs/promises';
 import path from 'path';
 import { randomUUID } from 'crypto';
+import { getSession } from '@/lib/auth';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads');
 
@@ -19,8 +20,15 @@ async function ensureUploadDir() {
 }
 
 // Update signature to accept userId and category
-export async function uploadDocument(caseId: string | null, userId: string, formData: FormData) {
+export async function uploadDocument(caseId: string | null, formData: FormData) {
     try {
+        const session = await getSession();
+        const userId = session?.userId as string | undefined;
+
+        if (!userId) {
+            return { success: false, error: 'Unauthorized: Login required' };
+        }
+
         const file = formData.get('file') as File;
         const category = formData.get('category') as string || '기타';
 
