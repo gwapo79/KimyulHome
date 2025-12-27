@@ -8,16 +8,51 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+enum Role {
+  SUPER_ADMIN
+  LAWYER
+  STAFF
+  USER
+}
+
+model SiteConfiguration {
+  id             String   @id @default(uuid())
+  companyName    String   @default("서초지율 합동법률사무소")
+  representative String   @default("김지율")
+  address        String   @default("서울시 서초구 서초중앙로24길 3 4층")
+  phone          String   @default("02-6080-3377")
+  email          String   @default("sjlaw14@naver.com")
+  businessNumber String   @default("123-45-67890")
+  mainTitle      String   @default("서초지율 - 법률과 금융의 통합 솔루션")
+  description    String   @default("부동산 분쟁부터 채무 조정까지, 서초지율이 함께합니다.")
+  updatedAt      DateTime @updatedAt
+}
+
+model Banner {
+  id        String   @id @default(uuid())
+  imageUrl  String
+  title     String
+  subtitle  String?
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+  position  String   @default("MAIN_HERO")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model User {
   id                  String               @id @default(uuid())
   email               String               @unique
   password            String?
   name                String?
   phone               String?
+  role                Role                 @default(USER)
   provider            String               @default("local")
   kakaoId             String?              @unique
   createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
+  
   billingHistory      BillingHistory[]
   events              CalendarEvent[]
   cases               Case[]
@@ -25,6 +60,7 @@ model User {
   documents           Document[]
   notificationSetting NotificationSetting?
   notifications       Notification[]
+  
   address             String?
   avatarUrl           String?
 }
@@ -45,7 +81,7 @@ model Notification {
   userId      String
   title       String
   message     String
-  type        String   @default("info") // info, success, warning, error
+  type        String   @default("info")
   isRead      Boolean  @default(false)
   createdAt   DateTime @default(now())
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -75,15 +111,59 @@ model Case {
   courtName           String?
   judgeInfo           String?
   opponentName        String?
-  lawyerInCharge      String?
+  
+  lawyerInCharge      String?    // Legacy
+  lawyerId            String?
+  lawyer              TeamMember? @relation(fields: [lawyerId], references: [id])
+  
   claimAmount         BigInt?
   contractDate        DateTime?
   caseDescriptionLong String?
   timelineJson        Json?
+  
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
+  
   user                User       @relation(fields: [userId], references: [id])
   documents           Document[]
+  
+  timelines           CaseTimeline[]
+  payments            CasePayment[]
+  events              CaseEvent[]
+}
+
+model CaseTimeline {
+  id          String   @id @default(uuid())
+  caseId      String
+  case        Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  status      String
+  date        DateTime
+  description String?
+  createdAt   DateTime @default(now())
+}
+
+model CasePayment {
+  id          String   @id @default(uuid())
+  caseId      String
+  case        Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  title       String
+  amount      Int
+  dueDate     DateTime?
+  status      String   @default("PENDING")
+  paidAt      DateTime?
+  createdAt   DateTime @default(now())
+}
+
+model CaseEvent {
+  id          String   @id @default(uuid())
+  caseId      String
+  case        Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  title       String
+  date        DateTime
+  location    String?
+  memo        String?
+  type        String
+  createdAt   DateTime @default(now())
 }
 
 model Document {
@@ -100,25 +180,25 @@ model Document {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// ... (User Model etc above)
-
 model TeamMember {
   id          String   @id @default(uuid())
   name        String
-  role        String   // 변호사, 법무사 등
-  position    String   // 대표변호사, 소속법무사 등
-  specialty   String?  // 전문분야
+  role        String
+  position    String
+  specialty   String?
   imageUrl    String?
   email       String?
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  successCases SuccessCase[]
-  blogPosts    BlogPost[]
-  reviews      Review[]
-  faqs         FAQ[]
-  chatRooms    ChatRoom[]
+  successCases    SuccessCase[]
+  blogPosts       BlogPost[]
+  reviews         Review[]
+  faqs            FAQ[]
+  chatRooms       ChatRoom[]
+  assignedCases   Case[]
+  assignedConsultations Consultation[]
 }
 
 model SuccessCase {
@@ -130,7 +210,7 @@ model SuccessCase {
   caseType       String?
   amount         String?
   period         String?
-  lawyer         String? // Legacy String
+  lawyer         String?
   result         String?
   background     String?
   strategy       String?
@@ -155,8 +235,10 @@ model Review {
   createdAt      DateTime @default(now())
   authorImageUrl String?
   date           String?
-  role           String? // User role (e.g. 'Business Owner')
-
+  role           String? 
+  isVisible      Boolean  @default(true)
+  isBest         Boolean  @default(false)
+  
   counselorId    String?
   counselor      TeamMember? @relation(fields: [counselorId], references: [id])
 }
@@ -180,8 +262,9 @@ model BlogPost {
   excerpt      String
   category     String
   thumbnailUrl String
-  author       String // Legacy
+  author       String
   viewCount    Int      @default(0)
+  status       String   @default("PUBLISHED")
   createdAt    DateTime @default(now())
 
   authorId     String?
@@ -189,13 +272,18 @@ model BlogPost {
 }
 
 model Consultation {
-  id        String   @id @default(uuid())
-  name      String
-  phone     String
-  category  String
-  content   String
-  status    String   @default("접수")
-  createdAt DateTime @default(now())
+  id          String   @id @default(uuid())
+  name        String
+  phone       String
+  category    String
+  content     String
+  status      String   @default("접수")
+  memo        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  assigneeId  String?
+  assignee    TeamMember? @relation(fields: [assigneeId], references: [id])
 }
 
 model CalendarEvent {

@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
+import { signToken, setAuthCookie } from '@/lib/auth';
 
 export async function POST(request: Request) {
     try {
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
 
         if (!email || !password) {
             return NextResponse.json(
-                { error: 'Email and password required' },
+                { error: '이메일과 비밀번호를 입력해주세요.' },
                 { status: 400 }
             );
         }
@@ -38,8 +39,17 @@ export async function POST(request: Request) {
             );
         }
 
-        // In a real app, you'd set a session cookie here.
-        // For this task, we return success so frontend can redirect.
+        // Generate JWT
+        const token = await signToken({
+            userId: user.id,
+            email: user.email,
+            name: user.name,
+            role: (user as any).role || 'USER'
+        });
+
+        // Set Cookie
+        await setAuthCookie(token);
+
         const { password: _, ...userWithoutPassword } = user;
 
         return NextResponse.json({
