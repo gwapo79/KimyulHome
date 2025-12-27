@@ -323,6 +323,7 @@ model ChatRoom {
   lawyer    TeamMember?   @relation(fields: [lawyerId], references: [id])
 }
 
+
 model ChatMessage {
   id        String   @id @default(uuid())
   roomId    String
@@ -331,4 +332,15 @@ model ChatMessage {
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
   room      ChatRoom @relation(fields: [roomId], references: [id], onDelete: Cascade)
+}
+
+model Contact {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  content   String
+  status    String   @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED, REJECTED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
