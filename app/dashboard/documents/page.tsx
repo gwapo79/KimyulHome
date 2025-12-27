@@ -54,7 +54,7 @@ export default function DocumentsPage() {
         formData.append('file', e.target.files[0]);
         formData.append('category', '기타'); // Default to 기타 for quick upload
 
-        const result = await uploadDocument(null, user.id, formData);
+        const result = await uploadDocument(null, formData);
 
         if (result.success && result.document) {
             setDocuments(prev => [result.document as any, ...prev]);
