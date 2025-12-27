@@ -34,7 +34,7 @@ interface KPI {
     description: string;
 }
 
-export default function SuccessCaseEditForm({ item }: { item: SuccessCase & { kpiInfo?: any, content?: string, subTitle?: string, seoTitle?: string, seoDescription?: string, detailImageUrl?: string, thumbnailUrl?: string } }) {
+export default function SuccessCaseEditForm({ item }: { item: SuccessCase & { kpiInfo?: any, content: string | null, subTitle: string | null, seoTitle: string | null, seoDescription: string | null, detailImageUrl: string | null, thumbnailUrl: string | null } }) {
     const updateAction = updateSuccessCase.bind(null, item.id);
 
     // WYSIWYG State
