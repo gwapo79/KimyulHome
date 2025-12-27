@@ -108,8 +108,27 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
 
     const lawyerProfile = getTeamMemberByName(data.lawyer || '김서윤');
 
+    // Parse KPI Data (New Field)
+    let kpiGrid = [];
+    if (data.kpiInfo) {
+        // If it's already an object (Prisma Json), use it. If string, parse it.
+        if (typeof data.kpiInfo === 'string') {
+            try { kpiGrid = JSON.parse(data.kpiInfo); } catch (e) { }
+        } else if (Array.isArray(data.kpiInfo)) {
+            kpiGrid = data.kpiInfo;
+        }
+    } else {
+        // Fallback to legacy hardcoded style mapping if no generic KPI data
+        kpiGrid = [
+            { value: '100%', label: '전액 회수', description: `보증금 ${data.amount || ''} 완전 회수` },
+            { value: data.period || '3개월', label: '신속 해결', description: '평균 대비 50% 단축' },
+            { value: '+α', label: '지연이자 포함', description: '추가 손해배상 확보' }
+        ];
+    }
+
     return (
         <main>
+            {/* SEO Metadata injection would go here via generateMetadata, but inline for now */}
             <section id="breadcrumb" className="bg-neutral-50 py-4">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <nav aria-label="브레드크럼 네비게이션" className="flex items-center space-x-2 text-sm">
@@ -121,8 +140,10 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     </nav>
                 </div>
             </section>
+
             <section id="overview" className="py-16 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Hero Image */}
                     {data.detailImageUrl && (
                         <div className="mb-8 rounded-2xl overflow-hidden shadow-lg">
                             <img
@@ -132,6 +153,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                             />
                         </div>
                     )}
+
                     <div className="mb-12">
                         <div className="mb-6">
                             <span className="inline-block px-3 py-1 bg-[#f8f3ed] text-[#74634e] text-sm font-semibold rounded-full border border-[#e5ceb4]">
@@ -141,10 +163,13 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                         <h1 className="text-4xl lg:text-5xl font-bold text-[#181d27] mb-6">
                             {data.title}
                         </h1>
+                        {/* Subtitle / Summary */}
                         <p className="text-xl text-[#535861] leading-relaxed">
-                            {data.summary}
+                            {data.subTitle || data.summary}
                         </p>
                     </div>
+
+                    {/* Meta Grid */}
                     <div className="bg-neutral-50 rounded-2xl p-8 mb-16">
                         <h2 className="text-2xl font-bold text-[#181d27] mb-8">사건 개요</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -159,11 +184,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                 </div>
                                 {data.amount && (
                                     <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
-                                        <span className="font-semibold text-[#535861]">
-                                            {data.category.includes('회생') || data.category.includes('파산') ? '총 채무액' :
-                                                data.category.includes('부동산') || data.category.includes('임대차') ? '보증금/피해액' :
-                                                    data.category.includes('금융') ? '피해 금액' : '분쟁 금액'}
-                                        </span>
+                                        <span className="font-semibold text-[#535861]">관련 금액</span>
                                         <span className="text-[#181d27] font-bold">{data.amount}</span>
                                     </div>
                                 )}
@@ -178,15 +199,14 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     <span className="text-[#181d27]">{data.lawyer || '김법무 변호사'}</span>
                                 </div>
                                 <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
-                                    <span className="font-semibold text-[#535861]">
-                                        {data.category.includes('형사') ? '처분 결과' :
-                                            data.category.includes('회생') ? '인가 내용' : '최종 결과'}
-                                    </span>
+                                    <span className="font-semibold text-[#535861]">결과</span>
                                     <span className="text-green-600 font-bold">{data.result || '성공'}</span>
                                 </div>
                             </div>
                         </div>
-                        {data.background && (
+
+                        {/* Old Background Field (Legacy support) */}
+                        {data.background && !data.content && (
                             <div className="mt-8 pt-6 border-t border-[#e9e9eb]">
                                 <h3 className="text-lg font-semibold text-[#181d27] mb-4">사건 배경</h3>
                                 <p className="text-[#535861] leading-relaxed whitespace-pre-wrap">
@@ -194,6 +214,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                 </p>
                             </div>
                         )}
+
                         <div className="mt-8 text-center">
                             <Link href="/company/consultation" className="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-semibold cursor-pointer inline-block">
                                 상담 신청하기
@@ -202,79 +223,72 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-            {strategyList.length > 0 && (
-                <section id="strategy" className="py-16 bg-neutral-50">
+
+            {/* WYSIWYG Content Section (Replaces Strategy/Outcomes if present) */}
+            {data.content ? (
+                <section className="py-16 bg-white">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">어떻게 해결했나요?</h2>
-                        <div className="space-y-8 mb-12">
-                            {strategyList.map((item, index) => (
-                                <div key={index} className="flex items-start">
-                                    <div className="flex-shrink-0 w-12 h-12 bg-[#8a765e] text-white rounded-full flex items-center justify-center font-bold text-lg mr-6">
-                                        {item.step || index + 1}
-                                    </div>
-                                    <div className="flex-grow">
-                                        <h3 className="text-xl font-bold text-[#181d27] mb-3">{item.title}</h3>
-                                        <p className="text-[#535861] leading-relaxed">
-                                            {item.description || item.title}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="bg-white rounded-2xl p-8 border-l-4 border-[#8a765e]">
-                            <blockquote className="text-xl italic text-[#181d27] mb-4">
-                                "{data.lawyerComment || "단순히 소송만 제기하는 것이 아니라, 사전 재산보전과 체계적인 재산조사를 통해 실질적인 회수 가능성을 높이는 것이 핵심입니다."}"
-                            </blockquote>
-                            <div className="flex items-center mt-4">
-                                <div className="w-10 h-10 rounded-full overflow-hidden mr-3 border border-gray-200">
-                                    <img
-                                        src={data.teamMember?.imageUrl || lawyerProfile.imageUrl}
-                                        alt={data.teamMember?.name || lawyerProfile.name}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <cite className="text-[#535861] font-semibold not-italic tracking-tight font-pretendard-gov">{lawyerProfile.name} {lawyerProfile.role}</cite>
-                            </div>
-                        </div>
-                        <div className="mt-8 text-center">
-                            <Link href="/company/consultation" className="px-6 py-3 bg-[#8a765e] text-white rounded-lg hover:bg-[#74634e] transition-colors font-semibold cursor-pointer inline-block">
-                                상담 신청하기
-                            </Link>
+                        <div className="prose prose-lg max-w-none text-[#535861] prose-headings:text-[#181d27] prose-a:text-[#8a765e]">
+                            <div dangerouslySetInnerHTML={{ __html: data.content }} />
                         </div>
                     </div>
                 </section>
+            ) : (
+                /* Legacy Strategy View */
+                strategyList.length > 0 && (
+                    <section id="strategy" className="py-16 bg-neutral-50">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">어떻게 해결했나요?</h2>
+                            <div className="space-y-8 mb-12">
+                                {strategyList.map((item, index) => (
+                                    <div key={index} className="flex items-start">
+                                        <div className="flex-shrink-0 w-12 h-12 bg-[#8a765e] text-white rounded-full flex items-center justify-center font-bold text-lg mr-6">
+                                            {item.step || index + 1}
+                                        </div>
+                                        <div className="flex-grow">
+                                            <h3 className="text-xl font-bold text-[#181d27] mb-3">{item.title}</h3>
+                                            <p className="text-[#535861] leading-relaxed">
+                                                {item.description || item.title}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )
             )}
+
+            {/* KPI Result Section (Dynamic) */}
             <section id="result" className="py-16 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">결과</h2>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        <div className="text-center p-6 bg-green-50 rounded-2xl border border-green-200">
-                            <div className="text-4xl font-bold text-green-600 mb-2">100%</div>
-                            <div className="text-lg font-semibold text-[#181d27] mb-1">전액 회수</div>
-                            <div className="text-sm text-[#535861]">보증금 {data.amount} 완전 회수</div>
-                        </div>
-                        <div className="text-center p-6 bg-blue-50 rounded-2xl border border-blue-200">
-                            <div className="text-4xl font-bold text-blue-600 mb-2">{data.period}</div>
-                            <div className="text-lg font-semibold text-[#181d27] mb-1">신속 해결</div>
-                            <div className="text-sm text-[#535861]">평균 대비 50% 단축</div>
-                        </div>
-                        <div className="text-center p-6 bg-purple-50 rounded-2xl border border-purple-200">
-                            <div className="text-4xl font-bold text-purple-600 mb-2">+α</div>
-                            <div className="text-lg font-semibold text-[#181d27] mb-1">지연이자 포함</div>
-                            <div className="text-sm text-[#535861]">추가 손해배상 확보</div>
-                        </div>
+                        {kpiGrid.map((kpi: any, idx: number) => (
+                            <div key={idx} className="text-center p-6 bg-slate-50 rounded-2xl border border-slate-200 hover:border-[#8a765e] transition-colors">
+                                <div className="text-4xl font-bold text-[#8a765e] mb-2">{kpi.value}</div>
+                                <div className="text-lg font-semibold text-[#181d27] mb-1">{kpi.label}</div>
+                                <div className="text-sm text-[#535861]">{kpi.description}</div>
+                            </div>
+                        ))}
                     </div>
-                    <div className="bg-neutral-50 rounded-2xl p-8">
-                        <h3 className="text-xl font-bold text-[#181d27] mb-6">상세 성과</h3>
-                        <div className="space-y-4">
-                            {outcomeList.map((outcome, index) => (
-                                <div key={index} className="flex items-center">
-                                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
-                                    <span className="text-[#535861]">{outcome}</span>
-                                </div>
-                            ))}
+
+                    {/* Legacy Outcome text if not using WYSIWYG */}
+                    {!data.content && outcomeList.length > 0 && (
+                        <div className="bg-neutral-50 rounded-2xl p-8">
+                            <h3 className="text-xl font-bold text-[#181d27] mb-6">상세 성과</h3>
+                            <div className="space-y-4">
+                                {outcomeList.map((outcome, index) => (
+                                    <div key={index} className="flex items-center">
+                                        <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span className="text-[#535861]">{outcome}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
+
                     <div className="mt-8 text-center">
                         <Link href={`/legal/success-cases?category=${data.category}`} className="px-6 py-3 bg-white text-[#8a765e] border-2 border-[#8a765e] rounded-lg hover:bg-[#8a765e] hover:text-white transition-colors font-semibold cursor-pointer mr-4 inline-block">
                             더 많은 {data.category} 사례 보기
@@ -282,38 +296,26 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-            <section id="quote" className="py-16 bg-[#8a765e]">
+
+            {/* Quote & Related sections remain ... */}
+            <section id="lawyer-quote" className="py-16 bg-[#8a765e]">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-12">고객 후기</h2>
                     <div className="bg-white rounded-2xl p-8 shadow-lg">
-                        <div className="mb-6">
-                            <div className="w-16 h-16 rounded-full mx-auto mb-4 border-4 border-[#8a765e] bg-neutral-100 flex items-center justify-center">
-                                <i className="fas fa-user text-3xl text-neutral-400"></i>
-                            </div>
-                            <div className="text-5xl text-[#8a765e] mb-4">"</div>
-                        </div>
                         <blockquote className="text-xl text-[#181d27] leading-relaxed mb-6 italic">
-                            처음엔 {data.amount}이라는 큰 금액을 정말 돌려받을 수 있을지 반신반의했습니다. 하지만 {data.lawyer}님께서 체계적인 계획을 세워주시고 끝까지 포기하지 않고 이끌어주셔서 전액을 회수할 수 있었습니다. 정말 감사드립니다.
+                            "{data.lawyerComment || "단순히 소송만 제기하는 것이 아니라, 사전 재산보전과 체계적인 재산조사를 통해 실질적인 회수 가능성을 높이는 것이 핵심입니다."}"
                         </blockquote>
                         <div className="flex items-center justify-center space-x-1 mb-4">
-                            <i className="fas fa-star text-yellow-400"></i>
-                            <i className="fas fa-star text-yellow-400"></i>
-                            <i className="fas fa-star text-yellow-400"></i>
-                            <i className="fas fa-star text-yellow-400"></i>
-                            <i className="fas fa-star text-yellow-400"></i>
+                            {[...Array(5)].map((_, i) => <i key={i} className="fas fa-star text-yellow-400"></i>)}
                         </div>
                         <cite className="text-[#535861] font-semibold">
-                            {/* Build Ver: Anonymization v3 */}
                             {formatClientName(data.client)} 고객
                         </cite>
                     </div>
-                    <div className="mt-8">
-                        <Link href="/company/consultation" className="px-6 py-3 bg-white text-[#8a765e] rounded-lg hover:bg-neutral-100 transition-colors font-semibold cursor-pointer inline-block">
-                            상담하기
-                        </Link>
-                    </div>
                 </div>
             </section>
+        </main>
+    );
+}
             <section id="related" className="py-16 bg-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">유사한 사례</h2>
@@ -432,6 +434,6 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     );
 }

@@ -224,6 +224,15 @@ model SuccessCase {
   
   lawyerId       String?
   teamMember     TeamMember? @relation(fields: [lawyerId], references: [id])
+
+  // New Fields for Full Admin Control
+  subTitle       String?
+  content        String?   // WYSIWYG Content
+  seoTitle       String?
+  seoDescription String?
+  seoOgImage     String?
+  kpiInfo        Json?     // Dynamic KPI Array [{label, value, description}]
+  thumbnailUrl   String?   // Representative Thumbnail for Lists
 }
 
 model Review {

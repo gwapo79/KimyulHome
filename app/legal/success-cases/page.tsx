@@ -123,7 +123,8 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
                                     "https://storage.googleapis.com/uxpilot-auth.appspot.com/fee7fea59e-34d4fd1500c79fe7ded2.png"
                                 ];
                                 // Use DB image if available, else pick strictly by index for consistent demo look
-                                const bgImage = successCase.imageUrl || images[index % images.length];
+                                // Prioritize new thumbnailUrl, then legacy imageUrl, then fallback images
+                                const bgImage = successCase.thumbnailUrl || successCase.imageUrl || images[index % images.length];
 
                                 return (
                                     <Link href={`/legal/success-cases/${successCase.id}`} key={successCase.id}>
