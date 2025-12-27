@@ -313,9 +313,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-        </main>
-    );
-}
+
             <section id="related" className="py-16 bg-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-[#181d27] mb-12 text-center">유사한 사례</h2>
