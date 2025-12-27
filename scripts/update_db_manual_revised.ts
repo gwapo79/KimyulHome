@@ -1,6 +1,7 @@
 
 import { PrismaClient } from '@prisma/client';
 import dotenv from 'dotenv';
+import fs from 'fs';
 
 dotenv.config({ path: '.env.local' });
 dotenv.config();
@@ -9,7 +10,9 @@ const prisma = new PrismaClient();
 
 async function main() {
     const id = "34af265e-df4c-4f21-970a-a2b4d1bb6510";
-    const imageUrl = "/assets/images/blog/blog_floor_noise_modern_living_room_1766830372430.png";
+    const imageUrl = "/assets/images/blog/34af265e_floor_noise.png";
+
+    // Safety check that file exists
 
     console.log(`Updating Post ${id} with image ${imageUrl}`);
 

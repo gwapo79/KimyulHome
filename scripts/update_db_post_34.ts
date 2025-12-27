@@ -8,8 +8,8 @@ dotenv.config();
 const prisma = new PrismaClient();
 
 async function main() {
-    const id = "34af265e-df4c-4f21-970a-a2b4d1bb6510";
-    const imageUrl = "/assets/images/blog/blog_floor_noise_modern_living_room_1766830372430.png";
+    const id = "55514983-5b95-4e17-a67d-c6195fa9b70b";
+    const imageUrl = "/assets/images/blog/55514983_immunity_application.png";
 
     console.log(`Updating Post ${id} with image ${imageUrl}`);
 
