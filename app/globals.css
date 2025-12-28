@@ -94,17 +94,28 @@ body {
 
 @media (max-width: 768px) {
 
-  /* 1. 헤더/푸터는 건드리지 않도록 body 패딩은 0으로 고정 */
-  body {
-    padding: 0 !important;
+  /* 1. 기본적으로 전체 패딩 초기화 (헤더, 히어로, 풋터 포함) */
+  body,
+  header,
+  footer,
+  .hero-section,
+  #hero {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
-  /* 2. 실제 콘텐츠가 담기는 컨테이너(상담 신청서 영역) 타겟팅 */
-  /* 현재 스크린샷 기반으로 추정되는 클래스들에 강제 패딩 부여 */
-  main,
-  .container,
-  section,
-  div[class*="max-w-"] {
+  /* 2. 히어로 영역이 아닌 일반 컨텐츠 영역만 20px 적용 */
+  /* main 내부의 요소 중 hero를 제외한 컨테이너들을 타겟팅 */
+  main>section:not(.hero-section):not(#hero) {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 추가: 일반적인 내부 컨테이너도 보호 */
+  .content-body,
+  .inner-container {
     padding-left: 20px !important;
     padding-right: 20px !important;
     width: 100% !important;
