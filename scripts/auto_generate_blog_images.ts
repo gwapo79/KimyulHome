@@ -4,13 +4,14 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import dotenv from 'dotenv';
+import { promisify } from 'util';
 
 // Load environment variables
 dotenv.config({ path: '.env.local' });
 dotenv.config();
 
 const prisma = new PrismaClient();
-const DUMP_FILE = path.join(process.cwd(), 'all_blog_posts_dump.txt');
+const QUEUE_FILE = path.join(process.cwd(), 'blog_image_queue.json');
 const API_KEY = process.env.OPENAI_API_KEY;
 
 if (!API_KEY) {
@@ -18,8 +19,9 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-// 3 Minutes in ms
-const DELAY_MS = 3 * 60 * 1000;
+// 4 Minutes in ms (User requested 4 minutes)
+const DELAY_MS = 4 * 60 * 1000;
+const WAIT_ON_ERROR_MS = 60 * 1000; // 1 min wait on error
 
 async function downloadImage(url: string, filepath: string): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -87,86 +89,71 @@ function generateImageOpenAI(prompt: string): Promise<string> {
 }
 
 function getPromptForTitle(title: string): string {
-    const baseStyle = "A high-quality, bright, modern lifestyle magazine photography only showing scenery or still life.";
-    const negative = "No people, no text, no legal symbols (scales, gavels, suits), no darkness.";
+    // User Instructions: 
+    // - Trendy, Modern, Anti-Old. 
+    // - High correlation with title keywords.
+    // - No Human First (Still life/Scenery).
+    // - Natural tone, clean layout, not too high contrast.
+
+    return `Create a photo-realistic, highly detailed, modern and trendy image representing the concept of: "${title}". 
     
-    let specificScene = "";
-
-    if (title.includes("층간소음")) { // Floor Noise
-        specificScene = "A stylish apartment living room ceiling with modern lighting, clean interior, soft natural light. Looking up at the ceiling.";
-    } else if (title.includes("월세 미납")) { // Unpaid Rent
-        specificScene = "A letter envelope lying on the wooden floor in front of a modern door, clean empty, bright daylight.";
-    } else if (title.includes("부동산")) {
-        specificScene = "A modern, bright empty apartment interior, sunlit living room with large windows.";
-    } else if (title.includes("개인회생") || title.includes("빚") || title.includes("채무")) {
-        specificScene = "A clean, organized desk with a calculator and a notebook, bright morning sunlight, coffee cup nearby.";
-    } else if (title.includes("이혼")) {
-        specificScene = "Two empty chairs at a table, soft lighting, calm atmosphere, minimalist.";
-    } else {
-        specificScene = `A metaphorical representation of ${title}, abstract, minimal, bright, clean composition.`;
-    }
-
-    return `${baseStyle} ${specificScene} ${negative}, 4k resolution, highly detailed.`;
+    Guidelines:
+    1. STYLE: Contemporary professional photography, natural lighting, soft shadows, clean and minimal layout. Avoid "old-fashioned" or "retro" looks. Aesthetically pleasing and balanced.
+    2. SUBJECT: Prioritize inanimate objects, modern office spaces, architectural details, or symbolic documents over people. Focus on the "atmosphere" of the legal/real-estate topic.
+    3. HUMANS: If human elements are absolutely necessary for the concept, use modern Korean professionals (e.g., partial view of hands, silhouette, back view) in trendy business attire. Do not show generic "stock photo faces".
+    4. CONTENTS: strictly correlate with the keywords in the title (e.g., if "Real Estate", show modern interiors or buildings; if "Contract", show a sleek desk with documents).
+    5. NEGATIVE: No text, no words, no scales of justice, no wooden gavels, no cartoonish 3D render art, no chaotic clutter.
+    
+    Aspect Ratio: Square or Landscape.`;
 }
 
 async function main() {
-    console.log("--- Starting Auto Image Generation (Anti-Generic Mode) ---");
+    console.log("--- Starting Auto Image Generation (Queue Mode) ---");
 
-    if (!fs.existsSync(DUMP_FILE)) {
-        console.error("Dump file not found.");
+    if (!fs.existsSync(QUEUE_FILE)) {
+        console.error("Queue file not found.");
         return;
     }
 
-    const dumpContent = fs.readFileSync(DUMP_FILE, 'utf-8');
-    const lines = dumpContent.split('\n').filter(line => line.trim() !== '');
-    
-    // Parse dump file to get ID and Title order
-    const posts = lines.map(line => {
-        const match = line.match(/^\[(.*?)\] (.*?) \(Img: (.*?)\)$/);
-        if (match) {
-            return { id: match[1], title: match[2], path: match[3] };
-        }
-        return null;
-    }).filter(p => p !== null) as { id: string, title: string, path: string }[];
+    const queueData = fs.readFileSync(QUEUE_FILE, 'utf-8');
+    let queue = JSON.parse(queueData);
 
-    // Find start index
-    const startIndex = posts.findIndex(p => p.title.includes("층간소음"));
-    
+    // Target Start Title
+    const targetStartTitlePart = "계약명의신탁"; // Key part of "[판례] 계약명의신탁: 명의수탁자가 부동산을 처분했을 때 횡령죄?"
+
+    const startIndex = queue.findIndex((p: any) => p.title.includes(targetStartTitlePart));
+
     if (startIndex === -1) {
-        console.error("Start post '층간소음' not found.");
+        console.error(`Start post containing '${targetStartTitlePart}' not found in queue.`);
         return;
     }
 
-    console.log(`Found start post at index ${startIndex}: ${posts[startIndex].title}`);
+    console.log(`Found start post at index ${startIndex}: ${queue[startIndex].title}`);
 
-    for (let i = startIndex; i < posts.length; i++) {
-        const post = posts[i];
-        console.log(`\n[${i + 1}/${posts.length}] Processing: ${post.title}`);
-        
+    for (let i = startIndex; i < queue.length; i++) {
+        const item = queue[i];
+
+        // Skip if already completed (double check)
+        if (item.status === 'COMPLETED') {
+            console.log(`Skipping index ${i} (${item.title}) - Already COMPLETED`);
+            continue;
+        }
+
+        console.log(`\n[${i + 1}/${queue.length}] Processing: ${item.title}`);
+
         try {
-            // 1. Check if post exists in DB (sanity check)
-            const dbPost = await prisma.blogPost.findUnique({ where: { id: post.id } });
-            if (!dbPost) {
-                console.warn(`Post ${post.id} not found in DB. Skipping.`);
-                continue;
-            }
+            // 1. Generate Prompt
+            const prompt = getPromptForTitle(item.title);
+            console.log(`Prompt: ${prompt.substring(0, 100)}...`);
 
-            // 2. Generate Prompt & Image
-            const prompt = getPromptForTitle(post.title);
-            console.log(`Prompt: ${prompt}`);
-
+            // 2. Generate Image
             const imageUrl = await generateImageOpenAI(prompt);
             console.log("Image generated.");
 
             // 3. Save to file
-            // Use the path from the dump or generate one. The dump path might have a timestamp already? 
-            // The dump has "Img: /images/cases/..." or "/assets/images/unique/...".
-            // Let's standardise to /assets/images/blog/[id].png for new ones to be clean, OR respect valid paths.
-            // The user instruction said "26th...". 
-            // Let's just overwrite correct path: public/assets/images/blog/[id]_[timestamp].png
-            
-            const timestamp = Date.now();
-            const targetPath = `/assets/images/blog/${post.id}_${timestamp}.png`;
+            // Use existing path logic or create new one.
+            // Using /assets/images/unique/blog_[id].png to allow next.js optimization
+            const targetPath = `/assets/images/unique/blog_${item.id.split('-')[0]}.png`;
             const absolutePath = path.join(process.cwd(), 'public', targetPath);
             const dir = path.dirname(absolutePath);
             if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -176,21 +163,28 @@ async function main() {
 
             // 4. Update DB
             await prisma.blogPost.update({
-                where: { id: post.id },
+                where: { id: item.id },
                 data: { thumbnailUrl: targetPath }
             });
-            console.log(`DB Updated for ${post.title}`);
+            console.log(`DB Updated.`);
 
-            // 5. Wait 3 minutes (if not the last one)
-            if (i < posts.length - 1) {
-                console.log(`Waiting ${DELAY_MS / 1000} seconds...`);
+            // 5. Update Queue File Status
+            queue[i].status = 'COMPLETED';
+            queue[i].imagePath = targetPath;
+            queue[i].generatedAt = new Date().toISOString();
+            fs.writeFileSync(QUEUE_FILE, JSON.stringify(queue, null, 2));
+            console.log("Queue JSON updated.");
+
+            // 6. Wait 4 minutes
+            if (i < queue.length - 1) {
+                console.log(`Waiting ${DELAY_MS / 1000} seconds (4 minutes) as requested...`);
                 await new Promise(r => setTimeout(r, DELAY_MS));
             }
 
         } catch (error: any) {
-            console.error(`Failed to process ${post.title}:`, error.message);
-            console.log(`Waiting ${DELAY_MS / 1000} seconds before next...`);
-            await new Promise(r => setTimeout(r, DELAY_MS));
+            console.error(`Failed to process ${item.title}:`, error.message);
+            console.log(`Waiting ${WAIT_ON_ERROR_MS / 1000} seconds before retry/next...`);
+            await new Promise(r => setTimeout(r, WAIT_ON_ERROR_MS));
         }
     }
 }
