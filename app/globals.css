@@ -94,11 +94,20 @@ body {
 
 @media (max-width: 768px) {
 
-  /* Reverted body padding to allow full-width Header/Footer */
-  /* Applied 20px padding to main content containers only */
-  /* Targeting standard container pattern: .mx-auto with .px-4 */
-  .mx-auto.px-4 {
+  /* 1. 헤더/푸터는 건드리지 않도록 body 패딩은 0으로 고정 */
+  body {
+    padding: 0 !important;
+  }
+
+  /* 2. 실제 콘텐츠가 담기는 컨테이너(상담 신청서 영역) 타겟팅 */
+  /* 현재 스크린샷 기반으로 추정되는 클래스들에 강제 패딩 부여 */
+  main,
+  .container,
+  section,
+  div[class*="max-w-"] {
     padding-left: 20px !important;
     padding-right: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
