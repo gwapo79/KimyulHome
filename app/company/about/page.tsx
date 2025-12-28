@@ -14,7 +14,7 @@ export default function AboutPage() {
                             <h1 className="text-5xl lg:text-6xl font-bold text-white">서초지율을 소개합니다
                             </h1>
                         </div>
-                        <p className="text-[#e5ceb4] max-w-sm text-right pb-1">법과 금융의 전문성을 결합해,
+                        <p className="hidden md:block text-[#e5ceb4] max-w-sm text-right pb-1">법과 금융의 전문성을 결합해,
                             집과 재산을 지키는 종합 법률-금융 서비스 파트너 새희망홀입니다.</p>
                     </div>
                 </div>
