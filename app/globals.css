@@ -90,8 +90,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 @media (max-width: 768px) {
-  body {
+
+  /* Reverted body padding to allow full-width Header/Footer */
+  /* Applied 20px padding to main content containers only */
+  /* Targeting standard container pattern: .mx-auto with .px-4 */
+  .mx-auto.px-4 {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
