@@ -127,7 +127,6 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
 
     return (
         <div className="min-h-screen bg-stone-50">
-            <Header />
             <main className="pt-20">
                 {/* SEO Metadata injection would go here via generateMetadata, but inline for now */}
                 <section id="breadcrumb" className="bg-neutral-50 py-4">
@@ -431,7 +430,6 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                 </section>
 
             </main>
-            <Footer />
         </div>
     );
 }
