@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getTeamMemberByName } from '@/app/constants/team';
 import { formatClientName } from '@/lib/utils';
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
 
 interface Props {
     params: {
