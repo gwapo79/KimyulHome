@@ -3,9 +3,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, ShieldCheck } from "lucide-react";
+import { Lock, Mail, ShieldCheck } from "lucide-react";
 
 export default function AdminLoginPage() {
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const router = useRouter();
@@ -18,14 +19,14 @@ export default function AdminLoginPage() {
             const res = await fetch("/api/admin/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ accessKey: password }),
+                body: JSON.stringify({ email, password }),
             });
 
             if (res.ok) {
                 router.push("/admin");
             } else {
                 const data = await res.json();
-                alert(data.message || "Access Denied");
+                alert(data.error || "Access Denied");
             }
         } catch (err) {
             console.error(err);
@@ -51,17 +52,33 @@ export default function AdminLoginPage() {
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
                         <label className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">
-                            Access Key
+                            Email
+                        </label>
+                        <div className="relative">
+                            <input
+                                type="email"
+                                className="w-full bg-[#374151] border border-slate-600 rounded-lg px-4 py-3 pl-10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                                placeholder="name@company.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <Mail className="absolute left-3 top-3.5 w-5 h-5 text-slate-500" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-xs font-medium text-slate-400 mb-2 uppercase tracking-wider">
+                            Password
                         </label>
                         <div className="relative">
                             <input
                                 type="password"
-                                className="w-full bg-[#374151] border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                                placeholder="Enter admin key..."
+                                className="w-full bg-[#374151] border border-slate-600 rounded-lg px-4 py-3 pl-10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                                placeholder="Enter password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            <Lock className="absolute right-3 top-3.5 w-5 h-5 text-slate-500" />
+                            <Lock className="absolute left-3 top-3.5 w-5 h-5 text-slate-500" />
                         </div>
                     </div>
 

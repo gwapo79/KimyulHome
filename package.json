@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack -H 127.0.0.1",
+    "dev:watch": "nodemon --watch .env -e env --exec \"next dev --webpack -H 127.0.0.1\"",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
@@ -20,7 +21,6 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@supabase/supabase-js": "^2.89.0",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -41,12 +41,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
+    "nodemon": "^3.1.11",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

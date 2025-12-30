@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "./components/ClientLayout";
+import PageTracker from '@/components/tracker/PageTracker';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.xn--2i4bq4i58b81e.com'),
@@ -89,6 +90,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ClientLayout>
+          {/* Public Page Tracker (Client Component) */}
+          <PageTracker />
           {children}
         </ClientLayout>
         <script

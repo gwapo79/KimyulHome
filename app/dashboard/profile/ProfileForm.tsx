@@ -4,16 +4,12 @@ import Image from "next/image";
 import { useActionState, useEffect, useState, useRef } from "react";
 import { updateUserProfile, updateAvatar } from "./actions";
 import Toast from "@/app/components/ui/Toast";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/lib/supabase";
 import AddressSearchModal from "@/app/components/ui/AddressSearchModal";
 
 // Note: In a real app, these should be env vars. Check your Supabase project settings.
-// Since we are adding this feature dynamically, we'll try to use a standard patterns or ask user to provide if missing.
-// For now, we'll assume standard public bucket if we can, or just store URL if uploaded elsewhere.
-// But to upload *to* Supabase from client, we need a client.
-// If env vars are missing, we might need a workaround or just simulation.
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://pklzapardiddnxwmobcj.supabase.co';
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// Now using @/lib/supabase singleton.
+
 
 // If keys are missing, we will have limited functionality.
 
@@ -63,14 +59,11 @@ export default function ProfileForm({ user }: ProfileFormProps) {
 
         try {
             // 1. Upload to Supabase Storage
-            // We need a supabase client here. If env vars are not set in next.config or .env.local for client, this might fail to init.
-            // Ideally we use a createBrowserClient from a helper, but let's try direct init if keys are public.
-            if (!SUPABASE_ANON_KEY) {
-                alert("Supabase credentials not found. Cannot upload image.");
-                return;
-            }
+            // Using singleton client
 
-            const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            // Note: Singleton throws if keys missing, handled by boundary or global error if not caught?
+            // Here we are in try/catch.
+
             const fileExt = file.name.split('.').pop();
             const fileName = `${user?.id || 'unknown'}/${Date.now()}.${fileExt}`;
             const filePath = `${fileName}`;

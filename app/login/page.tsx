@@ -53,6 +53,49 @@ export default function LoginPage() {
         }
     };
 
+    const handleKakaoLogin = async () => {
+        setLoading(true);
+        try {
+            // Mock Kakao Login Logic
+            // In real app, this redirects to Kakao Auth URL.
+            // Here we simulate getting a kakaoId and calling login.
+            // For testing, we use a fixed or random ID. 
+            const randomId = "123456789"; // Fixed for consistent testing, or Math.random()
+
+            const res = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    provider: 'kakao',
+                    kakaoId: randomId,
+                    name: 'Kakao Test User',
+                    email: `kakao_${randomId}@test.com` // Provide these to allow auto-signup if needed
+                }),
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                localStorage.setItem("user", JSON.stringify(data.user));
+                window.dispatchEvent(new Event("storage"));
+                router.push("/dashboard");
+            } else {
+                const data = await res.json();
+                // If user not found and we didn't send enough to auto-signup?
+                if (data.code === 'USER_NOT_FOUND') {
+                    alert("가입되지 않은 계정입니다. 회원가입으로 이동합니다.");
+                    router.push("/signup");
+                } else {
+                    setError(data.error || "카카오 로그인 실패");
+                }
+            }
+        } catch (e) {
+            console.error(e);
+            setError("로그인 처리 중 오류가 발생했습니다.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <main className="min-h-screen bg-neutral-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
@@ -161,6 +204,7 @@ export default function LoginPage() {
                     <button
                         type="button"
                         id="kakaoLogin"
+                        onClick={handleKakaoLogin}
                         aria-label="카카오로 간편 로그인"
                         className="w-full px-[18px] py-3 bg-[#fee500] rounded-lg shadow-[0px_1px_2px_0px_rgba(10,13,18,0.05)] border border-[#d5d6d9] justify-center items-center gap-3 flex overflow-hidden text-[#181d27] font-semibold hover:bg-[#fdd835] focus:bg-[#fdd835] focus:outline-none focus:ring-2 focus:ring-[#fee500] focus:ring-offset-2 transition-colors"
                     >

@@ -50,6 +50,7 @@ model User {
   role                Role                 @default(USER)
   provider            String               @default("local")
   kakaoId             String?              @unique
+  status              String               @default("ACTIVE") // ACTIVE, BLOCKED, WITHDRAWN
   createdAt           DateTime             @default(now())
   updatedAt           DateTime             @updatedAt
   
@@ -63,6 +64,9 @@ model User {
   
   address             String?
   avatarUrl           String?
+  
+  consultations       Consultation[]
+  activities          UserActivity[]
 }
 
 model NotificationSetting {
@@ -293,6 +297,22 @@ model Consultation {
 
   assigneeId  String?
   assignee    TeamMember? @relation(fields: [assigneeId], references: [id])
+  
+  userId      String?
+  user        User?       @relation(fields: [userId], references: [id])
+}
+
+model UserActivity {
+  id         String   @id @default(uuid())
+  userId     String
+  type       String   // LOGIN, VIEW_PAGE, CLICK_ACTION, etc.
+  details    String?  // JSON string or description
+  ipAddress  String?
+  device     String?  // OS / Browser info
+  path       String?  // URL Path or Screen Name
+  createdAt  DateTime @default(now())
+  
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model CalendarEvent {
