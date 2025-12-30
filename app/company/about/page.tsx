@@ -76,8 +76,8 @@ export default function AboutPage() {
                         <div className="relative h-full min-h-[500px]">
                             <div className="w-full h-full rounded-2xl overflow-hidden relative">
                                 <img
-                                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/54860a542f-198e814174a5d6880574.png"
-                                    alt="Korean legal professional and client meeting"
+                                    src="/images/about/vision-main.png"
+                                    alt="Future vision graph and office"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -109,29 +109,29 @@ export default function AboutPage() {
                         <div className="grid grid-cols-3 grid-rows-2 gap-4">
                             <div className="col-span-2 rounded-lg overflow-hidden">
                                 <img
-                                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/74c0da24fe-da86423f343fd58e205b.png"
-                                    alt="Lawyers in a conference room"
+                                    src="/images/about/why-us-1.png"
+                                    alt="Modern conference room"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="rounded-lg overflow-hidden">
                                 <img
-                                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/312519278a-6d80a04cbd8ef2d1cc65.png"
-                                    alt="Lawyer reviewing document"
+                                    src="/images/about/why-us-2.png"
+                                    alt="Legal document agreement"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="rounded-lg overflow-hidden">
                                 <img
-                                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/546b850190-ce814834d716aef16137.png"
-                                    alt="Satisfied client"
+                                    src="/images/about/why-us-3.png"
+                                    alt="Peaceful interior view"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="col-span-2 rounded-lg overflow-hidden">
                                 <img
-                                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/753cc06a34-75226572aded263c155c.png"
-                                    alt="Meeting table"
+                                    src="/images/about/why-us-4.png"
+                                    alt="Organized professional desk"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
