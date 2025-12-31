@@ -278,22 +278,44 @@ export default async function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {successCases.map((item) => (
-              <div key={item.id} className="bg-white rounded-2xl p-6 shadow-sm flex flex-col h-full">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 bg-[#f8f3ed] text-[#74634e] rounded-full text-sm font-medium">{item.category}</span>
-                  <span className="text-sm text-[#535861]">{item.lawyer}</span>
+              <div key={item.id} className="bg-white rounded-2xl shadow-sm flex flex-col h-full overflow-hidden hover:shadow-md transition-shadow">
+                {/* Image Section */}
+                <div className="relative h-48 w-full bg-neutral-200">
+                  {item.thumbnailUrl ? (
+                    <img
+                      src={item.thumbnailUrl}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-neutral-400">
+                      <i className="fas fa-image text-3xl"></i>
+                    </div>
+                  )}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#74634e] rounded-full text-sm font-medium shadow-sm">{item.category}</span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-[#181d27] mb-3 line-clamp-2">
-                  <Link href={`/services/success_cases/${item.id}`} className="hover:underline">{item.title}</Link>
-                </h3>
-                <p className="text-[#535861] mb-4 line-clamp-3 flex-grow">
-                  {item.summary}
-                </p>
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                  <span className="text-[#8a765e] font-semibold text-sm">{item.amount || '해결 완료'}</span>
-                  <span className="text-[#8a765e] hover:text-[#74634e] transition-colors cursor-pointer">
-                    <i className="fas fa-arrow-right"></i>
-                  </span>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-sm text-[#535861] flex items-center">
+                      <i className="fas fa-user-tie mr-2 text-[#8a765e]"></i>
+                      {item.lawyer || '담당 변호사'}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#181d27] mb-3 line-clamp-2 leading-snug">
+                    <Link href={`/services/success_cases/${item.id}`} className="hover:text-[#8a765e] transition-colors">{item.title}</Link>
+                  </h3>
+                  <p className="text-[#535861] mb-4 line-clamp-3 flex-grow">
+                    {item.summary}
+                  </p>
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                    <span className="text-[#8a765e] font-semibold text-sm">{item.amount || '해결 완료'}</span>
+                    <span className="text-[#8a765e] hover:text-[#74634e] transition-colors cursor-pointer">
+                      <i className="fas fa-arrow-right"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}

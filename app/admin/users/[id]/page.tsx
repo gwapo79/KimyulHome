@@ -5,12 +5,20 @@ import { useState, useEffect, use } from 'react';
 import {
     User, Mail, Phone, Calendar, Clock, MapPin, Monitor,
     MessageSquare, Briefcase, FileText, Activity, AlertCircle,
-    MoreHorizontal, ArrowRight, Shield, Zap
+    MoreHorizontal, ArrowRight, Shield, Zap, RefreshCw, Stethoscope, Database
 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { supabase } from '@/lib/supabase';
+import { diagnoseUserAction, seedUserDataAction } from '@/app/actions/admin';
 
+// Simple Toast Helper (since no library is installed)
+const toast = {
+    info: (msg: string) => alert(`[INFO] ${msg}`),
+    success: (msg: string) => alert(`[SUCCESS] ${msg}`),
+    error: (msg: string) => alert(`[ERROR] ${msg}`)
+};
 
 interface DashboardData {
     profile: {
@@ -51,43 +59,40 @@ interface TimelineItem {
 }
 
 export default function UserDashboardPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params); // Next.js 15+ way to unwrap params
+    const { id } = use(params);
+    const router = useRouter();
 
     const [data, setData] = useState<DashboardData | null>(null);
     const [timeline, setTimeline] = useState<TimelineItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [timelineLoading, setTimelineLoading] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
+
+    const [filter, setFilter] = useState<'ALL' | 'CORE' | 'COMM' | 'SYS'>('ALL');
+
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-
     const [error, setError] = useState<string | null>(null);
 
-    // Initial Fetch (Update)
-    useEffect(() => {
-        const fetchDashboard = async () => {
-            setLoading(true); // Ensure loading is reset if id changes
-            setError(null);
-            try {
-                const res = await fetch(`/api/admin/users/${id}/dashboard`, { credentials: 'include' });
-                if (res.ok) {
-                    const json = await res.json();
-                    setData(json);
-                } else if (res.status === 404) {
-                    setError('User Not Found');
-                } else {
-                    setError('Failed to load user data');
-                }
-            } catch (error) {
-                console.error("Dashboard Load Error:", error);
-                setError('Network error');
-            } finally {
-                setLoading(false);
+    // Initial Fetch
+    const fetchDashboard = async () => {
+        // Don't set global loading on refresh, only initial
+        setError(null);
+        try {
+            const res = await fetch(`/api/admin/users/${id}/dashboard`, { credentials: 'include' });
+            if (res.ok) {
+                const json = await res.json();
+                setData(json);
+            } else if (res.status === 404) {
+                setError('User Not Found');
+            } else {
+                setError('Failed to load user data');
             }
-        };
-
-        fetchDashboard();
-        fetchTimeline(1, true);
-    }, [id]);
+        } catch (error) {
+            console.error("Dashboard Load Error:", error);
+            setError('Network error');
+        }
+    };
 
     const fetchTimeline = async (pageNum: number, reset = false) => {
         setTimelineLoading(true);
@@ -111,39 +116,23 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
     };
 
     useEffect(() => {
+        const init = async () => {
+            setLoading(true);
+            await fetchDashboard();
+            await fetchTimeline(1, true);
+            setLoading(false);
+        };
+        init();
+    }, [id]);
+
+    useEffect(() => {
         if (!id) return;
-
-
-        // console.log("🔌 Connecting to Realtime Channel for User:", id);
-
         const channel = supabase
             .channel(`crm-user-${id}`)
-            .on(
-                'postgres_changes',
-                { event: 'INSERT', schema: 'public', table: 'ChatMessage' },
-                (payload: any) => {
-                    // console.log("🔔 Realtime Update:", payload);
-                    fetchTimeline(1, true);
-                }
-            )
-            .on(
-                'postgres_changes',
-                { event: 'UPDATE', schema: 'public', table: 'Case' },
-                () => {
-                    fetchTimeline(1, true);
-                    // Refresh Dashboard stats too
-                    // Note: Dashboard refresh is less critical for realtime but could be added if extracted
-                }
-            )
-            .subscribe((status) => {
-                if (status === 'SUBSCRIBED') {
-                    // console.log('✅ Realtime Subscribed');
-                }
-            });
-
-        return () => {
-            supabase.removeChannel(channel);
-        };
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'ChatMessage' }, () => fetchTimeline(1, true))
+            .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'Case' }, () => fetchTimeline(1, true))
+            .subscribe();
+        return () => { supabase.removeChannel(channel); };
     }, [id]);
 
     const handleLoadMore = () => {
@@ -151,6 +140,50 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
             fetchTimeline(page + 1);
         }
     };
+
+    // --- Quick Actions ---
+
+    const handleRefresh = async () => {
+        setIsRefreshing(true);
+        router.refresh(); // Refresh Server Components
+        await fetchDashboard(); // Refetch Client Data
+        await fetchTimeline(1, true);
+        setTimeout(() => setIsRefreshing(false), 800); // Min spin time
+    };
+
+    const handleStartChat = () => {
+        router.push(`/admin/chat?targetUserId=${id}`);
+    };
+
+    const handleDiagnosis = async () => {
+        const res = await diagnoseUserAction(id);
+        if (res.success) {
+            toast.success(res.message);
+        } else {
+            toast.error(res.message);
+        }
+    };
+
+    const handleSeedData = async () => {
+        if (!confirm('경고: 테스트 데이터를 대량으로 생성합니다. 진행하시겠습니까?')) return;
+
+        const res = await seedUserDataAction(id);
+        if (res.success) {
+            toast.success('테스트 데이터가 생성되었습니다.');
+            handleRefresh();
+        } else {
+            toast.error(res.message);
+        }
+    };
+
+    // Filter Logic
+    const filteredTimeline = timeline.filter(item => {
+        if (filter === 'ALL') return true;
+        if (filter === 'CORE') return item.type === 'CASE' || item.type === 'CONSULTATION';
+        if (filter === 'COMM') return item.type === 'CHAT';
+        if (filter === 'SYS') return item.type === 'ACTIVITY';
+        return true;
+    });
 
     if (loading) {
         return (
@@ -165,21 +198,16 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
             <div className="flex flex-col items-center justify-center min-h-[50vh] text-slate-500">
                 <AlertCircle className="w-10 h-10 mb-3 text-red-300" />
                 <h3 className="text-lg font-bold text-slate-700">회원을 찾을 수 없습니다.</h3>
-                <p className="text-sm">삭제되었거나 존재하지 않는 회원입니다.</p>
                 <Link href="/admin/users" className="mt-4 px-4 py-2 bg-slate-100 rounded-lg text-sm hover:bg-slate-200">목록으로 돌아가기</Link>
             </div>
         );
     }
 
-    // Non-blocking loading/error states are handled within the UI or via overlays
-    // if (loading) return ... (We can keep loading but user requested defensive rendering. Let's keep loading for now but ensure it finishes)
-    // Removed: if (!data) return null;
-
     return (
         <div className="min-h-screen bg-slate-50/50 p-6 -m-6">
             <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-                {/* --- Left Column: Profile (Fixed-ish) --- */}
+                {/* --- Left Column: Profile --- */}
                 <div className="lg:col-span-3 space-y-6 sticky top-6">
                     {/* User Card */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
@@ -259,41 +287,95 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
                     </div>
                 </div>
 
-                {/* --- Center Column: Timeline (Scrollable) --- */}
+                {/* --- Center Column: Timeline --- */}
                 <div className="lg:col-span-6 space-y-6">
                     <div className="flex items-center justify-between">
                         <h2 className="text-lg font-bold text-slate-800">Unified Timeline</h2>
-                        <button onClick={() => fetchTimeline(1, true)} className="text-sm text-[#8a765e] hover:underline">Refresh</button>
+                        <button onClick={handleRefresh} className="text-sm text-[#8a765e] hover:underline flex items-center gap-1">
+                            <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin' : ''}`} /> Refresh
+                        </button>
+                    </div>
+
+                    {/* Filter Tabs */}
+                    <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                        <button
+                            onClick={() => setFilter('ALL')}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${filter === 'ALL' ? 'bg-slate-800 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+                        >
+                            전체
+                        </button>
+                        <button
+                            onClick={() => setFilter('CORE')}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-2 ${filter === 'CORE' ? 'bg-violet-600 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+                        >
+                            <span className="text-xs">⭐</span> 핵심 활동
+                        </button>
+                        <button
+                            onClick={() => setFilter('COMM')}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-2 ${filter === 'COMM' ? 'bg-green-600 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+                        >
+                            <span className="text-xs">💬</span> 커뮤니케이션
+                        </button>
+                        <button
+                            onClick={() => setFilter('SYS')}
+                            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap flex items-center gap-2 ${filter === 'SYS' ? 'bg-slate-500 text-white' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+                        >
+                            <span className="text-xs">⚙️</span> 시스템/접속
+                        </button>
                     </div>
 
                     <div className="space-y-4">
-                        {timeline.map((item) => {
+                        {filteredTimeline.map((item) => {
                             const date = new Date(item.createdAt);
                             let Icon = Activity;
                             let bgColor = 'bg-slate-100';
                             let iconColor = 'text-slate-500';
+                            let borderColor = 'border-slate-200';
 
                             if (item.type === 'CASE') {
-                                Icon = Briefcase;
-                                bgColor = 'bg-blue-100';
-                                iconColor = 'text-blue-600';
+                                Icon = Shield;
+                                bgColor = 'bg-violet-100';
+                                iconColor = 'text-violet-600';
+                                borderColor = 'border-violet-200';
                             } else if (item.type === 'CONSULTATION') {
-                                Icon = FileText;
-                                bgColor = 'bg-purple-100';
-                                iconColor = 'text-purple-600';
+                                Icon = Briefcase;
+                                bgColor = 'bg-violet-100';
+                                iconColor = 'text-violet-600';
+                                borderColor = 'border-violet-200';
                             } else if (item.type === 'CHAT') {
                                 Icon = MessageSquare;
-                                bgColor = 'bg-yellow-100';
-                                iconColor = 'text-yellow-600';
+                                bgColor = 'bg-green-100';
+                                iconColor = 'text-green-600';
+                                borderColor = 'border-green-200';
+                            } else if (item.type === 'ACTIVITY') {
+                                // Sub-types for Activity
+                                if (item.title?.includes('LOGIN') || item.title?.includes('LOGOUT')) {
+                                    Icon = Zap; // Or Lock
+                                    bgColor = 'bg-slate-100';
+                                    iconColor = 'text-slate-500';
+                                } else if (item.title?.includes('VIEW_PAGE')) {
+                                    Icon = Monitor;
+                                    bgColor = 'bg-slate-50';
+                                    iconColor = 'text-slate-400';
+                                } else {
+                                    Icon = Activity;
+                                    bgColor = 'bg-blue-50';
+                                    iconColor = 'text-blue-500';
+                                }
                             }
 
                             return (
-                                <div key={item.id} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative pl-16">
+                                <div key={item.id} className={`bg-white p-5 rounded-xl border ${borderColor} shadow-sm relative pl-16 transition-all hover:shadow-md`}>
                                     <div className={`absolute left-4 top-5 w-8 h-8 ${bgColor} rounded-full flex items-center justify-center ${iconColor}`}>
                                         <Icon className="w-4 h-4" />
                                     </div>
                                     <div className="flex justify-between items-start mb-1">
-                                        <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
+                                        <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                            {item.title}
+                                            {(item.type === 'CASE' || item.type === 'CONSULTATION') && (
+                                                <span className="px-1.5 py-0.5 bg-violet-100 text-violet-700 text-[10px] rounded font-bold uppercase tracking-wide">CORE</span>
+                                            )}
+                                        </h4>
                                         <span className="text-xs text-slate-400 whitespace-nowrap">
                                             {date.toLocaleDateString()} {date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                         </span>
@@ -315,130 +397,59 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
                             );
                         })}
 
-                        {timelineLoading && (
-                            <div className="p-4 text-center text-slate-400 text-sm">Loading more history...</div>
-                        )}
-
-                        {!timelineLoading && hasMore && (
-                            <button
-                                onClick={handleLoadMore}
-                                className="w-full py-3 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors"
-                            >
-                                Load More History
-                            </button>
-                        )}
-
-                        {!hasMore && timeline.length > 0 && (
-                            <div className="p-4 text-center text-slate-400 text-xs">End of History</div>
-                        )}
-                        {!hasMore && timeline.length === 0 && (
+                        {!timelineLoading && filteredTimeline.length === 0 && (
                             <div className="p-12 text-center text-slate-400">
                                 <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <MessageSquare className="w-6 h-6 text-slate-300" />
+                                    <Briefcase className="w-6 h-6 text-slate-300" />
                                 </div>
-                                <h3 className="text-sm font-medium text-slate-600 mb-1">아직 활동 내역이 없습니다.</h3>
-                                <p className="text-xs text-slate-400">첫 상담을 시작하거나 메모를 남겨보세요!</p>
+                                <h3 className="text-sm font-medium text-slate-600 mb-1">해당되는 활동 내역이 없습니다.</h3>
+                                <p className="text-xs text-slate-400">필터 조건을 변경해보세요.</p>
                             </div>
+                        )}
+
+                        {!timelineLoading && hasMore && filter === 'ALL' && (
+                            <button onClick={handleLoadMore} className="w-full py-3 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50">
+                                Load More History
+                            </button>
                         )}
                     </div>
                 </div>
 
-                {/* --- Right Column: Quick Actions & Recent Cases --- */}
+                {/* --- Right Column: Quick Actions --- */}
                 <div className="lg:col-span-3 space-y-6 sticky top-6">
-                    {/* Actions */}
                     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
                         <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Quick Actions</h3>
                         <div className="space-y-3">
-                            <button className="w-full flex items-center gap-3 p-3 rounded-lg bg-[#8a765e] text-white hover:bg-[#74634e] transition-colors">
+                            <button
+                                onClick={handleStartChat}
+                                className="w-full flex items-center gap-3 p-3 rounded-lg bg-[#8a765e] text-white hover:bg-[#74634e] transition-colors"
+                            >
                                 <MessageSquare className="w-4 h-4" />
                                 <span className="text-sm font-medium">Start Chat</span>
                             </button>
-                            <button onClick={() => fetchTimeline(1, true)} className="w-full flex items-center gap-3 p-3 rounded-lg bg-slate-50 text-slate-700 hover:bg-slate-100 transition-colors border border-slate-200">
-                                <Activity className="w-4 h-4" />
+                            <button
+                                onClick={handleRefresh}
+                                className="w-full flex items-center gap-3 p-3 rounded-lg bg-slate-50 text-slate-700 hover:bg-slate-100 transition-colors border border-slate-200"
+                            >
+                                <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                                 <span className="text-sm font-medium">새로고침</span>
                             </button>
 
-                            {/* System Diagnostics */}
                             <button
-                                onClick={async () => {
-                                    const btn = document.getElementById('btn-sys-diag') as HTMLButtonElement;
-                                    if (btn) btn.innerText = '진단 중...';
-                                    try {
-                                        const res = await fetch('/api/admin/system/diagnose', { credentials: 'include' });
-                                        const json = await res.json();
-                                        alert(`[System Health]\n\nDB Connection: ${json.checks?.database?.status} (${json.checks?.database?.latency}ms)\nSupabase Key: ${json.checks?.env?.supabaseKey ? 'OK' : 'MISSING'}\nSupabase URL: ${json.checks?.env?.supabaseUrl ? 'OK' : 'MISSING'}\nJWT Secret: ${json.checks?.env?.jwtSecret ? 'OK' : 'MISSING'}`);
-                                    } catch (e) {
-                                        alert('Diagnosis Failed: ' + e);
-                                    } finally {
-                                        if (btn) btn.innerText = '시스템 진단';
-                                    }
-                                }}
-                                id="btn-sys-diag"
+                                onClick={handleDiagnosis}
                                 className="w-full flex items-center gap-3 p-3 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition-colors border border-indigo-100"
                             >
-                                <Zap className="w-4 h-4" />
+                                <Stethoscope className="w-4 h-4" />
                                 <span className="text-sm font-medium">시스템 진단</span>
                             </button>
 
-                            {/* Debug/Demo Action */}
                             <button
-                                onClick={async () => {
-                                    if (!confirm('가짜 상담, 사건 데이터를 생성하시겠습니까?')) return;
-
-                                    const MAX_RETRIES = 3;
-                                    let attempt = 0;
-                                    let success = false;
-
-                                    while (attempt < MAX_RETRIES && !success) {
-                                        attempt++;
-                                        try {
-                                            const res = await fetch(`/api/admin/users/${id}/seed`, { method: 'POST', credentials: 'include' });
-                                            if (res.ok) {
-                                                success = true;
-                                                alert(`데이터 생성 완료! (시도: ${attempt})`);
-                                                fetchTimeline(1, true);
-                                                window.location.reload();
-                                            } else {
-                                                if (attempt === MAX_RETRIES) alert('생성 실패 (Server Error)');
-                                            }
-                                        } catch (e) {
-                                            console.warn(`Attempt ${attempt} failed:`, e);
-                                            if (attempt === MAX_RETRIES) alert('에러 발생: 연결 상태를 확인해주세요.');
-                                            await new Promise(r => setTimeout(r, 1000)); // Wait 1s
-                                        }
-                                    }
-                                }}
+                                onClick={handleSeedData}
                                 className="w-full flex items-center gap-3 p-3 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-colors border border-red-100"
                             >
-                                <Zap className="w-4 h-4" />
+                                <Database className="w-4 h-4" />
                                 <span className="text-sm font-medium">[Dev] 테스트 데이터 생성</span>
                             </button>
-                        </div>
-                    </div>
-
-                    {/* Recent Cases Mini List */}
-                    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Active Cases</h3>
-                            <Link href="#" className="text-xs text-[#8a765e] hover:underline">View All</Link>
-                        </div>
-
-                        <div className="space-y-4">
-                            {data?.recentCases && data.recentCases.length > 0 ? data.recentCases.map(c => (
-                                <div key={c.id} className="group cursor-pointer">
-                                    <div className="flex justify-between items-start">
-                                        <h4 className="text-sm font-medium text-slate-800 group-hover:text-[#8a765e] transition-colors line-clamp-2">{c.title}</h4>
-                                    </div>
-                                    <div className="flex justify-between items-center mt-2">
-                                        <span className="text-xs text-slate-500">{new Date(c.updatedAt).toLocaleDateString()}</span>
-                                        <span className="text-[10px] px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">
-                                            {c.status}
-                                        </span>
-                                    </div>
-                                </div>
-                            )) : (
-                                <div className="text-sm text-slate-400 italic text-center py-4">등록된 사건이 없습니다.</div>
-                            )}
                         </div>
                     </div>
                 </div>
@@ -447,3 +458,5 @@ export default function UserDashboardPage({ params }: { params: Promise<{ id: st
         </div>
     );
 }
+
+// Add these icons to imports if missing: RefreshCw, Stethoscope, Database

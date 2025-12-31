@@ -30,3 +30,11 @@ export async function updateBlogPost(id: string, formData: FormData) {
     revalidatePath(`/admin/blog/${id}`);
     redirect(`/admin/blog/${id}`);
 }
+
+export async function deleteBlogPost(id: string) {
+    await prisma.blogPost.delete({
+        where: { id }
+    });
+    revalidatePath('/admin/blog');
+    redirect('/admin/blog');
+}

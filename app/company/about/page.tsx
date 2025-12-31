@@ -6,16 +6,21 @@ import ConsultationForm from "@/app/components/consultation/ConsultationForm";
 export default function AboutPage() {
     return (
         <main>
-            <section id="about-hero" className="bg-[#5e503f] h-[400px]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+            <section id="about-hero" className="py-24 lg:py-32 bg-[#5e503f]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
                     <div className="w-full flex justify-between items-end">
-                        <div>
-                            <p className="text-lg text-[#e5ceb4] mb-2">새로운 시작을 돕는 법률-금융 전문가 그룹</p>
-                            <h1 className="text-5xl lg:text-6xl font-bold text-white">서초지율을 소개합니다
+                        <div className="max-w-3xl">
+                            <p className="text-xl font-medium text-[#e5ceb4] mb-4">새로운 시작을 돕는 법률-금융 전문가 그룹</p>
+                            <h1 className="text-5xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+                                서초지율을<br />소개합니다
                             </h1>
                         </div>
-                        <p className="hidden md:block text-[#e5ceb4] max-w-sm text-right pb-1">법과 금융의 전문성을 결합해,
-                            집과 재산을 지키는 종합 법률-금융 서비스 파트너 새희망홀입니다.</p>
+                        <p className="hidden lg:block text-[#e5ceb4] text-lg max-w-sm text-right pb-2 leading-relaxed">
+                            법과 금융의 전문성을 결합해,<br />
+                            집과 재산을 지키는<br />
+                            종합 법률-금융 서비스 파트너<br />
+                            새희망홀입니다.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -76,8 +81,8 @@ export default function AboutPage() {
                         <div className="relative h-full min-h-[500px]">
                             <div className="w-full h-full rounded-2xl overflow-hidden relative">
                                 <img
-                                    src="/images/about/vision-main.png"
-                                    alt="Future vision graph and office"
+                                    src="/images/about/about_vision_final.png"
+                                    alt="Legal expert consulting happily with clients in a premium office"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -109,29 +114,29 @@ export default function AboutPage() {
                         <div className="grid grid-cols-3 grid-rows-2 gap-4">
                             <div className="col-span-2 rounded-lg overflow-hidden">
                                 <img
-                                    src="/images/about/why-us-1.png"
-                                    alt="Modern conference room"
+                                    src="/images/about/about_finance_premium.png"
+                                    alt="Premium financial workspace with city view"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="rounded-lg overflow-hidden">
                                 <img
-                                    src="/images/about/why-us-2.png"
-                                    alt="Legal document agreement"
+                                    src="/images/about/about_rehab_premium.png"
+                                    alt="VIP consultation niche with leather armchairs"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="rounded-lg overflow-hidden">
                                 <img
-                                    src="/images/about/why-us-3.png"
-                                    alt="Peaceful interior view"
+                                    src="/images/about/about_consult_premium.png"
+                                    alt="Legal expert in navy suit with tablet"
                                     className="w-full h-full object-cover"
                                 />
                             </div>
                             <div className="col-span-2 rounded-lg overflow-hidden">
                                 <img
-                                    src="/images/about/why-us-4.png"
-                                    alt="Organized professional desk"
+                                    src="/images/about/about_legal_premium.png"
+                                    alt="Designer fountain pen on legal brief"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

@@ -79,11 +79,12 @@ export default async function BlogDetailPage({ params }: Props) {
                         </div>
                     )}
 
-                    <div className="prose prose-slate max-w-none">
-                        <div className="whitespace-pre-wrap leading-relaxed text-slate-800">
-                            {post.content}
-                        </div>
-                    </div>
+
+                    {/* Direct HTML Rendering for WYSIWYG Content */}
+                    <div
+                        className="prose prose-slate max-w-none leading-relaxed text-slate-800"
+                        dangerouslySetInnerHTML={{ __html: post.content || '' }}
+                    />
                 </div>
             </div>
 

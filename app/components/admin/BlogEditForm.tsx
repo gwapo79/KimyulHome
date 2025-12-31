@@ -1,12 +1,14 @@
 'use client';
 
 import { BlogPost } from '@prisma/client';
-import { updateBlogPost } from '@/app/actions/blog';
+import { updateBlogPost, deleteBlogPost } from '@/app/actions/blog';
 import { useFormStatus } from 'react-dom';
 import { useState, useMemo, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import ImageUploadBox from './ImageUploadBox';
 import 'react-quill-new/dist/quill.snow.css';
+import { marked } from 'marked';
+import { Trash2 } from 'lucide-react';
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -21,12 +23,46 @@ function SubmitButton() {
     );
 }
 
+
 export default function BlogEditForm({ post }: { post: BlogPost }) {
     const updateAction = updateBlogPost.bind(null, post.id);
 
     // WYSIWYG State
     const [content, setContent] = useState(post.content || '');
     const [thumbnailUrl, setThumbnailUrl] = useState(post.thumbnailUrl || '');
+
+    // Auto-Repair: On mount, check if content is HTML-wrapped Markdown (e.g. <p>### Header</p>)
+    // and convert it to proper HTML for the editor.
+    useEffect(() => {
+        const raw = post.content || '';
+        if (!raw) return;
+
+        try {
+            // 1. Strip HTML tags to get raw text (handling encoded entities)
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(raw, 'text/html');
+            let text = doc.body.textContent || '';
+
+            // 2. Sanitize NBSP which breaks Markdown parsing
+            text = text.replace(/\u00A0/g, ' ').replace(/&nbsp;/g, ' ');
+
+            // 3. FORCE NEWLINES: Detect Markdown headers/bullets buried in single-line text
+            // e.g. "Intro ### Header" -> "Intro \n\n### Header"
+            text = text.replace(/([^\n])(#{1,6}\s)/g, '$1\n\n$2');
+            text = text.replace(/([^\n])(\* \[)/g, '$1\n\n$2'); // Checkboxes
+            text = text.replace(/([^\n])(> )/g, '$1\n\n$2');    // Blockquotes
+            text = text.replace(/([^\n])(\*\*\s)/g, '$1\n\n$2'); // Possible bold lists? (Be careful)
+            text = text.replace(/(---)/g, '\n\n$1\n\n');        // Horizontal rules
+
+            // 4. Check for Markdown indicators and re-parse
+            if (/^#|(\n#)/.test(text) || /\*\*/.test(text) || /^>/.test(text)) {
+                const newHtml = marked.parse(text) as string;
+                setContent(newHtml);
+            }
+        } catch (e) {
+            console.error('Markdown repair failed:', e);
+        }
+    }, [post.content]);
 
     // ReactQuill Component (Dynamic)
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill-new'), {
@@ -223,7 +259,18 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
                 </div>
             </div>
 
-            <div className="flex justify-end gap-3 pb-20">
+            <div className="flex justify-between items-center gap-3 pb-20">
+                <button
+                    type="button"
+                    onClick={async () => {
+                        if (confirm('정말 이 블로그 글을 삭제하시겠습니까? 복구할 수 없습니다.')) {
+                            await deleteBlogPost(post.id);
+                        }
+                    }}
+                    className="bg-red-50 text-red-600 border border-red-200 px-5 py-2 rounded-lg hover:bg-red-100 transition-colors font-medium flex items-center gap-2"
+                >
+                    <Trash2 className="w-4 h-4" /> 삭제
+                </button>
                 <SubmitButton />
             </div>
         </form>
