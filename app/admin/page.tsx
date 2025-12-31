@@ -3,24 +3,117 @@
 import { MOCK_STATS } from '@/data/mock_stats';
 import {
     TrendingUp, TrendingDown, Users, Scale, DollarSign,
-    ArrowRight, Calendar, Bell, ChevronRight, Activity
+    ArrowRight, Calendar, Bell, ChevronRight, Activity, CheckCircle, Clock, AlertCircle
 } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function AdminDashboard() {
-    const { kpi, monthlyTrends, recentActivity } = MOCK_STATS;
+    const [userRole, setUserRole] = useState<string>("LOADING");
 
-    // Helper to calculate bar height percentage relative to max value
+    useEffect(() => {
+        const fetchRole = async () => {
+            try {
+                const res = await fetch('/api/auth/me');
+                if (res.ok) {
+                    const data = await res.json();
+                    setUserRole(data.role || "USER");
+                } else {
+                    setUserRole("USER");
+                }
+            } catch (e) {
+                setUserRole("USER");
+            }
+        };
+        fetchRole();
+    }, []);
+
+    const { kpi, monthlyTrends, recentActivity } = MOCK_STATS;
     const maxRevenue = Math.max(...monthlyTrends.map(m => m.revenue));
 
+    if (userRole === "LOADING") {
+        return <div className="p-8 text-center text-slate-500">Loading Dashboard...</div>;
+    }
+
+    const isCEO = userRole === 'CEO';
+
+    // --- WORKER DASHBOARD (Lawyer/Staff) ---
+    if (!isCEO && userRole !== 'DEV') {
+        return (
+            <div className="space-y-8">
+                <div className="flex justify-between items-end">
+                    <div>
+                        <h2 className="text-2xl font-bold text-slate-800">나의 업무 대시보드</h2>
+                        <p className="text-slate-500 text-sm mt-1">안녕하세요, {userRole}님. 오늘 처리해야 할 업무입니다.</p>
+                    </div>
+                    <p className="text-xs text-slate-400 font-mono">{new Date().toLocaleDateString()}</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Task Card 1: Consultations */}
+                    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <Clock className="w-5 h-5 text-amber-500" /> 미답변 상담
+                        </h3>
+                        <div className="space-y-3">
+                            <div className="p-3 bg-amber-50 rounded border border-amber-100">
+                                <p className="text-sm font-semibold text-slate-800">이지은님의 이혼 상담 문의</p>
+                                <p className="text-xs text-slate-500 mt-1">20분 전 접수됨</p>
+                                <Link href="/admin/consultations" className="text-xs text-blue-600 mt-2 block hover:underline">답변하기 &rarr;</Link>
+                            </div>
+                            <div className="p-3 bg-amber-50 rounded border border-amber-100">
+                                <p className="text-sm font-semibold text-slate-800">김철수님의 부동산 등기 문의</p>
+                                <p className="text-xs text-slate-500 mt-1">1시간 전 접수됨</p>
+                                <Link href="/admin/consultations" className="text-xs text-blue-600 mt-2 block hover:underline">답변하기 &rarr;</Link>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Task Card 2: Assigned Cases */}
+                    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <Scale className="w-5 h-5 text-blue-500" /> 내 사건 (진행중)
+                        </h3>
+                        <div className="space-y-3">
+                            <div className="flex justify-between items-center p-2 border-b border-slate-50 last:border-0">
+                                <span className="text-sm text-slate-700">2024가합1023 (채무부존재)</span>
+                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">변론기일</span>
+                            </div>
+                            <div className="flex justify-between items-center p-2 border-b border-slate-50 last:border-0">
+                                <span className="text-sm text-slate-700">2023나2394 (손해배상)</span>
+                                <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs">서면제출</span>
+                            </div>
+                        </div>
+                        <Link href="/admin/cases" className="text-center block w-full mt-4 py-2 bg-slate-50 text-slate-600 text-sm rounded hover:bg-slate-100 transition-colors">
+                            전체 사건 보기
+                        </Link>
+                    </div>
+
+                    {/* Task Card 3: Notice */}
+                    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <Bell className="w-5 h-5 text-slate-400" /> 법인 공지사항
+                        </h3>
+                        <ul className="list-disc list-inside text-sm text-slate-600 space-y-2">
+                            <li>이번 주 금요일 전체 회식 안내</li>
+                            <li>서초동 법원 하계 휴정기 일정 공유</li>
+                            <li>새로운 성공사례 작성 가이드라인 배포</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // --- CEO DASHBOARD ---
     return (
         <div className="space-y-8">
             <div className="flex justify-between items-end">
                 <div>
-                    <h2 className="text-2xl font-bold text-slate-800">경영 대시보드</h2>
+                    <h2 className="text-2xl font-bold text-slate-800">경영 대시보드 (CEO)</h2>
                     <p className="text-slate-500 text-sm mt-1">오늘의 주요 경영 지표와 현황 리포트</p>
                 </div>
-                <p className="text-xs text-slate-400 font-mono">Last updated: {new Date().toLocaleDateString()}</p>
+                <p className="text-xs text-slate-400 font-mono">Role: CEO</p>
             </div>
 
             {/* Section 1: KPI Cards */}

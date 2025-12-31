@@ -3,8 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Scale, Users, FileText, Settings, LogOut, MessageSquare, Phone, BarChart3, Clock } from 'lucide-react';
-import GlobalSearch from '@/components/admin/GlobalSearch';
+import { Home, Scale, Users, FileText, Settings, LogOut, MessageSquare, Phone, BarChart3, Clock, Lock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface RecentUser {
@@ -21,9 +20,27 @@ export default function AdminLayout({
     const isLoginPage = pathname === "/admin/login";
 
     const [recentUsers, setRecentUsers] = useState<RecentUser[]>([]);
+    const [userRole, setUserRole] = useState<string>("LOADING"); // CEO, LAWYER, STAFF, DEV, USER
 
     useEffect(() => {
-        // Function to load recent users
+        // Load Role
+        const fetchRole = async () => {
+            // Fetch from our API
+            try {
+                const res = await fetch('/api/auth/me');
+                if (res.ok) {
+                    const data = await res.json();
+                    setUserRole(data.role || "USER");
+                } else {
+                    // Fallback or redirect
+                    setUserRole("USER");
+                }
+            } catch (e) {
+                setUserRole("USER");
+            }
+        };
+
+        // Load recent users
         const loadRecent = () => {
             try {
                 const stored = localStorage.getItem('crm_recent_users');
@@ -35,10 +52,9 @@ export default function AdminLayout({
             }
         };
 
+        fetchRole();
         loadRecent();
 
-        // Listen for custom event or storage event to auto-update
-        // Note: storage event only works across tabs. For same-tab, we can dispatch a custom event.
         const handleCustomUpdate = () => loadRecent();
         window.addEventListener('crm-recent-update', handleCustomUpdate);
 
@@ -55,6 +71,15 @@ export default function AdminLayout({
         );
     }
 
+    // Menu Visibility Logic
+    const canSeeManagement = ['CEO'].includes(userRole);
+    const canSeeStats = ['CEO', 'DEV'].includes(userRole);
+    const canSeeDev = ['DEV'].includes(userRole);
+    const canSeeSettings = ['CEO', 'DEV'].includes(userRole);
+
+    // Core workers (Lawyer/Staff/CEO/Dev can all see cases/content)
+    const isWorker = ['CEO', 'LAWYER', 'STAFF', 'DEV'].includes(userRole);
+
     return (
         <div className="flex h-screen bg-slate-50">
             {/* Sidebar */}
@@ -63,18 +88,34 @@ export default function AdminLayout({
                     <h1 className="text-xl font-bold text-[#d4af37] flex items-center gap-2">
                         <Scale className="w-6 h-6" /> 서초지율 Admin
                     </h1>
+                    <div className='mt-2 text-xs text-slate-500 font-mono border border-slate-700 rounded px-2 py-1 inline-block'>
+                        Role: {userRole}
+                    </div>
                 </div>
 
-                <nav className="flex-1 px-4 space-y-2 mt-4">
+                <nav className="flex-1 px-4 space-y-2 mt-4 overflow-y-auto">
                     <Link href="/admin" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
                         <Home className="w-5 h-5" /> 대시보드
                     </Link>
-                    <Link href="/admin/cases" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
-                        <Scale className="w-5 h-5" /> 사건 관리
-                    </Link>
-                    <Link href="/admin/stats" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
-                        <BarChart3 className="w-5 h-5" /> 통계 및 리포트
-                    </Link>
+
+                    {/* Management Section - CEO ONLY */}
+                    {canSeeManagement && (
+                        <Link href="/admin/management" className="flex items-center gap-3 px-4 py-3 rounded-lg text-amber-200 hover:bg-[#8a765e] hover:text-white transition-all bg-amber-900/20">
+                            <BarChart3 className="w-5 h-5" /> 경영 지표 (CEO)
+                        </Link>
+                    )}
+
+                    {isWorker && (
+                        <Link href="/admin/cases" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                            <Scale className="w-5 h-5" /> 사건 관리
+                        </Link>
+                    )}
+
+                    {canSeeStats && (
+                        <Link href="/admin/stats" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                            <BarChart3 className="w-5 h-5" /> 통계 및 리포트
+                        </Link>
+                    )}
 
                     {/* Recent Customers Sidebar */}
                     {recentUsers.length > 0 && (
@@ -122,15 +163,25 @@ export default function AdminLayout({
                     <div className="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                         시스템
                     </div>
-                    <Link href="/admin/users" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
-                        <Users className="w-5 h-5" /> 일반 회원 (Clients)
-                    </Link>
-                    <Link href="/admin/team" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
-                        <Users className="w-5 h-5" /> 구성원 관리 (Team)
-                    </Link>
-                    <Link href="/admin/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
-                        <Settings className="w-5 h-5" /> 설정
-                    </Link>
+                    {canSeeSettings && (
+                        <>
+                            <Link href="/admin/users" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                                <Users className="w-5 h-5" /> 일반 회원 (Clients)
+                            </Link>
+                            <Link href="/admin/team" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                                <Users className="w-5 h-5" /> 구성원 관리 (Team)
+                            </Link>
+                            <Link href="/admin/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                                <Settings className="w-5 h-5" /> 설정
+                            </Link>
+                        </>
+                    )}
+
+                    {canSeeDev && (
+                        <Link href="/admin/dev" className="flex items-center gap-3 px-4 py-3 rounded-lg text-red-200 hover:bg-red-900/50 hover:text-white transition-all mt-2">
+                            <Lock className="w-5 h-5" /> 시스템 로그 (DEV)
+                        </Link>
+                    )}
                 </nav>
 
                 <div className="p-4 border-t border-slate-700">
@@ -143,12 +194,14 @@ export default function AdminLayout({
             {/* Main Content */}
             <main className="flex-1 overflow-y-auto">
                 <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
-                    <h2 className="text-lg font-semibold text-slate-800">관리자 모드</h2>
+                    <h2 className="text-lg font-semibold text-slate-800">
+                        {userRole === 'CEO' ? '최고 관리자 모드 (CEO)' : '실무자 모드'}
+                    </h2>
                     <div className="flex items-center gap-4">
                         <div className="w-8 h-8 rounded-full bg-[#8a765e] flex items-center justify-center text-white text-sm font-bold">
-                            A
+                            {userRole.substring(0, 1)}
                         </div>
-                        <span className="text-sm text-slate-600">Super Admin</span>
+                        <span className="text-sm text-slate-600">{userRole}</span>
                     </div>
                 </header>
                 <div className="p-8">
@@ -158,3 +211,4 @@ export default function AdminLayout({
         </div>
     );
 }
+
