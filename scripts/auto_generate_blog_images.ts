@@ -19,8 +19,8 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-// 4 Minutes in ms (User requested 4 minutes)
-const DELAY_MS = 4 * 60 * 1000;
+// 4 Minutes in ms (User requested 4 minutes) -> Modified to 20s for monitoring phase
+const DELAY_MS = 20 * 1000;
 const WAIT_ON_ERROR_MS = 60 * 1000; // 1 min wait on error
 
 async function downloadImage(url: string, filepath: string): Promise<void> {

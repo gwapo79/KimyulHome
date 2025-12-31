@@ -1,19 +1,15 @@
-import { type ClassValue, clsx } from "clsx"
+import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
-export function formatClientName(name: string | null | undefined): string {
-    if (!name || name.trim() === '') {
-        console.error('Client name is missing for anonymization');
-        return '???'; // User requested to remove '의뢰인' fallback to uncover issues.
-    }
-
-    // If strict 1 char limit, return name.
-    if (name.length < 2) return name;
-
-    const firstChar = name.charAt(0);
-    return `${firstChar}OO`;
+export function formatClientName(name: string) {
+    if (!name) return "";
+    if (name.length <= 1) return name;
+    // For 2 characters (e.g. 이산), return 이*
+    if (name.length === 2) return name[0] + "*";
+    // For 3+ characters (e.g. 홍길동), return 홍*동
+    return name[0] + "*" + name.slice(2);
 }
