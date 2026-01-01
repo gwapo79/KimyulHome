@@ -110,7 +110,7 @@ export default function AdminDashboard() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">이번 달 매출</p>
-                                <h3 className="text-2xl font-bold text-slate-900 mt-1">₩{data.finance.revenue.thisMonth.toLocaleString()}</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mt-1">₩{data?.finance?.revenue?.thisMonth?.toLocaleString() ?? '0'}</h3>
                             </div>
                             <div className="bg-emerald-100 p-2 rounded-lg"><DollarSign className="w-5 h-5 text-emerald-600" /></div>
                         </div>
@@ -121,7 +121,7 @@ export default function AdminDashboard() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">일일 방문자</p>
-                                <h3 className="text-2xl font-bold text-slate-900 mt-1">{data.marketing.metrics.visits.toLocaleString()}</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mt-1">{data?.marketing?.metrics?.visits?.toLocaleString() ?? '0'}</h3>
                             </div>
                             <div className="bg-blue-100 p-2 rounded-lg"><Server className="w-5 h-5 text-blue-600" /></div>
                         </div>
@@ -132,21 +132,21 @@ export default function AdminDashboard() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">진행 사건</p>
-                                <h3 className="text-2xl font-bold text-slate-900 mt-1">{data.ops.workload.reduce((a, b) => a + b.count, 0)}건</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mt-1">{data?.ops?.workload?.reduce((a, b) => a + b.count, 0) ?? 0}건</h3>
                             </div>
                             <div className="bg-indigo-100 p-2 rounded-lg"><Briefcase className="w-5 h-5 text-indigo-600" /></div>
                         </div>
                     </CardHeader>
                 </Card>
-                <Card className={`border-l-4 shadow-sm hover:shadow-md transition-all ${data.ops.risks.unassigned.length > 0 ? 'border-red-500 bg-red-50' : 'border-slate-300'}`}>
+                <Card className={`border-l-4 shadow-sm hover:shadow-md transition-all ${(data?.ops?.risks?.unassigned?.length ?? 0) > 0 ? 'border-red-500 bg-red-50' : 'border-slate-300'}`}>
                     <CardHeader className="py-4">
                         <div className="flex justify-between items-start">
                             <div>
-                                <p className={`text-xs font-bold uppercase tracking-wider ${data.ops.risks.unassigned.length > 0 ? 'text-red-900' : 'text-slate-500'}`}>긴급 리스크</p>
-                                <h3 className={`text-2xl font-bold mt-1 ${data.ops.risks.unassigned.length > 0 ? 'text-red-700' : 'text-slate-900'}`}>{data.ops.risks.unassigned.length}건</h3>
+                                <p className={`text-xs font-bold uppercase tracking-wider ${(data?.ops?.risks?.unassigned?.length ?? 0) > 0 ? 'text-red-900' : 'text-slate-500'}`}>긴급 리스크</p>
+                                <h3 className={`text-2xl font-bold mt-1 ${(data?.ops?.risks?.unassigned?.length ?? 0) > 0 ? 'text-red-700' : 'text-slate-900'}`}>{data?.ops?.risks?.unassigned?.length ?? 0}건</h3>
                             </div>
-                            <div className={`${data.ops.risks.unassigned.length > 0 ? 'bg-white' : 'bg-slate-100'} p-2 rounded-lg`}>
-                                <AlertTriangle className={`w-5 h-5 ${data.ops.risks.unassigned.length > 0 ? 'text-red-500 animate-pulse' : 'text-slate-500'}`} />
+                            <div className={`${(data?.ops?.risks?.unassigned?.length ?? 0) > 0 ? 'bg-white' : 'bg-slate-100'} p-2 rounded-lg`}>
+                                <AlertTriangle className={`w-5 h-5 ${(data?.ops?.risks?.unassigned?.length ?? 0) > 0 ? 'text-red-500 animate-pulse' : 'text-slate-500'}`} />
                             </div>
                         </div>
                     </CardHeader>
@@ -157,11 +157,11 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left: Financial Charts (2 cols) */}
                 <div className="lg:col-span-2">
-                    <FinanceCharts data={data.finance} />
+                    {data?.finance && <FinanceCharts data={data.finance} />}
                 </div>
                 {/* Right: Workload Heatmap (1 col) */}
                 <div className="lg:col-span-1 h-full">
-                    <WorkloadHeatmap data={data.ops} />
+                    {data?.ops && <WorkloadHeatmap data={data.ops} />}
                 </div>
             </div>
 
@@ -173,30 +173,30 @@ export default function AdminDashboard() {
                 </h3>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* 1. 유입 경로 */}
-                    <SourceChart data={data.marketing} />
+                    {data?.marketing && <SourceChart data={data.marketing} />}
                     {/* 2. 행동 흐름 */}
-                    <FunnelChart data={data.marketing} />
+                    {data?.marketing && <FunnelChart data={data.marketing} />}
                     {/* 3. 인기 콘텐츠 */}
-                    <TopContentList data={data.marketing} />
+                    {data?.marketing && <TopContentList data={data.marketing} />}
                     {/* 4. 상담 키워드 */}
-                    <KeywordChart data={data.marketing} />
+                    {data?.marketing && <KeywordChart data={data.marketing} />}
                 </div>
             </div>
 
             {/* Zone 4: System Timeline (보안) */}
             <div className="w-full">
-                <SystemZone logs={data.live.systemLogs} />
+                {data?.live?.systemLogs && <SystemZone logs={data.live.systemLogs} />}
             </div>
 
             {/* Zone 5: Management Tables (리스트) */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left: AR Aging (2 cols) */}
                 <div className="lg:col-span-2">
-                    <ARAgingTable data={data.finance} />
+                    {data?.finance && <ARAgingTable data={data.finance} />}
                 </div>
                 {/* Right: Risk/Unassigned List (1 col) */}
                 <div className="lg:col-span-1">
-                    <RiskScanner data={data.ops} />
+                    {data?.ops && <RiskScanner data={data.ops} />}
                 </div>
             </div>
         </div>
