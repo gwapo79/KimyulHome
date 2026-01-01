@@ -209,6 +209,7 @@ export default async function BlogDetailPage({ params }: Props) {
                     <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-[#181d27] prose-p:text-[#535861] prose-a:text-[#8a765e] prose-strong:text-[#181d27]">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeRaw]}
                             components={{
                                 h2: ({ node, ...props }: any) => (
                                     <h2 className="text-3xl font-bold mt-12 mb-6 pb-2 border-b-2 border-[#8a765e] inline-block" {...props} />
