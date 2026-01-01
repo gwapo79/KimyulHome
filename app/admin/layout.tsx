@@ -80,6 +80,16 @@ export default function AdminLayout({
     // Core workers (Lawyer/Staff/CEO/Dev can all see cases/content)
     const isWorker = ['SUPER_ADMIN', 'CEO', 'LAWYER', 'STAFF', 'DEV'].includes(userRole);
 
+    const getLinkClass = (href: string) => {
+        const isActive = href === '/admin'
+            ? pathname === '/admin'
+            : pathname.startsWith(href);
+
+        return isActive
+            ? "flex items-center gap-3 px-4 py-3 rounded-lg text-amber-200 bg-amber-900/20 transition-all font-medium"
+            : "flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all";
+    };
+
     return (
         <div className="flex h-screen bg-slate-50">
             {/* Sidebar */}
@@ -100,19 +110,19 @@ export default function AdminLayout({
 
                     {/* Management Section - CEO ONLY */}
                     {canSeeManagement && (
-                        <Link href="/admin/management" className="flex items-center gap-3 px-4 py-3 rounded-lg text-amber-200 hover:bg-[#8a765e] hover:text-white transition-all bg-amber-900/20">
+                        <Link href="/admin/management" className={getLinkClass("/admin/management")}>
                             <BarChart3 className="w-5 h-5" /> 경영 지표 (CEO)
                         </Link>
                     )}
 
                     {isWorker && (
-                        <Link href="/admin/cases" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                        <Link href="/admin/cases" className={getLinkClass("/admin/cases")}>
                             <Scale className="w-5 h-5" /> 사건 관리
                         </Link>
                     )}
 
                     {canSeeStats && (
-                        <Link href="/admin/stats" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                        <Link href="/admin/stats" className={getLinkClass("/admin/stats")}>
                             <BarChart3 className="w-5 h-5" /> 통계 및 리포트
                         </Link>
                     )}
@@ -140,23 +150,23 @@ export default function AdminLayout({
                     <div className="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                         고객 소통 (CRM)
                     </div>
-                    <Link href="/admin/consultations" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                    <Link href="/admin/consultations" className={getLinkClass("/admin/consultations")}>
                         <Phone className="w-5 h-5" /> 상담 신청 관리
                     </Link>
-                    <Link href="/admin/chat" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                    <Link href="/admin/chat" className={getLinkClass("/admin/chat")}>
                         <MessageSquare className="w-5 h-5" /> 채팅 상담
                     </Link>
 
                     <div className="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                         콘텐츠 관리
                     </div>
-                    <Link href="/admin/blog" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                    <Link href="/admin/blog" className={getLinkClass("/admin/blog")}>
                         <FileText className="w-5 h-5" /> 블로그 관리
                     </Link>
-                    <Link href="/admin/success" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                    <Link href="/admin/success" className={getLinkClass("/admin/success")}>
                         <Scale className="w-5 h-5" /> 성공사례 관리
                     </Link>
-                    <Link href="/admin/reviews" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                    <Link href="/admin/reviews" className={getLinkClass("/admin/reviews")}>
                         <MessageSquare className="w-5 h-5" /> 후기 관리
                     </Link>
 
@@ -165,20 +175,20 @@ export default function AdminLayout({
                     </div>
                     {canSeeSettings && (
                         <>
-                            <Link href="/admin/users" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                            <Link href="/admin/users" className={getLinkClass("/admin/users")}>
                                 <Users className="w-5 h-5" /> 일반 회원 (Clients)
                             </Link>
-                            <Link href="/admin/team" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                            <Link href="/admin/team" className={getLinkClass("/admin/team")}>
                                 <Users className="w-5 h-5" /> 구성원 관리 (Team)
                             </Link>
-                            <Link href="/admin/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:bg-[#8a765e] hover:text-white transition-all">
+                            <Link href="/admin/settings" className={getLinkClass("/admin/settings")}>
                                 <Settings className="w-5 h-5" /> 설정
                             </Link>
                         </>
                     )}
 
                     {canSeeDev && (
-                        <Link href="/admin/dev" className="flex items-center gap-3 px-4 py-3 rounded-lg text-red-200 hover:bg-red-900/50 hover:text-white transition-all mt-2">
+                        <Link href="/admin/dev" className={getLinkClass("/admin/dev")}>
                             <Lock className="w-5 h-5" /> 시스템 로그 (DEV)
                         </Link>
                     )}
