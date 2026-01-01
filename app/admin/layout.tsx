@@ -72,13 +72,13 @@ export default function AdminLayout({
     }
 
     // Menu Visibility Logic
-    const canSeeManagement = ['CEO'].includes(userRole);
-    const canSeeStats = ['CEO', 'DEV'].includes(userRole);
-    const canSeeDev = ['DEV'].includes(userRole);
-    const canSeeSettings = ['CEO', 'DEV'].includes(userRole);
+    const canSeeManagement = ['SUPER_ADMIN', 'CEO'].includes(userRole);
+    const canSeeStats = ['SUPER_ADMIN', 'CEO', 'DEV'].includes(userRole);
+    const canSeeDev = ['SUPER_ADMIN', 'DEV'].includes(userRole);
+    const canSeeSettings = ['SUPER_ADMIN', 'CEO', 'DEV'].includes(userRole);
 
     // Core workers (Lawyer/Staff/CEO/Dev can all see cases/content)
-    const isWorker = ['CEO', 'LAWYER', 'STAFF', 'DEV'].includes(userRole);
+    const isWorker = ['SUPER_ADMIN', 'CEO', 'LAWYER', 'STAFF', 'DEV'].includes(userRole);
 
     return (
         <div className="flex h-screen bg-slate-50">
