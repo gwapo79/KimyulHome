@@ -46,7 +46,7 @@ export function SourceChart({ data }: { data: MarketingData }) {
                             ))}
                         </Pie>
                         <Tooltip
-                            formatter={(val: number) => `${val}%`}
+                            formatter={(val: any) => `${val}%`}
                             contentStyle={{ borderRadius: '8px', border: 'none', fontSize: '12px' }}
                         />
                     </PieChart>
