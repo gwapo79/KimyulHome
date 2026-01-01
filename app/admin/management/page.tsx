@@ -113,7 +113,10 @@ export default function ManagementPage() {
                                             <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                             <XAxis dataKey="month" tick={{ fontSize: 12 }} />
                                             <YAxis tickFormatter={(value) => `₩${value / 10000}만`} tick={{ fontSize: 12 }} />
-                                            <Tooltip formatter={(value: number) => `₩${value.toLocaleString()}`} />
+                                            <Tooltip
+                                                formatter={(value: any) => `₩${Number(value || 0).toLocaleString()}`}
+                                                contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb' }}
+                                            />
                                             <Bar dataKey="revenue" fill="#8a765e" radius={[4, 4, 0, 0]} name="매출" />
                                         </BarChart>
                                     </ResponsiveContainer>
