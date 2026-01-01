@@ -8,7 +8,9 @@ import path from 'path';
 import { randomUUID } from 'crypto';
 import { getSession } from '@/lib/auth';
 
-const UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads');
+const UPLOAD_DIR = process.env.NODE_ENV === 'production'
+    ? '/tmp/uploads'
+    : path.join(process.cwd(), 'public', 'uploads');
 
 // Ensure upload directory exists
 async function ensureUploadDir() {
