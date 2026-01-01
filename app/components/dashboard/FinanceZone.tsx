@@ -36,7 +36,7 @@ export function FinanceCharts({ data }: { data: FinanceData }) {
                             <YAxis tickFormatter={(val) => `${(val / 10000).toLocaleString()}만`} tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: '#64748B' }} />
                             <Tooltip
                                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                                formatter={(val: number) => `₩${val.toLocaleString()}`}
+                                formatter={(val: any) => `₩${Number(val || 0).toLocaleString()}`}
                             />
                             <Bar dataKey="revenue" barSize={16} fill="#10B981" radius={[4, 4, 0, 0]} />
                             <Line type="monotone" dataKey="prevRevenue" stroke="#94A3B8" strokeWidth={2} strokeDasharray="4 4" dot={false} />

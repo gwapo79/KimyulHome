@@ -174,7 +174,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                         <span className="font-semibold text-[#535861]">의뢰인</span>
-                                        <span className="text-[#181d27]">{formatClientName(data.client)}</span>
+                                        <span className="text-[#181d27]">{formatClientName(data.client ?? "의뢰인")}</span>
                                     </div>
                                     <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                         <span className="font-semibold text-[#535861]">사건 유형</span>
@@ -305,7 +305,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                 {[...Array(5)].map((_, i) => <i key={i} className="fas fa-star text-yellow-400"></i>)}
                             </div>
                             <cite className="text-[#535861] font-semibold">
-                                {formatClientName(data.client)} 고객
+                                {formatClientName(data.client ?? "의뢰인")} 고객
                             </cite>
                         </div>
                     </div>
