@@ -55,6 +55,38 @@ const handler = NextAuth({
                         });
                     }
 
+                    // --- [ADDED] Sync with Profile Table ---
+                    // Purpose: Ensure this user appears in Admin Client List
+                    try {
+                        const profileImage = user.image || (user as any).picture || null;
+
+                        // Check if Profile exists
+                        const existingProfile = await (prisma as any).profile.findUnique({
+                            where: { email: email }
+                        });
+
+                        if (!existingProfile) {
+                            await (prisma as any).profile.create({
+                                data: {
+                                    email: email,
+                                    name: name,
+                                    avatarUrl: profileImage,
+                                    role: 'USER', // Default Role
+                                    phone: null,  // Kakao might not provide phone without extra permissions
+                                    supabaseAuthId: null // Not using Supabase Auth for Kakao
+                                }
+                            });
+                            console.log(`[NextAuth] Created new Profile for ${email}`);
+                        } else {
+                            // Optional: Update avatar if changed? 
+                            // For now, satisfy "Profile 매핑"
+                        }
+                    } catch (profileError) {
+                        console.error("[NextAuth] Profile Sync Failed:", profileError);
+                        // Do not block login, but log critical error
+                    }
+                    // ---------------------------------------
+
                     // 4. Generate Custom JWT Token (Reuse lib/auth.ts)
                     // We need to set the cookie manually here because 'events' might be async/detached
                     // But 'signIn' callback returns boolean.

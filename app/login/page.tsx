@@ -2,17 +2,19 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 
-export default function LoginPage() {
+function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,7 +43,7 @@ export default function LoginPage() {
                 const data = await res.json();
                 localStorage.setItem("user", JSON.stringify(data.user)); // Persist user
                 window.dispatchEvent(new Event("storage")); // Notify other components
-                router.push("/dashboard");
+                router.push(callbackUrl);
             } else {
                 const data = await res.json();
                 setError(data.error || "로그인에 실패했습니다.");
@@ -57,7 +59,7 @@ export default function LoginPage() {
     const handleKakaoLogin = async () => {
         setLoading(true);
         try {
-            await signIn("kakao", { callbackUrl: "/dashboard" });
+            await signIn("kakao", { callbackUrl: callbackUrl });
         } catch (e) {
             console.error(e);
             setError("로그인 처리 중 오류가 발생했습니다.");
@@ -210,5 +212,13 @@ export default function LoginPage() {
                 </div>
             </div>
         </main>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+            <LoginForm />
+        </Suspense>
     );
 }
