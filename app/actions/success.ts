@@ -26,6 +26,7 @@ export async function updateSuccessCase(id: string, formData: FormData) {
     const seoTitle = formData.get('seoTitle') as string;
     const seoDescription = formData.get('seoDescription') as string;
     const kpiInfoString = formData.get('kpiJSON') as string; // Receive as JSON string
+    const assignedProfileId = formData.get('assignedProfileId') as string;
 
     let kpiInfo = [];
     try {
@@ -53,8 +54,9 @@ export async function updateSuccessCase(id: string, formData: FormData) {
             content,
             seoTitle,
             seoDescription,
-            kpiInfo
-        }
+            kpiInfo,
+            assignedProfessionalId: assignedProfileId || null
+        } as any
     });
 
     revalidatePath('/admin/success');
@@ -114,8 +116,8 @@ export async function createSuccessCase(formData: FormData) {
             seoTitle,
             seoDescription,
             kpiInfo,
-            assignedProfileId: assignedProfileId || null
-        }
+            assignedProfessionalId: assignedProfileId || null
+        } as any
     });
 
     revalidatePath('/admin/success');

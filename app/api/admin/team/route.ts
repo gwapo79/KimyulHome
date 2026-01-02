@@ -1,9 +1,5 @@
-
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import bcrypt from 'bcryptjs';
-import { cookies } from 'next/headers';
-import { verifyJWT } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
