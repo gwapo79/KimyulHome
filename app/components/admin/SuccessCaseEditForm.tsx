@@ -7,6 +7,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Plus, Trash2, Eye } from 'lucide-react';
 import ImageUploadBox from './ImageUploadBox';
+import AssigneeSelector from './AssigneeSelector';
 import 'react-quill-new/dist/quill.snow.css';
 
 // Helper to load ReactQuill without SSR
@@ -64,7 +65,7 @@ interface KPI {
 }
 
 interface Props {
-    item?: SuccessCase & { kpiInfo?: any, content: string | null, subTitle: string | null, seoTitle: string | null, seoDescription: string | null, detailImageUrl: string | null, thumbnailUrl: string | null };
+    item?: SuccessCase & { kpiInfo?: any, content: string | null, subTitle: string | null, seoTitle: string | null, seoDescription: string | null, detailImageUrl: string | null, thumbnailUrl: string | null, assignedProfileId: string | null };
     defaultContent?: string;
 }
 
@@ -249,8 +250,18 @@ export default function SuccessCaseEditForm({ item, defaultContent }: Props) {
                         <input name="period" defaultValue={item?.period || ''} className="form-input w-full px-3 py-2 border rounded-lg" />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1">담당 변호사</label>
-                        <input name="lawyer" defaultValue={item?.lawyer || ''} className="form-input w-full px-3 py-2 border rounded-lg" />
+                        <input type="hidden" name="assignedProfileId" value={item?.assignedProfileId || ''} id="assignedProfileIdHidden" />
+                        <AssigneeSelector
+                            label="담당 변호사 (Lawyer)"
+                            roleFilter={['LAWYER', 'PROFESSIONAL'] as any}
+                            currentAssigneeId={item?.assignedProfileId || null}
+                            onAssign={(id) => {
+                                const el = document.getElementById('assignedProfileIdHidden') as HTMLInputElement;
+                                if (el) el.value = id || '';
+                            }}
+                        />
+                        {/* Legacy String Field Backup (Hidden or Readonly) */}
+                        <input type="hidden" name="lawyer" defaultValue={item?.lawyer || ''} />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-slate-700 mb-1">결과 (Result Text)</label>

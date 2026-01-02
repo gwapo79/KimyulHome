@@ -255,7 +255,7 @@ export default function TermsPage() {
                                         <p><strong>주소:</strong> 서울시 강남구 테헤란로 123, 456빌딩 7층</p>
                                         <p><strong>전화:</strong> 02-0000-0000</p>
                                         <p><strong>이메일:</strong> info@서초지율.com</p>
-                                        <p><strong>법무법인 등록번호:</strong> 123-45-67890</p>
+                                        <p><strong>사업자등록번호:</strong> 504-42-70691</p>
                                     </div>
                                 </section>
                             </div>

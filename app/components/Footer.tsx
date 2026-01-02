@@ -46,7 +46,7 @@ export default function Footer() {
                     <div className="text-[#717680] text-sm mb-4 lg:mb-0">© 2025 서초지율 합동법률사무소. All rights reserved.</div>
                     <div className="text-[#717680] text-sm text-center lg:text-right">
                         <p className="mb-1">본 사이트의 사례는 참고용이며, 개별 사건의 결과를 보장하지 않습니다.</p>
-                        <p id="iudme1">법무법인 등록번호: 123-45-67890</p>
+                        <p id="iudme1">사업자등록번호: 504-42-70691</p>
                     </div>
                 </div>
             </div>

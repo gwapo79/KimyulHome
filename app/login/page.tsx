@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
@@ -56,44 +57,13 @@ export default function LoginPage() {
     const handleKakaoLogin = async () => {
         setLoading(true);
         try {
-            // Mock Kakao Login Logic
-            // In real app, this redirects to Kakao Auth URL.
-            // Here we simulate getting a kakaoId and calling login.
-            // For testing, we use a fixed or random ID. 
-            const randomId = "123456789"; // Fixed for consistent testing, or Math.random()
-
-            const res = await fetch("/api/auth/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    provider: 'kakao',
-                    kakaoId: randomId,
-                    name: 'Kakao Test User',
-                    email: `kakao_${randomId}@test.com` // Provide these to allow auto-signup if needed
-                }),
-            });
-
-            if (res.ok) {
-                const data = await res.json();
-                localStorage.setItem("user", JSON.stringify(data.user));
-                window.dispatchEvent(new Event("storage"));
-                router.push("/dashboard");
-            } else {
-                const data = await res.json();
-                // If user not found and we didn't send enough to auto-signup?
-                if (data.code === 'USER_NOT_FOUND') {
-                    alert("가입되지 않은 계정입니다. 회원가입으로 이동합니다.");
-                    router.push("/signup");
-                } else {
-                    setError(data.error || "카카오 로그인 실패");
-                }
-            }
+            await signIn("kakao", { callbackUrl: "/dashboard" });
         } catch (e) {
             console.error(e);
             setError("로그인 처리 중 오류가 발생했습니다.");
-        } finally {
             setLoading(false);
         }
+        // Redirect happens automatically, so no need to set loading fasle unless error
     };
 
     return (

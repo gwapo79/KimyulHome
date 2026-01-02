@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
@@ -46,132 +47,96 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogDetailPage({ params }: Props) {
     const { id } = await params;
 
-    // Increment view count (simple implementation, usually disjoint from render in production)
-    // For this demo, we verify existence first
     const post = await prisma.blogPost.findUnique({
         where: { id },
-        include: { authorMember: true }
+        include: {
+            authorMember: true,
+            assignedProfile: true
+        }
     });
 
     if (!post) {
         notFound();
     }
 
-    // Next.js Server Actions or API route is better for side effects, 
-    // but for simple demo we can just update it here or skip it to avoid write-on-read issues in some setups.
-    // We will skip updating view count strictly on GET to be safe with Next.js caching rules,
-    // or use a separate Client Component / useEffect to ping an API for view count if strict accuracy needed.
-    // We'll just display static view count matching DB for now.
+    // Fallback Logic
+    const authorName = post.assignedProfile?.name || post.authorMember?.name || post.author || "서초지율 법률팀";
 
-    const categoryMap: Record<string, string> = {
-        'real-estate': '부동산 분쟁',
-        'debt': '채무 관리',
-        'rehab': '개인회생',
-        'case-law': '판례',
-        'guide': '가이드'
+    const mapRole = (role?: string) => {
+        if (role === 'CEO') return '대표 변호사';
+        if (role === 'PROFESSIONAL' || role === 'LAWYER') return '담당 변호사';
+        if (role === 'STAFF') return '법률 스태프';
+        return '법률 전문가';
     };
-
-    const getGradient = (cat: string) => {
-        switch (cat) {
-            case 'real-estate': return 'from-[#8a765e] to-[#74634e]';
-            case 'debt': return 'from-[#15803d] to-[#16a34a]';
-            case 'rehab': return 'from-[#3537cc] to-[#2563eb]';
-            case 'case-law': return 'from-[#c01573] to-[#be185d]';
-            default: return 'from-gray-500 to-gray-600';
-        }
-    };
-
-    const getIcon = (cat: string) => {
-        switch (cat) {
-            case 'real-estate': return 'fa-house';
-            case 'debt': return 'fa-percent';
-            case 'rehab': return 'fa-chart-line';
-            case 'case-law': return 'fa-gavel';
-            default: return 'fa-scale-balanced';
-        }
-    };
+    const authorRole = mapRole(post.assignedProfile?.role as string) || "법률 전문가";
+    const authorImage = post.assignedProfile?.avatarUrl || post.authorMember?.imageUrl || getTeamMemberByName(post.author || '').imageUrl;
 
     return (
-        <main className="bg-white min-h-screen">
-            {/* Breadcrumb */}
-            <section className="py-4 bg-neutral-50 border-b border-[#e9e9eb]">
+        <main className="min-h-screen bg-white">
+            {/* Hero Section */}
+            <section className="relative pt-32 pb-20 bg-[#fdfcfb]">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav aria-label="페이지 경로">
-                        <ol className="flex items-center space-x-2 text-sm">
-                            <li><Link href="/" className="text-[#717680] hover:text-[#74634e] transition-colors">홈</Link></li>
-                            <li className="text-[#717680]"><i className="fa-solid fa-chevron-right text-xs"></i></li>
-                            <li><Link href="/media/blog" className="text-[#717680] hover:text-[#74634e] transition-colors">블로그</Link></li>
-                            <li className="text-[#717680]"><i className="fa-solid fa-chevron-right text-xs"></i></li>
-                            <li aria-current="page" className="text-[#74634e] font-medium truncate max-w-[200px]">{post.title}</li>
-                        </ol>
-                    </nav>
-                </div>
-            </section>
+                    {/* Category & Date */}
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                        <span className="px-3 py-1 rounded-full bg-[#8a765e] text-white text-sm font-bold">
+                            {post.category}
+                        </span>
+                        <span className="text-[#8a765e] text-sm font-medium">
+                            Legal Insights
+                        </span>
+                    </div>
 
-            {/* Header */}
-            <section id="article-header" className="py-16 lg:py-20 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <div className="flex items-center justify-center gap-4 mb-6">
-                            <span className="px-3 py-1 bg-[#fdf1f9] text-[#c01573] rounded-full text-sm font-medium">
-                                {categoryMap[post.category] || post.category}
-                            </span>
-                            <span className="text-[#717680] text-sm">5분 읽기</span>
-                        </div>
-                        <h1 className="text-4xl lg:text-5xl font-bold text-[#181d27] mb-6 leading-tight">
-                            {post.title}
-                        </h1>
-                        <p className="text-xl text-[#535861] mb-8 max-w-3xl mx-auto leading-relaxed">
-                            {post.excerpt}
-                        </p>
+                    {/* Title */}
+                    <h1 className="text-3xl md:text-5xl font-bold text-[#181d27] text-center leading-tight mb-8 break-keep">
+                        {post.title}
+                    </h1>
 
-                        {/* Meta Info */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[#717680] mb-8">
-                            <div className="flex items-center">
-                                {post.authorMember?.imageUrl || getTeamMemberByName(post.author || '').imageUrl ? (
-                                    <img
-                                        src={post.authorMember?.imageUrl || getTeamMemberByName(post.author || '').imageUrl}
-                                        alt={post.author}
-                                        className="w-10 h-10 rounded-full mr-3 object-cover border border-gray-200"
-                                    />
-                                ) : (
-                                    <div className="w-10 h-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center text-gray-500 font-bold">
-                                        {post.author[0]}
-                                    </div>
-                                )}
-                                <div className="text-left">
-                                    <div className="font-medium text-[#181d27]">{post.author}</div>
-                                    <div className="text-[#717680]">법률 전문가</div>
+                    {/* Meta Info */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[#717680] mb-8">
+                        <div className="flex items-center">
+                            {authorImage ? (
+                                <img
+                                    src={authorImage}
+                                    alt={authorName}
+                                    className="w-10 h-10 rounded-full mr-3 object-cover border border-gray-200"
+                                />
+                            ) : (
+                                <div className="w-10 h-10 rounded-full bg-gray-200 mr-3 flex items-center justify-center text-gray-500 font-bold">
+                                    {authorName[0]}
                                 </div>
-                            </div>
-                            <div className="hidden sm:block w-px h-8 bg-[#e9e9eb]"></div>
-                            <div>
-                                <i className="fa-solid fa-calendar mr-2 text-[#8a765e]"></i>
-                                {new Date(post.createdAt).toLocaleDateString()}
-                            </div>
-                            <div className="hidden sm:block w-px h-8 bg-[#e9e9eb]"></div>
-                            <div>
-                                <i className="fa-solid fa-eye mr-2 text-[#8a765e]"></i>
-                                {post.viewCount}회 조회
+                            )}
+                            <div className="text-left">
+                                <div className="font-medium text-[#181d27]">{authorName}</div>
+                                <div className="text-[#717680]">{authorRole}</div>
                             </div>
                         </div>
+                        <div className="hidden sm:block w-px h-8 bg-[#e9e9eb]"></div>
+                        <div>
+                            <i className="fa-solid fa-calendar mr-2 text-[#8a765e]"></i>
+                            {new Date(post.createdAt).toLocaleDateString()}
+                        </div>
+                        <div className="hidden sm:block w-px h-8 bg-[#e9e9eb]"></div>
+                        <div>
+                            <i className="fa-solid fa-eye mr-2 text-[#8a765e]"></i>
+                            {post.viewCount}회 조회
+                        </div>
+                    </div>
 
-                        {/* Social Share (Visual Only) */}
-                        <div className="flex items-center justify-center gap-3">
-                            <span className="text-sm text-[#717680] mr-2">공유하기:</span>
-                            <button aria-label="페이스북 공유" className="w-10 h-10 bg-[#1877f2] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
-                                <i className="fa-brands fa-facebook-f"></i>
-                            </button>
-                            <button aria-label="트위터 공유" className="w-10 h-10 bg-[#1da1f2] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
-                                <i className="fa-brands fa-twitter"></i>
-                            </button>
-                            <button aria-label="카카오톡 공유" className="w-10 h-10 bg-[#fee500] text-[#000000] rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
-                                <i className="fa-solid fa-comment"></i>
-                            </button>
-                            <button aria-label="링크 복사" className="w-10 h-10 bg-[#00c73c] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
-                                <i className="fa-solid fa-link"></i>
-                            </button>
-                        </div>
+                    {/* Social Share (Visual Only) */}
+                    <div className="flex items-center justify-center gap-3 mb-8">
+                        <span className="text-sm text-[#717680] mr-2">공유하기:</span>
+                        <button aria-label="페이스북 공유" className="w-10 h-10 bg-[#1877f2] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i className="fa-brands fa-facebook-f"></i>
+                        </button>
+                        <button aria-label="트위터 공유" className="w-10 h-10 bg-[#1da1f2] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i className="fa-brands fa-twitter"></i>
+                        </button>
+                        <button aria-label="카카오톡 공유" className="w-10 h-10 bg-[#fee500] text-[#000000] rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i className="fa-solid fa-comment"></i>
+                        </button>
+                        <button aria-label="링크 복사" className="w-10 h-10 bg-[#00c73c] text-white rounded-lg hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i className="fa-solid fa-link"></i>
+                        </button>
                     </div>
 
                     {/* Featured Image - Hero Banner */}
@@ -273,4 +238,24 @@ export default async function BlogDetailPage({ params }: Props) {
             </section>
         </main>
     );
+}
+
+function getGradient(category: string) {
+    switch (category) {
+        case '민사': return 'from-blue-500 to-cyan-500';
+        case '형사': return 'from-red-500 to-orange-500';
+        case '가사': return 'from-pink-500 to-rose-500';
+        case '기업': return 'from-indigo-500 to-purple-500';
+        default: return 'from-slate-500 to-gray-500';
+    }
+}
+
+function getIcon(category: string) {
+    switch (category) {
+        case '민사': return 'fa-scale-balanced';
+        case '형사': return 'fa-gavel';
+        case '가사': return 'fa-hands-holding-child';
+        case '기업': return 'fa-building';
+        default: return 'fa-scale-unbalanced';
+    }
 }

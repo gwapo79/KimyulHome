@@ -15,6 +15,7 @@ enum Role {
   STAFF
   DEV
   USER
+  PROFESSIONAL
 }
 
 model SiteConfiguration {
@@ -24,10 +25,35 @@ model SiteConfiguration {
   address        String   @default("서울시 서초구 서초중앙로24길 3 4층")
   phone          String   @default("02-6080-3377")
   email          String   @default("sjlaw14@naver.com")
-  businessNumber String   @default("123-45-67890")
+  businessNumber String   @default("504-42-70691")
   mainTitle      String   @default("서초지율 - 법률과 금융의 통합 솔루션")
   description    String   @default("부동산 분쟁부터 채무 조정까지, 서초지율이 함께합니다.")
   updatedAt      DateTime @updatedAt
+}
+
+model Profile {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  avatarUrl String?
+  phone     String?
+  position  String?
+  specialty String?
+  description String?
+  
+  // Link to Supabase Auth UUID
+  supabaseAuthId String? @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  assignedCasesProfessional Case[] @relation("ProfessionalAssignee")
+  assignedCasesStaff        Case[] @relation("StaffAssignee")
+  assignedConsultations     Consultation[] @relation("ConsultationAssignee")
+  assignedBlogPosts         BlogPost[]     @relation("BlogAuthor")
+  assignedSuccessCases      SuccessCase[]  @relation("CaseProfessional")
+  assignedChatRooms         ChatRoom[]     @relation("ChatRoomAssignee")
 }
 
 model Banner {
@@ -127,6 +153,13 @@ model Case {
   caseDescriptionLong String?
   timelineJson        Json?
   
+  // New Team System
+  assignedProfessionalId String?
+  assignedProfessional   Profile? @relation("ProfessionalAssignee", fields: [assignedProfessionalId], references: [id])
+  
+  assignedStaffId        String?
+  assignedStaff          Profile? @relation("StaffAssignee", fields: [assignedStaffId], references: [id])
+
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
   
@@ -231,6 +264,9 @@ model SuccessCase {
   lawyerId       String?
   teamMember     TeamMember? @relation(fields: [lawyerId], references: [id])
 
+  assignedProfessionalId String?
+  assignedProfessional   Profile? @relation("CaseProfessional", fields: [assignedProfessionalId], references: [id])
+
   // New Fields for Full Admin Control
   subTitle       String?
   content        String?   // WYSIWYG Content
@@ -284,6 +320,9 @@ model BlogPost {
 
   authorId     String?
   authorMember TeamMember? @relation(fields: [authorId], references: [id])
+
+  assignedProfileId String?
+  assignedProfile   Profile? @relation("BlogAuthor", fields: [assignedProfileId], references: [id])
 }
 
 model Consultation {
@@ -299,6 +338,10 @@ model Consultation {
 
   assigneeId  String?
   assignee    TeamMember? @relation(fields: [assigneeId], references: [id])
+
+  // New Team System
+  assignedProfileId String?
+  assignedProfile   Profile? @relation("ConsultationAssignee", fields: [assignedProfileId], references: [id])
   
   userId      String?
   user        User?       @relation(fields: [userId], references: [id])
@@ -343,6 +386,9 @@ model ChatRoom {
   user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   
   lawyer    TeamMember?   @relation(fields: [lawyerId], references: [id])
+
+  assignedProfessionalId String?
+  assignedProfessional   Profile? @relation("ChatRoomAssignee", fields: [assignedProfessionalId], references: [id])
 }
 
 

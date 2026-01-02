@@ -18,7 +18,10 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
 
     const data = await prisma.successCase.findFirst({
         where: { id },
-        include: { teamMember: true }
+        include: {
+            teamMember: true,
+            assignedProfessional: true
+        }
     });
 
     if (!data) {
@@ -194,7 +197,7 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                                     </div>
                                     <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                         <span className="font-semibold text-[#535861]">담당 변호사</span>
-                                        <span className="text-[#181d27]">{data.lawyer || '김법무 변호사'}</span>
+                                        <span className="text-[#181d27]">{data.assignedProfessional?.name || data.lawyer || '김법무 변호사'}</span>
                                     </div>
                                     <div className="flex justify-between items-center py-3 border-b border-[#e9e9eb]">
                                         <span className="font-semibold text-[#535861]">결과</span>

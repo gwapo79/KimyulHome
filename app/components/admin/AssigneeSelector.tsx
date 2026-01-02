@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { UserRole, MOCK_TEAM } from "@/data/mock_users";
+import { UserRole } from "@/data/mock_users";
 import { User, Check, ChevronsUpDown } from "lucide-react";
 
 interface AssigneeSelectorProps {
@@ -21,22 +21,28 @@ export default function AssigneeSelector({
 }: AssigneeSelectorProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [assignee, setAssignee] = useState(currentAssigneeId);
+    const [members, setMembers] = useState<any[]>([]);
+
+    useEffect(() => {
+        fetch('/api/admin/team')
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setMembers(data);
+                }
+            })
+            .catch(err => console.error("Failed to load team", err));
+    }, []);
 
     // Filter team members based on roleFilter
-    const candidates = MOCK_TEAM.filter((member) => roleFilter.includes(member.role));
-    const currentMember = MOCK_TEAM.find((m) => m.id === assignee);
+    // Note: API returns 'role' in uppercase. Profile roles are LAWYER, STAFF, PROFESSIONAL, USER, etc.
+    const candidates = members.filter((member) => roleFilter.includes(member.role));
+    const currentMember = members.find((m) => m.id === assignee);
 
     const handleSelect = (id: string | null) => {
         setAssignee(id);
         onAssign(id);
         setIsOpen(false);
-
-        // Mock Toast feedback
-        if (id) {
-            const selected = MOCK_TEAM.find(m => m.id === id);
-            // In a real app we'd use a toast library
-            // alert(`[배정 완료] ${selected?.name} ${selected?.position}님에게 배정되었습니다.`);
-        }
     };
 
     return (

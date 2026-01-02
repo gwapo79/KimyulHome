@@ -163,7 +163,16 @@ export default function ProfileForm({ user }: ProfileFormProps) {
                             className="hidden"
                         />
                         <div className="flex items-center gap-3">
-                            <button type="button" onClick={() => setAvatarUrl("/assets/images/profiles/default_profile.png")} className="px-4 py-2 text-sm font-medium text-[#414651] bg-white border border-[#d5d6d9] rounded-lg shadow-sm hover:bg-neutral-50">삭제</button>
+                            <button type="button" onClick={async () => {
+                                try {
+                                    await updateAvatar(null);
+                                    setAvatarUrl("/assets/images/profiles/default_profile.png");
+                                    // Optional: Show success toast
+                                } catch (e) {
+                                    console.error("Failed to delete avatar", e);
+                                    alert("프로필 이미지 삭제 실패");
+                                }
+                            }} className="px-4 py-2 text-sm font-medium text-[#414651] bg-white border border-[#d5d6d9] rounded-lg shadow-sm hover:bg-neutral-50">삭제</button>
                             <button type="button" onClick={handleAvatarClick} className="px-4 py-2 text-sm font-medium text-white bg-[#8a765e] border border-transparent rounded-lg shadow-sm hover:bg-[#74634e]">변경</button>
                         </div>
                     </div>

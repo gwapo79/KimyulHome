@@ -85,6 +85,7 @@ export async function createSuccessCase(formData: FormData) {
     const seoTitle = formData.get('seoTitle') as string;
     const seoDescription = formData.get('seoDescription') as string;
     const kpiInfoString = formData.get('kpiJSON') as string;
+    const assignedProfileId = formData.get('assignedProfileId') as string;
 
     let kpiInfo = [];
     try {
@@ -112,12 +113,11 @@ export async function createSuccessCase(formData: FormData) {
             content,
             seoTitle,
             seoDescription,
-            kpiInfo
+            kpiInfo,
+            assignedProfileId: assignedProfileId || null
         }
     });
 
-    revalidatePath('/admin/success');
-    redirect(`/admin/success/${newCase.id}`);
     revalidatePath('/admin/success');
     redirect(`/admin/success/${newCase.id}`);
 }

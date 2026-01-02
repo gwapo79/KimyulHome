@@ -69,7 +69,7 @@ export async function updateUserProfile(prevState: any, formData: FormData): Pro
     }
 }
 
-export async function updateAvatar(url: string) {
+export async function updateAvatar(url: string | null) {
     const userId = await getUserId();
     if (!userId) throw new Error("User not found");
 

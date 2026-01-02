@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { NextResponse } from 'next/server';
-
-const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
     try {
@@ -30,13 +28,27 @@ export async function GET(request: Request) {
             { id: 'm4', client: '(주)대박건설', lawyer: '김지율', amount: 15000000, daysOverdue: 120, status: 'CRITICAL', date: '2025-08-30' },
         ];
 
-        // --- Zone 3: Ops (Mock Injection) ---
-        const workload = [
-            { id: 'w1', name: '김지율 대표', position: '변호사', count: 12, score: 95 },
-            { id: 'w2', name: '박서연', position: '수석변호사', count: 8, score: 75 },
-            { id: 'w3', name: '최민수', position: '변호사', count: 3, score: 30 },
-            { id: 'w4', name: '정하나', position: '실장', count: 15, score: 88 },
-        ];
+        // --- Zone 3: Ops (Real Data Injection) ---
+        const profiles = await (prisma as any).profile.findMany({
+            include: {
+                assignedCasesProfessional: true,
+                assignedCasesStaff: true
+            }
+        });
+
+        const workload = profiles.map((p: any) => {
+            const count = (p.assignedCasesProfessional?.length || 0) + (p.assignedCasesStaff?.length || 0);
+            // Simple score logic based on count (example)
+            const score = Math.min(100, 50 + (count * 5));
+
+            return {
+                id: p.id,
+                name: p.name,
+                position: p.position || 'Member',
+                count: count,
+                score: score
+            };
+        }).sort((a: any, b: any) => b.count - a.count).slice(0, 5);
 
         const risks = {
             schedule: [
@@ -164,7 +176,7 @@ export async function GET(request: Request) {
         });
 
     } catch (error) {
-        console.error("Dashboard API Error:", error);
+        console.error("Dashboard API CRASH:", error);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }

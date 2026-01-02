@@ -162,6 +162,7 @@ async function main() {
 
     const posts = await prisma.blogPost.findMany({
         take: 100,
+        skip: 37,
         orderBy: { createdAt: 'desc' },
     });
 
