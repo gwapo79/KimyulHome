@@ -14,18 +14,16 @@ async function main() {
 
     const doc = await prisma.document.create({
         data: {
-            title: '사건 위임 계약서.pdf',
             fileName: '사건_위임_계약서_v1.pdf',
             url: 'https://example.com/dummy.pdf',
             fileSize: '1.2MB',
             category: 'CONTRACT',
-            uploader: 'LAWYER',
             userId: user.id,
             fileType: 'application/pdf'
         }
     });
 
-    console.log(`✅ Document created: ${doc.title} (ID: ${doc.id}) for ${user.email}`);
+    console.log(`✅ Document created: ${doc.fileName} (ID: ${doc.id}) for ${user.email}`);
 }
 
 main()
