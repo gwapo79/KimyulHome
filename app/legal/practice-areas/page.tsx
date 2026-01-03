@@ -33,7 +33,7 @@ export default function PracticeAreasPage() {
                             <Link href="/company/consultation" className="px-8 py-4 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors">
                                 상담 신청
                             </Link>
-                            <Link href="/services/success_cases" className="px-8 py-4 bg-white text-[#5e503f] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                            <Link href="/legal/success-cases" className="px-8 py-4 bg-white text-[#5e503f] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
                                 성공 사례 보기
                             </Link>
                         </div>
