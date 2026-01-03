@@ -151,6 +151,7 @@ const handler = NextAuth({
                     // This is a side-effect in JWT callback, which runs on the server.
                     const p = {
                         sub: dbUser.id,
+                        id: dbUser.id,
                         email: dbUser.email,
                         role: dbUser.role,
                         name: dbUser.name

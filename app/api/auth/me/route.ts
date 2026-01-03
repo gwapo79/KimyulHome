@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { verifyJWT } from '@/lib/auth-utils';
+import { verifyToken } from '@/lib/auth';
 
 // Initialize Prisma
 const prisma = new PrismaClient();
@@ -17,14 +17,14 @@ export async function GET(request: Request) {
             return NextResponse.json({ user: null });
         }
 
-        const decoded = await verifyJWT(token);
+        const decoded = await verifyToken(token);
         if (!decoded) {
             return NextResponse.json({ user: null });
         }
 
         // Fetch fresh user data including role
         const user = await prisma.user.findUnique({
-            where: { id: decoded.id },
+            where: { id: (decoded.sub || decoded.id || decoded.userId) as string },
             select: { id: true, name: true, email: true, role: true }
         });
 

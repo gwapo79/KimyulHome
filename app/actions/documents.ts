@@ -25,7 +25,7 @@ async function ensureUploadDir() {
 export async function uploadDocument(caseId: string | null, formData: FormData) {
     try {
         const session = await getSession();
-        const userId = session?.userId as string | undefined;
+        const userId = (session?.sub || session?.id || session?.userId) as string | undefined;
 
         if (!userId) {
             return { success: false, error: 'Unauthorized: Login required' };
@@ -83,7 +83,16 @@ export async function getDocuments(userId: string) {
         const documents = await prisma.document.findMany({
             where: { userId },
             orderBy: { createdAt: 'desc' },
-            include: { case: { select: { title: true } } }
+            select: {
+                id: true,
+                fileName: true,
+                fileSize: true,
+                fileType: true,
+                url: true,
+                createdAt: true,
+                category: true,
+                case: { select: { title: true } }
+            }
         });
         return { success: true, documents };
     } catch (error) {

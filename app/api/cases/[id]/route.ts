@@ -19,8 +19,19 @@ export async function GET(
             where: {
                 id: id,
             },
+
             include: {
                 documents: {
+                    select: {
+                        id: true,
+                        fileName: true,
+                        fileSize: true,
+                        fileType: true,
+                        url: true,
+                        createdAt: true,
+                        category: true,
+                        // Exclude isPrivate
+                    },
                     orderBy: { createdAt: 'desc' }
                 }
             }

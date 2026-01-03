@@ -64,12 +64,18 @@ export default function BillingHistoryList({ items }: BillingHistoryListProps) {
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                                     {item.status === 'PAID' ? (
-                                        <button className="inline-flex items-center text-[#8a765e] hover:text-[#74634e] transition-colors">
+                                        <button
+                                            onClick={() => item.receiptUrl ? window.open(item.receiptUrl, '_blank') : alert('영수증을 준비중입니다.')}
+                                            className="inline-flex items-center text-[#8a765e] hover:text-[#74634e] transition-colors"
+                                        >
                                             <Download className="w-4 h-4 mr-1" />
                                             영수증
                                         </button>
                                     ) : (
-                                        <button className="inline-flex items-center text-[#535861] hover:text-[#181d27] transition-colors">
+                                        <button
+                                            onClick={() => alert('상세 청구서 보기 기능은 준비중입니다.')}
+                                            className="inline-flex items-center text-[#535861] hover:text-[#181d27] transition-colors"
+                                        >
                                             <FileText className="w-4 h-4 mr-1" />
                                             청구서
                                         </button>

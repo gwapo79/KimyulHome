@@ -3,7 +3,7 @@
 import { prisma } from '@/lib/prisma';
 
 import { cookies } from 'next/headers';
-import { verifyJWT } from '@/lib/auth-utils';
+import { verifyToken } from '@/lib/auth';
 
 async function getUserId() {
     const cookieStore = await cookies();
@@ -11,8 +11,8 @@ async function getUserId() {
 
     if (!token) return null;
 
-    const payload = await verifyJWT(token);
-    return payload?.id || null;
+    const payload = await verifyToken(token);
+    return ((payload?.sub || payload?.id || payload?.userId) as string) || null;
 }
 
 export async function getDashboardData() {
@@ -147,5 +147,20 @@ export async function getNotifications() {
     } catch (error) {
         console.error("Failed to getNotifications:", error);
         return { unreadCount: 0, list: [] };
+    }
+}
+
+export async function getAllNotifications() {
+    const userId = await getUserId();
+    if (!userId) return [];
+
+    try {
+        return await (prisma as any).notification.findMany({
+            where: { userId },
+            orderBy: { createdAt: 'desc' },
+        });
+    } catch (error) {
+        console.error("Failed to getAllNotifications:", error);
+        return [];
     }
 }

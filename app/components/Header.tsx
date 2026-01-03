@@ -52,7 +52,12 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
         localStorage.removeItem("user");
         setUser(null);
         window.location.href = "/";

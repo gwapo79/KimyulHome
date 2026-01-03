@@ -3,14 +3,22 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
-// Using fixed test ID for now as per dashboard/actions.ts pattern
-const TEST_USER_EMAIL = 'test@lawfirm.com';
+import { cookies } from 'next/headers';
+import { verifyToken } from '@/lib/auth';
 
 async function getUserId() {
-    const user = await prisma.user.findUnique({
-        where: { email: TEST_USER_EMAIL },
-    });
-    return user?.id;
+    const cookieStore = await cookies();
+    const token = cookieStore.get('auth_token')?.value;
+
+    if (!token) return null;
+
+    try {
+        const payload = await verifyToken(token);
+        // Supports sub, id, or userId claim
+        return ((payload?.sub || payload?.id || payload?.userId) as string) || null;
+    } catch (e) {
+        return null;
+    }
 }
 
 export async function getUserProfile() {
