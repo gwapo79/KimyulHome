@@ -217,10 +217,10 @@ export default function AdminLayout({
                             try {
                                 await fetch('/api/auth/logout', { method: 'POST' });
                                 localStorage.removeItem('user');
-                                window.location.href = '/login';
+                                window.location.href = '/admin/login';
                             } catch (error) {
                                 console.error('Logout failed:', error);
-                                window.location.href = '/login';
+                                window.location.href = '/admin/login';
                             }
                         }}
                         className="flex w-full items-center gap-3 px-4 py-2 text-sm text-slate-400 hover:text-red-400 transition-colors text-left"
