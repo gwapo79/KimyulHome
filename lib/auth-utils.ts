@@ -1,6 +1,6 @@
 import { SignJWT, jwtVerify } from 'jose';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-key-change-in-prod-7744';
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key_change_me';
 const key = new TextEncoder().encode(JWT_SECRET);
 
 export async function signJWT(payload: any, expiresIn: string = '24h'): Promise<string> {
