@@ -1,3 +1,4 @@
+
 'use server';
 
 import { prisma } from '@/lib/prisma';
@@ -22,9 +23,34 @@ export async function sendAdminMessage(roomId: string, content: string, senderId
     await prisma.chatMessage.create({
         data: {
             roomId,
-            senderId, // 'ADMIN' or specific user UUID if available. Schema expects String.
+            senderId,
             content,
-            isRead: false
+            isRead: false // User hasn't read it yet
+        }
+    });
+
+    // Update Room timestamp to move it to top
+    await prisma.chatRoom.update({
+        where: { id: roomId },
+        data: { updatedAt: new Date() }
+    });
+
+    revalidatePath('/admin/chat');
+}
+
+export async function markMessagesAsRead(roomId: string) {
+    if (!roomId) return;
+
+    await prisma.chatMessage.updateMany({
+        where: {
+            roomId,
+            isRead: false,
+            NOT: {
+                senderId: 'ADMIN' // Only mark user messages as read
+            }
+        },
+        data: {
+            isRead: true
         }
     });
 

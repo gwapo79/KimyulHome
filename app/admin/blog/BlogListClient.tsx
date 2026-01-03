@@ -5,9 +5,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import AssigneeSelector from '@/app/components/admin/AssigneeSelector';
 import { BlogPost } from '@prisma/client';
+import Avatar from '@/app/components/ui/Avatar';
 
 interface BlogListClientProps {
-    initialPosts: BlogPost[];
+    initialPosts: (BlogPost & { assignedProfile?: any })[];
 }
 
 export default function BlogListClient({ initialPosts }: BlogListClientProps) {
@@ -72,7 +73,7 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                         <tr className="bg-slate-50 border-b border-slate-200">
                             <th className="w-[40%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider pl-8">제목 / 정보</th>
                             <th className="w-[15%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">카테고리</th>
-                            <th className="w-[15%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">실무 담당</th>
+                            <th className="w-[15%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">표시 작성자</th>
                             <th className="w-[10%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">조회수</th>
                             <th className="w-[10%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">상태</th>
                             <th className="w-[10%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">관리</th>
@@ -98,16 +99,20 @@ export default function BlogListClient({ initialPosts }: BlogListClientProps) {
                                     {post.category}
                                 </td>
                                 <td className="px-6 py-4 text-sm text-slate-600">
-                                    <div className="w-full max-w-[140px]">
-                                        <AssigneeSelector
-                                            roleFilter={['STAFF', 'LAWYER']}
-                                            currentAssigneeId={post.authorId || null}
-                                            onAssign={(id: string | null) => {
-                                                console.log('Assigned blog post to:', id);
-                                                // TODO: Implement server action for immediate assignment update if needed
-                                            }}
-                                            label=""
-                                        />
+                                    <div className="flex items-center gap-2">
+                                        {post.assignedProfile ? (
+                                            <>
+                                                <Avatar
+                                                    src={post.assignedProfile.avatarUrl}
+                                                    alt={post.assignedProfile.name}
+                                                    fallback={post.assignedProfile.name}
+                                                    className="w-5 h-5"
+                                                />
+                                                <span>{post.assignedProfile.name}</span>
+                                            </>
+                                        ) : (
+                                            <span>{post.author}</span>
+                                        )}
                                     </div>
                                 </td>
                                 <td className="px-6 py-4 text-sm text-slate-600">

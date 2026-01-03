@@ -84,15 +84,15 @@ export function FinanceCharts({ data }: { data: FinanceData }) {
 
 export function ARAgingTable({ data }: { data: FinanceData }) {
     return (
-        <Card className="border-red-100 shadow-sm bg-white">
-            <CardHeader className="bg-red-50/30 pb-3 border-b border-red-100">
+        <Card className="border-slate-200 shadow-sm bg-white">
+            <CardHeader className="bg-slate-50/50 pb-3 border-b border-slate-100">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <Siren className="w-4 h-4 text-red-600 animate-pulse" />
-                        <CardTitle className="text-sm font-bold text-red-800">장기 미수금 현황 (AR Aging)</CardTitle>
+                        <Siren className="w-4 h-4 text-slate-600" />
+                        <CardTitle className="text-sm font-bold text-slate-800">결제 및 미수금 현황 (Recent Payments)</CardTitle>
                     </div>
-                    <Badge variant="destructive" className="h-5 text-[10px]">
-                        [위험] {data.arAging.filter(a => a.status === 'CRITICAL').length}건
+                    <Badge variant="outline" className="h-5 text-[10px]">
+                        대기: {data.arAging.filter(a => a.status === 'CRITICAL').length}건
                     </Badge>
                 </div>
             </CardHeader>
@@ -101,9 +101,8 @@ export function ARAgingTable({ data }: { data: FinanceData }) {
                     <thead className="bg-slate-50 text-slate-500 uppercase font-medium text-xs">
                         <tr>
                             <th className="px-4 py-2">고객명</th>
-                            <th className="px-4 py-2">담당자</th>
-                            <th className="px-4 py-2 text-right">미수금</th>
-                            <th className="px-4 py-2 text-center">연체일</th>
+                            <th className="px-4 py-2 text-right">금액</th>
+                            <th className="px-4 py-2 text-center">날짜/연체</th>
                             <th className="px-4 py-2 text-center">상태</th>
                         </tr>
                     </thead>
@@ -113,18 +112,17 @@ export function ARAgingTable({ data }: { data: FinanceData }) {
                                 <td className="px-4 py-2 font-medium text-slate-800 text-xs">
                                     {item.client}
                                 </td>
-                                <td className="px-4 py-2 text-xs">{item.lawyer}</td>
                                 <td className="px-4 py-2 text-right font-mono text-xs">₩{item.amount.toLocaleString()}</td>
                                 <td className="px-4 py-2 text-center text-xs">
-                                    <span className={item.daysOverdue > 90 ? 'text-red-600 font-bold' : 'text-slate-600'}>
-                                        +{item.daysOverdue}일
+                                    <span className={item.status === 'CRITICAL' ? 'text-red-600 font-bold' : 'text-slate-500'}>
+                                        {item.status === 'CRITICAL' ? `+${item.daysOverdue}일 연체` : item.date}
                                     </span>
                                 </td>
                                 <td className="px-4 py-2 text-center">
                                     {item.status === 'CRITICAL' ? (
-                                        <Badge variant="destructive" className="h-4 text-[9px] px-1">위험</Badge>
+                                        <Badge variant="destructive" className="h-4 text-[9px] px-1">미결제</Badge>
                                     ) : (
-                                        <Badge variant="outline" className="h-4 text-[9px] px-1">정상</Badge>
+                                        <Badge className="h-4 text-[9px] px-1 bg-emerald-500 hover:bg-emerald-600">결제완료</Badge>
                                     )}
                                 </td>
                             </tr>

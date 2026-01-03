@@ -80,8 +80,8 @@ export default function NewBlogPostPage() {
                     {/* Author Selection */}
                     <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                         <AssigneeSelector
-                            label="작성자 선택 (Author)"
-                            roleFilter={['LAWYER', 'PROFESSIONAL', 'STAFF'] as any}
+                            label="작성자 선택 (외부 노출용)"
+                            roleFilter={['LAWYER', 'PROFESSIONAL', 'CEO'] as any}
                             currentAssigneeId={assignedProfileId}
                             onAssign={setAssignedProfileId}
                         />

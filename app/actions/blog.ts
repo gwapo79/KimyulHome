@@ -3,16 +3,23 @@
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
+import { getSession } from '@/lib/auth';
 
 export async function createBlogPost(formData: FormData) {
+    const session = await getSession();
+    if (!session || !session.id) {
+        throw new Error("Unauthorized");
+    }
+
     const title = formData.get('title') as string;
     const content = formData.get('content') as string;
     const category = formData.get('category') as string;
     const status = formData.get('status') as string || 'PUBLISHED';
-    const author = formData.get('author') as string;
+    // Use session user ID/Email as 'author' (created_by equivalent)
+    const author = ((session as any).id as string) || 'Admin';
     const excerpt = formData.get('excerpt') as string;
     const thumbnailUrl = formData.get('thumbnailUrl') as string;
+    // Use assignedProfileId for the selected professional (display author)
     const assignedProfileId = formData.get('assignedProfileId') as string;
 
     const newPost = await prisma.blogPost.create({
@@ -21,10 +28,11 @@ export async function createBlogPost(formData: FormData) {
             content,
             category,
             status,
-            author, // Keep for fallback
+            author,
             excerpt,
             thumbnailUrl,
             assignedProfileId: assignedProfileId || null
+            // createdById: session.id // Removed due to schema lock
         }
     });
 

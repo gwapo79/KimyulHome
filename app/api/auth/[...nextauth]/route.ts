@@ -1,7 +1,9 @@
 
 import NextAuth from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 import { signToken, setAuthCookie } from "@/lib/auth"; // Reuse existing auth logic
 import { cookies } from "next/headers";
 
@@ -14,6 +16,33 @@ const handler = NextAuth({
             clientSecret: process.env.KAKAO_CLIENT_SECRET || "",
             allowDangerousEmailAccountLinking: true,
         }),
+        CredentialsProvider({
+            name: "Credentials",
+            credentials: {
+                email: { label: "Email", type: "email" },
+                password: { label: "Password", type: "password" }
+            },
+            async authorize(credentials) {
+                if (!credentials?.email || !credentials?.password) return null;
+
+                const user = await prisma.user.findUnique({
+                    where: { email: credentials.email }
+                });
+
+                if (!user || !user.password) return null;
+
+                const isValid = await bcrypt.compare(credentials.password, user.password);
+
+                if (!isValid) return null;
+
+                return {
+                    id: user.id,
+                    email: user.email,
+                    name: user.name,
+                    role: user.role,
+                };
+            }
+        })
     ],
     callbacks: {
         async signIn({ user, account, profile }) {

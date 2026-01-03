@@ -9,6 +9,7 @@ import ImageUploadBox from './ImageUploadBox';
 import 'react-quill-new/dist/quill.snow.css';
 import { marked } from 'marked';
 import { Trash2 } from 'lucide-react';
+import AssigneeSelector from './AssigneeSelector';
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -30,6 +31,7 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
     // WYSIWYG State
     const [content, setContent] = useState(post.content || '');
     const [thumbnailUrl, setThumbnailUrl] = useState(post.thumbnailUrl || '');
+    const [assignedId, setAssignedId] = useState(post.assignedProfileId || null);
 
     // Auto-Repair: On mount, check if content is HTML-wrapped Markdown (e.g. <p>### Header</p>)
     // and convert it to proper HTML for the editor.
@@ -170,6 +172,8 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
         <form action={updateAction} className="space-y-6">
             <input type="hidden" name="content" value={content} />
             <input type="hidden" name="thumbnailUrl" value={thumbnailUrl} />
+            <input type="hidden" name="assignedProfileId" value={assignedId || ''} />
+            <input type="hidden" name="author" value={post.author} />
 
             <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -209,12 +213,11 @@ export default function BlogEditForm({ post }: { post: BlogPost }) {
                     </div>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-slate-700 mb-1">작성자 (표시용)</label>
-                            <input
-                                name="author"
-                                defaultValue={post.author}
-                                required
-                                className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#8a765e] focus:outline-none"
+                            <AssigneeSelector
+                                roleFilter={['LAWYER', 'PROFESSIONAL', 'CEO']}
+                                currentAssigneeId={assignedId}
+                                onAssign={(id) => setAssignedId(id)}
+                                label="작성자 선택 (외부 노출용)"
                             />
                         </div>
                         <div>

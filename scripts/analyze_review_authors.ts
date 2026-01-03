@@ -2,10 +2,13 @@
 import { prisma } from '@/lib/prisma';
 
 async function main() {
-    const reviews = await prisma.review.findMany();
-    console.log(`Total Reviews: ${reviews.length}`);
+    const reviews = await prisma.review.findMany({
+        select: { id: true, author: true, createdAt: true }
+    });
+
+    console.log("--- Review Authors ---");
     reviews.forEach(r => {
-        console.log(`- [${r.id}] ${r.author} (${r.rating} stars) | Best: ${r.isBest} | Visible: ${r.isVisible}`);
+        console.log(`[${r.id}] Author: '${r.author}' | Created: ${r.createdAt}`);
     });
 }
 

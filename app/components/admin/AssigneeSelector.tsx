@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { UserRole } from "@/data/mock_users";
 import { User, Check, ChevronsUpDown } from "lucide-react";
+import Avatar from "@/app/components/ui/Avatar";
 
 interface AssigneeSelectorProps {
     roleFilter: UserRole[]; // Which roles to show? e.g. ['LAWYER'] or ['STAFF', 'LAWYER']
@@ -58,12 +59,13 @@ export default function AssigneeSelector({
                     <div className="flex items-center gap-2">
                         {currentMember ? (
                             <>
-                                <div className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500 overflow-hidden">
-                                    {currentMember.avatarUrl ? (
-                                        <img src={currentMember.avatarUrl} alt={currentMember.name} className="w-full h-full object-cover" />
-                                    ) : (
-                                        currentMember.name[0]
-                                    )}
+                                <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-slate-500 overflow-hidden">
+                                    <Avatar
+                                        src={currentMember.avatarUrl}
+                                        alt={currentMember.name}
+                                        fallback={currentMember.name}
+                                        className="w-full h-full"
+                                    />
                                 </div>
                                 <span className="text-slate-700 font-medium">{currentMember.name} {currentMember.position}</span>
                             </>
@@ -101,11 +103,12 @@ export default function AssigneeSelector({
                                 >
                                     <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold overflow-hidden ${assignee === member.id ? 'bg-[#8a765e] text-white' : 'bg-slate-100 text-slate-500'
                                         }`}>
-                                        {member.avatarUrl ? (
-                                            <img src={member.avatarUrl} alt={member.name} className="w-full h-full object-cover" />
-                                        ) : (
-                                            member.name[0]
-                                        )}
+                                        <Avatar
+                                            src={member.avatarUrl}
+                                            alt={member.name}
+                                            fallback={member.name}
+                                            className="w-full h-full"
+                                        />
                                     </div>
                                     <div className="flex flex-col items-start leading-none gap-0.5">
                                         <span className="font-medium">{member.name}</span>

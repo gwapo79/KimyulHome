@@ -1,5 +1,5 @@
 
-export type UserRole = 'SUPER_ADMIN' | 'LAWYER' | 'STAFF' | 'USER';
+export type UserRole = 'SUPER_ADMIN' | 'LAWYER' | 'STAFF' | 'USER' | 'PROFESSIONAL' | 'CEO';
 export type UserStatus = 'ACTIVE' | 'BLOCKED' | 'WITHDRAWN';
 
 export interface MockClient {

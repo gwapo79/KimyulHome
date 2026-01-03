@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from 'sonner';
 import ClientLayout from "./components/ClientLayout";
 import PageTracker from '@/components/tracker/PageTracker';
 
@@ -90,6 +91,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ClientLayout>
+          <Toaster position="top-center" />
           {/* Public Page Tracker (Client Component) */}
           <PageTracker />
           {children}

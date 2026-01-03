@@ -73,7 +73,7 @@ export default function AdminLayout({
 
     // Menu Visibility Logic
     const canSeeManagement = ['SUPER_ADMIN', 'CEO'].includes(userRole);
-    const canSeeStats = ['SUPER_ADMIN', 'CEO', 'DEV'].includes(userRole);
+
     const canSeeDev = ['SUPER_ADMIN', 'DEV'].includes(userRole);
     const canSeeSettings = ['SUPER_ADMIN', 'CEO', 'DEV'].includes(userRole);
 
@@ -108,12 +108,7 @@ export default function AdminLayout({
                         <Home className="w-5 h-5" /> 대시보드
                     </Link>
 
-                    {/* Management Section - CEO ONLY */}
-                    {canSeeManagement && (
-                        <Link href="/admin/management" className={getLinkClass("/admin/management")}>
-                            <BarChart3 className="w-5 h-5" /> 경영 지표 (CEO)
-                        </Link>
-                    )}
+
 
                     {isWorker && (
                         <Link href="/admin/cases" className={getLinkClass("/admin/cases")}>
@@ -121,11 +116,7 @@ export default function AdminLayout({
                         </Link>
                     )}
 
-                    {canSeeStats && (
-                        <Link href="/admin/stats" className={getLinkClass("/admin/stats")}>
-                            <BarChart3 className="w-5 h-5" /> 통계 및 리포트
-                        </Link>
-                    )}
+
 
                     {/* Recent Customers Sidebar */}
                     {recentUsers.length > 0 && (
@@ -191,6 +182,22 @@ export default function AdminLayout({
                         <Link href="/admin/dev" className={getLinkClass("/admin/dev")}>
                             <Lock className="w-5 h-5" /> 시스템 로그 (DEV)
                         </Link>
+                    )}
+
+                    {/* Management Section - Ceo Reports Group */}
+                    {canSeeManagement && (
+                        <>
+                            <div className="my-2 mx-4 border-t border-slate-700"></div>
+                            <div className="pt-2 pb-2 px-4 text-xs font-semibold text-[#d4af37] uppercase tracking-wider">
+                                CEO 전용 리포트
+                            </div>
+                            <Link href="/admin/management" className={getLinkClass("/admin/management")}>
+                                <BarChart3 className="w-5 h-5" /> 경영 지표 (CEO)
+                            </Link>
+                            <Link href="/admin/stats" className={getLinkClass("/admin/stats")}>
+                                <BarChart3 className="w-5 h-5" /> 통계 및 리포트
+                            </Link>
+                        </>
                     )}
                 </nav>
 
