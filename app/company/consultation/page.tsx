@@ -11,15 +11,15 @@ export default function ConsultationPage() {
                     <div className="mb-6"><span className="inline-flex items-center px-4 py-2 rounded-full text-sm bg-[#e5ceb4] text-[#74634e] font-medium"><i className="fas fa-clock mr-2"></i>
                         평균 응답시간 30분 이내
                     </span></div>
-                    <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-snug lg:leading-tight">
                         무료 상담으로<br /><span className="text-[#e5ceb4]">해결책을 찾아보세요</span></h1>
-                    <p className="text-xl text-[#e5ceb4] mb-8 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg lg:text-xl text-[#e5ceb4] mb-6 max-w-md mx-auto leading-relaxed">
                         전문가가 24시간 내 연락드립니다.<br />
                         5,000+ 사례 경험을 바탕으로 최적의 해결 방향을 제시해드리겠습니다.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center"><button className="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                    <div className="flex flex-row gap-2 justify-center w-full sm:w-auto px-2 sm:px-0"><button className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors text-sm sm:text-lg whitespace-nowrap">
                         상담 신청하기
-                    </button><button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors"><i className="fas fa-comments mr-2"></i>
+                    </button><button className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors text-sm sm:text-lg whitespace-nowrap"><i className="fas fa-comments mr-2"></i>
                             채팅 상담
                         </button></div>
                 </div>

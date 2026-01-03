@@ -5,8 +5,8 @@ export const dynamic = "force-dynamic";
 
 export default function ChatPage() {
     return (
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <nav aria-label="Breadcrumb" className="flex mb-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-8 py-2">
+            <nav aria-label="Breadcrumb" className="hidden lg:flex mb-8">
                 <ol className="flex items-center space-x-2 text-sm z-10 relative">
                     <li>
                         <Link href="/dashboard">

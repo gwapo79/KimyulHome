@@ -95,8 +95,8 @@ export default async function BlogListPage({ searchParams }: Props) {
             <section id="hero" className="py-16 lg:py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <h1 className="text-4xl lg:text-5xl font-bold text-[#181d27] mb-6">법률·금융 인사이트</h1>
-                        <p className="text-xl text-[#535861] max-w-3xl mx-auto mb-8">
+                        <h1 className="text-4xl lg:text-5xl font-bold text-[#181d27] mb-4 leading-snug lg:leading-tight">법률·금융 인사이트</h1>
+                        <p className="text-base sm:text-xl text-[#535861] max-w-3xl mx-auto mb-6">
                             최신 판례와 실전 가이드를 확인하세요
                         </p>
                     </div>

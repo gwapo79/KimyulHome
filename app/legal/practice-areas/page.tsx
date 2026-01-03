@@ -23,17 +23,17 @@ export default function PracticeAreasPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
                     <div className="w-full text-center">
                         <p className="text-lg text-[#e5ceb4] mb-4">부동산 · 금융 · 개인회생을 한 곳에서</p>
-                        <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+                        <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-snug lg:leading-tight">
                             당신의 사건에 맞춘<br />맞춤형 솔루션
                         </h1>
-                        <p className="text-xl text-[#e5ceb4] mb-12 max-w-2xl mx-auto">
+                        <p className="text-base sm:text-xl text-[#e5ceb4] mb-10 max-w-2xl mx-auto">
                             5,000+ 사례 데이터로 안전하게 진행합니다.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Link href="/company/consultation" className="px-8 py-4 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors">
+                        <div className="flex flex-row gap-2 justify-center items-center w-full sm:w-auto px-2 sm:px-0">
+                            <Link href="/company/consultation" className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors text-sm sm:text-lg whitespace-nowrap">
                                 상담 신청
                             </Link>
-                            <Link href="/legal/success-cases" className="px-8 py-4 bg-white text-[#5e503f] rounded-lg font-semibold hover:bg-neutral-50 transition-colors">
+                            <Link href="/legal/success-cases" className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 bg-white text-[#5e503f] rounded-lg font-semibold hover:bg-neutral-50 transition-colors text-sm sm:text-lg whitespace-nowrap">
                                 성공 사례 보기
                             </Link>
                         </div>

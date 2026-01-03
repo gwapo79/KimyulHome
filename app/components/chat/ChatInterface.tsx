@@ -192,7 +192,7 @@ export default function ChatInterface() {
     const activeRoom = rooms.find(r => r.id === activeRoomId);
 
     return (
-        <div className="bg-white rounded-2xl border border-[#e9e9eb] h-[calc(100vh-130px)] lg:h-[800px] flex overflow-hidden shadow-sm relative">
+        <div className="bg-white rounded-2xl border border-[#e9e9eb] h-[calc(100dvh-110px)] lg:h-[800px] flex overflow-hidden shadow-sm relative">
 
             {/* Left Sidebar */}
             <section className={cn("w-full lg:w-80 border-r border-[#e9e9eb] flex flex-col bg-white", activeRoomId ? "hidden lg:flex" : "flex")}>
@@ -264,7 +264,18 @@ export default function ChatInterface() {
                         </div>
 
                         {/* Messages */}
-                        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6 bg-gray-50/50">
+                        {/* Messages - STRICT HEIGHT CALCULATION (Mobile Only) */}
+                        {/* Mobile: Header (60px) + Input (~80-90px) = ~150px reserved. 
+                            Using calc(100dvh - 150px) guarantees the box stops before the input. */}
+                        {/* Messages - STRICT HEIGHT CALCULATION (Mobile Only) */}
+                        {/* Mobile: Header (~60px) + Input (~90px) = ~150px reserved. 
+                            Uses calc(100dvh - 160px) to ensure the message box physically ends before overlapping the input.
+                            The input is fixed at the bottom, and this box is fixed height above it.
+                         */}
+                        <div
+                            ref={scrollContainerRef}
+                            className="w-full overflow-y-auto p-4 space-y-6 bg-gray-50/50 h-[calc(100dvh-160px)] lg:h-auto lg:flex-1 lg:pb-6"
+                        >
                             {messages.map((msg) => {
                                 const isMe = msg.senderId === currentUserId;
                                 return (
@@ -293,9 +304,9 @@ export default function ChatInterface() {
                             })}
                         </div>
 
-                        {/* Input */}
-                        <div className="border-t border-[#e9e9eb] p-4 lg:p-6 bg-white shrink-0 sticky bottom-0">
-                            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); handleSend(); }}>
+                        {/* Input Area - Fixed Bottom with Opaque Background */}
+                        <div className="fixed bottom-0 left-0 right-0 z-[9999] bg-white border-t border-[#e9e9eb] p-4 pb-[max(1rem,env(safe-area-inset-bottom))] lg:p-6 lg:static lg:w-auto lg:z-auto lg:border-[#e9e9eb] shadow-[0_-4px_20px_-2px_rgba(0,0,0,0.1)]">
+                            <form className="space-y-4 max-w-7xl mx-auto" onSubmit={(e) => { e.preventDefault(); handleSend(); }}>
                                 <input type="file" ref={fileInputRef} className="hidden" accept="image/*,application/pdf,.doc,.docx,.hwp" onChange={handleFileSelect} />
 
                                 {selectedFile && (

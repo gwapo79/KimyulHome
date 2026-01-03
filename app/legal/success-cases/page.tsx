@@ -81,8 +81,8 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
                     <div className="text-center">
                         <p className="text-[#DCD6C9] font-semibold mb-2">성공 사례 모음</p>
-                        <h1 className="text-5xl lg:text-6xl font-bold text-[#F5F1E8] mb-4">실제 사례로 검증된 결과</h1>
-                        <p className="text-xl text-[#DCD6C9] max-w-3xl mx-auto">
+                        <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-snug lg:leading-tight">실제 사례로 검증된 결과</h1>
+                        <p className="text-base sm:text-lg lg:text-xl text-[#DCD6C9] max-w-md mx-auto lg:max-w-3xl">
                             유사한 사례를 찾아보며 해결 전략을 참고하세요. 부동산, 금융, 개인회생 등 다양한 사건에서 고객의 권리와 재산을 지켜낸 실제 사례를 소개합니다.
                         </p>
                     </div>

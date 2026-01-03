@@ -173,15 +173,18 @@ export default function Header() {
                     <div className="mt-8 pt-6 border-t border-gray-100">
                         {user ? (
                             <div className="bg-neutral-50 rounded-xl p-4">
-                                <div className="flex items-center justify-between mb-4">
-                                    <span className="font-medium text-[#181d27]">{user.name}님</span>
-                                    <Link href="/dashboard" onClick={closeMenu} className="text-xs text-[#8a765e] font-semibold">
-                                        대시보드 이동
+                                <div className="mb-4 text-center">
+                                    <span className="font-bold text-[#181d27] text-lg">{user.name}님</span>
+                                    <span className="block text-xs text-[#717680] mt-1">오늘도 좋은 하루 되세요</span>
+                                </div>
+                                <div className="flex gap-3">
+                                    <button onClick={handleLogout} className="flex-1 py-3 bg-[#e5e7eb] rounded-lg text-[#1f2937] text-sm font-bold hover:bg-[#d1d5db] transition-colors">
+                                        로그아웃
+                                    </button>
+                                    <Link href="/dashboard" onClick={closeMenu} className="flex-1 flex items-center justify-center py-3 bg-white border border-[#d5d6d9] rounded-lg text-[#535861] text-sm font-medium hover:bg-neutral-50 transition-colors">
+                                        마이페이지
                                     </Link>
                                 </div>
-                                <button onClick={handleLogout} className="w-full py-2 bg-white border border-[#d5d6d9] rounded-lg text-[#535861] text-sm font-medium">
-                                    로그아웃
-                                </button>
                             </div>
                         ) : (
                             <div className="grid grid-cols-2 gap-3">

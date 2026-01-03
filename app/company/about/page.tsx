@@ -11,7 +11,7 @@ export default function AboutPage() {
                     <div className="w-full flex justify-between items-end">
                         <div className="max-w-3xl">
                             <p className="text-xl font-medium text-[#e5ceb4] mb-4">새로운 시작을 돕는 법률-금융 전문가 그룹</p>
-                            <h1 className="text-5xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+                            <h1 className="text-4xl lg:text-7xl font-bold text-white tracking-tight leading-snug lg:leading-tight">
                                 서초지율을<br />소개합니다
                             </h1>
                         </div>
@@ -25,7 +25,7 @@ export default function AboutPage() {
                 </div>
             </section>
             <section id="mission-vision" className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-start">
                         <div>
                             <p className="text-sm font-semibold text-brand-brown-dark uppercase tracking-wider mb-2">
@@ -91,7 +91,7 @@ export default function AboutPage() {
                 </div>
             </section>
             <section id="why-us" className="py-24 bg-brand-brown-darkest">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-4xl font-bold text-white mb-8">어려움을 겪는 고객이 선택한 이유
@@ -145,7 +145,7 @@ export default function AboutPage() {
                 </div>
             </section>
             <section id="contact-form-section" className="py-24 bg-brand-gray-light">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="text-center mb-4">
                         <p className="text-brand-brown-dark font-semibold">상담 문의</p>
                     </div>

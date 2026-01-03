@@ -132,12 +132,14 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
                 {/* SEO Metadata injection would go here via generateMetadata, but inline for now */}
                 <section id="breadcrumb" className="bg-neutral-50 py-4">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <nav aria-label="브레드크럼 네비게이션" className="flex items-center space-x-2 text-sm">
-                            <Link href="/" className="text-[#535861] hover:text-[#74634e] cursor-pointer">홈</Link>
-                            <i className="fas fa-chevron-right text-[#717680] text-xs"></i>
-                            <Link href="/legal/success-cases" className="text-[#535861] hover:text-[#74634e] cursor-pointer">성공사례</Link>
-                            <i className="fas fa-chevron-right text-[#717680] text-xs"></i>
-                            <span className="text-[#717680]">{data.title}</span>
+                        <nav aria-label="브레드크럼 네비게이션" className="flex flex-wrap items-center text-sm gap-y-2">
+                            <div className="flex items-center space-x-2 whitespace-nowrap text-[#535861] mr-2">
+                                <Link href="/" className="hover:text-[#74634e] cursor-pointer">홈</Link>
+                                <i className="fas fa-chevron-right text-[#717680] text-xs"></i>
+                                <Link href="/legal/success-cases" className="hover:text-[#74634e] cursor-pointer">성공사례</Link>
+                                <i className="fas fa-chevron-right text-[#717680] text-xs"></i>
+                            </div>
+                            <span className="text-[#717680] break-keep">{data.title}</span>
                         </nav>
                     </div>
                 </section>
@@ -417,8 +419,8 @@ export default async function SuccessCaseDetailPage({ params }: Props) {
 
                 <section className="py-16 bg-[#8a765e]">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-3xl font-bold text-white mb-4">비슷한 상황으로 고민 중이신가요?</h2>
-                        <p className="text-lg text-[#e5ceb4] mb-8 max-w-2xl mx-auto">
+                        <h2 className="text-2xl font-bold text-white mb-3">비슷한 상황으로 고민 중이신가요?</h2>
+                        <p className="text-sm text-[#e5ceb4] mb-6 max-w-2xl mx-auto tracking-wide">
                             데이터 기반의 맞춤형 전략으로 귀사의 성장을 돕겠습니다.
                         </p>
                         <Link

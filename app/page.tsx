@@ -45,7 +45,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section id="hero" className="relative py-16 lg:py-24 overflow-hidden">
+      <section id="hero" className="relative py-12 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#5e503f]/90 to-[#74634e]/80 z-10"></div>
         <img
           src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5359bb7b39-e88f5d2ad7e760d6699f.png"
@@ -61,20 +61,21 @@ export default async function Home() {
                   5,000+ 사례 해결 경험
                 </span>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-[38px] lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tighter lg:leading-tight">
                 부동산 분쟁부터<br />
                 <Link href="/services/practice_areas" className="text-[#e5ceb4]">채무 조정</Link>까지<br />
                 원스톱 해결
               </h1>
-              <p className="text-xl text-[#e5ceb4] mb-8 max-w-2xl">
-                전세사기, 경매, 다중채무, 개인회생까지 법률+금융 통합 전문성으로
+              <p className="text-base sm:text-lg lg:text-xl text-[#e5ceb4] mb-8 max-w-md mx-auto lg:mx-0 lg:max-w-2xl leading-snug">
+                전세사기, 경매, 다중채무, 개인회생까지<br className="block sm:hidden" />
+                법률+금융 통합 전문성으로<br className="block sm:hidden" />
                 투명한 절차와 데이터 기반 전략을 제공합니다.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link href="/company/consultation" className="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors cursor-pointer text-center">
+              <div className="flex flex-row gap-2 justify-center lg:justify-start w-full sm:w-auto px-2 sm:px-0">
+                <Link href="/company/consultation" className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors cursor-pointer text-center text-sm sm:text-lg whitespace-nowrap">
                   무료 상담 신청하기
                 </Link>
-                <Link href="/legal/success-cases" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors cursor-pointer text-center">
+                <Link href="/legal/success-cases" className="flex-1 sm:flex-none px-4 py-3 sm:px-8 sm:py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors cursor-pointer text-center text-sm sm:text-lg whitespace-nowrap">
                   성공 사례 보기
                 </Link>
               </div>
@@ -100,7 +101,7 @@ export default async function Home() {
       </section>
 
       <section id="stats" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-[#8a765e] mb-2">5,000+</div>
@@ -123,7 +124,7 @@ export default async function Home() {
       </section>
 
       <section id="services" className="py-16 lg:py-24 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-[#181d27] mb-6">전문 분야</h2>
             <p className="text-xl text-[#535861] max-w-3xl mx-auto">
@@ -217,7 +218,7 @@ export default async function Home() {
       </section>
 
       <section id="process" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-[#181d27] mb-6">해결 과정</h2>
             <p className="text-xl text-[#535861] max-w-3xl mx-auto">
@@ -266,7 +267,7 @@ export default async function Home() {
       </section>
 
       <section id="success-cases" className="py-16 lg:py-24 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-[#181d27] mb-6">성공 사례</h2>
             <p className="text-xl text-[#535861] max-w-3xl mx-auto">
@@ -329,7 +330,7 @@ export default async function Home() {
       </section>
 
       <section id="reviews" className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-[#181d27] mb-6">고객 후기</h2>
             <p className="text-xl text-[#535861] max-w-3xl mx-auto">
@@ -363,7 +364,7 @@ export default async function Home() {
       </section>
 
       <section id="faq" className="py-16 lg:py-24 bg-neutral-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold text-[#181d27] mb-6">자주 묻는 질문</h2>
             <p className="text-xl text-[#535861]">
@@ -377,7 +378,7 @@ export default async function Home() {
       </section>
 
       <section id="cta" className="py-16 lg:py-24 bg-[#8a765e]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
             지금 바로 전문가와 상담하세요
           </h2>

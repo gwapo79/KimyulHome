@@ -45,10 +45,10 @@ export default async function ReviewsPage({ searchParams }: Props) {
             <section id="hero" className="bg-[#6F614D] py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <p className="text-[#DCD6C9] font-medium mb-2 tracking-wide uppercase">Client Reviews</p>
-                    <h1 className="text-4xl lg:text-5xl font-bold text-[#F5F1E8] mb-6">
+                    <h1 className="text-4xl lg:text-5xl font-bold text-[#F5F1E8] mb-4 leading-snug lg:leading-tight">
                         의뢰인들이 전하는 <span className="text-white">감동의 메시지</span>
                     </h1>
-                    <p className="text-lg text-[#E3DACE] max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-base sm:text-lg lg:text-lg text-[#E3DACE] max-w-2xl mx-auto leading-relaxed">
                         법무법인 율신과 함께 어려운 법적 문제를 해결하고<br className="hidden md:block" />
                         새로운 희망을 찾은 분들의 실제 이야기를 확인하세요.
                     </p>

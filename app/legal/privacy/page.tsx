@@ -21,7 +21,7 @@ export default function PrivacyPage() {
                 </div>
             </section>
             <section id="doc" role="document" className="py-16 lg:py-24 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto px-4 md:px-8">
                     <div className="flex flex-col lg:flex-row gap-12">
                         <div className="lg:w-1/3">
                             <div className="sticky top-32">
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
                 </div>
             </section>
             <section id="cta" className="py-16 lg:py-24 bg-[#8a765e]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
                     <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
                         개인정보 관련 문의하기
                     </h2>
