@@ -96,6 +96,15 @@ export async function getRecentDocuments() {
             where: { userId },
             orderBy: { createdAt: 'desc' },
             take: 4,
+            select: {
+                id: true,
+                fileName: true,
+                fileSize: true,
+                fileType: true,
+                url: true,
+                createdAt: true,
+                category: true,
+            }
         });
     } catch (error) {
         console.error("Failed to getRecentDocuments:", error);

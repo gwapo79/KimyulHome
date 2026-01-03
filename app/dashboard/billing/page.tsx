@@ -19,17 +19,14 @@ export default function BillingPage() {
 
     useEffect(() => {
         const init = async () => {
-            const userStr = localStorage.getItem('user');
-            if (userStr) {
-                try {
-                    const user = JSON.parse(userStr);
-                    const historyData = await getBillingHistory(user.id);
-                    if (historyData) {
-                        setData(historyData);
-                    }
-                } catch (e) {
-                    console.error("Failed to load billing", e);
+            try {
+                // Server action now uses cookie, no need to pass userId from localStorage
+                const historyData = await getBillingHistory();
+                if (historyData) {
+                    setData(historyData);
                 }
+            } catch (e) {
+                console.error("Failed to load billing", e);
             }
             setLoading(false);
         };

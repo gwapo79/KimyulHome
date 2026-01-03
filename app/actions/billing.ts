@@ -20,10 +20,30 @@ export interface BillingSummaryData {
     history: BillingHistoryItem[];
 }
 
-export async function getBillingHistory(userId: string): Promise<BillingSummaryData | null> {
+import { cookies } from 'next/headers';
+import { verifyToken } from '@/lib/auth';
+
+async function getUserId() {
+    const cookieStore = await cookies();
+    const token = cookieStore.get('auth_token')?.value;
+
+    if (!token) return null;
+
+    try {
+        const payload = await verifyToken(token);
+        return ((payload?.sub || payload?.id || payload?.userId) as string) || null;
+    } catch (e) {
+        return null;
+    }
+}
+
+export async function getBillingHistory(userId?: string): Promise<BillingSummaryData | null> {
+    const currentUserId = await getUserId();
+    if (!currentUserId) return null;
+
     try {
         const history = await prisma.billingHistory.findMany({
-            where: { userId },
+            where: { userId: currentUserId },
             orderBy: { createdAt: 'desc' },
         });
 
