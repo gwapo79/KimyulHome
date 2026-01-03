@@ -30,7 +30,11 @@ export default function AdminLayout({
                 const res = await fetch('/api/auth/me');
                 if (res.ok) {
                     const data = await res.json();
-                    setUserRole(data.role || "USER");
+                    if (data?.user?.role) {
+                        setUserRole(data.user.role);
+                    } else {
+                        setUserRole("USER");
+                    }
                 } else {
                     // Fallback or redirect
                     setUserRole("USER");
