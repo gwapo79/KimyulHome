@@ -10,25 +10,24 @@ const prisma = new PrismaClient();
 export async function GET(request: Request) {
     try {
         const cookieStore = await cookies();
-        const mockEmail = cookieStore.get('MOCK_USER_EMAIL')?.value;
+        const token = cookieStore.get('auth_token')?.value || cookieStore.get('admin_token')?.value;
 
-        // Default to admin if no cookie (for initial access), or use the cookie value
-        const targetEmail = mockEmail || 'admin@law-firm.com';
-
-        const user = await prisma.user.findFirst({
-            where: { email: targetEmail }
-        });
-
-        if (user) {
-            return NextResponse.json({
-                id: user.id,
-                role: user.role,
-                name: user.name,
-                email: user.email
-            });
+        if (!token) {
+            return NextResponse.json({ user: null });
         }
 
-        return NextResponse.json({ role: 'USER' }, { status: 401 });
+        const decoded = await verifyJWT(token);
+        if (!decoded) {
+            return NextResponse.json({ user: null });
+        }
+
+        // Fetch fresh user data including role
+        const user = await prisma.user.findUnique({
+            where: { id: decoded.id },
+            select: { id: true, name: true, email: true, role: true }
+        });
+
+        return NextResponse.json({ user });
 
     } catch (error) {
         console.error('Auth API Error:', error);

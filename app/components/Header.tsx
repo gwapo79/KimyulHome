@@ -10,9 +10,25 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        // Check local storage on mount
-        const stored = localStorage.getItem("user");
-        if (stored) setUser(JSON.parse(stored));
+        // Initial fetch from server
+        fetch('/api/auth/me')
+            .then(res => res.json())
+            .then(data => {
+                if (data.user) {
+                    setUser(data.user);
+                    // Update localStorage to keep it in sync for other components
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                } else {
+                    // Check local storage as fallback or clear it if server says no user
+                    const stored = localStorage.getItem("user");
+                    if (stored) setUser(JSON.parse(stored));
+                }
+            })
+            .catch(() => {
+                // Fallback to local storage
+                const stored = localStorage.getItem("user");
+                if (stored) setUser(JSON.parse(stored));
+            });
 
         // Listen for login events
         const handleStorage = () => {

@@ -2,28 +2,17 @@
 
 import { prisma } from '@/lib/prisma';
 
-// Use a fixed test user ID if no auth session is present, or for testing.
-// In a real app, you'd get this from the session.
-const TEST_USER_EMAIL = 'test_user@example.com';
+import { cookies } from 'next/headers';
+import { verifyJWT } from '@/lib/auth-utils';
 
 async function getUserId() {
-    // Self-healing: Ensure test user exists in DB
-    try {
-        const user = await prisma.user.upsert({
-            where: { email: TEST_USER_EMAIL },
-            update: {}, // No updates if exists
-            create: {
-                email: TEST_USER_EMAIL,
-                name: '테스트 계정',
-                password: 'password123',
-                provider: 'local',
-            },
-        });
-        return user.id;
-    } catch (error) {
-        console.error("Failed to getUserId (Upsert):", error);
-        return null;
-    }
+    const cookieStore = await cookies();
+    const token = cookieStore.get('auth_token')?.value;
+
+    if (!token) return null;
+
+    const payload = await verifyJWT(token);
+    return payload?.id || null;
 }
 
 export async function getDashboardData() {

@@ -16,13 +16,27 @@ export default function NotificationsPage() {
                     <li className="text-[#d5d6d9]">
                         <i className="fas fa-chevron-right text-xs"></i>
                     </li>
-                    <li><span aria-current="page" className="text-[#535861]">알림 설정</span></li>
+                    <li><span aria-current="page" className="text-[#535861]">알림</span></li>
                 </ol>
             </nav>
 
-            <div className="max-w-3xl">
-                <h1 className="text-2xl font-bold text-[#181d27] mb-6">알림 설정</h1>
-                <NotificationSettings />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Notification List Section */}
+                <div className="space-y-6">
+                    <h2 className="text-xl font-bold text-[#181d27]">알림 내역</h2>
+                    {/* List Component will go here - Since this is a server component, we need to fetch data */}
+                    {/* For now, just a placeholder or fetch */}
+                    <div className="bg-white rounded-2xl border border-[#e9e9eb] p-6">
+                        <p className="text-gray-500 text-center py-4">알림이 존재하지 않습니다.</p>
+                        {/* TODO: Implement Real List Mapping */}
+                    </div>
+                </div>
+
+                {/* Settings Section */}
+                <div className="space-y-6">
+                    <h2 className="text-xl font-bold text-[#181d27]">알림 설정</h2>
+                    <NotificationSettings />
+                </div>
             </div>
         </main>
     );
