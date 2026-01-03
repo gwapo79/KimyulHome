@@ -206,8 +206,23 @@ export default function AdminLayout({
                         <Users className="w-4 h-4" /> 사용자 전환 (Test)
                     </Link>
                     <Link href="/" className="flex items-center gap-3 px-4 py-2 text-sm text-slate-400 hover:text-white transition-colors">
-                        <LogOut className="w-4 h-4" /> 사이트로 돌아가기
+                        <Home className="w-4 h-4" /> 사이트로 돌아가기
                     </Link>
+                    <button
+                        onClick={async () => {
+                            try {
+                                await fetch('/api/auth/logout', { method: 'POST' });
+                                localStorage.removeItem('user');
+                                window.location.href = '/login';
+                            } catch (error) {
+                                console.error('Logout failed:', error);
+                                window.location.href = '/login';
+                            }
+                        }}
+                        className="flex w-full items-center gap-3 px-4 py-2 text-sm text-slate-400 hover:text-red-400 transition-colors text-left"
+                    >
+                        <LogOut className="w-4 h-4" /> 로그아웃
+                    </button>
                 </div>
             </aside>
 
