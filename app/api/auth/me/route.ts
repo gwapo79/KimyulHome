@@ -1,12 +1,8 @@
-
-import { createClient } from '@supabase/supabase-js';
-import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
+export const dynamic = 'force-dynamic';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth';
-
-// Initialize Prisma
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function GET(request: Request) {
     try {
