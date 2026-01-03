@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { verifyJWT } from '@/lib/auth-utils';
 
 // Initialize Prisma
 const prisma = new PrismaClient();
