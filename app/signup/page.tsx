@@ -175,7 +175,7 @@ export default function SignupPage() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/services/success_cases">
+                                    <Link href="/legal/success-cases">
                                         <span className="text-[#535861] hover:text-[#74634e] transition-colors cursor-pointer">성공사례</span>
                                     </Link>
                                 </li>

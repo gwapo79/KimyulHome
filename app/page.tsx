@@ -74,7 +74,7 @@ export default async function Home() {
                 <Link href="/company/consultation" className="px-8 py-4 bg-white text-[#74634e] rounded-lg font-semibold hover:bg-neutral-50 transition-colors cursor-pointer text-center">
                   무료 상담 신청하기
                 </Link>
-                <Link href="/services/success_cases" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors cursor-pointer text-center">
+                <Link href="/legal/success-cases" className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#74634e] transition-colors cursor-pointer text-center">
                   성공 사례 보기
                 </Link>
               </div>
@@ -305,7 +305,7 @@ export default async function Home() {
                     </span>
                   </div>
                   <h3 className="text-lg font-bold text-[#181d27] mb-3 line-clamp-2 leading-snug">
-                    <Link href={`/services/success_cases/${item.id}`} className="hover:text-[#8a765e] transition-colors">{item.title}</Link>
+                    <Link href={`/legal/success-cases/${item.id}`} className="hover:text-[#8a765e] transition-colors">{item.title}</Link>
                   </h3>
                   <p className="text-[#535861] mb-4 line-clamp-3 flex-grow">
                     {item.summary}
@@ -321,7 +321,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href="/services/success_cases" className="px-8 py-4 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors cursor-pointer">
+            <Link href="/legal/success-cases" className="px-8 py-4 bg-[#8a765e] text-white rounded-lg font-semibold hover:bg-[#74634e] transition-colors cursor-pointer">
               더 많은 사례 보기
             </Link>
           </div>
