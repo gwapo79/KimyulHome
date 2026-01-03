@@ -25,10 +25,19 @@ export default async function SuccessCasesPage({ searchParams }: Props) {
     const itemsPerPage = 12;
     const currentSort = sort || 'latest';
 
+    // Category Mapping (URL -> DB)
+    const categoryMap: Record<string, string> = {
+        '부동산 법률': '부동산/임대차',
+        '금융 솔루션': '금융/사기',
+        '개인회생': '개인회생/파산',
+        '기타 법률': '형사/기타'
+    };
+
     // Build Prisma 'where' clause
     const where: any = {};
     if (category) {
-        where.category = category;
+        // Use mapped category if exists, otherwise use original (fallback)
+        where.category = categoryMap[category] || category;
     }
     if (keyword) {
         where.OR = [
