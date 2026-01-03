@@ -23,6 +23,7 @@ export async function GET(request: Request) {
             where: { id: (decoded.sub || decoded.id || decoded.userId) as string },
             select: { id: true, name: true, email: true, role: true }
         });
+        console.log("[API/Auth/Me] Fetched User:", user?.email, "Role:", user?.role);
 
         return NextResponse.json({ user });
 

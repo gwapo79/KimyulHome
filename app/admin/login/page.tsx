@@ -14,6 +14,7 @@ export default function AdminLoginPage() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        console.log("[AdminLogin] Submitting Credentials:", { email, password });
 
         try {
             const res = await fetch("/api/admin/login", {
@@ -57,6 +58,7 @@ export default function AdminLoginPage() {
                         <div className="relative">
                             <input
                                 type="email"
+                                autoComplete="new-password"
                                 className="w-full bg-[#374151] border border-slate-600 rounded-lg px-4 py-3 pl-10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                                 placeholder="name@company.com"
                                 value={email}
@@ -73,6 +75,7 @@ export default function AdminLoginPage() {
                         <div className="relative">
                             <input
                                 type="password"
+                                autoComplete="new-password"
                                 className="w-full bg-[#374151] border border-slate-600 rounded-lg px-4 py-3 pl-10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                                 placeholder="Enter password"
                                 value={password}

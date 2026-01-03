@@ -30,13 +30,16 @@ export default function AdminLayout({
                 const res = await fetch('/api/auth/me', { cache: 'no-store' });
                 if (res.ok) {
                     const data = await res.json();
+                    console.log("[AdminLayout] Auth Me Response:", data);
                     if (data?.user?.role) {
+                        console.log("[AdminLayout] Setting UserRole to:", data.user.role);
                         setUserRole(data.user.role);
                     } else {
+                        console.error("[AdminLayout] No role found in user object:", data);
                         setUserRole("USER");
                     }
                 } else {
-                    // Fallback or redirect
+                    console.error("[AdminLayout] Auth Me Failed:", res.status);
                     setUserRole("USER");
                 }
             } catch (e) {
@@ -76,13 +79,14 @@ export default function AdminLayout({
     }
 
     // Menu Visibility Logic
-    const canSeeManagement = ['SUPER_ADMIN', 'CEO'].includes(userRole);
+    // Expanded to include 'ADMIN' as per request to ensure visibility
+    const canSeeManagement = ['SUPER_ADMIN', 'CEO', 'ADMIN'].includes(userRole);
 
-    const canSeeDev = ['SUPER_ADMIN', 'DEV'].includes(userRole);
-    const canSeeSettings = ['SUPER_ADMIN', 'CEO', 'DEV'].includes(userRole);
+    const canSeeDev = ['SUPER_ADMIN', 'DEV', 'ADMIN'].includes(userRole);
+    const canSeeSettings = ['SUPER_ADMIN', 'CEO', 'DEV', 'ADMIN'].includes(userRole);
 
     // Core workers (Lawyer/Staff/CEO/Dev can all see cases/content)
-    const isWorker = ['SUPER_ADMIN', 'CEO', 'LAWYER', 'STAFF', 'DEV'].includes(userRole);
+    const isWorker = ['SUPER_ADMIN', 'CEO', 'LAWYER', 'STAFF', 'DEV', 'ADMIN'].includes(userRole);
 
     const getLinkClass = (href: string) => {
         const isActive = href === '/admin'
